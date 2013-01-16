@@ -2,71 +2,74 @@ format 75
 
 classcanvas 128074 class_ref 128202 // Agent
   class_drawing_mode default show_context_mode default show_stereotype_properties default
-  xyz 68 23 2000
+  xyz 68.4 21.3 2000
 end
+textcanvas 128121 "TEST
+"
+  xyzwh 128 231 2000 31 13
 usecasecanvas 128202 usecase_ref 128202 // Programmer une séance
-  xyzwh 242 8 3005 64 32 label_xy 219 40
+  xyzwh 241.9 7.9 3005 64 32 label_xy 198 38
 end
 usecasecanvas 128330 usecase_ref 128330 // Lancer automatisation
-  xyzwh 241 80 3005 64 32 label_xy 220 112
+  xyzwh 240.6 79.5 3005 64 32 label_xy 202 110
 end
 usecasecanvas 128458 usecase_ref 128458 // Arreter automatisation
-  xyzwh 251 221 3005 64 32 label_xy 319 231
+  xyzwh 250.6 220.8 3005 64 32 label_xy 315 223
 end
 usecasecanvas 128586 usecase_ref 128586 // Tester les appareillages
-  xyzwh 56 548 3005 64 32 label_xy 31 580
+  xyzwh 56.1 547.9 3005 64 32 label_xy 9 578
 end
 usecasecanvas 128970 usecase_ref 128714 // Enregistrer une séance
-  xyzwh 488 7 3005 64 32 label_xy 464 39
+  xyzwh 487.7 6.6 3005 64 32 label_xy 445 37
 end
 usecasecanvas 129098 usecase_ref 128842 // Récupérer une séance
-  xyzwh 487 82 3005 64 32 label_xy 464 114
+  xyzwh 487.4 82.1 3005 64 32 label_xy 444 112
 end
 classcanvas 129482 class_ref 128330 // UneSeance
   class_drawing_mode default show_context_mode default show_stereotype_properties default
-  xyz 659 30 2000
+  xyz 647.6 28.4 2000
 end
 usecasecanvas 129866 usecase_ref 128970 // Réaliser une séance
-  xyzwh 679 227 3005 64 32 label_xy 578 237
+  xyzwh 679 226.6 3005 64 32 label_xy 560 235
 end
 usecasecanvas 129994 usecase_ref 129098 // Controler les paramètres
-  xyzwh 455 395 3005 64 32 label_xy 425 432
+  xyzwh 454.8 395 3005 64 32 label_xy 403 430
 end
 classcanvas 130634 class_ref 128458 // LesCapteurs
   class_drawing_mode default show_context_mode default show_stereotype_properties default
-  xyz 451 475 2000
+  xyz 438.8 473.9 2000
 end
 usecasecanvas 130890 usecase_ref 129226 // Effectuer un cycle
-  xyzwh 679 550 3005 64 32 label_xy 667 582
+  xyzwh 679 549.5 3005 64 32 label_xy 653 580
 end
 usecasecanvas 131146 usecase_ref 129354 // Commander les appareillages
-  xyzwh 253 549 3005 64 32 label_xy 215 581
+  xyzwh 253.2 549.2 3005 64 32 label_xy 188 579
 end
 classcanvas 132426 class_ref 128586 // Pompe
   class_drawing_mode default show_context_mode default show_stereotype_properties default
-  xyz 152 689 2000
+  xyz 148.6 687.1 2000
 end
 classcanvas 132554 class_ref 128714 // VanneDattrait
   class_drawing_mode default show_context_mode default show_stereotype_properties default
-  xyz 248 694 2000
+  xyz 237.5 692.6 2000
 end
 classcanvas 132682 class_ref 128842 // Grille
   class_drawing_mode default show_context_mode default show_stereotype_properties default
-  xyz 377 692 2000
+  xyz 377.1 690 2000
 end
 classcanvas 132810 class_ref 128970 // cuveAscenseur
   class_drawing_mode default show_context_mode default show_stereotype_properties default
-  xyz 469 689 2000
+  xyz 455.7 687.1 2000
 end
 line 128714 --->
   from ref 128074 z 3006 to ref 128202
 line 128842 --->
   from ref 128074 z 3006 to ref 128330
 simplerelationcanvas 129226 simplerelation_ref 128202
-  from ref 128202 z 3006 stereotype "<<include>>" xyz 366.5 22 3000 to ref 128970
+  from ref 128202 z 3006 stereotype "<<include>>" xyz 357 20 3000 to ref 128970
 end
 simplerelationcanvas 129354 simplerelation_ref 128330
-  from ref 128330 z 3006 stereotype "<<include>>" xyz 366 95.5 3000 to ref 129098
+  from ref 128330 z 3006 stereotype "<<include>>" xyz 357 93 3000 to ref 129098
 end
 line 129610 --->
   from ref 128970 z 3006 to ref 129482
@@ -75,27 +78,27 @@ line 129738 --->
 line 130122 --->
   from ref 128074 z 3006 to ref 128458
 simplerelationcanvas 130250 simplerelation_ref 128458
-  from ref 128330 z 3006 stereotype "<<include>>" xyz 445 173 3000 to ref 129866
+  from ref 128330 z 3006 stereotype "<<include>>" xyz 436 171 3000 to ref 129866
 end
 simplerelationcanvas 130378 simplerelation_ref 128586
-  from ref 129866 z 3006 stereotype "<<include>>" xyz 589.5 328 3000 to ref 129994
+  from ref 129866 z 3006 stereotype "<<include>>" xyz 580 326 3000 to ref 129994
 end
 simplerelationcanvas 130506 simplerelation_ref 128714
-  from ref 128458 z 3006 stereotype "<<extend>>" xyz 337 329.5 3000 to ref 129994
+  from ref 128458 z 3006 stereotype "<<extend>>" xyz 326 327 3000 to ref 129994
 end
 line 130762 --->
   from ref 130634 z 3006 to ref 129994
 simplerelationcanvas 131018 simplerelation_ref 128842
-  from ref 129866 z 3006 stereotype "<<include>>" xyz 680.5 403.5 3000 to ref 130890
+  from ref 129866 z 3006 stereotype "<<include>>" xyz 671 401 3000 to ref 130890
 end
 simplerelationcanvas 131274 simplerelation_ref 128970
-  from ref 130890 z 3006 stereotype "<<include>>" xyz 467.5 563.5 3000 to ref 131146
+  from ref 130890 z 3006 stereotype "<<include>>" xyz 458 561 3000 to ref 131146
 end
 simplerelationcanvas 132042 simplerelation_ref 129226
-  from ref 128586 z 3006 stereotype "<<include>>" xyz 156 562.5 3000 to ref 131146
+  from ref 128586 z 3006 stereotype "<<include>>" xyz 147 560 3000 to ref 131146
 end
 simplerelationcanvas 132170 simplerelation_ref 129354
-  from ref 128458 z 3006 stereotype "<<include>>" xyz 220.5 389 3000 to ref 131146
+  from ref 128458 z 3006 stereotype "<<include>>" xyz 211 387 3000 to ref 131146
 end
 line 132938 --->
   from ref 131146 z 3006 to ref 132426
