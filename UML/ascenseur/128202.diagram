@@ -1,0 +1,44 @@
+format 75
+
+classcanvas 128074 class_ref 128202 // Agent
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 79 215 2000
+end
+usecasecanvas 128202 usecase_ref 128202 // Programmer une seance
+  xyzwh 30 20 3005 137 61 label_xy 39 42
+end
+usecasecanvas 128458 usecase_ref 128330 // Lancer une seance
+  xyzwh 273 221 3005 111 51 label_xy 280 237
+end
+usecasecanvas 128714 usecase_ref 128458 // Controler les paramètres
+  xyzwh 475 218 3005 135 57 label_xy 483 238
+end
+usecasecanvas 129098 usecase_ref 128586 // Démarrer la pompe
+  xyzwh 277 373 3005 105 53 label_xy 284 392
+end
+usecasecanvas 129226 usecase_ref 128714 // Démarrer la centrale hydraulique
+  xyzwh 226 75 3005 175 37 label_xy 234 85
+end
+usecasecanvas 130122 usecase_ref 128842 // Tester les appareillages
+  xyzwh 36 356 3005 127 41 label_xy 42 367
+end
+line 128330 --->
+  from ref 128074 z 3006 to ref 128202
+line 128586 --->
+  from ref 128074 z 3006 to ref 128458
+line 128970 ---> decenter_begin 490
+  from ref 128458 z 3006 to ref 128714
+line 129354 --->
+  from ref 128074 z 3006 to ref 129098
+line 129482 --->
+  from ref 128074 z 3006 to ref 129226
+simplerelationcanvas 129610 simplerelation_ref 128330
+  from ref 128458 z 3006 stereotype "<<include>>" xyz 335 318 3000 to ref 129098
+end
+simplerelationcanvas 129738 simplerelation_ref 128458
+  decenter_end 570
+  from ref 128458 z 3006 stereotype "<<include>>" xyz 262.5 168 3000 to ref 129226
+end
+line 130250 --->
+  from ref 128074 z 3006 to ref 130122
+end

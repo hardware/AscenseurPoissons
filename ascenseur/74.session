@@ -1,0 +1,11 @@
+window_sizes 1024 712 220 798 603 35
+diagrams
+  active  usecasediagram_ref 128202 // Diagrammes des cas d'utilisation
+    798 603 100 4 216 0
+end
+show_stereotypes
+selected class_ref 128202 // Agent
+open
+  usecaseview_ref 128202 // Vue des utilisateurs
+end
+end
