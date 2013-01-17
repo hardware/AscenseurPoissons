@@ -1,0 +1,40 @@
+format 75
+
+classinstance 128121 class_ref 128121 // Seance
+  name ""   xyz 83 5 2000 life_line_z 2000
+classinstance 128249 class_ref 128633 // Grille
+  name ""   xyz 362 5 2000 life_line_z 2000
+classinstance 128377 class_ref 128505 // CageAscenseur
+  name ""   xyz 552 5 2000 life_line_z 2000
+fragment 129401 "alt[temps de peche termine]"
+  xyzwh 13 77 3005 401 98
+end
+durationcanvas 128505 classinstance_ref 128121 // :Seance
+  xyzwh 105 52 2010 11 1093
+  overlappingdurationcanvas 128889
+    xyzwh 111 59 2020 11 25
+  end
+  overlappingdurationcanvas 129145
+    xyzwh 111 133 2020 11 30
+  end
+end
+durationcanvas 128633 classinstance_ref 128249 // :Grille
+  xyzwh 381 93 2010 11 47
+end
+msg 128761 synchronous
+  from durationcanvas_ref 128505
+  to durationcanvas_ref 128633
+  yz 105 2015 explicitmsg "fermer()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 228 92
+reflexivemsg 129017 synchronous
+  to durationcanvas_ref 128889
+  yz 59 2025 explicitmsg "controlerTempsDePeche()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 143 58
+reflexivemsg 129273 synchronous
+  to durationcanvas_ref 129145
+  yz 133 2025 explicitmsg "etat_cycle=MONTEE"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 142 132
+end

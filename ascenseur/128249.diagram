@@ -1,0 +1,76 @@
+format 75
+
+classinstance 128121 class_ref 128202 // Agent
+  name ""   xyz 42 26 2000 life_line_z 2000
+classinstance 128249 class_ref 128121 // Seance
+  name ""   xyz 253 33 2000 life_line_z 2000
+classinstance 128377 class_ref 128330 // UneSeance
+  name ""   xyz 587 20 2000 life_line_z 2000
+fragment 130553 "alt [top periode]"
+  xyzwh 167 327 2005 331 130
+end
+fragment 130681 "loop(etat_seance != MANU) ET (etat_seance != AUTO_BREAK)"
+  xyzwh 87 289 2005 496 237
+end
+fragment 130809 "SD : lancer automatisation"
+  xyzwh 10 4 2005 688 535
+end
+durationcanvas 128761 classinstance_ref 128121 // :Agent
+  xyzwh 56 109 2010 11 29
+end
+durationcanvas 128889 classinstance_ref 128249 // :Seance
+  xyzwh 275 117 2000 11 419
+  overlappingdurationcanvas 129145
+    xyzwh 281 149 2020 11 78
+  end
+  overlappingdurationcanvas 129785
+    xyzwh 281 255 2020 11 31
+  end
+  overlappingdurationcanvas 130041
+    xyzwh 281 336 2020 11 30
+  end
+  overlappingdurationcanvas 130297
+    xyzwh 281 400 2020 11 29
+  end
+end
+durationcanvas 129401 classinstance_ref 128377 // :UneSeance
+  xyzwh 616 161 2010 11 75
+end
+msg 129017 synchronous
+  from durationcanvas_ref 128761
+  to durationcanvas_ref 128889
+  yz 117 2015 explicitmsg "lancerAutomatisation(nomSeance)"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 81 104
+reflexivemsg 129273 synchronous
+  to durationcanvas_ref 129145
+  yz 149 2025 explicitmsg "recuperer()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 313 149
+msg 129529 synchronous
+  from durationcanvas_ref 129145
+  to durationcanvas_ref 129401
+  yz 181 2025 unspecifiedmsg
+  show_full_operations_definition default drawing_language default show_context_mode default
+msg 129657 return
+  from durationcanvas_ref 129401
+  to durationcanvas_ref 129145
+  yz 209 2030 explicitmsg "infos seance"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 423 200
+reflexivemsg 129913 synchronous
+  to durationcanvas_ref 129785
+  yz 255 2025 explicitmsg "etat_seance=AUTO_PAUSE"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 311 254
+reflexivemsg 130169 synchronous
+  to durationcanvas_ref 130041
+  yz 336 2025 explicitmsg "etat_seance=AUTO_RUN"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 315 335
+reflexivemsg 130425 synchronous
+  to durationcanvas_ref 130297
+  yz 400 2025 explicitmsg "realiserSeance()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 315 399
+end
