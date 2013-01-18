@@ -1,15 +1,7 @@
-window_sizes 1024 712 104 914 603 35
-diagrams
-  sequencediagram_ref 128121 // Diagramme de séquence
-    572 482 100 4 0 0
-  sequencediagram_ref 128249 // Diagramme de séquence
-    572 482 100 4 0 0
-  active  sequencediagram_ref 128377 // Diagramme de séquence
-    914 603 100 4 105 0
-end
+window_sizes 1024 712 326 692 603 35
 show_stereotypes
-selected sequencediagram_ref 128377 // Diagramme de séquence
+selected usecase_ref 129226 // Effectuer un cycle
 open
-  usecase_ref 128970 // Réaliser une séance
+  usecase_ref 128458 // Arreter automatisation
 end
 end
