@@ -1,91 +1,144 @@
 format 75
 
 classinstance 128121 class_ref 128121 // Seance
-  name ""   xyz 84.8 6 2000 life_line_z 2000
+  name ""   xyz 99.8 6 2000 life_line_z 2000
 classinstance 128249 class_ref 128633 // Grille
-  name ""   xyz 361.8 6 2000 life_line_z 2000
+  name ""   xyz 378.8 6 2000 life_line_z 2000
 classinstance 128377 class_ref 128505 // CageAscenseur
-  name ""   xyz 562.3 6 2000 life_line_z 2000
+  name ""   xyz 573.3 6 2000 life_line_z 2000
 fragment 129401 "alt[temps de peche termine]"
-  xyzwh 28.4 169.1 3005 401 98
+  xyzwh 39.4 169.1 3005 401 98
+end
+fragment 131065 "alt[temps vidange terminé]"
+  xyzwh 46 505 2025 413 110
+end
+fragment 131961 "alt(etat_cycle)"
+  xyzwh 37 63 2000 678 870
+  separator 2528
+  separator 4241
+  separator 6597
+end
+textcanvas 132089 "[ PECHE ]"
+  xyzwh 52 113 2005 89 24
+textcanvas 132217 "[ MONTEE ]
+"
+  xyzwh 53 288 2005 96 24
+textcanvas 132345 "[ VIDANGE ]"
+  xyzwh 53 438 2025 99 24
+textcanvas 132473 "[ DESCENTE ]
+"
+  xyzwh 57 645 2006 104 24
+fragment 132601 "loop(etat_seance = AUTO_RUN) ET (etat_cycle != PAUSE)"
+  xyzwh 32 34 2005 710 921
+end
+fragment 132729 "SD: Effectuer un cycle"
+  xyzwh -3 1 2010 758 975
 end
 durationcanvas 128505 classinstance_ref 128121 // :Seance
-  xyzwh 103 118.6 2010 11 1028
+  xyzwh 118 117.6 2010 11 769
   overlappingdurationcanvas 128889
-    xyzwh 109 141.9 2020 11 25
+    xyzwh 124 141.9 2020 11 25
   end
   overlappingdurationcanvas 129145
-    xyzwh 109 233.1 2020 11 30
+    xyzwh 124 233.1 2020 11 30
   end
   overlappingdurationcanvas 130041
-    xyzwh 109 391.8 2020 11 30
+    xyzwh 124 391.8 2020 11 30
   end
   overlappingdurationcanvas 130297
-    xyzwh 109 466 2020 11 30
+    xyzwh 124 447 2020 11 30
   end
   overlappingdurationcanvas 130809
-    xyzwh 109 561.5 2020 11 29
+    xyzwh 124 561.5 2020 11 29
+  end
+  overlappingdurationcanvas 131705
+    xyzwh 124 793 2020 11 40
   end
 end
 durationcanvas 128633 classinstance_ref 128249 // :Grille
-  xyzwh 380 194.1 2010 11 47
+  xyzwh 397 194.1 2010 11 47
 end
 durationcanvas 129529 classinstance_ref 128377 // :CageAscenseur
-  xyzwh 596 305.1 2010 11 45
+  xyzwh 607 305.1 2010 11 45
 end
 durationcanvas 129785 classinstance_ref 128249 // :Grille
-  xyzwh 380 352.4 2010 11 33
+  xyzwh 397 351.4 2010 11 34
 end
 durationcanvas 130553 classinstance_ref 128249 // :Grille
-  xyzwh 380 527.1 2010 11 41
+  xyzwh 397 526.1 2010 11 42
+end
+durationcanvas 131193 classinstance_ref 128377 // :CageAscenseur
+  xyzwh 607 650 2010 11 42
+end
+durationcanvas 131449 classinstance_ref 128249 // :Grille
+  xyzwh 397 710 2010 11 41
 end
 msg 128761 synchronous
   from durationcanvas_ref 128505
   to durationcanvas_ref 128633
-  yz 208 2015 explicitmsg "fermer()"
+  yz 207 2015 explicitmsg "fermer()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 233 196
+  label_xy 248 195
 reflexivemsg 129017 synchronous
   to durationcanvas_ref 128889
   yz 141 2025 explicitmsg "controlerTempsDePeche()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 161 141
+  label_xy 176 141
 reflexivemsg 129273 synchronous
   to durationcanvas_ref 129145
   yz 233 2025 explicitmsg "etat_cycle=MONTEE"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 156 233
+  label_xy 171 233
 msg 129657 synchronous
   from durationcanvas_ref 128505
   to durationcanvas_ref 129529
-  yz 314 2015 explicitmsg "Monter(PV,GV)"
+  yz 313 2015 explicitmsg "Monter()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 459 303
+  args "PV,GV"
+  label_xy 474 302
 msg 129913 synchronous
   from durationcanvas_ref 128505
   to durationcanvas_ref 129785
-  yz 352 2015 explicitmsg "ouvrir()"
+  yz 351 2015 explicitmsg "ouvrir()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 235 340
+  label_xy 250 339
 reflexivemsg 130169 synchronous
   to durationcanvas_ref 130041
   yz 391 2025 explicitmsg "etat_cycle=VIDANGE"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 156 393
+  label_xy 157 391
 reflexivemsg 130425 synchronous
   to durationcanvas_ref 130297
-  yz 466 2025 explicitmsg "controlerTempsVidange()"
+  yz 447 2025 explicitmsg "controlerTempsVidange()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 157 466
+  label_xy 155 447
 msg 130681 synchronous
   from durationcanvas_ref 128505
   to durationcanvas_ref 130553
-  yz 527 2015 explicitmsg "fermer()"
+  yz 526 2015 explicitmsg "fermer()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 233 515
+  label_xy 248 514
 reflexivemsg 130937 synchronous
   to durationcanvas_ref 130809
   yz 561 2025 explicitmsg "etat_cycle=DESCENTE"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 158 562
+  label_xy 155 562
+msg 131321 synchronous
+  from durationcanvas_ref 128505
+  to durationcanvas_ref 131193
+  yz 650 2015 explicitmsg "Descendre()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "PV,GV"
+  label_xy 488 643
+msg 131577 synchronous
+  from durationcanvas_ref 128505
+  to durationcanvas_ref 131449
+  yz 710 2015 explicitmsg "ouvrir()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 249 699
+reflexivemsg 131833 synchronous
+  to durationcanvas_ref 131705
+  yz 793 2025 explicitmsg "etat_cycle=PAUSE"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 154 793
 end
