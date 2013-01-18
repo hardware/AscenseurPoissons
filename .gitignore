@@ -6,10 +6,42 @@
 Thumbs.db
 
 # Folder config file
-Desktop.ini
+desktop.ini
 
 ############
 ## MAC OS X
 ############
 
 .DS_Store
+
+#######
+## QT
+#######
+
+*.o
+*.out
+moc_*.cpp
+qrc_*.cpp
+ui_*.h
+Makefile*
+*.pro.user
+*build-desktop-Qt*
+*.exe
+*.dll
+Debug/
+Release/
+PROJECT
+
+#########
+## BOUML
+#########
+
+UML/BOUML/ascenseur/*.session
+UML/BOUML/ascenseur/*.d
+
+##########
+## AUTRE
+##########
+
+# Fichiers temporaires
+*~
