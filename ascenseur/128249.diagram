@@ -16,37 +16,37 @@ fragment 130809 "SD : lancer automatisation"
   xyzwh 10 4 2005 688 535
 end
 durationcanvas 128761 classinstance_ref 128121 // :Agent
-  xyzwh 56 109 2010 11 29
+  xyzwh 55 109 2010 11 29
 end
 durationcanvas 128889 classinstance_ref 128249 // :Seance
-  xyzwh 275 117 2000 11 419
+  xyzwh 276 117 2000 11 419
   overlappingdurationcanvas 129145
-    xyzwh 281 149 2020 11 78
+    xyzwh 282 149 2020 11 78
   end
   overlappingdurationcanvas 129785
-    xyzwh 281 255 2020 11 31
+    xyzwh 282 255 2020 11 31
   end
   overlappingdurationcanvas 130041
-    xyzwh 281 336 2020 11 30
+    xyzwh 282 336 2020 11 30
   end
   overlappingdurationcanvas 130297
-    xyzwh 281 400 2020 11 29
+    xyzwh 282 400 2020 11 29
   end
 end
 durationcanvas 129401 classinstance_ref 128377 // :UneSeance
-  xyzwh 616 161 2010 11 75
+  xyzwh 617 161 2010 11 75
 end
 msg 129017 synchronous
   from durationcanvas_ref 128761
   to durationcanvas_ref 128889
   yz 117 2015 explicitmsg "lancerAutomatisation(nomSeance)"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 81 104
+  label_xy 76 104
 reflexivemsg 129273 synchronous
   to durationcanvas_ref 129145
   yz 149 2025 explicitmsg "recuperer()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 313 149
+  label_xy 318 148
 msg 129529 synchronous
   from durationcanvas_ref 129145
   to durationcanvas_ref 129401
@@ -60,12 +60,12 @@ msg 129657 return
   label_xy 423 200
 reflexivemsg 129913 synchronous
   to durationcanvas_ref 129785
-  yz 255 2025 explicitmsg "etat_seance=AUTO_PAUSE"
+  yz 255 2025 explicitmsg "etat_seance = AUTO_PAUSE"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 311 254
+  label_xy 318 253
 reflexivemsg 130169 synchronous
   to durationcanvas_ref 130041
-  yz 336 2025 explicitmsg "etat_seance=AUTO_RUN"
+  yz 336 2025 explicitmsg "etat_seance = AUTO_RUN"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 315 335
 reflexivemsg 130425 synchronous
