@@ -16,19 +16,19 @@ fragment 130703 "SD: scénario commander la vanne d'attrait"
   xyzwh 5 5 2000 827 360
 end
 durationcanvas 129039 classinstance_ref 128783 // :VanneAttrait
-  xyzwh 265 101 2010 11 152
+  xyzwh 259 101 2010 11 152
 end
 durationcanvas 129423 classinstance_ref 128015 // :Seance
-  xyzwh 45 103 2010 11 173
+  xyzwh 41 103 2010 11 173
 end
 durationcanvas 129679 classinstance_ref 128655 // :VanneDattrait
-  xyzwh 644 190 2010 11 27
+  xyzwh 634 190 2010 11 27
 end
 durationcanvas 129935 classinstance_ref 128271 // :LesCapteurs
-  xyzwh 481 128 2010 11 47
+  xyzwh 471 128 2010 11 47
 end
 durationcanvas 130191 classinstance_ref 128399 // :LesCapteurs
-  xyzwh 781 133 2010 11 42
+  xyzwh 771 133 2010 11 42
 end
 msg 129167 synchronous
   from durationcanvas_ref 129423

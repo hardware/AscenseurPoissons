@@ -1,7 +1,10 @@
 format 75
 "ascenseur"
-  revision 5
+  revision 6
   modified_by 121 "jerometardos"
+
+
+  
   // class settings
   default_attribute_visibility private default_relation_visibility private default_operation_visibility public
   //class diagram settings
@@ -344,7 +347,7 @@ ${inlines}
       //activity diagram settings
       package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
       show_infonote default drawing_language default show_stereotype_properties default
-      sequencediagram 141561 "Demarrer la pompe"
+      sequencediagram 141561 "Scenario : Demarrer la pompe"
 	show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
 	overlapping_bars size A4
       end
@@ -363,7 +366,17 @@ ${inlines}
 	
       end
 
-      sequencediagram 128015 "Commander la vanne d'attrait"
+      sequencediagram 128015 "Scenario : Ouvrir la vanne d'attrait"
+	show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
+	overlapping_bars size A4
+      end
+
+      sequencediagram 148089 "Scenario : Ouvrir la grille"
+	show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
+	overlapping_bars size A4
+      end
+
+      sequencediagram 148217 "Scenario : Descendre la cage"
 	show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
 	overlapping_bars size A4
       end
@@ -502,7 +515,7 @@ ${inlines}
       
     end
 
-    class 128970 "cuveAscenseur"
+    class 128970 "cageAscenseur"
       visibility package stereotype "actor"
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};

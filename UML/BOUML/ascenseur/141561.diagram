@@ -20,19 +20,19 @@ textcanvas 130425 "[ Niveau OK ]
 "
   xyzwh 190 212 2030 70 15
 durationcanvas 128761 classinstance_ref 128121 // :Seance
-  xyzwh 121 127 2010 11 171
+  xyzwh 117 127 2010 11 171
 end
 durationcanvas 128889 classinstance_ref 128249 // :Pompe
-  xyzwh 264 128 2010 11 142
+  xyzwh 261 128 2010 11 142
 end
 durationcanvas 129145 classinstance_ref 128505 // :LesCapteurs
-  xyzwh 464 154 2010 11 53
+  xyzwh 454 154 2010 11 53
 end
 durationcanvas 129401 classinstance_ref 128377 // :LesCapteurs
-  xyzwh 711 162 2010 11 37
+  xyzwh 701 162 2010 11 37
 end
 durationcanvas 129913 classinstance_ref 128633 // :Pompe
-  xyzwh 582 219 2010 11 25
+  xyzwh 577 219 2010 11 25
 end
 msg 129017 synchronous
   from durationcanvas_ref 128761
