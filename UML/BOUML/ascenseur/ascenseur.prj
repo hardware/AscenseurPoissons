@@ -1,15 +1,7 @@
 format 75
 "ascenseur"
-<<<<<<< HEAD
-  revision 6
-  modified_by 15 "Hardware"
-=======
   revision 5
   modified_by 121 "jerometardos"
->>>>>>> parent of ed58dc0... Ajout DS
-
-
-  
   // class settings
   default_attribute_visibility private default_relation_visibility private default_operation_visibility public
   //class diagram settings
