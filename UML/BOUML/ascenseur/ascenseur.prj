@@ -1,6 +1,6 @@
 format 75
 "ascenseur"
-  revision 4
+  revision 5
   modified_by 121 "jerometardos"
 
 
@@ -347,6 +347,24 @@ ${inlines}
       //activity diagram settings
       package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
       show_infonote default drawing_language default show_stereotype_properties default
+      sequencediagram 141561 "Demarrer la pompe"
+	show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
+	overlapping_bars size A4
+      end
+
+      class 135161 "LesCapteurs"
+	visibility package 
+	cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	
+      end
     end
 
     class 128586 "Pompe"
