@@ -11,137 +11,137 @@ classinstance 128505 class_ref 128249 // Pompe
 classinstance 128633 class_ref 128505 // CageAscenseur
   name ""   xyz 635.4 41.2 2000 life_line_z 2000
 fragment 131961 "alt (surcharge)"
-  xyzwh 73.4 250.4 3005 657 243
+  xyzwh 61.4 263.4 3005 657 243
   separator 4278
 end
 textcanvas 132089 "[VRAI]"
-  xyzwh 76.4 271 3010 26 10
+  xyzwh 65 293 3010 35 21
 textcanvas 132217 "[FAUX]
 "
-  xyzwh 74 363.8 3010 28 10
+  xyzwh 64 377 3010 42 15
 fragment 133881 "alt (etat_cycle)"
-  xyzwh 25.6 90.2 2000 769 678
+  xyzwh 21.6 166.2 2000 764 531
   separator 1150
-  separator 6795
-  separator 7619
+  separator 7157
+  separator 8280
 end
 textcanvas 134009 "[PECHE]
 "
-  xyzwh 25.6 133.2 2005 37 10
+  xyzwh 25 192 2005 57 18
 textcanvas 134137 "[MONTEE]"
-  xyzwh 26.4 194.2 2005 45 10
+  xyzwh 25 248 2005 59 19
 textcanvas 134265 "[DESCENTE]"
-  xyzwh 25.8 574.2 2015 56 10
+  xyzwh 26 560 2015 72 15
 textcanvas 134393 "[VIDANGE]"
-  xyzwh 33.2 634.2 2005 46 10
+  xyzwh 26 613 2005 62 15
 fragment 134521 "SD : arreter automatisation"
-  xyzwh 7.8 19.2 2000 803 809
+  xyzwh 13.8 11.2 2000 800 736
 end
 durationcanvas 128761 classinstance_ref 128121 // :Seance
-  xyzwh 114 130.8 2010 11 683
+  xyzwh 119 128 2010 11 615
   overlappingdurationcanvas 129913
-    xyzwh 120 370.2 2020 11 28
+    xyzwh 125 369 2020 11 25
   end
   overlappingdurationcanvas 130425
-    xyzwh 120 459.6 2020 11 30
+    xyzwh 125 458 2020 11 25
   end
   overlappingdurationcanvas 132345
-    xyzwh 120 611.2 2020 11 25
+    xyzwh 125 628 2020 11 25
   end
   overlappingdurationcanvas 133625
-    xyzwh 120 715.8 2020 11 25
+    xyzwh 125 710 2020 11 25
   end
 end
 durationcanvas 128889 classinstance_ref 128249 // :VanneAttrait
-  xyzwh 254 129.2 2010 11 27
+  xyzwh 261 129 2010 11 27
 end
 durationcanvas 129145 classinstance_ref 128505 // :Pompe
-  xyzwh 520 192.4 2010 11 40
+  xyzwh 523 187 2010 11 26
 end
 durationcanvas 129401 classinstance_ref 128633 // :CageAscenseur
-  xyzwh 669 273.2 2010 11 31
+  xyzwh 681 273 2010 11 31
 end
 durationcanvas 129657 classinstance_ref 128377 // :Grille
-  xyzwh 379 318.2 2010 11 32
+  xyzwh 379 315 2010 11 35
 end
 durationcanvas 130169 classinstance_ref 128377 // :Grille
-  xyzwh 379 424 2010 11 33
+  xyzwh 379 423 2010 11 34
 end
 durationcanvas 132857 classinstance_ref 128505 // :Pompe
-  xyzwh 520 516.2 2010 11 25
+  xyzwh 523 516 2010 11 25
 end
 durationcanvas 133113 classinstance_ref 128505 // :Pompe
-  xyzwh 520 573 2010 11 26
+  xyzwh 523 574 2010 11 26
 end
 durationcanvas 133369 classinstance_ref 128505 // :Pompe
-  xyzwh 520 659.4 2010 11 25
+  xyzwh 523 661 2010 11 26
 end
 msg 129017 synchronous
   from durationcanvas_ref 128761
   to durationcanvas_ref 128889
-  yz 132 2015 explicitmsg "arreter()"
+  yz 130 2015 explicitmsg "arreter()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 162 121
+  label_xy 162 119
 msg 129273 synchronous
   from durationcanvas_ref 128761
   to durationcanvas_ref 129145
-  yz 191 2015 explicitmsg "arreter()"
+  yz 187 2015 explicitmsg "arreter()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 461 181
+  label_xy 461 177
 msg 129529 synchronous
   from durationcanvas_ref 128761
   to durationcanvas_ref 129401
-  yz 276 2015 explicitmsg "descendre()"
+  yz 274 2015 explicitmsg "descendre()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 580 268
+  label_xy 580 266
 msg 129785 synchronous
   from durationcanvas_ref 128761
   to durationcanvas_ref 129657
-  yz 317 2015 explicitmsg "ouvrir()"
+  yz 315 2015 explicitmsg "ouvrir()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 228 308
+  label_xy 228 306
 reflexivemsg 130041 synchronous
   to durationcanvas_ref 129913
-  yz 370 2025 explicitmsg "attendreFinMontee()"
+  yz 369 2025 explicitmsg "attendreFinMontee()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 152 369
+  label_xy 157 367
 msg 130297 synchronous
   from durationcanvas_ref 128761
   to durationcanvas_ref 130169
-  yz 425 2015 explicitmsg "ouvrir()"
+  yz 423 2015 explicitmsg "ouvrir()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 227 416
+  label_xy 227 414
 reflexivemsg 130553 synchronous
   to durationcanvas_ref 130425
-  yz 459 2025 explicitmsg "attendreTempsVidange()"
+  yz 458 2025 explicitmsg "attendreTempsVidange()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 147 459
+  label_xy 157 457
 reflexivemsg 132473 synchronous
   to durationcanvas_ref 132345
-  yz 611 2025 explicitmsg "attendreTempsVidange()"
+  yz 628 2025 explicitmsg "attendreTempsVidange()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 147 610
+  label_xy 156 626
 msg 132985 synchronous
   from durationcanvas_ref 128761
   to durationcanvas_ref 132857
-  yz 518 2015 explicitmsg "arreter()"
+  yz 516 2015 explicitmsg "arreter()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 459 510
+  label_xy 459 508
 msg 133241 synchronous
   from durationcanvas_ref 128761
   to durationcanvas_ref 133113
-  yz 573 2015 explicitmsg "arreter()"
+  yz 574 2015 explicitmsg "arreter()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 460 565
+  label_xy 460 566
 msg 133497 synchronous
   from durationcanvas_ref 128761
   to durationcanvas_ref 133369
-  yz 658 2015 explicitmsg "arreter()"
+  yz 661 2015 explicitmsg "arreter()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 463 649
+  label_xy 463 652
 reflexivemsg 133753 synchronous
   to durationcanvas_ref 133625
-  yz 715 2025 explicitmsg "etat_seance=MANU"
+  yz 710 2025 explicitmsg "etat_seance=MANU"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 147 713
+  label_xy 159 708
 end
