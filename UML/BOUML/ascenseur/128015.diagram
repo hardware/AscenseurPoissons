@@ -1,0 +1,68 @@
+format 75
+
+classinstance 128015 class_ref 128121 // Seance
+  name ""   xyz 22 28 2005 life_line_z 2000
+classinstance 128271 class_ref 135161 // LesCapteurs
+  name ""   xyz 443 28 2005 life_line_z 2000
+classinstance 128399 class_ref 128458 // LesCapteurs
+  name ""   xyz 747 27 2000 life_line_z 2000
+classinstance 128655 class_ref 128714 // VanneDattrait
+  name ""   xyz 609 25 2000 life_line_z 2000
+classinstance 128783 class_ref 128377 // VanneAttrait
+  name ""   xyz 231 28 2005 life_line_z 2000
+textcanvas 130575 "[Niveau OK]"
+  xyzwh 193 188 2015 64 15
+fragment 130703 "SD: scénario commander la vanne d'attrait"
+  xyzwh 5 5 2000 827 360
+end
+durationcanvas 129039 classinstance_ref 128783 // :VanneAttrait
+  xyzwh 265 101 2010 11 152
+end
+durationcanvas 129423 classinstance_ref 128015 // :Seance
+  xyzwh 45 103 2010 11 163
+end
+durationcanvas 129679 classinstance_ref 128655 // :VanneDattrait
+  xyzwh 644 190 2010 11 27
+end
+durationcanvas 129935 classinstance_ref 128271 // :LesCapteurs
+  xyzwh 481 128 2010 11 47
+end
+durationcanvas 130191 classinstance_ref 128399 // :LesCapteurs
+  xyzwh 781 133 2010 11 42
+end
+msg 129167 synchronous
+  from durationcanvas_ref 129423
+  to durationcanvas_ref 129039
+  yz 103 2015 explicitmsg "demarrer()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 132 88
+msg 129551 return
+  from durationcanvas_ref 129039
+  to durationcanvas_ref 129423
+  yz 241 2015 explicitmsg "ON / OFF"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 136 226
+msg 129807 synchronous
+  from durationcanvas_ref 129039
+  to durationcanvas_ref 129679
+  yz 190 2015 explicitmsg "VANNE_ON"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 282 175
+msg 130063 synchronous
+  from durationcanvas_ref 129039
+  to durationcanvas_ref 129935
+  yz 128 2015 explicitmsg "LireCapteurNiveauCanalAval()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 295 113
+msg 130319 synchronous
+  from durationcanvas_ref 129935
+  to durationcanvas_ref 130191
+  yz 135 2020 unspecifiedmsg
+  show_full_operations_definition default drawing_language default show_context_mode default
+msg 130447 return
+  from durationcanvas_ref 130191
+  to durationcanvas_ref 129935
+  yz 164 2025 explicitmsg "Niveau aval"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 599 149
+end
