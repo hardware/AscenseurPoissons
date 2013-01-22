@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>462</width>
-    <height>405</height>
+    <width>471</width>
+    <height>412</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,10 +16,10 @@
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>10</x>
      <y>10</y>
-     <width>441</width>
-     <height>381</height>
+     <width>451</width>
+     <height>391</height>
     </rect>
    </property>
    <property name="currentIndex">
@@ -29,260 +29,214 @@
     <attribute name="title">
      <string>Manuel</string>
     </attribute>
-    <widget class="QGroupBox" name="groupBox_5">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>230</y>
-       <width>411</width>
-       <height>111</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>Tester les appareillages</string>
-     </property>
-     <widget class="QComboBox" name="comboBox">
-      <property name="geometry">
-       <rect>
-        <x>50</x>
-        <y>40</y>
-        <width>121</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string>Pompe FLYGT</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Vanne sous-marine</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Cage</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Grille</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QLabel" name="label_16">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>20</y>
-        <width>161</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Choisir l'appareil à tester :</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_17">
-      <property name="geometry">
-       <rect>
-        <x>230</x>
-        <y>20</y>
-        <width>111</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Action à effectuer :</string>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="comboBox_2">
-      <property name="geometry">
-       <rect>
-        <x>250</x>
-        <y>40</y>
-        <width>121</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string>Démarrer</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Arrêter</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QPushButton" name="pushButton_6">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>70</y>
-        <width>131</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Tester l'appareil</string>
-      </property>
-     </widget>
-    </widget>
     <widget class="QGroupBox" name="groupBox_6">
      <property name="geometry">
       <rect>
        <x>10</x>
        <y>10</y>
-       <width>411</width>
-       <height>211</height>
+       <width>421</width>
+       <height>351</height>
       </rect>
      </property>
      <property name="title">
-      <string>Commandes principales</string>
+      <string>Mode manuel</string>
      </property>
-     <widget class="QPushButton" name="pushButton_4">
+     <property name="flat">
+      <bool>false</bool>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+     <widget class="QGroupBox" name="groupBox_5">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>210</y>
+        <width>401</width>
+        <height>131</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Tester les appareillages</string>
+      </property>
+      <widget class="QComboBox" name="comboBox">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>50</y>
+         <width>121</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>Pompe FLYGT</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Vanne sous-marine</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Cage</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Grille</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="label_16">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>30</y>
+         <width>161</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Choisir l'appareil à tester :</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_17">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>30</y>
+         <width>111</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Action à effectuer :</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_2">
+       <property name="geometry">
+        <rect>
+         <x>250</x>
+         <y>50</y>
+         <width>121</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>Démarrer</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Arrêter</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QPushButton" name="pushButton_6">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>80</y>
+         <width>131</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Tester l'appareil</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>80</y>
+        <width>381</width>
+        <height>101</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="1">
+        <widget class="QPushButton" name="pushButton_18">
+         <property name="text">
+          <string>Montée grande vitesse</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QPushButton" name="pushButton_19">
+         <property name="text">
+          <string>Descente petite vitesse</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QPushButton" name="pushButton_20">
+         <property name="text">
+          <string>Descente grande vitesse</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QPushButton" name="pushButton_17">
+         <property name="text">
+          <string>Montée petite vitesse</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QPushButton" name="pushButton_21">
+         <property name="text">
+          <string>Montée grille</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QPushButton" name="pushButton_22">
+         <property name="text">
+          <string>Descendre grille</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="">
       <property name="geometry">
        <rect>
         <x>20</x>
         <y>30</y>
-        <width>171</width>
-        <height>21</height>
+        <width>381</width>
+        <height>31</height>
        </rect>
       </property>
-      <property name="text">
-       <string>Démarrer pompe</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_5">
-      <property name="geometry">
-       <rect>
-        <x>200</x>
-        <y>30</y>
-        <width>201</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Démarrer centrale hydraulique</string>
-      </property>
-     </widget>
-     <widget class="QCheckBox" name="checkBox">
-      <property name="geometry">
-       <rect>
-        <x>160</x>
-        <y>70</y>
-        <width>131</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Mode manuel</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_7">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>110</y>
-        <width>191</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>MONTEE PETITE VITESSE</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_8">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>140</y>
-        <width>191</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>MONTEE GRANDE VITESSE</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_9">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>210</x>
-        <y>110</y>
-        <width>201</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>DESCENTE PETITE VITESSE</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_10">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>210</x>
-        <y>140</y>
-        <width>201</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>DESCENTE GRANDE VITESSE</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_11">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>170</y>
-        <width>191</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>MONTEE GRILLE</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_12">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>210</x>
-        <y>170</y>
-        <width>201</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>DESCENTE GRILLE</string>
-      </property>
+      <layout class="QGridLayout" name="gridLayout_3">
+       <item row="0" column="0">
+        <widget class="QPushButton" name="pushButton_15">
+         <property name="text">
+          <string>Démarrer la pompe</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QPushButton" name="pushButton_16">
+         <property name="text">
+          <string>Démarrer la centrale</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </widget>
    </widget>
    <widget class="QWidget" name="tab">
     <attribute name="title">
-     <string>Séance</string>
+     <string>Automatique</string>
     </attribute>
     <widget class="QGroupBox" name="groupBox_3">
      <property name="geometry">
@@ -395,6 +349,9 @@
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton_2">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>230</x>
@@ -428,7 +385,7 @@
      <widget class="QLabel" name="label_3">
       <property name="geometry">
        <rect>
-        <x>50</x>
+        <x>120</x>
         <y>30</y>
         <width>21</width>
         <height>21</height>
@@ -445,7 +402,7 @@ border:3px solid  rgb(125, 125, 125);</string>
      <widget class="QLabel" name="label_4">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>100</x>
         <y>60</y>
         <width>71</width>
         <height>20</height>
@@ -461,7 +418,7 @@ border:3px solid  rgb(125, 125, 125);</string>
      <widget class="QLabel" name="label_5">
       <property name="geometry">
        <rect>
-        <x>200</x>
+        <x>260</x>
         <y>30</y>
         <width>21</width>
         <height>21</height>
@@ -478,7 +435,7 @@ border:3px solid  rgb(125, 125, 125);</string>
      <widget class="QLabel" name="label_6">
       <property name="geometry">
        <rect>
-        <x>140</x>
+        <x>200</x>
         <y>60</y>
         <width>181</width>
         <height>16</height>
@@ -511,7 +468,7 @@ border:3px solid  rgb(125, 125, 125);</string>
        </rect>
       </property>
       <property name="text">
-       <string>  DEFAUT HUILE</string>
+       <string>  NIVEAU HUILE</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_7">
@@ -547,7 +504,7 @@ border:3px solid  rgb(125, 125, 125);</string>
      <widget class="QLabel" name="label_12">
       <property name="geometry">
        <rect>
-        <x>340</x>
+        <x>330</x>
         <y>20</y>
         <width>21</width>
         <height>21</height>
@@ -564,7 +521,7 @@ border:3px solid  rgb(125, 125, 125);</string>
      <widget class="QLabel" name="label_11">
       <property name="geometry">
        <rect>
-        <x>170</x>
+        <x>160</x>
         <y>50</y>
         <width>101</width>
         <height>16</height>
@@ -577,7 +534,7 @@ border:3px solid  rgb(125, 125, 125);</string>
      <widget class="QLabel" name="label_9">
       <property name="geometry">
        <rect>
-        <x>200</x>
+        <x>190</x>
         <y>20</y>
         <width>21</width>
         <height>21</height>
@@ -592,27 +549,204 @@ border:3px solid  rgb(125, 125, 125);</string>
       </property>
      </widget>
     </widget>
+    <widget class="QGroupBox" name="groupBox_7">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>200</y>
+       <width>411</width>
+       <height>131</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Défauts</string>
+     </property>
+     <widget class="QLabel" name="label_19">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>30</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: red;
+border:3px solid  rgb(125, 125, 125);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_18">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>30</y>
+        <width>71</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Défaut treuil</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_20">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>30</y>
+        <width>111</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Surcharge ascenseur</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_21">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>60</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: red;
+border:3px solid  rgb(125, 125, 125);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_22">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>60</y>
+        <width>71</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Défaut vanne</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_23">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>90</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: red;
+border:3px solid  rgb(125, 125, 125);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_24">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>90</y>
+        <width>71</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Défaut pompe</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_25">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>30</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: red;
+border:3px solid  rgb(125, 125, 125);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_26">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>60</y>
+        <width>111</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Défaut huile</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_27">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>60</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: red;
+border:3px solid  rgb(125, 125, 125);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_28">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>90</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: red;
+border:3px solid  rgb(125, 125, 125);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_29">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>90</y>
+        <width>111</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Défaut mou de câble</string>
+      </property>
+     </widget>
+    </widget>
    </widget>
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
      <string>Synoptique</string>
     </attribute>
-    <widget class="QLabel" name="label">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>50</y>
-       <width>381</width>
-       <height>221</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap>img/schema.jpg</pixmap>
-     </property>
-    </widget>
    </widget>
   </widget>
  </widget>
