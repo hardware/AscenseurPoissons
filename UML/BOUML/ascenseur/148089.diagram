@@ -1,0 +1,68 @@
+format 75
+
+classinstance 128121 class_ref 128121 // Seance
+  name ""   xyz 109 38 2000 life_line_z 2000
+classinstance 128249 class_ref 128633 // Grille
+  name ""   xyz 258 37 2000 life_line_z 2000
+classinstance 128377 class_ref 135161 // LesCapteurs
+  name ""   xyz 428 30 2000 life_line_z 2000
+classinstance 128505 class_ref 128458 // LesCapteurs
+  name ""   xyz 656 24 2000 life_line_z 2000
+classinstance 128633 class_ref 128842 // Grille
+  name ""   xyz 572 24 2000 life_line_z 2000
+textcanvas 129785 "[ Position Basse ]"
+  xyzwh 195 213 2000 79 17
+fragment 130553 "SD : scenario ouvrir la grille"
+  xyzwh 34 18 2000 704 357
+end
+durationcanvas 128761 classinstance_ref 128121 // :Seance
+  xyzwh 128 119 2010 11 180
+end
+durationcanvas 128889 classinstance_ref 128249 // :Grille
+  xyzwh 277 118 2010 11 153
+end
+durationcanvas 129145 classinstance_ref 128377 // :LesCapteurs
+  xyzwh 456 142 2010 11 61
+end
+durationcanvas 129401 classinstance_ref 128505 // :LesCapteurs
+  xyzwh 680 159 2010 11 37
+end
+durationcanvas 130169 classinstance_ref 128633 // :Grille
+  xyzwh 580 215 2010 11 25
+end
+msg 129017 synchronous
+  from durationcanvas_ref 128761
+  to durationcanvas_ref 128889
+  yz 122 2015 explicitmsg "ouvrir()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 195 111
+msg 129273 synchronous
+  from durationcanvas_ref 128889
+  to durationcanvas_ref 129145
+  yz 143 2020 explicitmsg "LireCapteurFindeCourseGrilleBasse"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 297 132
+msg 129529 synchronous
+  from durationcanvas_ref 129145
+  to durationcanvas_ref 129401
+  yz 160 2015 unspecifiedmsg
+  show_full_operations_definition default drawing_language default show_context_mode default
+msg 129657 return
+  from durationcanvas_ref 129401
+  to durationcanvas_ref 129145
+  yz 185 2015 explicitmsg "PositionBasse"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 517 178
+msg 130297 synchronous
+  from durationcanvas_ref 128889
+  to durationcanvas_ref 130169
+  yz 215 2015 explicitmsg "GRILLE_OUVRIR"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 296 207
+msg 130425 return
+  from durationcanvas_ref 128889
+  to durationcanvas_ref 128761
+  yz 255 2015 explicitmsg "OUVERTE/FERMEE"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 165 246
+end
