@@ -214,6 +214,11 @@ ${inlines}
 	  stereotype "include"
 	  on usecase_ref 129354 // Commander les appareillages
       end
+
+      sequencediagram 148473 "Diagramme de séquence"
+	show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
+	overlapping_bars size A4
+      end
     end
 
     usecase 128714 "Enregistrer une séance"
