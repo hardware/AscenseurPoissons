@@ -1,66 +1,71 @@
 format 75
 
+fragment 128064 "alt (typeTest)"
+  xyzwh 86 203 2000 730 349
+  separator 2217
+  separator 3728
+  separator 6531
+  separator 5000
+  separator 8236
+end
 classinstance 128121 class_ref 128202 // Agent
   name ""   xyz 25 56 2000 life_line_z 2000
+textcanvas 128192 "[DEM_POMPE]
+"
+  xyzwh 90 227 2006 81 30
 classinstance 128249 class_ref 128121 // Seance
-  name ""   xyz 161 63 2000 life_line_z 2000
+  name ""   xyz 208 52 2000 life_line_z 2000
+textcanvas 128320 "[ARRET_POMPE]
+"
+  xyzwh 89 283 2006 106 25
 classinstance 128377 class_ref 128249 // Pompe
-  name ""   xyz 356 65 2000 life_line_z 2000
+  name ""   xyz 378 62 2000 life_line_z 2000
+textcanvas 128448 "[OUVRIR_VANNE]
+"
+  xyzwh 90 335 2006 101 35
 classinstance 128505 class_ref 128377 // VanneAttrait
-  name ""   xyz 539 63 2000 life_line_z 2000
+  name ""   xyz 547 61 2000 life_line_z 2000
+textcanvas 128576 "[FERMER_VANNE]"
+  xyzwh 91 379 2005 103 15
 classinstance 128633 class_ref 128505 // CageAscenseur
-  name ""   xyz 691 64 2000 life_line_z 2000
-fragment 130937 "alt (typeTest)"
-  xyzwh 75 230 2000 727 321
-  separator 1666
-  separator 3081
-  separator 4528
-  separator 6037
-  separator 7610
+  name ""   xyz 726 64 2000 life_line_z 2000
+textcanvas 128704 "(MONTER_CAGE]
+"
+  xyzwh 88 432 2005 98 30
+textcanvas 128832 "[DESCENDRE_CAGE]
+"
+  xyzwh 90 492 2005 123 30
+fragment 128960 "alt(etat_seance)"
+  xyzwh 58 147 2005 772 450
 end
-textcanvas 131065 "[ DEM_POMPE ]"
-  xyzwh 101 250 2006 78 41
-textcanvas 131193 "[ ARRET_POMPE ]"
-  xyzwh 90 293 2006 91 41
-textcanvas 131321 "[ OUVRIR VANNE ]"
-  xyzwh 88 340 2006 94 41
-textcanvas 131449 "[ FERMER VANNE ]"
-  xyzwh 89 389 2006 95 41
-textcanvas 131577 "[ MONTER CAGE ]"
-  xyzwh 89 433 2006 90 41
-textcanvas 131705 "[ DESCENDRE CAGE ]"
-  xyzwh 75 487 2005 104 41
-fragment 131961 "alt(etat_seance)"
-  xyzwh 58 198 2005 759 446
-end
-textcanvas 132089 "[ MANU ]"
-  xyzwh 64 219 2010 40 11
-fragment 132217 "SD: tester les appareillages"
-  xyzwh 17 32 3005 817 667
+textcanvas 129088 "[MANU]"
+  xyzwh 81 182 2010 40 15
+fragment 129216 "SD : Tester les appareillages"
+  xyzwh 12 20 2005 823 609
 end
 durationcanvas 128761 classinstance_ref 128121 // :Agent
-  xyzwh 35 104 2010 11 655
+  xyzwh 38 104 2010 11 655
 end
 durationcanvas 128889 classinstance_ref 128249 // :Seance
-  xyzwh 180 104 2010 11 629
+  xyzwh 231 104 2010 11 629
 end
 durationcanvas 129145 classinstance_ref 128377 // :Pompe
-  xyzwh 375 250 2010 11 26
+  xyzwh 400 244 2010 11 29
 end
 durationcanvas 129657 classinstance_ref 128377 // :Pompe
-  xyzwh 375 292 2010 11 29
+  xyzwh 400 300 2010 11 34
 end
 durationcanvas 129913 classinstance_ref 128505 // :VanneAttrait
-  xyzwh 567 342 2010 11 26
+  xyzwh 581 349 2010 11 29
 end
 durationcanvas 130169 classinstance_ref 128505 // :VanneAttrait
-  xyzwh 567 382 2010 11 31
+  xyzwh 581 392 2010 11 31
 end
 durationcanvas 130425 classinstance_ref 128633 // :CageAscenseur
-  xyzwh 725 433 2010 11 26
+  xyzwh 772 455 2010 11 26
 end
 durationcanvas 130681 classinstance_ref 128633 // :CageAscenseur
-  xyzwh 725 485 2010 11 26
+  xyzwh 772 511 2010 11 26
 end
 msg 129017 synchronous
   from durationcanvas_ref 128761
@@ -72,39 +77,39 @@ msg 129017 synchronous
 msg 129273 synchronous
   from durationcanvas_ref 128889
   to durationcanvas_ref 129145
-  yz 253 2015 explicitmsg "demarrer()"
+  yz 245 2015 explicitmsg "demarrer()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 266 242
+  label_xy 313 234
 msg 129785 synchronous
   from durationcanvas_ref 128889
   to durationcanvas_ref 129657
-  yz 292 2015 explicitmsg "arreter()"
+  yz 300 2015 explicitmsg "arreter()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 268 281
+  label_xy 315 289
 msg 130041 synchronous
   from durationcanvas_ref 128889
   to durationcanvas_ref 129913
-  yz 342 2015 explicitmsg "ouvrir()"
+  yz 349 2015 explicitmsg "ouvrir()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 466 331
+  label_xy 513 338
 msg 130297 synchronous
   from durationcanvas_ref 128889
   to durationcanvas_ref 130169
-  yz 386 2015 explicitmsg "fermer()"
+  yz 396 2015 explicitmsg "fermer()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 467 377
+  label_xy 514 387
 msg 130553 synchronous
   from durationcanvas_ref 128889
   to durationcanvas_ref 130425
-  yz 433 2015 explicitmsg "monter()"
+  yz 455 2015 explicitmsg "monter()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 649 423
+  label_xy 696 445
 msg 130809 synchronous
   from durationcanvas_ref 128889
   to durationcanvas_ref 130681
-  yz 485 2015 explicitmsg "descendre()"
+  yz 511 2015 explicitmsg "descendre()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 646 475
+  label_xy 693 501
 msg 131833 return
   from durationcanvas_ref 128889
   to durationcanvas_ref 128761

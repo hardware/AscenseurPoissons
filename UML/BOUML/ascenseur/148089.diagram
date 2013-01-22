@@ -5,30 +5,30 @@ classinstance 128121 class_ref 128121 // Seance
 classinstance 128249 class_ref 128633 // Grille
   name ""   xyz 237 44 2000 life_line_z 2000
 classinstance 128377 class_ref 135161 // LesCapteurs
-  name ""   xyz 410 47 2000 life_line_z 2000
+  name ""   xyz 455 47 2000 life_line_z 2000
 classinstance 128505 class_ref 128842 // Grille
   name ""   xyz 589 43 2000 life_line_z 2000
 classinstance 128633 class_ref 128458 // LesCapteurs
   name ""   xyz 693 40 2000 life_line_z 2000
 textcanvas 130169 "[ Grille Basse ]"
-  xyzwh 191 253 3005 61 11
+  xyzwh 168 245 3005 90 25
 fragment 130297 "SD : scenario ouvrir la grille"
-  xyzwh 39 14 2005 753 395
+  xyzwh 16 6 2005 782 405
 end
 durationcanvas 128761 classinstance_ref 128121 // :Seance
-  xyzwh 92 127 2010 11 217
+  xyzwh 96 127 2010 11 217
 end
 durationcanvas 128889 classinstance_ref 128249 // :Grille
   xyzwh 256 126 2010 11 184
 end
 durationcanvas 129145 classinstance_ref 128377 // :LesCapteurs
-  xyzwh 438 153 2010 11 61
+  xyzwh 493 153 2010 11 61
 end
 durationcanvas 129401 classinstance_ref 128633 // :LesCapteurs
-  xyzwh 717 159 2010 11 49
+  xyzwh 727 159 2010 11 49
 end
 durationcanvas 129785 classinstance_ref 128505 // :Grille
-  xyzwh 597 254 2010 11 25
+  xyzwh 601 254 2010 11 25
 end
 msg 129017 synchronous
   from durationcanvas_ref 128761
@@ -52,17 +52,17 @@ msg 129657 return
   to durationcanvas_ref 129145
   yz 195 2015 explicitmsg "Grille Basse"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 536 185
+  label_xy 581 185
 msg 129913 synchronous
   from durationcanvas_ref 128889
   to durationcanvas_ref 129785
   yz 254 2015 explicitmsg "GRILLE_OUVERTE"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 292 246
+  label_xy 299 241
 msg 130041 return
   from durationcanvas_ref 128889
   to durationcanvas_ref 128761
   yz 293 2015 explicitmsg "OUVERTE / FERMEE"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 134 288
+  label_xy 127 281
 end
