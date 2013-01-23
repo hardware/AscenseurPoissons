@@ -1,0 +1,41 @@
+format 75
+
+classinstance 128121 class_ref 128377 // VanneAttrait
+  name ""   xyz 259.5 57 2005 life_line_z 2000
+classinstance 128249 class_ref 128458 // LesCapteurs
+  name ""   xyz 826.5 83 2000 life_line_z 2000
+fragment 128505 "SD: scénario fermer la vanne d'attrait"
+  xyzwh 14.5 26.5 2000 520 435
+end
+classinstance 128761 class_ref 128121 // Seance
+  name ""   xyz 84.5 54 2005 life_line_z 2000
+classinstance 128889 class_ref 128714 // VanneDattrait
+  name ""   xyz 394.5 53 2000 life_line_z 2000
+durationcanvas 129145 classinstance_ref 128121 // :VanneAttrait
+  xyzwh 287 106 2010 11 187
+end
+durationcanvas 129401 classinstance_ref 128889 // :VanneDattrait
+  xyzwh 419 260.5 2010 11 75
+end
+durationcanvas 129529 classinstance_ref 128761 // :Seance
+  xyzwh 103 103.5 2010 11 213
+end
+msg 129657 return
+  from durationcanvas_ref 129145
+  to durationcanvas_ref 129529
+  yz 244 2015 explicitmsg "OUVERTE / FERMEE"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 146.5 239
+msg 129913 synchronous
+  from durationcanvas_ref 129529
+  to durationcanvas_ref 129145
+  yz 106 2015 explicitmsg "fermer()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 194.5 91
+msg 130297 synchronous
+  from durationcanvas_ref 129145
+  to durationcanvas_ref 129401
+  yz 263 2015 msg operation_ref 132985 // "VANNE_FERMEE()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 310.5 248
+end

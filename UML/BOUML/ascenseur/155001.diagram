@@ -1,0 +1,46 @@
+format 75
+
+fragment 128121 "SD : scenario arreter la pompe"
+  xyzwh 40.5 21 2000 469 324
+end
+classinstance 128249 class_ref 128121 // Seance
+  name ""   xyz 113.5 48 2000 life_line_z 2000
+classinstance 128377 class_ref 128586 // Pompe
+  name ""   xyz 394.5 37 2000 life_line_z 2000
+textcanvas 128505 "
+"
+  xyzwh 202.5 217 2015 50 38
+textcanvas 128633 "
+
+"
+  xyzwh 228.5 230 2030 50 21
+classinstance 128761 class_ref 128249 // Pompe
+  name ""   xyz 257.5 45 2000 life_line_z 2000
+durationcanvas 129145 classinstance_ref 128249 // :Seance
+  xyzwh 132 147 2010 11 148
+end
+durationcanvas 129401 classinstance_ref 128761 // :Pompe
+  xyzwh 276 148 2010 11 111
+end
+durationcanvas 129657 classinstance_ref 128377 // :Pompe
+  xyzwh 407 176 2010 11 25
+end
+msg 129785 synchronous
+  from durationcanvas_ref 129145
+  to durationcanvas_ref 129401
+  yz 150 2015 msg operation_ref 129017 // "arreter()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 189.5 139
+msg 129913 synchronous
+  from durationcanvas_ref 129401
+  to durationcanvas_ref 129657
+  yz 177 2020 explicitmsg "POMPE_OFF()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 298.5 169
+msg 130169 return
+  from durationcanvas_ref 129401
+  to durationcanvas_ref 129145
+  yz 222 2025 explicitmsg "ON/OFF"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 193.5 211
+end

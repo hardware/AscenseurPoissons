@@ -12,7 +12,7 @@ classinstance 128783 class_ref 128377 // VanneAttrait
   name ""   xyz 231 28 2005 life_line_z 2000
 textcanvas 130575 "[Niveau OK]"
   xyzwh 193 188 2015 64 15
-fragment 130703 "SD: scénario commander la vanne d'attrait"
+fragment 130703 "SD: scénario ouvrir la vanne d'attrait"
   xyzwh 5 5 2000 827 360
 end
 durationcanvas 129039 classinstance_ref 128783 // :VanneAttrait
@@ -45,7 +45,7 @@ msg 129551 return
 msg 129807 synchronous
   from durationcanvas_ref 129039
   to durationcanvas_ref 129679
-  yz 190 2015 msg operation_ref 131449 // "VANNE_ON()"
+  yz 190 2015 msg operation_ref 132857 // "VANNE_OPEN()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 282 175
 msg 130063 synchronous
