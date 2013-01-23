@@ -7,7 +7,7 @@ classinstancecanvas 128249 classinstance_ref 128249 //
   xyz 551 166 2000
 end
 classinstancecanvas 128377 classinstance_ref 128377 // 
-  xyz 301 63 2000
+  xyz 301 63 2000 color yellow
 end
 classinstancecanvas 128505 classinstance_ref 128505 // 
   xyz 91 166 2000
