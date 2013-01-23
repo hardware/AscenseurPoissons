@@ -16,30 +16,30 @@ fragment 130297 "SD : scenario ouvrir la grille"
   xyzwh 16 6 2005 782 405
 end
 durationcanvas 128761 classinstance_ref 128121 // :Seance
-  xyzwh 96 127 2010 11 217
+  xyzwh 92 127 2010 11 217
 end
 durationcanvas 128889 classinstance_ref 128249 // :Grille
   xyzwh 256 126 2010 11 184
 end
 durationcanvas 129145 classinstance_ref 128377 // :LesCapteurs
-  xyzwh 493 153 2010 11 61
+  xyzwh 483 153 2010 11 61
 end
 durationcanvas 129401 classinstance_ref 128633 // :LesCapteurs
-  xyzwh 727 159 2010 11 49
+  xyzwh 717 159 2010 11 49
 end
 durationcanvas 129785 classinstance_ref 128505 // :Grille
-  xyzwh 601 254 2010 11 25
+  xyzwh 597 254 2010 11 25
 end
 msg 129017 synchronous
   from durationcanvas_ref 128761
   to durationcanvas_ref 128889
-  yz 127 2015 explicitmsg "ouvrir()"
+  yz 127 2015 msg operation_ref 129273 // "ouvrir()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 166 116
 msg 129273 synchronous
   from durationcanvas_ref 128889
   to durationcanvas_ref 129145
-  yz 153 2015 explicitmsg "LireCapteurFinDeCourseGrilleBasse"
+  yz 153 2015 msg operation_ref 131577 // "LireCapteurFinDeCourseGrilleBasse()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 281 142
 msg 129529 synchronous
@@ -56,7 +56,7 @@ msg 129657 return
 msg 129913 synchronous
   from durationcanvas_ref 128889
   to durationcanvas_ref 129785
-  yz 254 2015 explicitmsg "GRILLE_OUVERTE"
+  yz 254 2015 msg operation_ref 131705 // "GRILLE_OUVERTE()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 299 241
 msg 130041 return

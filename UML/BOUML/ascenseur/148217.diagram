@@ -16,30 +16,30 @@ fragment 130297 "SD : scenario descendre la cage"
   xyzwh 19 12 2000 806 395
 end
 durationcanvas 128761 classinstance_ref 128121 // :Seance
-  xyzwh 89 156 2010 11 247
+  xyzwh 85 156 2010 11 247
 end
 durationcanvas 128889 classinstance_ref 128249 // :CageAscenseur
-  xyzwh 336 156 2010 11 215
+  xyzwh 324 156 2010 11 215
 end
 durationcanvas 129145 classinstance_ref 128377 // :LesCapteurs
-  xyzwh 542 184 2010 11 81
+  xyzwh 532 184 2010 11 81
 end
 durationcanvas 129401 classinstance_ref 128633 // :LesCapteurs
-  xyzwh 756 205 2010 11 65
+  xyzwh 746 205 2010 11 65
 end
 durationcanvas 129785 classinstance_ref 128505 // :cageAscenseur
-  xyzwh 653 298 2010 11 27
+  xyzwh 641 298 2010 11 27
 end
 msg 129017 synchronous
   from durationcanvas_ref 128761
   to durationcanvas_ref 128889
-  yz 156 2015 explicitmsg "descendre()"
+  yz 156 2015 msg operation_ref 129145 // "descendre()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 143 145
 msg 129273 synchronous
   from durationcanvas_ref 128889
   to durationcanvas_ref 129145
-  yz 186 2015 explicitmsg "LirePositionAscenseurHaute"
+  yz 186 2015 msg operation_ref 131833 // "LirePositionAscenseurHaute()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 372 175
 msg 129529 synchronous

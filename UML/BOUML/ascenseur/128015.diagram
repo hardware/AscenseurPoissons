@@ -33,7 +33,7 @@ end
 msg 129167 synchronous
   from durationcanvas_ref 129423
   to durationcanvas_ref 129039
-  yz 103 2015 explicitmsg "demarrer()"
+  yz 103 2015 msg operation_ref 131193 // "ouvrir()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 132 88
 msg 129551 return
@@ -45,13 +45,13 @@ msg 129551 return
 msg 129807 synchronous
   from durationcanvas_ref 129039
   to durationcanvas_ref 129679
-  yz 190 2015 explicitmsg "VANNE_ON"
+  yz 190 2015 msg operation_ref 131449 // "VANNE_ON()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 282 175
 msg 130063 synchronous
   from durationcanvas_ref 129039
   to durationcanvas_ref 129935
-  yz 128 2015 explicitmsg "LireCapteurNiveauCanalAval()"
+  yz 128 2015 msg operation_ref 131321 // "LireCapteurNiveauCanalAval()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 295 113
 msg 130319 synchronous

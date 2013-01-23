@@ -11,14 +11,14 @@ classinstance 128505 class_ref 128249 // Pompe
 classinstance 128633 class_ref 128505 // CageAscenseur
   name ""   xyz 635.4 41.2 2000 life_line_z 2000
 fragment 131961 "alt (surcharge)"
-  xyzwh 61.4 263.4 3005 657 243
-  separator 4278
+  xyzwh 45.4 262.4 3005 657 243
+  separator 3989
 end
 textcanvas 132089 "[VRAI]"
-  xyzwh 65 293 3010 35 21
+  xyzwh 49 292 3010 35 21
 textcanvas 132217 "[FAUX]
 "
-  xyzwh 64 377 3010 42 15
+  xyzwh 48 376 3010 42 15
 fragment 133881 "alt (etat_cycle)"
   xyzwh 21.6 166.2 2000 764 531
   separator 1150
@@ -38,28 +38,28 @@ fragment 134521 "SD : arreter automatisation"
   xyzwh 13.8 11.2 2000 800 736
 end
 durationcanvas 128761 classinstance_ref 128121 // :Seance
-  xyzwh 119 128 2010 11 615
+  xyzwh 115 128 2010 11 615
   overlappingdurationcanvas 129913
-    xyzwh 125 369 2020 11 25
+    xyzwh 121 369 2020 11 25
   end
   overlappingdurationcanvas 130425
-    xyzwh 125 458 2020 11 25
+    xyzwh 121 458 2020 11 25
   end
   overlappingdurationcanvas 132345
-    xyzwh 125 628 2020 11 25
+    xyzwh 121 628 2020 11 25
   end
   overlappingdurationcanvas 133625
-    xyzwh 125 710 2020 11 25
+    xyzwh 121 710 2020 11 25
   end
 end
 durationcanvas 128889 classinstance_ref 128249 // :VanneAttrait
-  xyzwh 261 129 2010 11 27
+  xyzwh 255 129 2010 11 27
 end
 durationcanvas 129145 classinstance_ref 128505 // :Pompe
-  xyzwh 523 187 2010 11 26
+  xyzwh 520 187 2010 11 26
 end
 durationcanvas 129401 classinstance_ref 128633 // :CageAscenseur
-  xyzwh 681 273 2010 11 31
+  xyzwh 669 273 2010 11 31
 end
 durationcanvas 129657 classinstance_ref 128377 // :Grille
   xyzwh 379 315 2010 11 35
@@ -68,75 +68,75 @@ durationcanvas 130169 classinstance_ref 128377 // :Grille
   xyzwh 379 423 2010 11 34
 end
 durationcanvas 132857 classinstance_ref 128505 // :Pompe
-  xyzwh 523 516 2010 11 25
+  xyzwh 520 516 2010 11 25
 end
 durationcanvas 133113 classinstance_ref 128505 // :Pompe
-  xyzwh 523 574 2010 11 26
+  xyzwh 520 574 2010 11 26
 end
 durationcanvas 133369 classinstance_ref 128505 // :Pompe
-  xyzwh 523 661 2010 11 26
+  xyzwh 520 661 2010 11 26
 end
 msg 129017 synchronous
   from durationcanvas_ref 128761
   to durationcanvas_ref 128889
-  yz 130 2015 explicitmsg "arreter()"
+  yz 130 2015 explicitmsg "fermer()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 162 119
 msg 129273 synchronous
   from durationcanvas_ref 128761
   to durationcanvas_ref 129145
-  yz 187 2015 explicitmsg "arreter()"
+  yz 187 2015 msg operation_ref 129017 // "arreter()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 461 177
 msg 129529 synchronous
   from durationcanvas_ref 128761
   to durationcanvas_ref 129401
-  yz 274 2015 explicitmsg "descendre()"
+  yz 274 2015 msg operation_ref 129145 // "descendre()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 580 266
 msg 129785 synchronous
   from durationcanvas_ref 128761
   to durationcanvas_ref 129657
-  yz 315 2015 explicitmsg "ouvrir()"
+  yz 315 2015 msg operation_ref 129273 // "ouvrir()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 228 306
 reflexivemsg 130041 synchronous
   to durationcanvas_ref 129913
-  yz 369 2025 explicitmsg "attendreFinMontee()"
+  yz 369 2025 msg operation_ref 129401 // "attendreFinMontee()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 157 367
 msg 130297 synchronous
   from durationcanvas_ref 128761
   to durationcanvas_ref 130169
-  yz 423 2015 explicitmsg "ouvrir()"
+  yz 423 2015 msg operation_ref 129273 // "ouvrir()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 227 414
 reflexivemsg 130553 synchronous
   to durationcanvas_ref 130425
-  yz 458 2025 explicitmsg "attendreTempsVidange()"
+  yz 458 2025 msg operation_ref 129657 // "attendreTempsVidange()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 157 457
 reflexivemsg 132473 synchronous
   to durationcanvas_ref 132345
-  yz 628 2025 explicitmsg "attendreTempsVidange()"
+  yz 628 2025 msg operation_ref 129657 // "attendreTempsVidange()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 156 626
 msg 132985 synchronous
   from durationcanvas_ref 128761
   to durationcanvas_ref 132857
-  yz 516 2015 explicitmsg "arreter()"
+  yz 516 2015 msg operation_ref 129017 // "arreter()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 459 508
 msg 133241 synchronous
   from durationcanvas_ref 128761
   to durationcanvas_ref 133113
-  yz 574 2015 explicitmsg "arreter()"
+  yz 574 2015 msg operation_ref 129017 // "arreter()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 460 566
 msg 133497 synchronous
   from durationcanvas_ref 128761
   to durationcanvas_ref 133369
-  yz 661 2015 explicitmsg "arreter()"
+  yz 661 2015 msg operation_ref 129017 // "arreter()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 463 652
 reflexivemsg 133753 synchronous

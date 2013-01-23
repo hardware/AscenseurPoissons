@@ -7,42 +7,42 @@ classinstance 128249 class_ref 135161 // LesCapteurs
 classinstance 128377 class_ref 128458 // LesCapteurs
   name ""   xyz 640 28 2000 life_line_z 2000
 fragment 131065 "alt [defauts parametres]"
-  xyzwh 141 444 3005 284 117
+  xyzwh 134 445 3005 284 117
 end
 fragment 131193 "SD: controler parametres"
   xyzwh 35 5 2000 684 592
 end
 durationcanvas 128505 classinstance_ref 128121 // :Seance
-  xyzwh 189 141 2010 11 457
+  xyzwh 185 141 2010 11 457
   overlappingdurationcanvas 130553
-    xyzwh 195 473 2020 11 25
+    xyzwh 191 473 2020 11 25
   end
   overlappingdurationcanvas 130809
-    xyzwh 195 526 2020 11 25
+    xyzwh 191 526 2020 11 25
   end
 end
 durationcanvas 128633 classinstance_ref 128249 // :LesCapteurs
-  xyzwh 441 142 2010 11 70
+  xyzwh 431 142 2010 11 70
 end
 durationcanvas 128889 classinstance_ref 128377 // :LesCapteurs
-  xyzwh 674 162 2010 11 49
+  xyzwh 664 162 2010 11 49
 end
 durationcanvas 129273 classinstance_ref 128249 // :LesCapteurs
-  xyzwh 441 263 2010 11 60
+  xyzwh 431 263 2010 11 60
 end
 durationcanvas 129529 classinstance_ref 128377 // :LesCapteurs
-  xyzwh 674 275 2010 11 50
+  xyzwh 664 275 2010 11 50
 end
 durationcanvas 129913 classinstance_ref 128249 // :LesCapteurs
-  xyzwh 441 373 2010 11 71
+  xyzwh 431 373 2010 11 71
 end
 durationcanvas 130169 classinstance_ref 128377 // :LesCapteurs
-  xyzwh 674 392 2010 11 51
+  xyzwh 664 392 2010 11 51
 end
 msg 128761 synchronous
   from durationcanvas_ref 128505
   to durationcanvas_ref 128633
-  yz 144 2015 explicitmsg "LireCapteurSurcharge()"
+  yz 144 2015 msg operation_ref 130041 // "LireCapteurSurcharge()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 268 133
 msg 129017 synchronous
@@ -60,7 +60,7 @@ msg 129145 return
 msg 129401 synchronous
   from durationcanvas_ref 128505
   to durationcanvas_ref 129273
-  yz 263 2015 explicitmsg "LireCapteurTemperature()"
+  yz 263 2015 msg operation_ref 130169 // "LireCapteurTemperature()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 262 252
 msg 129657 synchronous
@@ -77,7 +77,7 @@ msg 129785 return
 msg 130041 synchronous
   from durationcanvas_ref 128505
   to durationcanvas_ref 129913
-  yz 373 2015 explicitmsg "LireCapteurNiveauHuile()"
+  yz 373 2015 msg operation_ref 130297 // "LireCapteurNiveauHuile()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 263 362
 msg 130297 synchronous

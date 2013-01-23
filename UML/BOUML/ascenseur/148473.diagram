@@ -44,28 +44,28 @@ fragment 129216 "SD : Tester les appareillages"
   xyzwh 12 20 2005 823 609
 end
 durationcanvas 128761 classinstance_ref 128121 // :Agent
-  xyzwh 38 104 2010 11 655
+  xyzwh 35 104 2010 11 655
 end
 durationcanvas 128889 classinstance_ref 128249 // :Seance
-  xyzwh 231 104 2010 11 629
+  xyzwh 227 104 2010 11 629
 end
 durationcanvas 129145 classinstance_ref 128377 // :Pompe
-  xyzwh 400 244 2010 11 29
+  xyzwh 397 244 2010 11 29
 end
 durationcanvas 129657 classinstance_ref 128377 // :Pompe
-  xyzwh 400 300 2010 11 34
+  xyzwh 397 300 2010 11 34
 end
 durationcanvas 129913 classinstance_ref 128505 // :VanneAttrait
-  xyzwh 581 349 2010 11 29
+  xyzwh 575 349 2010 11 29
 end
 durationcanvas 130169 classinstance_ref 128505 // :VanneAttrait
-  xyzwh 581 392 2010 11 31
+  xyzwh 575 392 2010 11 31
 end
 durationcanvas 130425 classinstance_ref 128633 // :CageAscenseur
-  xyzwh 772 455 2010 11 26
+  xyzwh 760 455 2010 11 26
 end
 durationcanvas 130681 classinstance_ref 128633 // :CageAscenseur
-  xyzwh 772 511 2010 11 26
+  xyzwh 760 511 2010 11 26
 end
 msg 129017 synchronous
   from durationcanvas_ref 128761
@@ -77,13 +77,13 @@ msg 129017 synchronous
 msg 129273 synchronous
   from durationcanvas_ref 128889
   to durationcanvas_ref 129145
-  yz 245 2015 explicitmsg "demarrer()"
+  yz 245 2015 msg operation_ref 128121 // "demarrer()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 313 234
 msg 129785 synchronous
   from durationcanvas_ref 128889
   to durationcanvas_ref 129657
-  yz 300 2015 explicitmsg "arreter()"
+  yz 300 2015 msg operation_ref 129017 // "arreter()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 315 289
 msg 130041 synchronous
@@ -107,7 +107,7 @@ msg 130553 synchronous
 msg 130809 synchronous
   from durationcanvas_ref 128889
   to durationcanvas_ref 130681
-  yz 511 2015 explicitmsg "descendre()"
+  yz 511 2015 msg operation_ref 129145 // "descendre()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 693 501
 msg 131833 return

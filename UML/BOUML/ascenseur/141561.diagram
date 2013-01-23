@@ -37,13 +37,13 @@ end
 msg 129017 synchronous
   from durationcanvas_ref 128761
   to durationcanvas_ref 128889
-  yz 131 2015 explicitmsg "demarrer()"
+  yz 131 2015 msg operation_ref 128121 // "demarrer()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 174 120
 msg 129273 synchronous
   from durationcanvas_ref 128889
   to durationcanvas_ref 129145
-  yz 157 2015 explicitmsg "LireCapteurNiveauCanalAmont()"
+  yz 157 2015 msg operation_ref 130937 // "LireCapteurNiveauCanalAmont()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 281 133
 msg 129529 synchronous
@@ -60,7 +60,7 @@ msg 129657 return
 msg 130041 synchronous
   from durationcanvas_ref 128889
   to durationcanvas_ref 129913
-  yz 221 2020 explicitmsg "POMPE_ON"
+  yz 221 2020 msg operation_ref 131065 // "POMPE_ON()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 283 213
 msg 130169 return

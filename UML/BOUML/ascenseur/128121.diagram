@@ -6,78 +6,80 @@ classinstance 128249 class_ref 128330 // UneSeance
   name ""   xyz 467.485 33.9955 2005 life_line_z 2000
 classinstance 128377 class_ref 128121 // Seance
   name ""   xyz 253.74 36 2000 life_line_z 2000
-textcanvas 130425 "enregistrer()"
-  xyzwh 311 395 2000 62 13
+textcanvas 130425 "
+"
+  xyzwh 306 395 2000 62 13
 fragment 130937 "SD : programmer séance"
-  xyzwh 10 5 2000 646 502
+  xyzwh 5 5 2000 646 502
 end
 durationcanvas 128505 classinstance_ref 128121 // :Agent
-  xyzwh 53 86.642 2010 11 406
+  xyzwh 50 86 2010 11 406
 end
 durationcanvas 128633 classinstance_ref 128377 // :Seance
-  xyzwh 276 86 2010 11 38
+  xyzwh 272 86 2010 11 38
 end
 durationcanvas 128889 classinstance_ref 128377 // :Seance
-  xyzwh 276 140 2010 11 39
+  xyzwh 272 140 2010 11 39
 end
 durationcanvas 129145 classinstance_ref 128377 // :Seance
-  xyzwh 276 195 2010 11 40
+  xyzwh 272 195 2010 11 40
 end
 durationcanvas 129401 classinstance_ref 128377 // :Seance
-  xyzwh 276 256 2010 11 40
+  xyzwh 272 256 2010 11 40
 end
 durationcanvas 129657 classinstance_ref 128377 // :Seance
-  xyzwh 276 307 2010 11 39
+  xyzwh 272 307 2010 11 39
 end
 durationcanvas 129913 classinstance_ref 128377 // :Seance
-  xyzwh 276 375 2010 11 92
+  xyzwh 272 375 2010 11 92
   overlappingdurationcanvas 130169
-    xyzwh 282 397 2020 11 46
+    xyzwh 278 397 2020 11 46
   end
 end
 durationcanvas 130553 classinstance_ref 128249 // :UneSeance
-  xyzwh 497 425 2010 11 25
+  xyzwh 488 425 2010 11 25
 end
 msg 128761 synchronous
   from durationcanvas_ref 128505
   to durationcanvas_ref 128633
-  yz 86.642 2015 explicitmsg "petite vitesse"
+  yz 86 2015 explicitmsg "petite vitesse"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 135 73.642
+  label_xy 135 73
 msg 129017 synchronous
   from durationcanvas_ref 128505
   to durationcanvas_ref 128889
-  yz 140.642 2015 explicitmsg "grande vitesse"
+  yz 140 2015 explicitmsg "grande vitesse"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 132 127.642
+  label_xy 132 127
 msg 129273 synchronous
   from durationcanvas_ref 128505
   to durationcanvas_ref 129145
-  yz 195.642 2015 explicitmsg "temps peche"
+  yz 195 2015 explicitmsg "temps peche"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 135 182.642
+  label_xy 135 182
 msg 129529 synchronous
   from durationcanvas_ref 128505
   to durationcanvas_ref 129401
-  yz 256.642 2015 explicitmsg "temps vidange"
+  yz 256 2015 explicitmsg "temps vidange"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 131 243.642
+  label_xy 131 243
 msg 129785 synchronous
   from durationcanvas_ref 128505
   to durationcanvas_ref 129657
-  yz 307.642 2015 explicitmsg "periodicite"
+  yz 307 2015 explicitmsg "periodicite"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 144 294.642
+  label_xy 144 294
 msg 130041 synchronous
   from durationcanvas_ref 128505
   to durationcanvas_ref 129913
-  yz 375.642 2015 explicitmsg "programmer(nomSeance)"
+  yz 375 2015 msg operation_ref 128505 // "programmer(nomSeance)()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 103 362.642
+  label_xy 103 362
 reflexivemsg 130297 synchronous
   to durationcanvas_ref 130169
-  yz 397 2025 unspecifiedmsg
+  yz 397 2025 explicitmsg "enregistrer()"
   show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 310 397
 msg 130681 synchronous
   from durationcanvas_ref 130169
   to durationcanvas_ref 130553

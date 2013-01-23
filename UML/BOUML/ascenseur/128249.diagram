@@ -16,25 +16,25 @@ fragment 130809 "SD : lancer automatisation"
   xyzwh 10 4 2005 688 535
 end
 durationcanvas 128761 classinstance_ref 128121 // :Agent
-  xyzwh 55 109 2010 11 29
+  xyzwh 52 109 2010 11 29
 end
 durationcanvas 128889 classinstance_ref 128249 // :Seance
-  xyzwh 276 117 2000 11 419
+  xyzwh 272 117 2000 11 419
   overlappingdurationcanvas 129145
-    xyzwh 282 149 2020 11 78
+    xyzwh 278 149 2020 11 78
   end
   overlappingdurationcanvas 129785
-    xyzwh 282 255 2020 11 31
+    xyzwh 278 255 2020 11 31
   end
   overlappingdurationcanvas 130041
-    xyzwh 282 336 2020 11 30
+    xyzwh 278 336 2020 11 30
   end
   overlappingdurationcanvas 130297
-    xyzwh 282 400 2020 11 29
+    xyzwh 278 400 2020 11 29
   end
 end
 durationcanvas 129401 classinstance_ref 128377 // :UneSeance
-  xyzwh 617 161 2010 11 75
+  xyzwh 608 161 2010 11 75
 end
 msg 129017 synchronous
   from durationcanvas_ref 128761
@@ -70,7 +70,7 @@ reflexivemsg 130169 synchronous
   label_xy 315 335
 reflexivemsg 130425 synchronous
   to durationcanvas_ref 130297
-  yz 400 2025 explicitmsg "realiserSeance()"
+  yz 400 2025 msg operation_ref 128761 // "realiserSeance()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 315 399
 end
