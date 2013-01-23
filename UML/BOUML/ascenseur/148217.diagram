@@ -56,7 +56,7 @@ msg 129657 return
 msg 129913 synchronous
   from durationcanvas_ref 128889
   to durationcanvas_ref 129785
-  yz 298 2015 explicitmsg "ASCENSEUR_DESCENTE"
+  yz 298 2015 msg operation_ref 131961 // "ASCENSEUR_DESCENTE()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 367 288
 msg 130041 return
