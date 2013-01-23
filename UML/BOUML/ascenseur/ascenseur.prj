@@ -1119,6 +1119,59 @@ ${inlines}
 	
       end
     end
+
+    objectdiagram 155385 "Modele objet"
+       write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default show_stereotype_properties default
+      size A4
+    end
+
+    classinstance 128121 ""
+      type class_ref 128121 // Seance
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 128249 ""
+      type class_ref 135161 // LesCapteurs
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 128377 ""
+      type class_ref 128249 // Pompe
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 128505 ""
+      type class_ref 128377 // VanneAttrait
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 128633 ""
+      type class_ref 128505 // CageAscenseur
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 128761 ""
+      type class_ref 128633 // Grille
+      attributes
+        end
+      relations
+        end
+    end
   end
 
   deploymentview 128202 "Vue de deploiement"
