@@ -3,20 +3,22 @@ format 75
 classinstance 128121 class_ref 128377 // VanneAttrait
   name ""   xyz 259.3 57.2 2005 life_line_z 2000
 fragment 128505 "SD: scénario fermer la vanne d'attrait"
-  xyzwh 15.1 26.2 2000 520 435
+  xyzwh 13.1 12.2 2000 520 435
 end
 classinstance 128761 class_ref 128121 // Seance
   name ""   xyz 84.6 54.5 2005 life_line_z 2000
 classinstance 128889 class_ref 128714 // VanneDattrait
   name ""   xyz 395 53 2000 life_line_z 2000
+textcanvas 130425 "[VANNE_OUVERTE]"
+  xyzwh 197 197 2000 88 11
 durationcanvas 129145 classinstance_ref 128121 // :VanneAttrait
-  xyzwh 287 106.1 2010 11 187
+  xyzwh 287 106 2010 11 187
 end
 durationcanvas 129401 classinstance_ref 128889 // :VanneDattrait
-  xyzwh 420 260.3 2010 11 75
+  xyzwh 420 214 2010 11 75
 end
 durationcanvas 129529 classinstance_ref 128761 // :Seance
-  xyzwh 103 103.1 2010 11 213
+  xyzwh 103 103 2010 11 213
 end
 msg 129657 return
   from durationcanvas_ref 129145
@@ -33,7 +35,7 @@ msg 129913 synchronous
 msg 130297 synchronous
   from durationcanvas_ref 129145
   to durationcanvas_ref 129401
-  yz 263 2015 msg operation_ref 132985 // "VANNE_FERMEE()"
+  yz 217 2015 msg operation_ref 132985 // "VANNE_FERMEE()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 310 248
+  label_xy 310 202
 end
