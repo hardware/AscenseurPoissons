@@ -11,7 +11,7 @@ classinstance 128505 class_ref 128970 // cageAscenseur
 classinstance 128633 class_ref 128458 // LesCapteurs
   name ""   xyz 722 39 2000 life_line_z 2000
 textcanvas 130169 "[ ASCENSEUR EN POSITION HAUTE ]"
-  xyzwh 110 282 3005 214 15
+  xyzwh 160 287 3005 214 15
 fragment 130297 "SD : scenario descendre la cage"
   xyzwh 19 12 2000 806 395
 end
