@@ -12,7 +12,7 @@ classinstance 128633 class_ref 128505 // CageAscenseur
   name ""   xyz 635.4 41.2 2000 life_line_z 2000
 fragment 131961 "alt (surcharge)"
   xyzwh 45.4 262.4 3005 657 243
-  separator 3989
+  separator 3988
 end
 textcanvas 132089 "[VRAI]"
   xyzwh 49 292 3010 35 21
