@@ -47,3 +47,5 @@ UML/BOUML/ascenseur/*.d
 
 # Fichiers temporaires
 *~
+~$*
+~*.tmp
