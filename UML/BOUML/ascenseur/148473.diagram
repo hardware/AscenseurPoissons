@@ -12,7 +12,7 @@ classinstance 128633 class_ref 128505 // CageAscenseur
   name ""   xyz 556 24 2000 life_line_z 2000
 classinstance 131961 class_ref 128633 // Grille
   name ""   xyz 677 25 2000 life_line_z 2000
-fragment 132601 "alt (etat_seance)"
+fragment 132601 "alt (typeTest)"
   xyzwh 131 222 2000 629 449
   separator 1302
   separator 2527
@@ -23,28 +23,28 @@ fragment 132601 "alt (etat_seance)"
   separator 8719
 end
 textcanvas 132729 "[DEM_POMPE]"
-  xyzwh 135 247 2006 87 23
+  xyzwh 135 259 2006 109 20
 textcanvas 132857 "[ARRET_POMPE]"
-  xyzwh 134 290 2006 97 23
+  xyzwh 135 291 2006 119 20
 textcanvas 132985 "[OUVRIR_VANNE]"
-  xyzwh 137 352 2006 104 17
+  xyzwh 133 341 2006 126 15
 textcanvas 133113 "[FERMER_VANNE]"
-  xyzwh 135 401 2006 106 21
+  xyzwh 135 385 2006 128 18
 textcanvas 133241 "[MONTER_CAGE]"
-  xyzwh 134 455 2006 106 18
+  xyzwh 133 445 2006 128 15
 textcanvas 133369 "[DESCENDRE_CAGE]"
-  xyzwh 134 511 2005 130 21
+  xyzwh 135 504 2005 152 18
 textcanvas 133497 "[OUVRIR_GRILLE]"
-  xyzwh 134 573 2005 111 18
+  xyzwh 134 573 2005 133 15
 textcanvas 133625 "[FERMER_GRILLE]"
-  xyzwh 133 635 2005 114 15
+  xyzwh 133 635 2005 136 15
 fragment 133753 "alt(etat_seance)"
-  xyzwh 75 161 2000 723 558
+  xyzwh 94 176 2000 723 558
 end
 textcanvas 133881 "[MANU]"
-  xyzwh 103 190 2005 34 11
+  xyzwh 120 202 2005 56 15
 fragment 134009 "SD: Tester les appareillages"
-  xyzwh 16 10 2000 809 730
+  xyzwh 16 10 2000 831 727
 end
 durationcanvas 128761 classinstance_ref 128121 // :Agent
   xyzwh 40 104 2010 11 668

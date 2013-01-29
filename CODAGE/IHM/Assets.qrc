@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/files">
         <file>img/schema.png</file>
+        <file>img/logo-shem.gif</file>
     </qresource>
 </RCC>
