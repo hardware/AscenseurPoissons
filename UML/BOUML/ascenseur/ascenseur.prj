@@ -1,7 +1,7 @@
 format 75
 "ascenseur"
-  revision 12
-  modified_by 121 "jerometardos"
+  revision 13
+  modified_by 15 "Hardware"
 
 
   
@@ -1008,7 +1008,7 @@ ${inlines}
       idl_decl ""
       explicit_switch_type ""
       
-      operation 128889 "fermer()"
+      operation 128889 "fermer"
 	public explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
