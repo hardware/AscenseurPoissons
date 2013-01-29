@@ -912,6 +912,15 @@ border:3px solid  rgb(125, 125, 125);</string>
       <property name="text">
        <string>Jan 28 12:21:37 [DEFAUT] - Un défaut est survenu au niveau de la pompe FLYGT</string>
       </property>
+      <property name="foreground">
+       <brush brushstyle="NoBrush">
+        <color alpha="255">
+         <red>255</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
+       </brush>
+      </property>
       <property name="flags">
        <set>ItemIsEnabled</set>
       </property>
@@ -934,6 +943,15 @@ border:3px solid  rgb(125, 125, 125);</string>
      <item>
       <property name="text">
        <string>Jan 28 12:44:35 [INFO] -  Le système est à l'arrêt</string>
+      </property>
+      <property name="foreground">
+       <brush brushstyle="NoBrush">
+        <color alpha="255">
+         <red>0</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
+       </brush>
       </property>
      </item>
     </widget>
