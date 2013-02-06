@@ -22,11 +22,39 @@
      <height>391</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
    <property name="styleSheet">
     <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>5</number>
+    <number>0</number>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>24</width>
+     <height>24</height>
+    </size>
+   </property>
+   <property name="elideMode">
+    <enum>Qt::ElideRight</enum>
+   </property>
+   <property name="usesScrollButtons">
+    <bool>false</bool>
+   </property>
+   <property name="documentMode">
+    <bool>false</bool>
+   </property>
+   <property name="tabsClosable">
+    <bool>false</bool>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
    </property>
    <widget class="QWidget" name="tab_6">
     <attribute name="title">
@@ -374,7 +402,7 @@
       </font>
      </property>
      <property name="title">
-      <string>Cage</string>
+      <string>CAGE</string>
      </property>
      <widget class="QPushButton" name="pushButton_4">
       <property name="geometry">
@@ -471,6 +499,8 @@
      <property name="font">
       <font>
        <pointsize>11</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="text">
@@ -937,14 +967,19 @@
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>10</x>
         <y>90</y>
-        <width>21</width>
-        <height>16</height>
+        <width>61</width>
+        <height>20</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
       <property name="text">
-       <string>MIN</string>
+       <string>MINUTES</string>
       </property>
      </widget>
     </widget>
@@ -981,17 +1016,24 @@
       <rect>
        <x>10</x>
        <y>10</y>
-       <width>431</width>
+       <width>251</width>
        <height>71</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
      <property name="title">
-      <string>Appareillages</string>
+      <string>APPAREILLAGES</string>
      </property>
      <widget class="QLabel" name="label_3">
       <property name="geometry">
        <rect>
-        <x>120</x>
+        <x>20</x>
         <y>20</y>
         <width>21</width>
         <height>21</height>
@@ -1008,28 +1050,28 @@ border:3px solid  rgb(125, 125, 125);</string>
      <widget class="QLabel" name="label_4">
       <property name="geometry">
        <rect>
-        <x>100</x>
-        <y>40</y>
+        <x>10</x>
+        <y>50</y>
         <width>61</width>
         <height>20</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>11</pointsize>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <property name="styleSheet">
        <string notr="true"/>
       </property>
       <property name="text">
-       <string> POMPE</string>
+       <string>POMPE</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_5">
       <property name="geometry">
        <rect>
-        <x>270</x>
+        <x>150</x>
         <y>20</y>
         <width>21</width>
         <height>21</height>
@@ -1046,15 +1088,15 @@ border:3px solid  rgb(125, 125, 125);</string>
      <widget class="QLabel" name="label_6">
       <property name="geometry">
        <rect>
-        <x>180</x>
-        <y>40</y>
+        <x>80</x>
+        <y>50</y>
         <width>201</width>
         <height>16</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>11</pointsize>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <property name="text">
@@ -1066,26 +1108,31 @@ border:3px solid  rgb(125, 125, 125);</string>
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>90</y>
+       <y>80</y>
        <width>431</width>
        <height>101</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
      <property name="title">
-      <string>Niveaux</string>
+      <string>NIVEAUX</string>
      </property>
      <widget class="QLabel" name="label_8">
       <property name="geometry">
        <rect>
-        <x>300</x>
-        <y>40</y>
+        <x>310</x>
+        <y>50</y>
         <width>111</width>
         <height>16</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>11</pointsize>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <property name="text">
@@ -1095,15 +1142,15 @@ border:3px solid  rgb(125, 125, 125);</string>
      <widget class="QLabel" name="label_10">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>40</y>
+        <x>40</x>
+        <y>50</y>
         <width>111</width>
         <height>16</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>11</pointsize>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <property name="text">
@@ -1120,7 +1167,7 @@ border:3px solid  rgb(125, 125, 125);</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: red;
+       <string notr="true">background-color: rgb(255, 107, 1);
 border:3px solid  rgb(125, 125, 125);</string>
       </property>
       <property name="text">
@@ -1130,15 +1177,15 @@ border:3px solid  rgb(125, 125, 125);</string>
      <widget class="QLabel" name="label_11">
       <property name="geometry">
        <rect>
-        <x>170</x>
-        <y>40</y>
+        <x>180</x>
+        <y>50</y>
         <width>101</width>
         <height>16</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>11</pointsize>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <property name="text">
@@ -1222,7 +1269,7 @@ border:3px solid  rgb(125, 125, 125);</string>
        <string notr="true">color: rgb(0, 0, 127);</string>
       </property>
       <property name="text">
-       <string>10 mNGF</string>
+       <string>10 mL</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="lineEdit_9">
@@ -1248,28 +1295,23 @@ border:3px solid  rgb(125, 125, 125);</string>
        <string>10 mNGF</string>
       </property>
      </widget>
-     <zorder>label_8</zorder>
-     <zorder>label_10</zorder>
-     <zorder>label_12</zorder>
-     <zorder>label_11</zorder>
-     <zorder>label_13</zorder>
-     <zorder>label_13</zorder>
-     <zorder>label_14</zorder>
-     <zorder>lineEdit_6</zorder>
-     <zorder>lineEdit_8</zorder>
-     <zorder>lineEdit_9</zorder>
     </widget>
     <widget class="QGroupBox" name="groupBox_7">
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>200</y>
+       <y>180</y>
        <width>431</width>
-       <height>151</height>
+       <height>181</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
      <property name="title">
-      <string>Défauts</string>
+      <string>DEFAUTS</string>
      </property>
      <widget class="QLabel" name="label_19">
       <property name="geometry">
@@ -1365,7 +1407,7 @@ border:3px solid  rgb(125, 125, 125);</string>
        <rect>
         <x>260</x>
         <y>60</y>
-        <width>111</width>
+        <width>181</width>
         <height>16</height>
        </rect>
       </property>
@@ -1375,7 +1417,7 @@ border:3px solid  rgb(125, 125, 125);</string>
        </font>
       </property>
       <property name="text">
-       <string>Défaut huile</string>
+       <string>Défaut centrale hydrolique</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_29">
@@ -1517,23 +1559,6 @@ border:3px solid  rgb(125, 125, 125);</string>
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_36">
-      <property name="geometry">
-       <rect>
-        <x>230</x>
-        <y>60</y>
-        <width>21</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: red;
-border:3px solid  rgb(125, 125, 125);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_23">
       <property name="geometry">
        <rect>
@@ -1551,7 +1576,135 @@ border:3px solid  rgb(125, 125, 125);</string>
        <string/>
       </property>
      </widget>
+     <widget class="QLabel" name="label_37">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>150</y>
+        <width>151</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Défaut cycle</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_38">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>150</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(63, 63, 63);
+border:3px solid  rgb(125, 125, 125);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_39">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>150</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: red;
+border:3px solid  rgb(125, 125, 125);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_27">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>150</y>
+        <width>111</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Défaut huile</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_40">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>60</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(63, 63, 63);
+border:3px solid  rgb(125, 125, 125);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
     </widget>
+    <widget class="QGroupBox" name="groupBox_3">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>10</y>
+       <width>171</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="title">
+      <string>NOMBRE DE CYCLES</string>
+     </property>
+     <widget class="QLineEdit" name="lineEdit_10">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>20</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>24</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>42</string>
+      </property>
+     </widget>
+    </widget>
+    <zorder>groupBox</zorder>
+    <zorder>groupBox_2</zorder>
+    <zorder>groupBox_7</zorder>
+    <zorder>groupBox_3</zorder>
+    <zorder>groupBox_3</zorder>
    </widget>
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
