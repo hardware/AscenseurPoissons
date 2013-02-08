@@ -908,7 +908,7 @@
       </font>
      </property>
      <property name="title">
-      <string>DUREE DU CYCLE</string>
+      <string>PERIODICITE</string>
      </property>
      <widget class="QPushButton" name="pushButton_29">
       <property name="geometry">
@@ -1700,11 +1700,6 @@ border:3px solid  rgb(125, 125, 125);</string>
       </property>
      </widget>
     </widget>
-    <zorder>groupBox</zorder>
-    <zorder>groupBox_2</zorder>
-    <zorder>groupBox_7</zorder>
-    <zorder>groupBox_3</zorder>
-    <zorder>groupBox_3</zorder>
    </widget>
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
