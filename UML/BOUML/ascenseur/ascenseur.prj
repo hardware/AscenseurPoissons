@@ -1,6 +1,6 @@
 format 75
 "ascenseur"
-  revision 19
+  revision 21
   modified_by 15 "Hardware"
 
 
@@ -460,6 +460,12 @@ ${inlines}
       sequencediagram 128377 "Diagramme de séquence"
 	show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
 	overlapping_bars size A4
+      end
+
+      simplerelation 128015
+	-_->
+	  stereotype "include"
+	  on usecase_ref 129354 // Commander les appareillages
       end
     end
 

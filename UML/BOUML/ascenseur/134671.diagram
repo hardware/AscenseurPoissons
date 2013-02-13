@@ -1,36 +1,39 @@
 format 75
 
 classinstance 128015 class_ref 128121 // Seance
-  name ""   xyz 108 4 2005 life_line_z 2000
+  name ""   xyz 75 39 2005 life_line_z 2000
 classinstance 128143 class_ref 134543 // CentraleHydraulique
-  name ""   xyz 220 4 2005 life_line_z 2000
+  name ""   xyz 187 39 2005 life_line_z 2000
 classinstance 128271 class_ref 128015 // CentraleHydraulique
-  name ""   xyz 395 5 2005 life_line_z 2000
+  name ""   xyz 362 40 2005 life_line_z 2000
+fragment 129167 "SD : Scenario arreter centrale hydraulique"
+  xyzwh 18 10 2000 528 206
+end
 durationcanvas 128399 classinstance_ref 128015 // :Seance
-  xyzwh 131 82 2010 11 75
+  xyzwh 98 117 2010 11 75
 end
 durationcanvas 128527 classinstance_ref 128143 // :CentraleHydraulique
-  xyzwh 278 82 2010 11 72
+  xyzwh 245 117 2010 11 72
 end
 durationcanvas 128783 classinstance_ref 128271 // :CentraleHydraulique
-  xyzwh 449 98 2010 11 25
+  xyzwh 416 133 2010 11 25
 end
 msg 128655 synchronous
   from durationcanvas_ref 128399
   to durationcanvas_ref 128527
-  yz 83 2015 msg operation_ref 128015 // "arreter()"
+  yz 118 2015 msg operation_ref 128015 // "arreter()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 188 68
+  label_xy 155 103
 msg 128911 synchronous
   from durationcanvas_ref 128527
   to durationcanvas_ref 128783
-  yz 99 2015 msg operation_ref 141455 // "CENTRALE_OFF()"
+  yz 134 2015 msg operation_ref 141455 // "CENTRALE_OFF()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 318 84
+  label_xy 285 119
 msg 129039 return
   from durationcanvas_ref 128527
   to durationcanvas_ref 128399
-  yz 134 2015 explicitmsg "ON / OFF"
+  yz 169 2015 explicitmsg "ON / OFF"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 185 119
+  label_xy 152 154
 end
