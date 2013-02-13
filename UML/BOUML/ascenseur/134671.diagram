@@ -1,0 +1,36 @@
+format 75
+
+classinstance 128015 class_ref 128121 // Seance
+  name ""   xyz 108 4 2005 life_line_z 2000
+classinstance 128143 class_ref 134543 // CentraleHydraulique
+  name ""   xyz 220 4 2005 life_line_z 2000
+classinstance 128271 class_ref 128015 // CentraleHydraulique
+  name ""   xyz 395 5 2005 life_line_z 2000
+durationcanvas 128399 classinstance_ref 128015 // :Seance
+  xyzwh 131 82 2010 11 75
+end
+durationcanvas 128527 classinstance_ref 128143 // :CentraleHydraulique
+  xyzwh 278 82 2010 11 72
+end
+durationcanvas 128783 classinstance_ref 128271 // :CentraleHydraulique
+  xyzwh 449 98 2010 11 25
+end
+msg 128655 synchronous
+  from durationcanvas_ref 128399
+  to durationcanvas_ref 128527
+  yz 83 2015 msg operation_ref 128015 // "arreter()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 188 68
+msg 128911 synchronous
+  from durationcanvas_ref 128527
+  to durationcanvas_ref 128783
+  yz 99 2015 msg operation_ref 141455 // "CENTRALE_OFF()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 318 84
+msg 129039 return
+  from durationcanvas_ref 128527
+  to durationcanvas_ref 128399
+  yz 134 2015 explicitmsg "ON / OFF"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 185 119
+end

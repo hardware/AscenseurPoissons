@@ -2,80 +2,91 @@ format 75
 
 classinstance 128121 class_ref 128121 // Seance
   name ""   xyz 96 42.8 2000 life_line_z 2000
+classinstance 128143 class_ref 134543 // CentraleHydraulique
+  name ""   xyz 702 83 2005 life_line_z 2000
 classinstance 128249 class_ref 128377 // VanneAttrait
-  name ""   xyz 227.8 40.2 2000 life_line_z 2000
+  name ""   xyz 229.8 43.2 2000 life_line_z 2000
 classinstance 128377 class_ref 128633 // Grille
-  name ""   xyz 360.4 44 2000 life_line_z 2000
+  name ""   xyz 364.4 45 2000 life_line_z 2000
 classinstance 128505 class_ref 128249 // Pompe
-  name ""   xyz 501 39 2000 life_line_z 2000
+  name ""   xyz 501 46 2000 life_line_z 2000
 classinstance 128633 class_ref 128505 // CageAscenseur
-  name ""   xyz 635.4 41.2 2000 life_line_z 2000
+  name ""   xyz 635.4 47.2 2000 life_line_z 2000
 fragment 131961 "alt (surcharge)"
-  xyzwh 45.4 262.4 3005 657 243
+  xyzwh 52.4 264.4 3005 657 243
   separator 3988
 end
 textcanvas 132089 "[VRAI]"
-  xyzwh 49 292 3010 35 21
+  xyzwh 60 288 3010 35 21
 textcanvas 132217 "[FAUX]
 "
-  xyzwh 48 376 3010 42 15
+  xyzwh 59 372 3010 42 15
 fragment 133881 "alt (etat_cycle)"
-  xyzwh 21.6 166.2 2000 764 531
+  xyzwh 22.6 165.2 2000 805 532
   separator 1150
   separator 7157
   separator 8280
 end
 textcanvas 134009 "[PECHE]
 "
-  xyzwh 25 192 2005 57 18
+  xyzwh 29 186 2005 57 18
 textcanvas 134137 "[MONTEE]"
-  xyzwh 25 248 2005 59 19
+  xyzwh 29 242 2005 59 19
 textcanvas 134265 "[DESCENTE]"
-  xyzwh 26 560 2015 72 15
+  xyzwh 30 554 2015 72 15
 textcanvas 134393 "[VIDANGE]"
-  xyzwh 26 613 2005 62 15
+  xyzwh 30 607 2005 62 15
 fragment 134521 "SD : arreter automatisation"
-  xyzwh 13.8 11.2 2000 800 736
+  xyzwh 17.8 6.2 2000 814 834
+end
+durationcanvas 128271 classinstance_ref 128143 // :CentraleHydraulique
+  xyzwh 760 733 2010 11 26
 end
 durationcanvas 128761 classinstance_ref 128121 // :Seance
-  xyzwh 115 128 2010 11 615
+  xyzwh 119 128 2010 11 663
   overlappingdurationcanvas 129913
-    xyzwh 121 369 2020 11 25
+    xyzwh 125 369 2020 11 25
   end
   overlappingdurationcanvas 130425
-    xyzwh 121 458 2020 11 25
+    xyzwh 125 458 2020 11 25
   end
   overlappingdurationcanvas 132345
-    xyzwh 121 628 2020 11 25
+    xyzwh 125 628 2020 11 25
   end
   overlappingdurationcanvas 133625
-    xyzwh 121 710 2020 11 25
+    xyzwh 125 760 2020 11 25
   end
 end
 durationcanvas 128889 classinstance_ref 128249 // :VanneAttrait
-  xyzwh 255 129 2010 11 27
+  xyzwh 263 129 2010 11 27
 end
 durationcanvas 129145 classinstance_ref 128505 // :Pompe
-  xyzwh 520 187 2010 11 26
+  xyzwh 523 187 2010 11 26
 end
 durationcanvas 129401 classinstance_ref 128633 // :CageAscenseur
-  xyzwh 669 273 2010 11 31
+  xyzwh 681 273 2010 11 31
 end
 durationcanvas 129657 classinstance_ref 128377 // :Grille
-  xyzwh 379 315 2010 11 35
+  xyzwh 383 315 2010 11 35
 end
 durationcanvas 130169 classinstance_ref 128377 // :Grille
-  xyzwh 379 423 2010 11 34
+  xyzwh 383 423 2010 11 34
 end
 durationcanvas 132857 classinstance_ref 128505 // :Pompe
-  xyzwh 520 516 2010 11 25
+  xyzwh 523 516 2010 11 25
 end
 durationcanvas 133113 classinstance_ref 128505 // :Pompe
-  xyzwh 520 574 2010 11 26
+  xyzwh 523 574 2010 11 26
 end
 durationcanvas 133369 classinstance_ref 128505 // :Pompe
-  xyzwh 520 661 2010 11 26
+  xyzwh 523 661 2010 11 26
 end
+msg 128399 synchronous
+  from durationcanvas_ref 128761
+  to durationcanvas_ref 128271
+  yz 733 2015 msg operation_ref 128015 // "arreter()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 423 718
 msg 129017 synchronous
   from durationcanvas_ref 128761
   to durationcanvas_ref 128889
@@ -141,7 +152,7 @@ msg 133497 synchronous
   label_xy 463 652
 reflexivemsg 133753 synchronous
   to durationcanvas_ref 133625
-  yz 710 2025 explicitmsg "etat_seance=MANU"
+  yz 760 2025 explicitmsg "etat_seance=MANU"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 159 708
+  label_xy 159 758
 end
