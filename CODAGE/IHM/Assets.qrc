@@ -1,7 +1,11 @@
 <RCC>
     <qresource prefix="/files">
-        <file>img/schema.png</file>
         <file>img/logo-shem.gif</file>
         <file>img/icon-shem.jpg</file>
+        <file>img/ko.png</file>
+        <file>img/ok.png</file>
+        <file>img/logo-shem.jpg</file>
+        <file>img/schema.png</file>
+        <file>img/centrale.jpg</file>
     </qresource>
 </RCC>
