@@ -69,11 +69,11 @@
    <property name="movable">
     <bool>false</bool>
    </property>
-   <widget class="QWidget" name="tab_6">
+   <widget class="QWidget" name="accueil">
     <attribute name="title">
      <string>ACCUEIL</string>
     </attribute>
-    <widget class="QLabel" name="label_2">
+    <widget class="QLabel" name="LB_ImgCentrale">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -89,7 +89,7 @@
       <pixmap resource="Assets.qrc">:/files/img/centrale.jpg</pixmap>
      </property>
     </widget>
-    <widget class="QLabel" name="label_34">
+    <widget class="QLabel" name="LB_Titre">
      <property name="geometry">
       <rect>
        <x>60</x>
@@ -111,7 +111,7 @@
       <string>INTERFACE DE CONTROLE DE L'ASCENSEUR A POISSONS</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_35">
+    <widget class="QLabel" name="LB_Version">
      <property name="geometry">
       <rect>
        <x>510</x>
@@ -131,15 +131,15 @@
       <string>v1.0</string>
      </property>
     </widget>
-    <zorder>label_2</zorder>
-    <zorder>label_35</zorder>
-    <zorder>label_34</zorder>
+    <zorder>LB_ImgCentrale</zorder>
+    <zorder>LB_Version</zorder>
+    <zorder>LB_Titre</zorder>
    </widget>
-   <widget class="QWidget" name="tab_4">
+   <widget class="QWidget" name="manuel">
     <attribute name="title">
      <string>MANUEL</string>
     </attribute>
-    <widget class="QGroupBox" name="groupBox_6">
+    <widget class="QGroupBox" name="GB_Centrale">
      <property name="geometry">
       <rect>
        <x>280</x>
@@ -156,7 +156,7 @@
      <property name="title">
       <string>CENTRALE HYDRAULIQUE</string>
      </property>
-     <widget class="QPushButton" name="pushButton_8">
+     <widget class="QPushButton" name="BP_CentraleHydraulique_Demarrer">
       <property name="geometry">
        <rect>
         <x>40</x>
@@ -168,18 +168,18 @@
       <property name="font">
        <font>
         <pointsize>10</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
+        <weight>50</weight>
+        <bold>false</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(0, 170, 0);</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>DEMARRER</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_9">
+     <widget class="QPushButton" name="BP_CentraleHydraulique_Arreter">
       <property name="geometry">
        <rect>
         <x>150</x>
@@ -191,19 +191,19 @@
       <property name="font">
        <font>
         <pointsize>10</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
+        <weight>50</weight>
+        <bold>false</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(255, 0, 0);</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>ARRETER</string>
       </property>
      </widget>
     </widget>
-    <widget class="QGroupBox" name="groupBox_8">
+    <widget class="QGroupBox" name="GB_Pompe">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -220,7 +220,7 @@
      <property name="title">
       <string>POMPE FLYGT</string>
      </property>
-     <widget class="QPushButton" name="pushButton_10">
+     <widget class="QPushButton" name="BP_Pompe_Demarrer">
       <property name="geometry">
        <rect>
         <x>40</x>
@@ -232,19 +232,19 @@
       <property name="font">
        <font>
         <pointsize>10</pointsize>
-        <weight>75</weight>
+        <weight>50</weight>
         <italic>false</italic>
-        <bold>true</bold>
+        <bold>false</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(0, 170, 0);</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>DEMARRER</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_11">
+     <widget class="QPushButton" name="BP_Pompe_Arreter">
       <property name="geometry">
        <rect>
         <x>150</x>
@@ -256,19 +256,19 @@
       <property name="font">
        <font>
         <pointsize>10</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
+        <weight>50</weight>
+        <bold>false</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(255, 0, 0);</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>ARRETER</string>
       </property>
      </widget>
     </widget>
-    <widget class="QGroupBox" name="groupBox_9">
+    <widget class="QGroupBox" name="GB_VanneAttrait">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -285,7 +285,7 @@
      <property name="title">
       <string>VANNE D'ATTRAIT</string>
      </property>
-     <widget class="QPushButton" name="pushButton_12">
+     <widget class="QPushButton" name="BP_VanneAttrait_Ouvrir">
       <property name="geometry">
        <rect>
         <x>40</x>
@@ -297,18 +297,18 @@
       <property name="font">
        <font>
         <pointsize>10</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
+        <weight>50</weight>
+        <bold>false</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(0, 170, 0);</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>OUVRIR</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_13">
+     <widget class="QPushButton" name="BP_VanneAttrait_Fermer">
       <property name="geometry">
        <rect>
         <x>150</x>
@@ -320,19 +320,19 @@
       <property name="font">
        <font>
         <pointsize>10</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
+        <weight>50</weight>
+        <bold>false</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(255, 0, 0);</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>FERMER</string>
       </property>
      </widget>
     </widget>
-    <widget class="QGroupBox" name="groupBox_10">
+    <widget class="QGroupBox" name="GB_Grille">
      <property name="geometry">
       <rect>
        <x>280</x>
@@ -349,7 +349,7 @@
      <property name="title">
       <string>GRILLE</string>
      </property>
-     <widget class="QPushButton" name="pushButton_14">
+     <widget class="QPushButton" name="BP_Grille_Ouvrir">
       <property name="geometry">
        <rect>
         <x>40</x>
@@ -361,18 +361,18 @@
       <property name="font">
        <font>
         <pointsize>10</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
+        <weight>50</weight>
+        <bold>false</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(0, 170, 0);</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>OUVRIR</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_15">
+     <widget class="QPushButton" name="BP_Grille_Fermer">
       <property name="geometry">
        <rect>
         <x>150</x>
@@ -384,19 +384,19 @@
       <property name="font">
        <font>
         <pointsize>10</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
+        <weight>50</weight>
+        <bold>false</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(255, 0, 0);</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>FERMER</string>
       </property>
      </widget>
     </widget>
-    <widget class="QGroupBox" name="groupBox_5">
+    <widget class="QGroupBox" name="GB_Cage">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -413,7 +413,7 @@
      <property name="title">
       <string>CAGE</string>
      </property>
-     <widget class="QPushButton" name="pushButton_4">
+     <widget class="QPushButton" name="BP_Cage_MPV">
       <property name="geometry">
        <rect>
         <x>30</x>
@@ -431,7 +431,7 @@
        <string>MONTER EN PETITE VITESSE</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_5">
+     <widget class="QPushButton" name="BP_Cage_MGV">
       <property name="geometry">
        <rect>
         <x>290</x>
@@ -449,7 +449,7 @@
        <string>MONTER EN GRANDE VITESSE</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_6">
+     <widget class="QPushButton" name="BP_Cage_DPV">
       <property name="geometry">
        <rect>
         <x>30</x>
@@ -469,7 +469,7 @@
        <string>DESCENDRE EN PETITE VITESSE</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_7">
+     <widget class="QPushButton" name="BP_Cage_DGV">
       <property name="geometry">
        <rect>
         <x>290</x>
@@ -489,11 +489,11 @@
      </widget>
     </widget>
    </widget>
-   <widget class="QWidget" name="tab">
+   <widget class="QWidget" name="seance">
     <attribute name="title">
      <string>SEANCE</string>
     </attribute>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="BP_Seance_Lancer">
      <property name="enabled">
       <bool>true</bool>
      </property>
@@ -516,7 +516,7 @@
       <string>LANCER</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_2">
+    <widget class="QPushButton" name="BP_Seance_Arreter">
      <property name="enabled">
       <bool>true</bool>
      </property>
@@ -542,7 +542,7 @@
       <string>ARRETER</string>
      </property>
     </widget>
-    <widget class="QGroupBox" name="groupBox_15">
+    <widget class="QGroupBox" name="GB_NombreCycles">
      <property name="geometry">
       <rect>
        <x>200</x>
@@ -559,7 +559,7 @@
      <property name="title">
       <string>NOMBRE DE CYCLES</string>
      </property>
-     <widget class="QPushButton" name="pushButton_24">
+     <widget class="QPushButton" name="BP_NbCycles_PLUS">
       <property name="geometry">
        <rect>
         <x>80</x>
@@ -577,7 +577,7 @@
        <string>+</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_25">
+     <widget class="QPushButton" name="BP_NbCycles_MOINS">
       <property name="geometry">
        <rect>
         <x>80</x>
@@ -595,7 +595,7 @@
        <string>-</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_5">
+     <widget class="QLineEdit" name="AFF_NbCycles">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -614,7 +614,7 @@
       </property>
      </widget>
     </widget>
-    <widget class="QGroupBox" name="groupBox_11">
+    <widget class="QGroupBox" name="GB_PV">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -631,7 +631,7 @@
      <property name="title">
       <string>PETITE VITESSE</string>
      </property>
-     <widget class="QPushButton" name="pushButton_16">
+     <widget class="QPushButton" name="BP_PV_PLUS">
       <property name="geometry">
        <rect>
         <x>90</x>
@@ -649,7 +649,7 @@
        <string>+</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_17">
+     <widget class="QPushButton" name="BP_PV_MOINS">
       <property name="geometry">
        <rect>
         <x>90</x>
@@ -667,7 +667,7 @@
        <string>-</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit">
+     <widget class="QLineEdit" name="AFF_PV">
       <property name="geometry">
        <rect>
         <x>30</x>
@@ -686,7 +686,7 @@
       </property>
      </widget>
     </widget>
-    <widget class="QGroupBox" name="groupBox_12">
+    <widget class="QGroupBox" name="GB_GV">
      <property name="geometry">
       <rect>
        <x>200</x>
@@ -703,7 +703,7 @@
      <property name="title">
       <string>GRANDE VITESSE</string>
      </property>
-     <widget class="QPushButton" name="pushButton_18">
+     <widget class="QPushButton" name="BP_GV_PLUS">
       <property name="geometry">
        <rect>
         <x>80</x>
@@ -721,7 +721,7 @@
        <string>+</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_19">
+     <widget class="QPushButton" name="BP_GV_MOINS">
       <property name="geometry">
        <rect>
         <x>80</x>
@@ -739,7 +739,7 @@
        <string>-</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_2">
+     <widget class="QLineEdit" name="AFF_GV">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -758,7 +758,7 @@
       </property>
      </widget>
     </widget>
-    <widget class="QGroupBox" name="groupBox_13">
+    <widget class="QGroupBox" name="GB_TempsPeche">
      <property name="geometry">
       <rect>
        <x>370</x>
@@ -775,7 +775,7 @@
      <property name="title">
       <string>TEMPS DE PECHE</string>
      </property>
-     <widget class="QPushButton" name="pushButton_20">
+     <widget class="QPushButton" name="BP_TempsPeche_PLUS">
       <property name="geometry">
        <rect>
         <x>80</x>
@@ -793,7 +793,7 @@
        <string>+</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_21">
+     <widget class="QPushButton" name="BP_TempsPeche_MOINS">
       <property name="geometry">
        <rect>
         <x>80</x>
@@ -811,7 +811,7 @@
        <string>-</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_3">
+     <widget class="QLineEdit" name="AFF_TempsPeche">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -830,7 +830,7 @@
       </property>
      </widget>
     </widget>
-    <widget class="QGroupBox" name="groupBox_14">
+    <widget class="QGroupBox" name="GB_TempsVidange">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -847,7 +847,7 @@
      <property name="title">
       <string>TEMPS DE VIDANGE</string>
      </property>
-     <widget class="QPushButton" name="pushButton_22">
+     <widget class="QPushButton" name="BP_TempsVidange_PLUS">
       <property name="geometry">
        <rect>
         <x>90</x>
@@ -865,7 +865,7 @@
        <string>+</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_23">
+     <widget class="QPushButton" name="BP_TempsVidange_MOINS">
       <property name="geometry">
        <rect>
         <x>90</x>
@@ -883,7 +883,7 @@
        <string>-</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_4">
+     <widget class="QLineEdit" name="AFF_TempsVidange">
       <property name="geometry">
        <rect>
         <x>30</x>
@@ -902,7 +902,7 @@
       </property>
      </widget>
     </widget>
-    <widget class="QGroupBox" name="groupBox_4">
+    <widget class="QGroupBox" name="GB_Periodicite">
      <property name="geometry">
       <rect>
        <x>370</x>
@@ -919,11 +919,11 @@
      <property name="title">
       <string>PERIODICITE</string>
      </property>
-     <widget class="QPushButton" name="pushButton_29">
+     <widget class="QPushButton" name="BP_Periodicite_PLUS">
       <property name="geometry">
        <rect>
         <x>80</x>
-        <y>20</y>
+        <y>30</y>
         <width>51</width>
         <height>41</height>
        </rect>
@@ -937,7 +937,7 @@
        <string>+</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_7">
+     <widget class="QLineEdit" name="AFF_Periodicite">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -955,11 +955,11 @@
        <string>15</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_28">
+     <widget class="QPushButton" name="BP_Periodicite_MOINS">
       <property name="geometry">
        <rect>
         <x>80</x>
-        <y>70</y>
+        <y>80</y>
         <width>51</width>
         <height>41</height>
        </rect>
@@ -992,7 +992,7 @@
       </property>
      </widget>
     </widget>
-    <widget class="QPushButton" name="pushButton_3">
+    <widget class="QPushButton" name="BP_Seance_Enregistrer">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -1016,7 +1016,7 @@
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="tab_3">
+   <widget class="QWidget" name="statuts">
     <attribute name="title">
      <string>STATUTS</string>
     </attribute>
@@ -1728,11 +1728,11 @@ border:3px solid  rgb(125, 125, 125);</string>
      </widget>
     </widget>
    </widget>
-   <widget class="QWidget" name="tab_2">
+   <widget class="QWidget" name="synoptique">
     <attribute name="title">
      <string>SYNOPTIQUE</string>
     </attribute>
-    <widget class="QLabel" name="label_9">
+    <widget class="QLabel" name="schema">
      <property name="geometry">
       <rect>
        <x>30</x>
@@ -1748,7 +1748,7 @@ border:3px solid  rgb(125, 125, 125);</string>
       <pixmap resource="Assets.qrc">:/files/img/schema.png</pixmap>
      </property>
     </widget>
-    <widget class="QProgressBar" name="progressBar">
+    <widget class="QProgressBar" name="ascenseurProgression">
      <property name="geometry">
       <rect>
        <x>230</x>
@@ -1765,11 +1765,11 @@ border:3px solid  rgb(125, 125, 125);</string>
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="tab_5">
+   <widget class="QWidget" name="journal">
     <attribute name="title">
      <string>JOURNAL (2)</string>
     </attribute>
-    <widget class="QListWidget" name="listWidget">
+    <widget class="QListWidget" name="logs">
      <property name="geometry">
       <rect>
        <x>10</x>
