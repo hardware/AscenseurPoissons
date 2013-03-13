@@ -1,0 +1,166 @@
+format 75
+
+textcanvas 128015 "[DEM_CENTRALE]"
+  xyzwh 94 670 2005 234 16
+classinstance 128121 class_ref 128202 // Agent
+  name ""   xyz 27 44 2000 life_line_z 2000
+classinstance 128143 class_ref 134543 // CentraleHydraulique
+  name ""   xyz 709 60 2005 life_line_z 2000
+classinstance 128249 class_ref 128121 // Seance
+  name ""   xyz 282 22 2000 life_line_z 2000
+classinstance 128377 class_ref 128249 // Pompe
+  name ""   xyz 374 22 2000 life_line_z 2000
+classinstance 128505 class_ref 128377 // VanneAttrait
+  name ""   xyz 464 24 2000 life_line_z 2000
+textcanvas 128527 "[ARRET_CENTRALE]"
+  xyzwh 94 740 2005 134 15
+classinstance 128633 class_ref 128505 // CageAscenseur
+  name ""   xyz 556 24 2000 life_line_z 2000
+fragment 129039 "alt(etat_seance)"
+  xyzwh 67 152 2010 757 701
+end
+fragment 129167 "SD : Tester les appareillages"
+  xyzwh 7 6 2000 830 860
+end
+classinstance 131961 class_ref 128633 // Grille
+  name ""   xyz 677 25 2000 life_line_z 2000
+fragment 132601 "alt (typeTest)"
+  xyzwh 91 229 2000 703 571
+  separator 900
+  separator 1828
+  separator 2666
+  separator 3649
+  separator 4478
+  separator 5483
+  separator 6554
+  separator 7549
+  separator 8887
+end
+textcanvas 132729 "[DEM_POMPE]"
+  xyzwh 95 256 2006 190 16
+textcanvas 132857 "[ARRET_POMPE]"
+  xyzwh 95 292 2006 200 16
+textcanvas 132985 "[OUVRIR_VANNE]"
+  xyzwh 93 342 2006 207 16
+textcanvas 133113 "[FERMER_VANNE]"
+  xyzwh 94 387 2006 209 16
+textcanvas 133241 "[MONTER_CAGE]"
+  xyzwh 94 453 2006 209 16
+textcanvas 133369 "[DESCENDRE_CAGE]"
+  xyzwh 93 490 2005 233 16
+textcanvas 133497 "[OUVRIR_GRILLE]"
+  xyzwh 95 551 2005 214 16
+textcanvas 133625 "[FERMER_GRILLE]"
+  xyzwh 96 610 2005 217 16
+textcanvas 133881 "[MANU]"
+  xyzwh 85 187 2005 46 21
+durationcanvas 128271 classinstance_ref 128143 // :CentraleHydraulique
+  xyzwh 767 697 2010 11 27
+end
+durationcanvas 128655 classinstance_ref 128143 // :CentraleHydraulique
+  xyzwh 767 759 2010 11 25
+end
+durationcanvas 128761 classinstance_ref 128121 // :Agent
+  xyzwh 40 91 2010 11 752
+end
+durationcanvas 128889 classinstance_ref 128249 // :Seance
+  xyzwh 305 105 2010 11 739
+end
+durationcanvas 128911 classinstance_ref 128377 // :Pompe
+  xyzwh 396 246 2010 11 25
+end
+durationcanvas 129657 classinstance_ref 128377 // :Pompe
+  xyzwh 396 299 2010 11 26
+end
+durationcanvas 129913 classinstance_ref 128505 // :VanneAttrait
+  xyzwh 498 351 2010 11 25
+end
+durationcanvas 130169 classinstance_ref 128505 // :VanneAttrait
+  xyzwh 498 402 2010 11 25
+end
+durationcanvas 130425 classinstance_ref 128633 // :CageAscenseur
+  xyzwh 602 452 2010 11 25
+end
+durationcanvas 130681 classinstance_ref 128633 // :CageAscenseur
+  xyzwh 602 504 2010 11 25
+end
+durationcanvas 132089 classinstance_ref 131961 // :Grille
+  xyzwh 696 566 2010 11 25
+end
+durationcanvas 132345 classinstance_ref 131961 // :Grille
+  xyzwh 696 623 2010 11 25
+end
+msg 128399 synchronous
+  from durationcanvas_ref 128889
+  to durationcanvas_ref 128271
+  yz 697 2015 msg operation_ref 134543 // "demarrer()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 526 685
+msg 128783 synchronous
+  from durationcanvas_ref 128889
+  to durationcanvas_ref 128655
+  yz 759 2015 msg operation_ref 128015 // "arreter()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 519 744
+msg 129017 synchronous
+  from durationcanvas_ref 128761
+  to durationcanvas_ref 128889
+  yz 120 2015 explicitmsg "TesterAppareillages()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "typeTest"
+  label_xy 53 109
+msg 129273 synchronous
+  from durationcanvas_ref 128889
+  to durationcanvas_ref 128911
+  yz 246 2015 msg operation_ref 128121 // "demarrer()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 326 231
+msg 129785 synchronous
+  from durationcanvas_ref 128889
+  to durationcanvas_ref 129657
+  yz 299 2015 msg operation_ref 129017 // "arreter()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 335 286
+msg 130041 synchronous
+  from durationcanvas_ref 128889
+  to durationcanvas_ref 129913
+  yz 351 2015 explicitmsg "ouvrir()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 433 339
+msg 130297 synchronous
+  from durationcanvas_ref 128889
+  to durationcanvas_ref 130169
+  yz 402 2015 explicitmsg "fermer()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 433 389
+msg 130553 synchronous
+  from durationcanvas_ref 128889
+  to durationcanvas_ref 130425
+  yz 452 2015 explicitmsg "monter()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 533 441
+msg 130809 synchronous
+  from durationcanvas_ref 128889
+  to durationcanvas_ref 130681
+  yz 504 2015 msg operation_ref 129145 // "descendre()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 522 493
+msg 131833 return
+  from durationcanvas_ref 128889
+  to durationcanvas_ref 128761
+  yz 821 2015 explicitmsg "Resultat du test"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 113 828
+msg 132217 synchronous
+  from durationcanvas_ref 128889
+  to durationcanvas_ref 132089
+  yz 566 2015 msg operation_ref 129273 // "ouvrir()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 636 554
+msg 132473 synchronous
+  from durationcanvas_ref 128889
+  to durationcanvas_ref 132345
+  yz 623 2015 msg operation_ref 132601 // "fermer()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 636 611
+end

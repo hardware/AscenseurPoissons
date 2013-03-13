@@ -1,0 +1,72 @@
+format 75
+
+classinstance 128121 class_ref 128121 // Seance
+  name ""   xyz 98 27 2000 life_line_z 2000
+classinstance 128249 class_ref 128249 // Pompe
+  name ""   xyz 242 24 2000 life_line_z 2000
+classinstance 128377 class_ref 128458 // LesCapteurs
+  name ""   xyz 677 20 2005 life_line_z 2000
+classinstance 128505 class_ref 135161 // LesCapteurs
+  name ""   xyz 426 23 2000 life_line_z 2000
+classinstance 128633 class_ref 128586 // Pompe
+  name ""   xyz 564 16 2000 life_line_z 2000
+textcanvas 129785 "
+"
+  xyzwh 164 199 2015 119 88
+fragment 130297 "SD : scenario demarrer la pompe"
+  xyzwh 2 3 2000 809 374
+end
+textcanvas 130425 "[ Niveau OK ]
+"
+  xyzwh 190 212 2030 70 15
+durationcanvas 128761 classinstance_ref 128121 // :Seance
+  xyzwh 121 127 2010 11 171
+end
+durationcanvas 128889 classinstance_ref 128249 // :Pompe
+  xyzwh 264 128 2010 11 142
+end
+durationcanvas 129145 classinstance_ref 128505 // :LesCapteurs
+  xyzwh 464 154 2010 11 53
+end
+durationcanvas 129401 classinstance_ref 128377 // :LesCapteurs
+  xyzwh 711 162 2010 11 37
+end
+durationcanvas 129913 classinstance_ref 128633 // :Pompe
+  xyzwh 582 219 2010 11 25
+end
+msg 129017 synchronous
+  from durationcanvas_ref 128761
+  to durationcanvas_ref 128889
+  yz 131 2015 msg operation_ref 128121 // "demarrer()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 174 120
+msg 129273 synchronous
+  from durationcanvas_ref 128889
+  to durationcanvas_ref 129145
+  yz 157 2015 msg operation_ref 130937 // "LireCapteurNiveauCanalAmont()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 280 143
+msg 129529 synchronous
+  from durationcanvas_ref 129145
+  to durationcanvas_ref 129401
+  yz 162 2020 unspecifiedmsg
+  show_full_operations_definition default drawing_language default show_context_mode default
+msg 129657 return
+  from durationcanvas_ref 129401
+  to durationcanvas_ref 129145
+  yz 187 2015 explicitmsg "niveau amont"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 593 176
+msg 130041 synchronous
+  from durationcanvas_ref 128889
+  to durationcanvas_ref 129913
+  yz 221 2020 msg operation_ref 131065 // "POMPE_ON()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 283 213
+msg 130169 return
+  from durationcanvas_ref 128889
+  to durationcanvas_ref 128761
+  yz 253 2025 explicitmsg "ON/OFF"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 178 242
+end

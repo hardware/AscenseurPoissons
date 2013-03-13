@@ -1,0 +1,7 @@
+window_sizes 1024 712 326 692 603 35
+show_stereotypes
+selected usecase_ref 129226 // Effectuer un cycle
+open
+  usecase_ref 128458 // Arreter automatisation
+end
+end

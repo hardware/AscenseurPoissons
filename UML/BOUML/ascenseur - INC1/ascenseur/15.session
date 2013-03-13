@@ -1,0 +1,15 @@
+window_sizes 1366 705 382 978 596 35
+show_stereotypes
+open
+  usecase_ref 128202 // Programmer une séance
+  usecase_ref 128586 // Tester les appareillages
+  usecase_ref 129354 // Commander les appareillages
+  class_ref 134543 // CentraleHydraulique
+  class_ref 128121 // Seance
+  class_ref 135161 // LesCapteurs
+  class_ref 128249 // Pompe
+  class_ref 128377 // VanneAttrait
+  class_ref 128505 // CageAscenseur
+  class_ref 128633 // Grille
+end
+end

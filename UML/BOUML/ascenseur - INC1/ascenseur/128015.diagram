@@ -1,0 +1,68 @@
+format 75
+
+classinstance 128015 class_ref 128121 // Seance
+  name ""   xyz 22.2899 28.5719 2005 life_line_z 2000
+classinstance 128271 class_ref 135161 // LesCapteurs
+  name ""   xyz 443.826 28.5719 2005 life_line_z 2000
+classinstance 128399 class_ref 128458 // LesCapteurs
+  name ""   xyz 747.456 27.799 2000 life_line_z 2000
+classinstance 128655 class_ref 128714 // VanneDattrait
+  name ""   xyz 608.831 25.3082 2000 life_line_z 2000
+classinstance 128783 class_ref 128377 // VanneAttrait
+  name ""   xyz 231.794 28.5719 2005 life_line_z 2000
+textcanvas 130575 "[Niveau OK]"
+  xyzwh 191.731 185.123 2015 64 15
+fragment 130703 "SD: scénario ouvrir la vanne d'attrait"
+  xyzwh 4.34543 2.42332 2000 827 360
+end
+durationcanvas 129039 classinstance_ref 128783 // :VanneAttrait
+  xyzwh 259 101.196 2010 11 152
+end
+durationcanvas 129423 classinstance_ref 128015 // :Seance
+  xyzwh 41 103.387 2010 11 173
+end
+durationcanvas 129679 classinstance_ref 128655 // :VanneDattrait
+  xyzwh 633 190.823 2010 11 27
+end
+durationcanvas 129935 classinstance_ref 128271 // :LesCapteurs
+  xyzwh 471 128.06 2010 11 47
+end
+durationcanvas 130191 classinstance_ref 128399 // :LesCapteurs
+  xyzwh 771 132.551 2010 11 42
+end
+msg 129167 synchronous
+  from durationcanvas_ref 129423
+  to durationcanvas_ref 129039
+  yz 103 2015 msg operation_ref 131193 // "ouvrir()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 132 88
+msg 129551 return
+  from durationcanvas_ref 129039
+  to durationcanvas_ref 129423
+  yz 241 2015 explicitmsg "ON / OFF"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 136 226
+msg 129807 synchronous
+  from durationcanvas_ref 129039
+  to durationcanvas_ref 129679
+  yz 190 2015 msg operation_ref 132857 // "VANNE_OPEN()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 282 175
+msg 130063 synchronous
+  from durationcanvas_ref 129039
+  to durationcanvas_ref 129935
+  yz 128 2015 msg operation_ref 131321 // "LireCapteurNiveauCanalAval()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 295 113
+msg 130319 synchronous
+  from durationcanvas_ref 129935
+  to durationcanvas_ref 130191
+  yz 135 2020 unspecifiedmsg
+  show_full_operations_definition default drawing_language default show_context_mode default
+msg 130447 return
+  from durationcanvas_ref 130191
+  to durationcanvas_ref 129935
+  yz 164 2025 explicitmsg "Niveau aval"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 599 149
+end

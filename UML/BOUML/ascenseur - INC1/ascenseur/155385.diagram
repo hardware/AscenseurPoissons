@@ -1,0 +1,44 @@
+format 75
+
+classinstancecanvas 128015 classinstance_ref 128015 // 
+  xyz 376 51 2000
+end
+classinstancecanvas 128121 classinstance_ref 128121 // 
+  xyz 300 166 2000
+end
+classinstancecanvas 128249 classinstance_ref 128249 // 
+  xyz 551 166 2000
+end
+classinstancecanvas 128377 classinstance_ref 128377 // 
+  xyz 183 53 2000 color yellow
+end
+classinstancecanvas 128505 classinstance_ref 128505 // 
+  xyz 91 166 2000
+end
+classinstancecanvas 128633 classinstance_ref 128633 // 
+  xyz 175 277 2000
+end
+classinstancecanvas 128761 classinstance_ref 128761 // 
+  xyz 425 276 2000
+end
+objectlinkcanvas 128143 norel
+  from ref 128121 z 2001 to ref 128015
+  no_role_a no_role_b
+objectlinkcanvas 128889 norel
+  decenter_end 509
+  from ref 128121 z 2001 to ref 128377
+  no_role_a no_role_b
+objectlinkcanvas 129273 norel
+  from ref 128505 z 2001 to ref 128121
+  no_role_a no_role_b
+objectlinkcanvas 130041 norel
+  from ref 128121 z 2001 to ref 128249
+  no_role_a no_role_b
+objectlinkcanvas 131449 norel
+  from ref 128121 z 2001 to ref 128633
+  no_role_a no_role_b
+objectlinkcanvas 132345 norel
+  from ref 128761 z 2007 to point 350 183
+  line 132473 z 2007 to ref 128761
+  no_role_a no_role_b
+end

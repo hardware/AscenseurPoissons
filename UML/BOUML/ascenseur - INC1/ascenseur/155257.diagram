@@ -1,0 +1,66 @@
+format 75
+
+classinstance 128121 class_ref 128121 // Seance
+  name ""   xyz 76 23 2000 life_line_z 2000
+fragment 128249 "SD : scenario fermer la grille"
+  xyzwh 11 0 2005 782 405
+end
+classinstance 128505 class_ref 128842 // Grille
+  name ""   xyz 584 12 2000 life_line_z 2000
+classinstance 128633 class_ref 128633 // Grille
+  name ""   xyz 237 21 2000 life_line_z 2000
+classinstance 128761 class_ref 128458 // LesCapteurs
+  name ""   xyz 688 6 2000 life_line_z 2000
+classinstance 128889 class_ref 135161 // LesCapteurs
+  name ""   xyz 447 18 2000 life_line_z 2000
+durationcanvas 129017 classinstance_ref 128889 // :LesCapteurs
+  xyzwh 485 109 2010 11 104
+end
+durationcanvas 129145 classinstance_ref 128633 // :Grille
+  xyzwh 256 101 2010 11 261
+end
+durationcanvas 129273 classinstance_ref 128121 // :Seance
+  xyzwh 99 70 2010 11 315
+end
+durationcanvas 129401 classinstance_ref 128761 // :LesCapteurs
+  xyzwh 722 143 2010 11 83
+end
+durationcanvas 129529 classinstance_ref 128505 // :Grille
+  xyzwh 596 214 2010 11 82
+end
+msg 129657 return
+  from durationcanvas_ref 129145
+  to durationcanvas_ref 129273
+  yz 264 2015 explicitmsg "OUVERTE / FERMEE"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 130 252
+msg 129785 synchronous
+  from durationcanvas_ref 129017
+  to durationcanvas_ref 129401
+  yz 158 2015 unspecifiedmsg
+  show_full_operations_definition default drawing_language default show_context_mode default
+msg 129913 return
+  from durationcanvas_ref 129401
+  to durationcanvas_ref 129017
+  yz 188 2015 explicitmsg "Grille Haute"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 568 173
+msg 130041 synchronous
+  from durationcanvas_ref 129273
+  to durationcanvas_ref 129145
+  yz 111 2015 msg operation_ref 132601 // "fermer()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 140 98
+msg 130169 synchronous
+  from durationcanvas_ref 129145
+  to durationcanvas_ref 129529
+  yz 247 2015 msg operation_ref 133241 // "GRILLE_FERMEE()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 299 234
+msg 130297 synchronous
+  from durationcanvas_ref 129145
+  to durationcanvas_ref 129017
+  yz 144 2015 explicitmsg "LireCapteurFinDeCourseGrilleHaute()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 272 132
+end

@@ -1,0 +1,68 @@
+format 75
+
+classinstance 128121 class_ref 128121 // Seance
+  name ""   xyz 66 48 2000 life_line_z 2000
+classinstance 128249 class_ref 128505 // CageAscenseur
+  name ""   xyz 290 46 2000 life_line_z 2000
+classinstance 128377 class_ref 135161 // LesCapteurs
+  name ""   xyz 504 54 2000 life_line_z 2000
+classinstance 128505 class_ref 128970 // cageAscenseur
+  name ""   xyz 612 38 2000 life_line_z 2000
+classinstance 128633 class_ref 128458 // LesCapteurs
+  name ""   xyz 722 39 2000 life_line_z 2000
+textcanvas 130169 "[ ASCENSEUR EN POSITION HAUTE ]"
+  xyzwh 160 287 3005 214 15
+fragment 130297 "SD : scenario descendre la cage"
+  xyzwh 19 12 2000 806 395
+end
+durationcanvas 128761 classinstance_ref 128121 // :Seance
+  xyzwh 85 156 2010 11 247
+end
+durationcanvas 128889 classinstance_ref 128249 // :CageAscenseur
+  xyzwh 324 156 2010 11 215
+end
+durationcanvas 129145 classinstance_ref 128377 // :LesCapteurs
+  xyzwh 532 184 2010 11 81
+end
+durationcanvas 129401 classinstance_ref 128633 // :LesCapteurs
+  xyzwh 746 205 2010 11 65
+end
+durationcanvas 129785 classinstance_ref 128505 // :cageAscenseur
+  xyzwh 641 298 2010 11 27
+end
+msg 129017 synchronous
+  from durationcanvas_ref 128761
+  to durationcanvas_ref 128889
+  yz 156 2015 msg operation_ref 129145 // "descendre()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 143 145
+msg 129273 synchronous
+  from durationcanvas_ref 128889
+  to durationcanvas_ref 129145
+  yz 186 2015 msg operation_ref 131833 // "LirePositionAscenseurHaute()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 372 175
+msg 129529 synchronous
+  from durationcanvas_ref 129145
+  to durationcanvas_ref 129401
+  yz 206 2020 unspecifiedmsg
+  show_full_operations_definition default drawing_language default show_context_mode default
+msg 129657 return
+  from durationcanvas_ref 129401
+  to durationcanvas_ref 129145
+  yz 242 2015 explicitmsg "PositionHaute"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 666 230
+msg 129913 synchronous
+  from durationcanvas_ref 128889
+  to durationcanvas_ref 129785
+  yz 298 2015 msg operation_ref 131961 // "ASCENSEUR_DESCENTE()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 367 288
+msg 130041 return
+  from durationcanvas_ref 128889
+  to durationcanvas_ref 128761
+  yz 343 2015 explicitmsg "MONTEE / DESCENTE"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 120 332
+end
