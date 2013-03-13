@@ -1,0 +1,35 @@
+format 75
+
+packagecanvas 128015 
+  package_ref 128015 // IHM
+    xyzwh 49 195 2000 65 75
+end
+packagecanvas 128143 
+  package_ref 128143 // SEANCE
+    xyzwh 286 194 2000 65 75
+end
+packagecanvas 128271 
+  package_ref 128271 // ASCENSEUR
+    xyzwh 580 86 2000 97 75
+end
+packagecanvas 128399 
+  package_ref 128399 // CAN_OPEN
+    xyzwh 592 338 2000 75 75
+end
+packagecanvas 128527 
+  package_ref 128527 // ARCHIVAGE
+    xyzwh 279 14 2000 77 75
+end
+simplerelationcanvas 128655 simplerelation_ref 134543
+  from ref 128015 z 2001 to ref 128143
+end
+simplerelationcanvas 128783 simplerelation_ref 134671
+  from ref 128143 z 2001 to ref 128527
+end
+simplerelationcanvas 128911 simplerelation_ref 134799
+  from ref 128143 z 2001 to ref 128271
+end
+simplerelationcanvas 129039 simplerelation_ref 134927
+  from ref 128271 z 2001 to ref 128399
+end
+end

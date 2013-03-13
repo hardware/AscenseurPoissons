@@ -9,6 +9,7 @@ classcanvas 128143 class_ref 128015 // CentraleHydraulique
   xyz 54 686 2005
 end
 usecasecanvas 128202 usecase_ref 128202 // Programmer une séance
+  color red
   xyzwh 241 7 3005 64 32 label_xy 198 38
 end
 usecasecanvas 128330 usecase_ref 128330 // Lancer automatisation
@@ -65,7 +66,7 @@ end
 line 128271 --->
   from ref 131146 z 3006 to ref 128143
 simplerelationcanvas 128399 simplerelation_ref 128015
-  from ref 129866 z 3006 stereotype "<<include>>" xyz 512 445.5 3000 to ref 131146
+  from ref 129866 z 3006 stereotype "<<include>>" xyz 512 445 3000 to ref 131146
 end
 line 128714 --->
   from ref 128074 z 3006 to ref 128202
@@ -88,10 +89,10 @@ simplerelationcanvas 130250 simplerelation_ref 128458
   line 128655 z 3006 stereotype "<<include>>" xyz 489 179 3000 to ref 129866
 end
 simplerelationcanvas 130378 simplerelation_ref 128586
-  from ref 129866 z 3006 stereotype "<<include>>" xyz 594 329.5 3000 to ref 129994
+  from ref 129866 z 3006 stereotype "<<include>>" xyz 594 329 3000 to ref 129994
 end
 simplerelationcanvas 130506 simplerelation_ref 128714
-  from ref 128458 z 3006 stereotype "<<extend>>" xyz 327.5 281.5 3000 to ref 129994
+  from ref 128458 z 3006 stereotype "<<extend>>" xyz 327 281 3000 to ref 129994
 end
 line 130762 --->
   from ref 130634 z 3006 to ref 129994

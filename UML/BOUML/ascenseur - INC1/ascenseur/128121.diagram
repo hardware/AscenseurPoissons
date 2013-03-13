@@ -1,89 +1,109 @@
 format 75
 
 classinstance 128121 class_ref 128202 // Agent
-  name ""   xyz 40.5242 39.642 2000 life_line_z 2000
+  name ""   xyz 9.5242 35.642 2000 life_line_z 2000
+classinstance 128143 class_ref 141455 // SeanceDlg
+  name ""   xyz 260 35 2000 life_line_z 2000
 classinstance 128249 class_ref 128330 // UneSeance
-  name ""   xyz 467.485 33.9955 2005 life_line_z 2000
+  name ""   xyz 764.485 33.9955 2005 life_line_z 2000
 classinstance 128377 class_ref 128121 // Seance
-  name ""   xyz 253.74 36 2000 life_line_z 2000
+  name ""   xyz 525.74 36 2000 life_line_z 2000
 textcanvas 130425 "
 "
   xyzwh 306 395 2000 62 13
-fragment 130937 "SD : programmer séance"
-  xyzwh 5 5 2000 646 502
+durationcanvas 128655 classinstance_ref 128121 // :Agent
+  xyzwh 22 124 2010 11 383
 end
-durationcanvas 128505 classinstance_ref 128121 // :Agent
-  xyzwh 50 86 2010 11 406
+durationcanvas 128783 classinstance_ref 128143 // :SeanceDlg
+  xyzwh 292 125 2010 11 530
+  overlappingdurationcanvas 129807
+    xyzwh 298 263 2020 11 25
+  end
+  overlappingdurationcanvas 130063
+    xyzwh 298 306 2020 11 25
+  end
+  overlappingdurationcanvas 130319
+    xyzwh 298 378 2020 11 40
+  end
 end
-durationcanvas 128633 classinstance_ref 128377 // :Seance
-  xyzwh 272 86 2010 11 38
-end
-durationcanvas 128889 classinstance_ref 128377 // :Seance
-  xyzwh 272 140 2010 11 39
-end
-durationcanvas 129145 classinstance_ref 128377 // :Seance
-  xyzwh 272 195 2010 11 40
-end
-durationcanvas 129401 classinstance_ref 128377 // :Seance
-  xyzwh 272 256 2010 11 40
-end
-durationcanvas 129657 classinstance_ref 128377 // :Seance
-  xyzwh 272 307 2010 11 39
-end
-durationcanvas 129913 classinstance_ref 128377 // :Seance
-  xyzwh 272 375 2010 11 92
-  overlappingdurationcanvas 130169
-    xyzwh 278 397 2020 11 46
+durationcanvas 129295 classinstance_ref 128377 // :Seance
+  xyzwh 548 477 2010 11 176
+  overlappingdurationcanvas 131087
+    xyzwh 554 485 2020 11 25
+  end
+  overlappingdurationcanvas 131343
+    xyzwh 554 523 2020 11 25
   end
 end
 durationcanvas 130553 classinstance_ref 128249 // :UneSeance
-  xyzwh 488 425 2010 11 25
+  xyzwh 794 560 2010 11 33
 end
-msg 128761 synchronous
-  from durationcanvas_ref 128505
-  to durationcanvas_ref 128633
-  yz 86 2015 explicitmsg "petite vitesse"
+durationcanvas 130575 classinstance_ref 128377 // :Seance
+  xyzwh 548 398 2010 11 25
+end
+msg 128911 synchronous
+  from durationcanvas_ref 128655
+  to durationcanvas_ref 128783
+  yz 127 2015 explicitmsg "selectionner()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 135 73
-msg 129017 synchronous
-  from durationcanvas_ref 128505
-  to durationcanvas_ref 128889
-  yz 140 2015 explicitmsg "grande vitesse"
+  label_xy 117 112
+msg 129167 synchronous
+  from durationcanvas_ref 128655
+  to durationcanvas_ref 128783
+  yz 170 2025 explicitmsg "Petite vitesse"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 132 127
-msg 129273 synchronous
-  from durationcanvas_ref 128505
-  to durationcanvas_ref 129145
-  yz 195 2015 explicitmsg "temps peche"
+  label_xy 120 155
+msg 129423 synchronous
+  from durationcanvas_ref 128783
+  to durationcanvas_ref 129295
+  yz 480 2025 explicitmsg "programmer()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 135 182
-msg 129529 synchronous
-  from durationcanvas_ref 128505
-  to durationcanvas_ref 129401
-  yz 256 2015 explicitmsg "temps vidange"
+  label_xy 385 465
+msg 129679 synchronous
+  from durationcanvas_ref 128655
+  to durationcanvas_ref 128783
+  yz 214 2025 explicitmsg "Grande vitesse"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 131 243
-msg 129785 synchronous
-  from durationcanvas_ref 128505
-  to durationcanvas_ref 129657
-  yz 307 2015 explicitmsg "periodicite"
+  label_xy 118 199
+msg 129935 synchronous
+  from durationcanvas_ref 128655
+  to durationcanvas_ref 129807
+  yz 263 2025 explicitmsg "Temps de peche"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 144 294
-msg 130041 synchronous
-  from durationcanvas_ref 128505
-  to durationcanvas_ref 129913
-  yz 375 2015 msg operation_ref 128505 // "programmer(nomSeance)()"
+  label_xy 113 248
+msg 130191 synchronous
+  from durationcanvas_ref 128655
+  to durationcanvas_ref 130063
+  yz 306 2025 explicitmsg "Temps vidange"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 103 362
-reflexivemsg 130297 synchronous
-  to durationcanvas_ref 130169
-  yz 397 2025 explicitmsg "enregistrer()"
+  label_xy 117 291
+msg 130447 synchronous
+  from durationcanvas_ref 128655
+  to durationcanvas_ref 130319
+  yz 378 2025 msg operation_ref 147983 // "on_BP_Seance_Enregistrer_clicked()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 310 397
+  label_xy 56 363
 msg 130681 synchronous
-  from durationcanvas_ref 130169
+  from durationcanvas_ref 129295
   to durationcanvas_ref 130553
-  yz 426 2025 explicitmsg "infos seance"
+  yz 567 2025 explicitmsg "infos seance"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 422 413
+  label_xy 688 554
+msg 130703 synchronous
+  from durationcanvas_ref 130319
+  to durationcanvas_ref 130575
+  yz 398 2030 msg operation_ref 148111 // "SetSeance()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "PV, GV, TP, TV, periode"
+  label_xy 334 383
+reflexivemsg 131215 synchronous
+  to durationcanvas_ref 131087
+  yz 485 2025 msg operation_ref 148239 // "GenererNomSeance()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 591 482
+reflexivemsg 131471 synchronous
+  to durationcanvas_ref 131343
+  yz 523 2025 explicitmsg "enregistrer()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 589 520
 end
