@@ -46,7 +46,7 @@
     <enum>QTabWidget::Rounded</enum>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <property name="iconSize">
     <size>
@@ -69,7 +69,7 @@
    <property name="movable">
     <bool>false</bool>
    </property>
-   <widget class="QWidget" name="accueil">
+   <widget class="QWidget" name="AccueilDlg">
     <attribute name="title">
      <string>ACCUEIL</string>
     </attribute>
@@ -135,7 +135,7 @@
     <zorder>LB_Version</zorder>
     <zorder>LB_Titre</zorder>
    </widget>
-   <widget class="QWidget" name="manuel">
+   <widget class="QWidget" name="ManuelDlg">
     <attribute name="title">
      <string>MANUEL</string>
     </attribute>
@@ -489,7 +489,7 @@
      </widget>
     </widget>
    </widget>
-   <widget class="QWidget" name="seance">
+   <widget class="QWidget" name="SeanceDlg">
     <attribute name="title">
      <string>SEANCE</string>
     </attribute>
@@ -1016,7 +1016,7 @@
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="statuts">
+   <widget class="QWidget" name="StatutsDlg">
     <attribute name="title">
      <string>STATUTS</string>
     </attribute>
@@ -1728,7 +1728,7 @@ border:3px solid  rgb(125, 125, 125);</string>
      </widget>
     </widget>
    </widget>
-   <widget class="QWidget" name="synoptique">
+   <widget class="QWidget" name="SynoptiqueDlg">
     <attribute name="title">
      <string>SYNOPTIQUE</string>
     </attribute>
@@ -1765,7 +1765,7 @@ border:3px solid  rgb(125, 125, 125);</string>
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="journal">
+   <widget class="QWidget" name="JournalDlg">
     <attribute name="title">
      <string>JOURNAL (2)</string>
     </attribute>

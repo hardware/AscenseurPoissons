@@ -15,95 +15,81 @@ durationcanvas 128655 classinstance_ref 128121 // :Agent
   xyzwh 22 124 2010 11 383
 end
 durationcanvas 128783 classinstance_ref 128143 // :SeanceDlg
-  xyzwh 292 125 2010 11 530
-  overlappingdurationcanvas 129807
-    xyzwh 298 263 2020 11 25
-  end
-  overlappingdurationcanvas 130063
-    xyzwh 298 306 2020 11 25
-  end
-  overlappingdurationcanvas 130319
-    xyzwh 298 378 2020 11 40
-  end
+  xyzwh 292 122 2010 11 490
 end
-durationcanvas 129295 classinstance_ref 128377 // :Seance
-  xyzwh 548 477 2010 11 176
+durationcanvas 130553 classinstance_ref 128249 // :UneSeance
+  xyzwh 794 569 2010 11 30
+end
+durationcanvas 130575 classinstance_ref 128377 // :Seance
+  xyzwh 548 396 2010 11 209
   overlappingdurationcanvas 131087
     xyzwh 554 485 2020 11 25
   end
-  overlappingdurationcanvas 131343
-    xyzwh 554 523 2020 11 25
-  end
-end
-durationcanvas 130553 classinstance_ref 128249 // :UneSeance
-  xyzwh 794 560 2010 11 33
-end
-durationcanvas 130575 classinstance_ref 128377 // :Seance
-  xyzwh 548 398 2010 11 25
 end
 msg 128911 synchronous
   from durationcanvas_ref 128655
   to durationcanvas_ref 128783
-  yz 127 2015 explicitmsg "selectionner()"
+  yz 124 2015 explicitmsg "selectionner"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 117 112
+  label_xy 131 108
 msg 129167 synchronous
   from durationcanvas_ref 128655
   to durationcanvas_ref 128783
-  yz 170 2025 explicitmsg "Petite vitesse"
+  yz 159 2025 explicitmsg "PV"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 120 155
+  label_xy 159 145
 msg 129423 synchronous
   from durationcanvas_ref 128783
-  to durationcanvas_ref 129295
-  yz 480 2025 explicitmsg "programmer()"
+  to durationcanvas_ref 130575
+  yz 477 2025 msg operation_ref 128633 // "enregistrer()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 385 465
+  label_xy 387 463
 msg 129679 synchronous
   from durationcanvas_ref 128655
   to durationcanvas_ref 128783
-  yz 214 2025 explicitmsg "Grande vitesse"
+  yz 199 2025 explicitmsg "GV"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 118 199
+  label_xy 158 186
 msg 129935 synchronous
   from durationcanvas_ref 128655
-  to durationcanvas_ref 129807
-  yz 263 2025 explicitmsg "Temps de peche"
+  to durationcanvas_ref 128783
+  yz 318 2025 explicitmsg "tempsPeche"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 113 248
+  label_xy 130 305
 msg 130191 synchronous
   from durationcanvas_ref 128655
-  to durationcanvas_ref 130063
-  yz 306 2025 explicitmsg "Temps vidange"
+  to durationcanvas_ref 128783
+  yz 240 2025 explicitmsg "tempsVidange"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 117 291
+  label_xy 123 224
 msg 130447 synchronous
   from durationcanvas_ref 128655
-  to durationcanvas_ref 130319
-  yz 378 2025 msg operation_ref 147983 // "on_BP_Seance_Enregistrer_clicked()"
+  to durationcanvas_ref 128783
+  yz 364 2025 msg operation_ref 147983 // "on_BP_Seance_Enregistrer_clicked()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 56 363
+  label_xy 62 348
 msg 130681 synchronous
-  from durationcanvas_ref 129295
+  from durationcanvas_ref 130575
   to durationcanvas_ref 130553
-  yz 567 2025 explicitmsg "infos seance"
+  yz 570 2025 explicitmsg "infos seance"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 688 554
+  label_xy 650 557
 msg 130703 synchronous
-  from durationcanvas_ref 130319
+  from durationcanvas_ref 128783
   to durationcanvas_ref 130575
-  yz 398 2030 msg operation_ref 148111 // "SetSeance()"
+  yz 397 2030 msg operation_ref 148111 // "setSeance()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  args "PV, GV, TP, TV, periode"
-  label_xy 334 383
+  args "PV, GV, tempsPeche, tempsVidange, periodicite"
+  label_xy 326 371
 reflexivemsg 131215 synchronous
   to durationcanvas_ref 131087
-  yz 485 2025 msg operation_ref 148239 // "GenererNomSeance()"
+  yz 485 2025 explicitmsg "genererNomSeance()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 591 482
-reflexivemsg 131471 synchronous
-  to durationcanvas_ref 131343
-  yz 523 2025 explicitmsg "enregistrer()"
+msg 131727 synchronous
+  from durationcanvas_ref 128655
+  to durationcanvas_ref 128783
+  yz 277 3005 explicitmsg "periodicite"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 589 520
+  label_xy 136 262
 end

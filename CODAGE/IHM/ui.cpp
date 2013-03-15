@@ -12,3 +12,8 @@ UI::~UI()
 {
     delete ui;
 }
+
+void UI::on_BP_Seance_Enregistrer_clicked()
+{
+
+}

@@ -34,31 +34,31 @@ fragment 132729 "SD: Effectuer un cycle"
   xyzwh 1 1 2010 751 974
 end
 durationcanvas 128505 classinstance_ref 128121 // :Seance
-  xyzwh 167 117 2010 11 769
+  xyzwh 171 117 2010 11 769
   overlappingdurationcanvas 128889
-    xyzwh 173 141 2020 11 25
+    xyzwh 177 141 2020 11 25
   end
   overlappingdurationcanvas 129145
-    xyzwh 173 233 2020 11 30
+    xyzwh 177 233 2020 11 30
   end
   overlappingdurationcanvas 130041
-    xyzwh 173 391 2020 11 30
+    xyzwh 177 391 2020 11 30
   end
   overlappingdurationcanvas 130297
-    xyzwh 173 447 2020 11 30
+    xyzwh 177 447 2020 11 30
   end
   overlappingdurationcanvas 130809
-    xyzwh 173 561 2020 11 29
+    xyzwh 177 561 2020 11 29
   end
   overlappingdurationcanvas 131705
-    xyzwh 173 793 2020 11 40
+    xyzwh 177 793 2020 11 40
   end
 end
 durationcanvas 128633 classinstance_ref 128249 // :Grille
   xyzwh 397 204 2010 11 29
 end
 durationcanvas 129529 classinstance_ref 128377 // :CageAscenseur
-  xyzwh 607 314 2010 11 37
+  xyzwh 619 314 2010 11 37
 end
 durationcanvas 129785 classinstance_ref 128249 // :Grille
   xyzwh 397 351 2010 11 34
@@ -67,7 +67,7 @@ durationcanvas 130553 classinstance_ref 128249 // :Grille
   xyzwh 397 526 2010 11 42
 end
 durationcanvas 131193 classinstance_ref 128377 // :CageAscenseur
-  xyzwh 607 650 2010 11 42
+  xyzwh 619 650 2010 11 42
 end
 durationcanvas 131449 classinstance_ref 128249 // :Grille
   xyzwh 397 710 2010 11 41
@@ -139,5 +139,5 @@ reflexivemsg 131833 synchronous
   to durationcanvas_ref 131705
   yz 793 2025 explicitmsg "etat_cycle = PAUSE"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 211 793
+  label_xy 214 789
 end
