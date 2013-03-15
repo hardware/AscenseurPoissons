@@ -11,7 +11,7 @@ classinstance 128399 class_ref 128015 // CentraleHydraulique
 classinstance 128527 class_ref 128458 // LesCapteurs
   name ""   xyz 721 23 2010 life_line_z 2000
 fragment 130319 "alt( (niveau huile ok) ET ( temperature ok) )"
-  xyzwh 47 229 2010 756 159
+  xyzwh 47 229 2015 756 159
 end
 fragment 131087 "SD : Scenario demarrer centrale hydraulique"
   xyzwh 8 6 2005 822 409
@@ -74,13 +74,13 @@ msg 130191 return
 msg 130703 synchronous
   from durationcanvas_ref 130447
   to durationcanvas_ref 130575
-  yz 273 2015 msg operation_ref 134927 // "CENTRALE_ON()"
+  yz 273 2010 msg operation_ref 134927 // "CENTRALE_ON()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 265 260
 msg 130959 return
   from durationcanvas_ref 130447
   to durationcanvas_ref 128655
-  yz 302 2015 explicitmsg "ON / OFF"
+  yz 302 2010 explicitmsg "ON / OFF"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 152 287
 end

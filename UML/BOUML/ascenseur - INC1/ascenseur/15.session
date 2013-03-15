@@ -1,13 +1,8 @@
-window_sizes 1366 705 349 1011 596 35
-diagrams
-  active  sequencediagram_ref 141561 // Scenario : Demarrer la pompe
-    1011 596 100 4 0 0
-  sequencediagram_ref 128015 // Scenario : Ouvrir la vanne d'attrait
-    804 476 100 4 0 0
-end
+window_sizes 1366 705 325 1035 596 35
 show_stereotypes
-selected sequencediagram_ref 141561 // Scenario : Demarrer la pompe
 open
+  usecase_ref 129098 // Controler les paramètres
   usecase_ref 129354 // Commander les appareillages
+  class_ref 141327 // ManuelDlg
 end
 end
