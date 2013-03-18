@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/files">
+        <file>img/centrale.jpg</file>
+        <file>img/icon-shem.jpg</file>
+        <file>img/schema.png</file>
+    </qresource>
+</RCC>
