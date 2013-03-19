@@ -8,6 +8,9 @@
 #include <QLineEdit>
 #include <QPushButton>
 #include <QLabel>
+#include <QSettings>
+#include <QMessageBox>
+#include <QApplication>
 
 class SeanceDlg : public QWidget
 {
@@ -32,10 +35,12 @@ private:
                 *PBSeanceEnregistrer, *PBSeanceLancer, *PBSeanceArreter;
 
     QLabel *LBTempsPeche, *LBTempsVidange, *LBPeriodicite;
+    QSettings *params;
 
 public slots:
     void augmenterPV();
     void diminuerPV();
+    void enregistrerParametres();
 
 signals:
     

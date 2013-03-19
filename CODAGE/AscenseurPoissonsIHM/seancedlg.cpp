@@ -15,10 +15,12 @@ SeanceDlg::SeanceDlg(QWidget *parent) : QWidget(parent)
           PBPlusFont("MS Shell Dlg 2", 18),
           PBMoinsFont("MS Shell Dlg 2", 26);
 
+    params = new QSettings(QApplication::applicationDirPath() + "/seance.ini", QSettings::IniFormat);
+
     GBPv = new QGroupBox("PETITE VITESSE");
     GBPv->setFont(GBFont);
 
-        LEPv = new QLineEdit("5");
+        LEPv = new QLineEdit(params->value("seance/PV", 5).toString());
         LEPv->setMaximumSize(LESize);
         LEPv->setFont(LEFont);
         LEPv->setAlignment(Qt::AlignHCenter);
@@ -43,7 +45,7 @@ SeanceDlg::SeanceDlg(QWidget *parent) : QWidget(parent)
     GBGv = new QGroupBox("GRANDE VITESSE");
     GBGv->setFont(GBFont);
 
-        LEGv = new QLineEdit("8");
+    LEGv = new QLineEdit(params->value("seance/GV", 5).toString());
         LEGv->setMaximumSize(LESize);
         LEGv->setFont(LEFont);
         LEGv->setAlignment(Qt::AlignHCenter);
@@ -68,7 +70,7 @@ SeanceDlg::SeanceDlg(QWidget *parent) : QWidget(parent)
     GBTempsPeche = new QGroupBox("TEMPS DE PECHE");
     GBTempsPeche->setFont(GBFont);
 
-        LETempsPeche = new QLineEdit("60");
+        LETempsPeche = new QLineEdit(params->value("seance/TempsPeche", 60).toString());
         LETempsPeche->setMaximumSize(LESize);
         LETempsPeche->setFont(LEFont);
         LETempsPeche->setAlignment(Qt::AlignHCenter);
@@ -99,7 +101,7 @@ SeanceDlg::SeanceDlg(QWidget *parent) : QWidget(parent)
     GBTempsVidange = new QGroupBox("TEMPS DE VIDANGE");
     GBTempsVidange->setFont(GBFont);
 
-        LETempsVidange = new QLineEdit("20");
+        LETempsVidange = new QLineEdit(params->value("seance/TempsVidange", 10).toString());
         LETempsVidange->setMaximumSize(LESize);
         LETempsVidange->setFont(LEFont);
         LETempsVidange->setAlignment(Qt::AlignHCenter);
@@ -131,7 +133,7 @@ SeanceDlg::SeanceDlg(QWidget *parent) : QWidget(parent)
     GBNombreCycles = new QGroupBox("NOMBRE DE CYCLES");
     GBNombreCycles->setFont(GBFont);
 
-        LENombreCycles = new QLineEdit("80");
+        LENombreCycles = new QLineEdit(params->value("seance/NbCycles", 10).toString());
         LENombreCycles->setMaximumSize(LESize);
         LENombreCycles->setFont(LEFont);
         LENombreCycles->setAlignment(Qt::AlignHCenter);
@@ -156,7 +158,7 @@ SeanceDlg::SeanceDlg(QWidget *parent) : QWidget(parent)
     GBPeriodicite = new QGroupBox("PERIODICITE");
     GBPeriodicite->setFont(GBFont);
 
-        LEPeriodicite = new QLineEdit("10");
+        LEPeriodicite = new QLineEdit(params->value("seance/Periodicite", 10).toString());
         LEPeriodicite->setMaximumSize(LESize);
         LEPeriodicite->setFont(LEFont);
         LEPeriodicite->setAlignment(Qt::AlignHCenter);
@@ -217,6 +219,7 @@ SeanceDlg::SeanceDlg(QWidget *parent) : QWidget(parent)
     // Signaux & slots
     QObject::connect(PBPvPlus, SIGNAL(clicked()), this, SLOT(augmenterPV()));
     QObject::connect(PBPvMoins, SIGNAL(clicked()), this, SLOT(diminuerPV()));
+    QObject::connect(PBSeanceEnregistrer, SIGNAL(clicked()), this, SLOT(enregistrerParametres()));
 }
 
 void SeanceDlg::augmenterPV()
@@ -239,4 +242,31 @@ void SeanceDlg::diminuerPV()
         valeur = PV_MIN;
 
     LEPv->setText(QString::number(valeur));
+}
+
+void SeanceDlg::enregistrerParametres()
+{
+    params->beginGroup("seance");
+    params->setValue("PV", LEPv->text().toInt());
+    params->setValue("GV", LEGv->text().toInt());
+    params->setValue("TempsPeche", LETempsPeche->text().toInt());
+    params->setValue("TempsVidange", LETempsVidange->text().toInt());
+    params->setValue("NbCycles", LENombreCycles->text().toInt());
+    params->setValue("Periodicite", LEPeriodicite->text().toInt());
+    params->endGroup();
+
+    if(params->status() == QSettings::NoError)
+    {
+        QMessageBox::information(this, QString::fromUtf8("Enregistrement effectué"),
+                                 QString::fromUtf8("Les paramètres ont bien été enregistrés."));
+    }
+    else
+    {
+        if(params->status() == QSettings::AccessError)
+            QMessageBox::critical(this, QString::fromUtf8("Problème d'accès"),
+                                     QString::fromUtf8("Impossible d'accéder au fichier de configuration."));
+        if(params->status() == QSettings::FormatError)
+            QMessageBox::critical(this, QString::fromUtf8("Erreur de format"),
+                                     QString::fromUtf8("Le format du fichier de configuration est incorrect."));
+    }
 }
