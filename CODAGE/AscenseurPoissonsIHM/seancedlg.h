@@ -33,9 +33,11 @@ private:
 
     QLabel *LBTempsPeche, *LBTempsVidange, *LBPeriodicite;
 
-signals:
-    
 public slots:
+    void augmenterPV();
+    void diminuerPV();
+
+signals:
     
 };
 

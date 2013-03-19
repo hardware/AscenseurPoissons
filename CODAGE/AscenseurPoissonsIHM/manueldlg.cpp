@@ -18,10 +18,12 @@ ManuelDlg::ManuelDlg(QWidget *parent) : QWidget(parent)
         PBPompeDemarrer->setMaximumSize(PBSize);
         PBPompeDemarrer->setFont(PBFont);
         PBPompeDemarrer->setCursor(Qt::PointingHandCursor);
+
         PBPompeArreter = new QPushButton("ARRETER");
         PBPompeArreter->setMaximumSize(PBSize);
         PBPompeArreter->setFont(PBFont);
         PBPompeArreter->setCursor(Qt::PointingHandCursor);
+        PBPompeArreter->setEnabled(false);
 
         hboxPompe = new QHBoxLayout(GBPompe);
         hboxPompe->addWidget(PBPompeDemarrer);
@@ -36,10 +38,12 @@ ManuelDlg::ManuelDlg(QWidget *parent) : QWidget(parent)
         PBCentraleDemarrer->setMaximumSize(PBSize);
         PBCentraleDemarrer->setFont(PBFont);
         PBCentraleDemarrer->setCursor(Qt::PointingHandCursor);
+
         PBCentraleArreter  = new QPushButton("ARRETER");
         PBCentraleArreter->setMaximumSize(PBSize);
         PBCentraleArreter->setFont(PBFont);
         PBCentraleArreter->setCursor(Qt::PointingHandCursor);
+        PBCentraleArreter->setEnabled(false);
 
         hboxCentrale = new QHBoxLayout(GBCentrale);
         hboxCentrale->addWidget(PBCentraleDemarrer);
@@ -54,10 +58,13 @@ ManuelDlg::ManuelDlg(QWidget *parent) : QWidget(parent)
         PBVanneAttraitOuvrir->setMaximumSize(PBSize);
         PBVanneAttraitOuvrir->setFont(PBFont);
         PBVanneAttraitOuvrir->setCursor(Qt::PointingHandCursor);
+        PBVanneAttraitOuvrir->setEnabled(false);
+
         PBVanneAttraitFermer = new QPushButton("FERMER");
         PBVanneAttraitFermer->setMaximumSize(PBSize);
         PBVanneAttraitFermer->setFont(PBFont);
         PBVanneAttraitFermer->setCursor(Qt::PointingHandCursor);
+        PBVanneAttraitFermer->setEnabled(false);
 
         hboxVanneAttrait = new QHBoxLayout(GBVanneAttrait);
         hboxVanneAttrait->addWidget(PBVanneAttraitOuvrir);
@@ -72,10 +79,13 @@ ManuelDlg::ManuelDlg(QWidget *parent) : QWidget(parent)
         PBGrilleOuvrir->setMaximumSize(PBSize);
         PBGrilleOuvrir->setFont(PBFont);
         PBGrilleOuvrir->setCursor(Qt::PointingHandCursor);
+        PBGrilleOuvrir->setEnabled(false);
+
         PBGrilleFermer = new QPushButton("FERMER");
         PBGrilleFermer->setMaximumSize(PBSize);
         PBGrilleFermer->setFont(PBFont);
         PBGrilleFermer->setCursor(Qt::PointingHandCursor);
+        PBGrilleFermer->setEnabled(false);
 
         hboxGrille = new QHBoxLayout(GBGrille);
         hboxGrille->addWidget(PBGrilleOuvrir);
@@ -120,4 +130,42 @@ ManuelDlg::ManuelDlg(QWidget *parent) : QWidget(parent)
     GLMain->addWidget(GBCage, 2, 0, 1, 2);
 
     setLayout(GLMain);
+
+    // Signaux & slots
+    QObject::connect(PBPompeDemarrer, SIGNAL(clicked()), this, SLOT(demarrerPompe()));
+    QObject::connect(PBPompeArreter, SIGNAL(clicked()), this, SLOT(arreterPompe()));
+    QObject::connect(PBCentraleDemarrer, SIGNAL(clicked()), this, SLOT(demarrerCentrale()));
+    QObject::connect(PBCentraleArreter, SIGNAL(clicked()), this, SLOT(arreterCentrale()));
+}
+
+void ManuelDlg::demarrerPompe()
+{
+    PBPompeDemarrer->setDisabled(true);
+    PBPompeArreter->setEnabled(true);
+}
+
+void ManuelDlg::arreterPompe()
+{
+    PBPompeArreter->setDisabled(true);
+    PBPompeDemarrer->setEnabled(true);
+}
+
+void ManuelDlg::demarrerCentrale()
+{
+    PBCentraleDemarrer->setDisabled(true);
+    PBCentraleArreter->setEnabled(true);
+    PBVanneAttraitOuvrir->setEnabled(true);
+    PBVanneAttraitFermer->setEnabled(true);
+    PBGrilleOuvrir->setEnabled(true);
+    PBGrilleFermer->setEnabled(true);
+}
+
+void ManuelDlg::arreterCentrale()
+{
+    PBCentraleDemarrer->setEnabled(true);
+    PBCentraleArreter->setDisabled(true);
+    PBVanneAttraitOuvrir->setDisabled(true);
+    PBVanneAttraitFermer->setDisabled(true);
+    PBGrilleOuvrir->setDisabled(true);
+    PBGrilleFermer->setDisabled(true);
 }

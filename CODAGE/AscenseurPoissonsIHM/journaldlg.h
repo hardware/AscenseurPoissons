@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QListWidget>
+#include <QMessageBox>
 
 class JournalDlg : public QWidget
 {
@@ -16,9 +17,10 @@ private:
     QVBoxLayout *VLMain;
     QListWidget *LWLogs;
 
-signals:
-    
 public slots:
+    void afficherLog(QListWidgetItem *item);
+
+signals:
     
 };
 

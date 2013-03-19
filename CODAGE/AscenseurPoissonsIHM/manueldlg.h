@@ -23,10 +23,16 @@ private:
                 *PBVanneAttraitOuvrir, *PBVanneAttraitFermer,
                 *PBGrilleOuvrir, *PBGrilleFermer,
                 *PBCageMPV, *PBCageMGV, *PBCageDPV, *PBCageDGV;
-    
-signals:
+
+
     
 public slots:
+    void demarrerPompe();
+    void arreterPompe();
+    void demarrerCentrale();
+    void arreterCentrale();
+
+signals:
     
 };
 

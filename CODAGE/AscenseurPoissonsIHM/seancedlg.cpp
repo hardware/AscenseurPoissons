@@ -1,5 +1,9 @@
 ﻿#include "seancedlg.h"
 
+const int PV_MAX = 100;
+const int PV_MIN = 5;
+const int PV_OFFSET = 5;
+
 SeanceDlg::SeanceDlg(QWidget *parent) : QWidget(parent)
 {
     QSize LESize(60, 50),
@@ -209,4 +213,30 @@ SeanceDlg::SeanceDlg(QWidget *parent) : QWidget(parent)
     vbox->addLayout(hbox);
 
     setLayout(vbox);
+
+    // Signaux & slots
+    QObject::connect(PBPvPlus, SIGNAL(clicked()), this, SLOT(augmenterPV()));
+    QObject::connect(PBPvMoins, SIGNAL(clicked()), this, SLOT(diminuerPV()));
+}
+
+void SeanceDlg::augmenterPV()
+{
+    int valeur = LEPv->text().toInt();
+    valeur += PV_OFFSET;
+
+    if(valeur > PV_MAX)
+        valeur = PV_MAX;
+
+    LEPv->setText(QString::number(valeur));
+}
+
+void SeanceDlg::diminuerPV()
+{
+    int valeur = LEPv->text().toInt();
+    valeur -= PV_OFFSET;
+
+    if(valeur < PV_MIN)
+        valeur = PV_MIN;
+
+    LEPv->setText(QString::number(valeur));
 }
