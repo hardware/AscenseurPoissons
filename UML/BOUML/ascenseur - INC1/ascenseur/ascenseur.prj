@@ -1,6 +1,6 @@
 format 75
 "ascenseur"
-  revision 26
+  revision 27
   modified_by 15 "Hardware"
 
 
@@ -619,6 +619,16 @@ ${inlines}
 	
       end
     end
+
+    sequencediagram 147855 "lancementApplication"
+      show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
+      overlapping_bars size A4
+    end
+
+    sequencediagram 147983 "lancerApplicationSuite"
+      show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
+      overlapping_bars size A4
+    end
   end
 
   classview 128202 "Vue logique"
@@ -637,6 +647,11 @@ ${inlines}
     //activity diagram settings
     package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
     show_infonote default drawing_language default show_stereotype_properties default
+    classdiagram 141327 "Diagramme de classes"
+      draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+      size A4
+    end
+
     class 134543 "CentraleHydraulique"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit} {
@@ -886,7 +901,7 @@ ${inlines}
 	
       end
 
-      operation 155023 "controleAppareillage"
+      operation 155023 "commanderAppareillage"
 	public explicit_return_type ""
 	nparams 2
 	  param in name "type" explicit_type ""
@@ -900,6 +915,24 @@ ${inlines}
 	
 	
 	
+      end
+
+      classrelation 135183 // <directional composition>
+	relation 135055 *-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 135183 // <directional composition>
+	  b parent class_ref 154767 // InterfaceCAN
+      end
+
+      classrelation 135311 // <directional aggregation>
+	relation 135183 o-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 135311 // <directional aggregation>
+	  b parent class_ref 128249 // Pompe
       end
     end
 
@@ -1109,6 +1142,15 @@ ${inlines}
 	
 	
       end
+
+      classrelation 135439 // <unidirectional association>
+	relation 135311 --->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 135439 // <unidirectional association>
+	  b parent class_ref 154767 // InterfaceCAN
+      end
     end
 
     class 128377 "VanneAttrait"
@@ -1193,7 +1235,6 @@ ${inlines}
 	
 	
       end
-
     end
 
     class 128633 "Grille"
@@ -1310,6 +1351,46 @@ ${inlines}
       idl_decl ""
       explicit_switch_type ""
       
+      classrelation 134543 // <directional composition>
+	relation 134543 *-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 134543 // <directional composition>
+	  b parent class_ref 128121 // Seance
+      end
+
+      classrelation 134671 // <directional composition>
+	relation 134671 *-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 134671 // <directional composition>
+	  b parent class_ref 141199 // AccueilDlg
+      end
+
+      classrelation 134799 // <directional composition>
+	relation 134799 *-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 134799 // <directional composition>
+	  b parent class_ref 141327 // ManuelDlg
+      end
+
+      operation 169487 "show"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
     end
 
     class 141199 "AccueilDlg"
@@ -1435,6 +1516,29 @@ ${inlines}
 	
 	
       end
+
+      classrelation 134927 // <unidirectional association>
+	relation 134927 --->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 134927 // <unidirectional association>
+	  b parent class_ref 128121 // Seance
+      end
+
+      operation 168847 "SetAdSeance"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
     end
 
     class 141455 "SeanceDlg"
@@ -1462,11 +1566,20 @@ ${inlines}
 	
 	
       end
-    end
 
-    classdiagram 141327 "Diagramme de classes"
-      draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
-      size A4
+      operation 168975 "SetAdSeance"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
     end
 
     class 147983 "StatusDlg"
@@ -1481,6 +1594,19 @@ ${inlines}
       idl_decl ""
       explicit_switch_type ""
       
+      operation 169103 "SetAdSeance"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
     end
 
     class 148111 "SynoptiqueDlg"
@@ -1495,9 +1621,63 @@ ${inlines}
       idl_decl ""
       explicit_switch_type ""
       
+      operation 169231 "SetAdSeance"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
     end
 
     class 148239 "JournalDlg"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      operation 169359 "SetAdSeance"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+    end
+
+    class 154767 "InterfaceCAN"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+    end
+
+    class 154895 "App"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};

@@ -13,43 +13,43 @@ fragment 131193 "SD: controler parametres"
   xyzwh 40 6 2000 729 936
 end
 durationcanvas 128505 classinstance_ref 128121 // :Seance
-  xyzwh 185 143 2010 11 719
+  xyzwh 189 143 2010 11 719
   overlappingdurationcanvas 130553
-    xyzwh 191 792 2020 11 25
+    xyzwh 195 792 2020 11 25
   end
   overlappingdurationcanvas 130809
-    xyzwh 191 830 2020 11 26
+    xyzwh 195 830 2020 11 26
   end
 end
 durationcanvas 128633 classinstance_ref 128249 // :LesCapteurs
-  xyzwh 431 142 2010 11 70
+  xyzwh 441 142 2010 11 70
 end
 durationcanvas 128889 classinstance_ref 128377 // :LesCapteurs
-  xyzwh 664 162 2010 11 49
+  xyzwh 674 162 2010 11 49
 end
 durationcanvas 129273 classinstance_ref 128249 // :LesCapteurs
-  xyzwh 431 263 2010 11 60
+  xyzwh 441 263 2010 11 60
 end
 durationcanvas 129529 classinstance_ref 128377 // :LesCapteurs
-  xyzwh 664 275 2010 11 50
+  xyzwh 674 275 2010 11 50
 end
 durationcanvas 129913 classinstance_ref 128249 // :LesCapteurs
-  xyzwh 431 373 2010 11 71
+  xyzwh 441 373 2010 11 71
 end
 durationcanvas 130169 classinstance_ref 128377 // :LesCapteurs
-  xyzwh 664 392 2010 11 51
+  xyzwh 674 392 2010 11 51
 end
 durationcanvas 131321 classinstance_ref 128249 // :LesCapteurs
-  xyzwh 431 508 2010 11 71
+  xyzwh 441 508 2010 11 71
 end
 durationcanvas 131577 classinstance_ref 128377 // :LesCapteurs
-  xyzwh 664 526 2010 11 61
+  xyzwh 674 526 2010 11 61
 end
 durationcanvas 131961 classinstance_ref 128249 // :LesCapteurs
-  xyzwh 431 661 2010 11 71
+  xyzwh 441 661 2010 11 71
 end
 durationcanvas 132217 classinstance_ref 128377 // :LesCapteurs
-  xyzwh 664 682 2010 11 59
+  xyzwh 674 682 2010 11 59
 end
 msg 128761 synchronous
   from durationcanvas_ref 128505

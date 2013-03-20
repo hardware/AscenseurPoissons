@@ -1,6 +1,8 @@
 ﻿#ifndef JOURNALDLG_H
 #define JOURNALDLG_H
 
+#include "seance.h"
+
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QListWidget>
@@ -10,8 +12,10 @@ class JournalDlg : public QWidget
 {
     Q_OBJECT
 
+    Seance *pSeance;
+
 public:
-    explicit JournalDlg(QWidget *parent = 0);
+    explicit JournalDlg(QWidget *parent = 0, Seance *ptSeance = 0);
     
 private:
     QVBoxLayout *VLMain;

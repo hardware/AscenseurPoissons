@@ -1,6 +1,8 @@
 ﻿#ifndef SEANCEDLG_H
 #define SEANCEDLG_H
 
+#include "seance.h"
+
 #include <QWidget>
 #include <QBoxLayout>
 #include <QGridLayout>
@@ -16,8 +18,10 @@ class SeanceDlg : public QWidget
 {
     Q_OBJECT
 
+    Seance *pSeance;
+
 public:
-    explicit SeanceDlg(QWidget *parent = 0);
+    explicit SeanceDlg(QWidget *parent = 0, Seance *ptSeance = 0);
     
 private:
     QVBoxLayout *vbox, *vboxTempsPeche, *vboxTempsVidange;
@@ -39,7 +43,19 @@ private:
 
 public slots:
     void augmenterPV();
+    void augmenterGV();
+    void augmenterTempsPeche();
+    void augmenterTempsVidange();
+    void augmenterNombreCycles();
+    void augmenterPeriodicite();
+
     void diminuerPV();
+    void diminuerGV();
+    void diminuerTempsPeche();
+    void diminuerTempsVidange();
+    void diminuerNombreCycles();
+    void diminuerPeriodicite();
+
     void enregistrerParametres();
 
 signals:

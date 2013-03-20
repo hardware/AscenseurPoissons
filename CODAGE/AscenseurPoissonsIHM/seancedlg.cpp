@@ -4,7 +4,30 @@ const int PV_MAX = 100;
 const int PV_MIN = 5;
 const int PV_OFFSET = 5;
 
-SeanceDlg::SeanceDlg(QWidget *parent) : QWidget(parent)
+const int GV_MAX = 100;
+const int GV_MIN = 5;
+const int GV_OFFSET = 5;
+
+// En minutes
+const int TEMPS_PECHE_MAX = 360;
+const int TEMPS_PECHE_MIN = 30;
+const int TEMPS_PECHE_OFFSET = 30;
+
+// En secondes
+const int TEMPS_VIDANGE_MAX = 60;
+const int TEMPS_VIDANGE_MIN = 10;
+const int TEMPS_VIDANGE_OFFSET = 10;
+
+const int NOMBRE_CYCLE_MAX = 1000;
+const int NOMBRE_CYCLE_MIN = 1;
+const int NOMBRE_CYCLE_OFFSET = 1;
+
+// En heure
+const int PERIODICITE_MAX = 24;
+const int PERIODICITE_MIN = 1;
+const int PERIODICITE_OFFSET = 1;
+
+SeanceDlg::SeanceDlg(QWidget *parent, Seance *ptSeance) : QWidget(parent), pSeance(ptSeance)
 {
     QSize LESize(60, 50),
           PBSize(60, 50);
@@ -45,7 +68,7 @@ SeanceDlg::SeanceDlg(QWidget *parent) : QWidget(parent)
     GBGv = new QGroupBox("GRANDE VITESSE");
     GBGv->setFont(GBFont);
 
-    LEGv = new QLineEdit(params->value("seance/GV", 5).toString());
+        LEGv = new QLineEdit(params->value("seance/GV", 5).toString());
         LEGv->setMaximumSize(LESize);
         LEGv->setFont(LEFont);
         LEGv->setAlignment(Qt::AlignHCenter);
@@ -219,6 +242,22 @@ SeanceDlg::SeanceDlg(QWidget *parent) : QWidget(parent)
     // Signaux & slots
     QObject::connect(PBPvPlus, SIGNAL(clicked()), this, SLOT(augmenterPV()));
     QObject::connect(PBPvMoins, SIGNAL(clicked()), this, SLOT(diminuerPV()));
+
+    QObject::connect(PBGvPlus, SIGNAL(clicked()), this, SLOT(augmenterGV()));
+    QObject::connect(PBGvMoins, SIGNAL(clicked()), this, SLOT(diminuerGV()));
+
+    QObject::connect(PBTempsPechePlus, SIGNAL(clicked()), this, SLOT(augmenterTempsPeche()));
+    QObject::connect(PBTempsPecheMoins, SIGNAL(clicked()), this, SLOT(diminuerTempsPeche()));
+
+    QObject::connect(PBTempsVidangePlus, SIGNAL(clicked()), this, SLOT(augmenterTempsVidange()));
+    QObject::connect(PBTempsVidangeMoins, SIGNAL(clicked()), this, SLOT(diminuerTempsVidange()));
+
+    QObject::connect(PBNombreCyclesPlus, SIGNAL(clicked()), this, SLOT(augmenterNombreCycles()));
+    QObject::connect(PBNombreCyclesMoins, SIGNAL(clicked()), this, SLOT(diminuerNombreCycles()));
+
+    QObject::connect(PBPeriodicitePlus, SIGNAL(clicked()), this, SLOT(augmenterPeriodicite()));
+    QObject::connect(PBPeriodiciteMoins, SIGNAL(clicked()), this, SLOT(diminuerPeriodicite()));
+
     QObject::connect(PBSeanceEnregistrer, SIGNAL(clicked()), this, SLOT(enregistrerParametres()));
 }
 
@@ -242,6 +281,116 @@ void SeanceDlg::diminuerPV()
         valeur = PV_MIN;
 
     LEPv->setText(QString::number(valeur));
+}
+
+void SeanceDlg::augmenterGV()
+{
+    int valeur = LEGv->text().toInt();
+    valeur += GV_OFFSET;
+
+    if(valeur > GV_MAX)
+        valeur = GV_MAX;
+
+    LEGv->setText(QString::number(valeur));
+}
+
+void SeanceDlg::diminuerGV()
+{
+    int valeur = LEGv->text().toInt();
+    valeur -= GV_OFFSET;
+
+    if(valeur < GV_MIN)
+        valeur = GV_MIN;
+
+    LEGv->setText(QString::number(valeur));
+}
+
+void SeanceDlg::augmenterTempsPeche()
+{
+    int valeur = LETempsPeche->text().toInt();
+    valeur += TEMPS_PECHE_OFFSET;
+
+    if(valeur > TEMPS_PECHE_MAX)
+        valeur = TEMPS_PECHE_MAX;
+
+    LETempsPeche->setText(QString::number(valeur));
+}
+
+void SeanceDlg::diminuerTempsPeche()
+{
+    int valeur = LETempsPeche->text().toInt();
+    valeur -= TEMPS_PECHE_OFFSET;
+
+    if(valeur < TEMPS_PECHE_MIN)
+        valeur = TEMPS_PECHE_MIN;
+
+    LETempsPeche->setText(QString::number(valeur));
+}
+
+void SeanceDlg::augmenterTempsVidange()
+{
+    int valeur = LETempsVidange->text().toInt();
+    valeur += TEMPS_VIDANGE_OFFSET;
+
+    if(valeur > TEMPS_VIDANGE_MAX)
+        valeur = TEMPS_VIDANGE_MAX;
+
+    LETempsVidange->setText(QString::number(valeur));
+}
+
+void SeanceDlg::diminuerTempsVidange()
+{
+    int valeur = LETempsVidange->text().toInt();
+    valeur -= TEMPS_VIDANGE_OFFSET;
+
+    if(valeur < TEMPS_VIDANGE_MIN)
+        valeur = TEMPS_VIDANGE_MIN;
+
+    LETempsVidange->setText(QString::number(valeur));
+}
+
+void SeanceDlg::augmenterNombreCycles()
+{
+    int valeur = LENombreCycles->text().toInt();
+    valeur += NOMBRE_CYCLE_OFFSET;
+
+    if(valeur > NOMBRE_CYCLE_MAX)
+        valeur = NOMBRE_CYCLE_MAX;
+
+    LENombreCycles->setText(QString::number(valeur));
+}
+
+void SeanceDlg::diminuerNombreCycles()
+{
+    int valeur = LENombreCycles->text().toInt();
+    valeur -= NOMBRE_CYCLE_OFFSET;
+
+    if(valeur < NOMBRE_CYCLE_MIN)
+        valeur = NOMBRE_CYCLE_MIN;
+
+    LENombreCycles->setText(QString::number(valeur));
+}
+
+void SeanceDlg::augmenterPeriodicite()
+{
+    int valeur = LEPeriodicite->text().toInt();
+    valeur += PERIODICITE_OFFSET;
+
+    if(valeur > PERIODICITE_MAX)
+        valeur = PERIODICITE_MAX;
+
+    LEPeriodicite->setText(QString::number(valeur));
+}
+
+void SeanceDlg::diminuerPeriodicite()
+{
+    int valeur = LEPeriodicite->text().toInt();
+    valeur -= PERIODICITE_OFFSET;
+
+    if(valeur < PERIODICITE_MIN)
+        valeur = PERIODICITE_MIN;
+
+    LEPeriodicite->setText(QString::number(valeur));
 }
 
 void SeanceDlg::enregistrerParametres()

@@ -1,6 +1,6 @@
 ﻿#include "manueldlg.h"
 
-ManuelDlg::ManuelDlg(QWidget *parent) : QWidget(parent)
+ManuelDlg::ManuelDlg(QWidget *parent, Seance *ptSeance) : QWidget(parent), pSeance(ptSeance)
 {
     // Taille des boutons
     QSize PBSize(80, 70);
@@ -122,7 +122,7 @@ ManuelDlg::ManuelDlg(QWidget *parent) : QWidget(parent)
 
     // Layout principal
     GLMain = new QGridLayout(this);
-    // Ajout ajoute les GroupBox au layout principal
+    // Ajout les GroupBox au layout principal
     GLMain->addWidget(GBPompe, 0, 0);
     GLMain->addWidget(GBCentrale, 0, 1);
     GLMain->addWidget(GBVanneAttrait, 1, 0);

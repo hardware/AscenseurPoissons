@@ -1,6 +1,6 @@
 ﻿#include "journaldlg.h"
 
-JournalDlg::JournalDlg(QWidget *parent) : QWidget(parent)
+JournalDlg::JournalDlg(QWidget *parent, Seance *ptSeance) : QWidget(parent), pSeance(ptSeance)
 {
     QListWidgetItem *item = new QListWidgetItem(QString::fromUtf8("Jan 28 12:21:37 [DEFAUT] - Un défaut est survenu au niveau de la pompe FLYGT"));
     item->setForeground(QBrush(QColor("red")));

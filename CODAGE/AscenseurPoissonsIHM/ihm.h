@@ -5,6 +5,7 @@
 #include <QTabWidget>
 #include <QVBoxLayout>
 
+#include "seance.h"
 #include "accueildlg.h"
 #include "manueldlg.h"
 #include "seancedlg.h"
@@ -15,6 +16,8 @@
 class IHM : public QWidget
 {
     Q_OBJECT
+
+    Seance seance;
     
 public:
     explicit IHM(QWidget *parent = 0);

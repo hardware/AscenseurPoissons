@@ -1,6 +1,8 @@
 ﻿#ifndef STATUTSDLG_H
 #define STATUTSDLG_H
 
+#include "seance.h"
+
 #include <QWidget>
 #include <QGridLayout>
 #include <QGroupBox>
@@ -13,8 +15,10 @@ class StatutsDlg : public QWidget
 {
     Q_OBJECT
 
+    Seance *pSeance;
+
 public:
-    explicit StatutsDlg(QWidget *parent = 0);
+    explicit StatutsDlg(QWidget *parent = 0, Seance *ptSeance = 0);
     
 private:
     QGridLayout *GLMain, *GLAppareillages, *GLNiveaux, *GLDefauts;

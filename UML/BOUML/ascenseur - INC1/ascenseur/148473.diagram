@@ -142,7 +142,7 @@ msg 130553 synchronous
 msg 130809 synchronous
   from durationcanvas_ref 128889
   to durationcanvas_ref 130681
-  yz 504 2015 msg operation_ref 129145 // "descendre()"
+  yz 504 2015 msg operation_ref 129145 // "descendre(in typeVitesse : bool)"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 522 493
 msg 131833 return
@@ -154,7 +154,7 @@ msg 131833 return
 msg 132217 synchronous
   from durationcanvas_ref 128889
   to durationcanvas_ref 132089
-  yz 566 2015 msg operation_ref 129273 // "ouvrir()"
+  yz 566 2015 explicitmsg "<deleted operation>"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 636 554
 msg 132473 synchronous

@@ -8,11 +8,11 @@ IHM::IHM(QWidget *parent) : QWidget(parent)
     setWindowIcon(QIcon(":/files/img/icon-shem.jpg"));
 
     accueilDlg = new AccueilDlg(this);
-    manuelDlg = new ManuelDlg(this);
-    seanceDlg = new SeanceDlg(this);
-    statutsDlg = new StatutsDlg(this);
-    synoptiqueDlg = new SynoptiqueDlg(this);
-    journalDlg = new JournalDlg(this);
+    manuelDlg = new ManuelDlg(this, &seance);
+    seanceDlg = new SeanceDlg(this, &seance);
+    statutsDlg = new StatutsDlg(this, &seance);
+    synoptiqueDlg = new SynoptiqueDlg(this, &seance);
+    journalDlg = new JournalDlg(this, &seance);
 
     onglets = new QTabWidget;
     onglets->setFont(QFont("MS Shell Dlg 2", 11));
@@ -21,7 +21,7 @@ IHM::IHM(QWidget *parent) : QWidget(parent)
     onglets->addTab(seanceDlg, "SEANCE");
     onglets->addTab(statutsDlg, "STATUTS");
     onglets->addTab(synoptiqueDlg, "SYNOPTIQUE");
-    onglets->addTab(journalDlg, "JOURNAL (2)");
+    onglets->addTab(journalDlg, "JOURNAL");
 
     layout = new QVBoxLayout(this);
     layout->addWidget(onglets);

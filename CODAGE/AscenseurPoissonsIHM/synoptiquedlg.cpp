@@ -1,6 +1,6 @@
 ﻿#include "synoptiquedlg.h"
 
-SynoptiqueDlg::SynoptiqueDlg(QWidget *parent) : QWidget(parent)
+SynoptiqueDlg::SynoptiqueDlg(QWidget *parent, Seance *ptSeance) : QWidget(parent), pSeance(ptSeance)
 {
     LBSchema = new QLabel;
     LBSchema->setPixmap(QPixmap(":/files/img/schema.png"));

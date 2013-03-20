@@ -32,6 +32,7 @@ Debug/
 Release/
 PROJECT
 *build*Debug
+*.autosave
 
 #########
 ## BOUML
