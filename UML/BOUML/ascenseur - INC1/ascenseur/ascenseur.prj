@@ -1,6 +1,6 @@
 format 75
 "ascenseur"
-  revision 28
+  revision 29
   modified_by 15 "Hardware"
 
 
@@ -1526,6 +1526,60 @@ ${inlines}
 	    classrelation_ref 142479 // <directional composition>
 	  b parent class_ref 148239 // JournalDlg
       end
+
+      classrelation 150927 // <directional aggregation>
+	relation 150799 o-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 150927 // <directional aggregation>
+	  b parent class_ref 141199 // AccueilDlg
+      end
+
+      classrelation 151055 // <directional aggregation>
+	relation 150927 o-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 151055 // <directional aggregation>
+	  b parent class_ref 141327 // ManuelDlg
+      end
+
+      classrelation 151183 // <directional aggregation>
+	relation 151055 o-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 151183 // <directional aggregation>
+	  b parent class_ref 141455 // SeanceDlg
+      end
+
+      classrelation 151311 // <directional aggregation>
+	relation 151183 o-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 151311 // <directional aggregation>
+	  b parent class_ref 147983 // StatusDlg
+      end
+
+      classrelation 151439 // <directional aggregation>
+	relation 151311 o-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 151439 // <directional aggregation>
+	  b parent class_ref 148111 // SynoptiqueDlg
+      end
+
+      classrelation 151567 // <directional aggregation>
+	relation 151439 o-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 151567 // <directional aggregation>
+	  b parent class_ref 148239 // JournalDlg
+      end
     end
 
     class 141199 "AccueilDlg"
@@ -1868,8 +1922,15 @@ ${inlines}
       idl_decl ""
       explicit_switch_type ""
       
+      classrelation 151695 // <directional composition>
+	relation 151567 *-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 151695 // <directional composition>
+	  b parent class_ref 141071 // IHM
+      end
     end
-
   end
 
   deploymentview 128202 "Vue de deploiement"
