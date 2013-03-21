@@ -10,11 +10,11 @@ packagecanvas 128143
 end
 packagecanvas 128271 
   package_ref 128271 // ASCENSEUR
-    xyzwh 580 86 2000 97 75
+    xyzwh 576 195 2000 97 75
 end
 packagecanvas 128399 
   package_ref 128399 // CAN_OPEN
-    xyzwh 592 338 2000 75 75
+    xyzwh 587 340 2000 75 75
 end
 packagecanvas 128527 
   package_ref 128527 // ARCHIVAGE

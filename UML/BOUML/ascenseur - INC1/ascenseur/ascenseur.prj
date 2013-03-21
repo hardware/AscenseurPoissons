@@ -1,7 +1,7 @@
 format 75
 "ascenseur"
-  revision 29
-  modified_by 15 "Hardware"
+  revision 32
+  modified_by 48 "Hardware"
 
 
   
@@ -32,7 +32,7 @@ format 75
   
   class_color yellow duration_color transparent continuation_color gray note_color blue fragment_color transparent subject_color transparent usecase_color yellow package_color transparent component_color green artifact_color green deploymentnode_color gray state_color yellow stateaction_color transparent activity_color transparent activityregion_color transparent activitypartition_color transparent activityaction_color transparent parameterpin_color white 
   font_size 9
-  diagram_format A4
+  diagram_format A2-Landscape
 
   image_root_dir ""
 
@@ -1506,7 +1506,7 @@ ${inlines}
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 142223 // <directional composition>
-	  b parent class_ref 147983 // StatusDlg
+	  b parent class_ref 147983 // StatutsDlg
       end
 
       classrelation 142351 // <directional composition>
@@ -1560,7 +1560,7 @@ ${inlines}
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 151311 // <directional aggregation>
-	  b parent class_ref 147983 // StatusDlg
+	  b parent class_ref 147983 // StatutsDlg
       end
 
       classrelation 151439 // <directional aggregation>
@@ -1788,7 +1788,7 @@ ${inlines}
       end
     end
 
-    class 147983 "StatusDlg"
+    class 147983 "StatutsDlg"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
@@ -1930,6 +1930,70 @@ ${inlines}
 	    classrelation_ref 151695 // <directional composition>
 	  b parent class_ref 141071 // IHM
       end
+    end
+
+    classinstance 128048 ""
+      type class_ref 141071 // IHM
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 128176 ""
+      type class_ref 141199 // AccueilDlg
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 128304 ""
+      type class_ref 141327 // ManuelDlg
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 128432 ""
+      type class_ref 141455 // SeanceDlg
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 128560 ""
+      type class_ref 147983 // StatutsDlg
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 128688 ""
+      type class_ref 148111 // SynoptiqueDlg
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 128816 ""
+      type class_ref 154767 // InterfaceCAN
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 128944 ""
+      type class_ref 148239 // JournalDlg
+      attributes
+        end
+      relations
+        end
     end
   end
 
