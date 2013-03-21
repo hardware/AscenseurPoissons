@@ -1,6 +1,6 @@
 format 75
 "ascenseur"
-  revision 27
+  revision 28
   modified_by 15 "Hardware"
 
 
@@ -287,7 +287,7 @@ ${inlines}
       end
     end
 
-    class 128458 "LesCapteurs"
+    class 128458 "Capteurs"
       visibility package stereotype "actor"
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
@@ -648,7 +648,7 @@ ${inlines}
     package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
     show_infonote default drawing_language default show_stereotype_properties default
     classdiagram 141327 "Diagramme de classes"
-      draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+      draw_all_relations no hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
       size A4
     end
 
@@ -690,6 +690,15 @@ ${inlines}
 	
 	
 	
+      end
+
+      classrelation 143759 // <unidirectional association>
+	relation 143631 --->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 143759 // <unidirectional association>
+	  b parent class_ref 154767 // InterfaceCAN
       end
     end
 
@@ -934,9 +943,54 @@ ${inlines}
 	    classrelation_ref 135311 // <directional aggregation>
 	  b parent class_ref 128249 // Pompe
       end
+
+      classrelation 143119 // <directional aggregation>
+	relation 142991 o-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 143119 // <directional aggregation>
+	  b parent class_ref 128377 // VanneAttrait
+      end
+
+      classrelation 144015 // <directional aggregation>
+	relation 143887 o-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 144015 // <directional aggregation>
+	  b parent class_ref 134543 // CentraleHydraulique
+      end
+
+      classrelation 144143 // <directional aggregation>
+	relation 144015 o-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 144143 // <directional aggregation>
+	  b parent class_ref 128633 // Grille
+      end
+
+      classrelation 144271 // <directional aggregation>
+	relation 144143 o-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 144271 // <directional aggregation>
+	  b parent class_ref 128505 // CageAscenseur
+      end
+
+      classrelation 144399 // <directional aggregation>
+	relation 144271 o-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 144399 // <directional aggregation>
+	  b parent class_ref 135161 // Capteurs
+      end
     end
 
-    class 135161 "LesCapteurs"
+    class 135161 "Capteurs"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
@@ -1101,6 +1155,24 @@ ${inlines}
 	
 	
       end
+
+      classrelation 143503 // <unidirectional association>
+	relation 143375 --->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 143503 // <unidirectional association>
+	  b parent class_ref 154767 // InterfaceCAN
+      end
+
+      classrelation 143631 // <unidirectional association>
+	relation 143503 --->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 143631 // <unidirectional association>
+	  b parent class_ref 154767 // InterfaceCAN
+      end
     end
 
     class 128249 "Pompe"
@@ -1192,6 +1264,15 @@ ${inlines}
 	
 	
       end
+
+      classrelation 143247 // <unidirectional association>
+	relation 143119 --->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 143247 // <unidirectional association>
+	  b parent class_ref 154767 // InterfaceCAN
+      end
     end
 
     class 128505 "CageAscenseur"
@@ -1235,6 +1316,15 @@ ${inlines}
 	
 	
       end
+
+      classrelation 143375 // <unidirectional association>
+	relation 143247 --->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 143375 // <unidirectional association>
+	  b parent class_ref 154767 // InterfaceCAN
+      end
     end
 
     class 128633 "Grille"
@@ -1276,6 +1366,15 @@ ${inlines}
 	
 	
       end
+
+      classrelation 143887 // <unidirectional association>
+	relation 143759 --->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 143887 // <unidirectional association>
+	  b parent class_ref 154767 // InterfaceCAN
+      end
     end
 
     objectdiagram 155385 "Modele objet"
@@ -1292,7 +1391,7 @@ ${inlines}
     end
 
     classinstance 128249 ""
-      type class_ref 135161 // LesCapteurs
+      type class_ref 135161 // Capteurs
       attributes
         end
       relations
@@ -1391,6 +1490,42 @@ ${inlines}
 	
 	
       end
+
+      classrelation 141967 // <directional composition>
+	relation 141839 *-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 141967 // <directional composition>
+	  b parent class_ref 141455 // SeanceDlg
+      end
+
+      classrelation 142223 // <directional composition>
+	relation 142095 *-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 142223 // <directional composition>
+	  b parent class_ref 147983 // StatusDlg
+      end
+
+      classrelation 142351 // <directional composition>
+	relation 142223 *-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 142351 // <directional composition>
+	  b parent class_ref 148111 // SynoptiqueDlg
+      end
+
+      classrelation 142479 // <directional composition>
+	relation 142351 *-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 142479 // <directional composition>
+	  b parent class_ref 148239 // JournalDlg
+      end
     end
 
     class 141199 "AccueilDlg"
@@ -1405,6 +1540,14 @@ ${inlines}
       idl_decl ""
       explicit_switch_type ""
       
+      classrelation 142607 // <unidirectional association>
+	relation 142479 --->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 142607 // <unidirectional association>
+	  b parent class_ref 128121 // Seance
+      end
     end
 
     class 141327 "ManuelDlg"
@@ -1580,6 +1723,15 @@ ${inlines}
 	
 	
       end
+
+      classrelation 142095 // <unidirectional association>
+	relation 141967 --->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 142095 // <unidirectional association>
+	  b parent class_ref 128121 // Seance
+      end
     end
 
     class 147983 "StatusDlg"
@@ -1606,6 +1758,15 @@ ${inlines}
 	
 	
 	
+      end
+
+      classrelation 142735 // <unidirectional association>
+	relation 142607 --->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 142735 // <unidirectional association>
+	  b parent class_ref 128121 // Seance
       end
     end
 
@@ -1634,6 +1795,15 @@ ${inlines}
 	
 	
       end
+
+      classrelation 142863 // <unidirectional association>
+	relation 142735 --->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 142863 // <unidirectional association>
+	  b parent class_ref 128121 // Seance
+      end
     end
 
     class 148239 "JournalDlg"
@@ -1660,6 +1830,15 @@ ${inlines}
 	
 	
 	
+      end
+
+      classrelation 142991 // <unidirectional association>
+	relation 142863 --->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 142991 // <unidirectional association>
+	  b parent class_ref 128121 // Seance
       end
     end
 
@@ -1690,6 +1869,7 @@ ${inlines}
       explicit_switch_type ""
       
     end
+
   end
 
   deploymentview 128202 "Vue de deploiement"

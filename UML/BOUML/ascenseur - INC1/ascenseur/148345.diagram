@@ -2,9 +2,9 @@ format 75
 
 classinstance 128121 class_ref 128121 // Seance
   name ""   xyz 166 35 2000 life_line_z 2000
-classinstance 128249 class_ref 135161 // LesCapteurs
+classinstance 128249 class_ref 135161 // Capteurs
   name ""   xyz 403 38 2000 life_line_z 2000
-classinstance 128377 class_ref 128458 // LesCapteurs
+classinstance 128377 class_ref 128458 // Capteurs
   name ""   xyz 640 28 2000 life_line_z 2000
 fragment 131065 "alt [defauts parametres]"
   xyzwh 127 768 3005 284 117
@@ -21,35 +21,35 @@ durationcanvas 128505 classinstance_ref 128121 // :Seance
     xyzwh 195 830 2020 11 26
   end
 end
-durationcanvas 128633 classinstance_ref 128249 // :LesCapteurs
-  xyzwh 441 142 2010 11 70
+durationcanvas 128633 classinstance_ref 128249 // :Capteurs
+  xyzwh 430 142 2010 11 70
 end
-durationcanvas 128889 classinstance_ref 128377 // :LesCapteurs
-  xyzwh 674 162 2010 11 49
+durationcanvas 128889 classinstance_ref 128377 // :Capteurs
+  xyzwh 663 162 2010 11 49
 end
-durationcanvas 129273 classinstance_ref 128249 // :LesCapteurs
-  xyzwh 441 263 2010 11 60
+durationcanvas 129273 classinstance_ref 128249 // :Capteurs
+  xyzwh 430 263 2010 11 60
 end
-durationcanvas 129529 classinstance_ref 128377 // :LesCapteurs
-  xyzwh 674 275 2010 11 50
+durationcanvas 129529 classinstance_ref 128377 // :Capteurs
+  xyzwh 663 275 2010 11 50
 end
-durationcanvas 129913 classinstance_ref 128249 // :LesCapteurs
-  xyzwh 441 373 2010 11 71
+durationcanvas 129913 classinstance_ref 128249 // :Capteurs
+  xyzwh 430 373 2010 11 71
 end
-durationcanvas 130169 classinstance_ref 128377 // :LesCapteurs
-  xyzwh 674 392 2010 11 51
+durationcanvas 130169 classinstance_ref 128377 // :Capteurs
+  xyzwh 663 392 2010 11 51
 end
-durationcanvas 131321 classinstance_ref 128249 // :LesCapteurs
-  xyzwh 441 508 2010 11 71
+durationcanvas 131321 classinstance_ref 128249 // :Capteurs
+  xyzwh 430 508 2010 11 71
 end
-durationcanvas 131577 classinstance_ref 128377 // :LesCapteurs
-  xyzwh 674 526 2010 11 61
+durationcanvas 131577 classinstance_ref 128377 // :Capteurs
+  xyzwh 663 526 2010 11 61
 end
-durationcanvas 131961 classinstance_ref 128249 // :LesCapteurs
-  xyzwh 441 661 2010 11 71
+durationcanvas 131961 classinstance_ref 128249 // :Capteurs
+  xyzwh 430 661 2010 11 71
 end
-durationcanvas 132217 classinstance_ref 128377 // :LesCapteurs
-  xyzwh 674 682 2010 11 59
+durationcanvas 132217 classinstance_ref 128377 // :Capteurs
+  xyzwh 663 682 2010 11 59
 end
 msg 128761 synchronous
   from durationcanvas_ref 128505
