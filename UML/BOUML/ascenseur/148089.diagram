@@ -1,68 +1,42 @@
 format 75
 
+classinstance 128048 class_ref 154767 // InterfaceCAN
+  name ""   xyz 538 4 2000 life_line_z 2000
 classinstance 128121 class_ref 128121 // Seance
-  name ""   xyz 73 42 2000 life_line_z 2000
+  name ""   xyz 6 4 2000 life_line_z 2000
 classinstance 128249 class_ref 128633 // Grille
-  name ""   xyz 237 44 2000 life_line_z 2000
-classinstance 128377 class_ref 135161 // LesCapteurs
-  name ""   xyz 455 47 2000 life_line_z 2000
+  name ""   xyz 154 4 2000 life_line_z 2000
+classinstance 128377 class_ref 135161 // Capteurs
+  name ""   xyz 372 4 2000 life_line_z 2000
 classinstance 128505 class_ref 128842 // Grille
-  name ""   xyz 589 43 2000 life_line_z 2000
-classinstance 128633 class_ref 128458 // LesCapteurs
-  name ""   xyz 693 40 2000 life_line_z 2000
-textcanvas 130169 "[ Grille Basse ]"
-  xyzwh 168 245 3005 90 25
-fragment 130297 "SD : scenario ouvrir la grille"
-  xyzwh 16 6 2005 782 405
-end
+  name ""   xyz 688 4 2000 life_line_z 2000
+classinstance 128633 class_ref 128458 // Capteurs
+  name ""   xyz 779 4 2000 life_line_z 2000
 durationcanvas 128761 classinstance_ref 128121 // :Seance
-  xyzwh 92 127 2010 11 217
+  xyzwh 29 106 2010 11 200
 end
 durationcanvas 128889 classinstance_ref 128249 // :Grille
-  xyzwh 256 126 2010 11 184
+  xyzwh 173 121 2010 11 183
 end
-durationcanvas 129145 classinstance_ref 128377 // :LesCapteurs
-  xyzwh 483 153 2010 11 61
-end
-durationcanvas 129401 classinstance_ref 128633 // :LesCapteurs
-  xyzwh 717 159 2010 11 49
-end
-durationcanvas 129785 classinstance_ref 128505 // :Grille
-  xyzwh 597 254 2010 11 25
+durationcanvas 129145 classinstance_ref 128377 // :Capteurs
+  xyzwh 399 150 2010 11 41
 end
 msg 129017 synchronous
   from durationcanvas_ref 128761
   to durationcanvas_ref 128889
-  yz 127 2015 msg operation_ref 129273 // "ouvrir()"
+  yz 122 2015 msg operation_ref 129529 // "ouvrir()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 166 116
+  label_xy 89 111
 msg 129273 synchronous
   from durationcanvas_ref 128889
   to durationcanvas_ref 129145
-  yz 153 2015 msg operation_ref 131577 // "LireCapteurFinDeCourseGrilleBasse()"
+  yz 150 2015 msg operation_ref 131577 // "LireCapteurFinDeCourseGrilleBasse()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 281 142
-msg 129529 synchronous
-  from durationcanvas_ref 129145
-  to durationcanvas_ref 129401
-  yz 165 2015 unspecifiedmsg
-  show_full_operations_definition default drawing_language default show_context_mode default
-msg 129657 return
-  from durationcanvas_ref 129401
-  to durationcanvas_ref 129145
-  yz 195 2015 explicitmsg "Grille Basse"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 581 185
-msg 129913 synchronous
-  from durationcanvas_ref 128889
-  to durationcanvas_ref 129785
-  yz 254 2015 msg operation_ref 131705 // "GRILLE_OUVERTE()"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 299 241
+  label_xy 186 137
 msg 130041 return
   from durationcanvas_ref 128889
   to durationcanvas_ref 128761
   yz 293 2015 explicitmsg "OUVERTE / FERMEE"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 127 281
+  label_xy 51 281
 end

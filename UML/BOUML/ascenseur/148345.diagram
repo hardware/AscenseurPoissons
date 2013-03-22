@@ -2,151 +2,153 @@ format 75
 
 classinstance 128121 class_ref 128121 // Seance
   name ""   xyz 166 35 2000 life_line_z 2000
-classinstance 128249 class_ref 135161 // LesCapteurs
+classinstance 128249 class_ref 135161 // Capteurs
   name ""   xyz 403 38 2000 life_line_z 2000
-classinstance 128377 class_ref 128458 // LesCapteurs
+classinstance 128377 class_ref 128458 // Capteurs
   name ""   xyz 640 28 2000 life_line_z 2000
-fragment 131065 "alt [defauts parametres]"
-  xyzwh 127 768 3005 284 117
+fragment 131065 "alt (defaut)"
+  xyzwh 138 765 2025 284 117
 end
 fragment 131193 "SD: controler parametres"
   xyzwh 40 6 2000 729 936
 end
 durationcanvas 128505 classinstance_ref 128121 // :Seance
-  xyzwh 185 143 2010 11 719
+  xyzwh 189 144 2010 11 731
   overlappingdurationcanvas 130553
-    xyzwh 191 792 2020 11 25
+    xyzwh 195 792 2020 11 25
   end
   overlappingdurationcanvas 130809
-    xyzwh 191 830 2020 11 26
+    xyzwh 195 830 2020 11 26
   end
 end
-durationcanvas 128633 classinstance_ref 128249 // :LesCapteurs
-  xyzwh 431 142 2010 11 70
+durationcanvas 128633 classinstance_ref 128249 // :Capteurs
+  xyzwh 430 142 2010 11 70
 end
-durationcanvas 128889 classinstance_ref 128377 // :LesCapteurs
-  xyzwh 664 162 2010 11 49
+durationcanvas 128889 classinstance_ref 128377 // :Capteurs
+  xyzwh 663 160 2010 11 42
 end
-durationcanvas 129273 classinstance_ref 128249 // :LesCapteurs
-  xyzwh 431 263 2010 11 60
+durationcanvas 129273 classinstance_ref 128249 // :Capteurs
+  xyzwh 430 263 2010 11 60
 end
-durationcanvas 129529 classinstance_ref 128377 // :LesCapteurs
-  xyzwh 664 275 2010 11 50
+durationcanvas 129529 classinstance_ref 128377 // :Capteurs
+  xyzwh 663 273 2010 11 45
 end
-durationcanvas 129913 classinstance_ref 128249 // :LesCapteurs
-  xyzwh 431 373 2010 11 71
+durationcanvas 129913 classinstance_ref 128249 // :Capteurs
+  xyzwh 430 373 2010 11 71
 end
-durationcanvas 130169 classinstance_ref 128377 // :LesCapteurs
-  xyzwh 664 392 2010 11 51
+durationcanvas 130169 classinstance_ref 128377 // :Capteurs
+  xyzwh 663 391 2010 11 47
 end
-durationcanvas 131321 classinstance_ref 128249 // :LesCapteurs
-  xyzwh 431 508 2010 11 71
+durationcanvas 131321 classinstance_ref 128249 // :Capteurs
+  xyzwh 430 508 2010 11 71
 end
-durationcanvas 131577 classinstance_ref 128377 // :LesCapteurs
-  xyzwh 664 526 2010 11 61
+durationcanvas 131577 classinstance_ref 128377 // :Capteurs
+  xyzwh 663 526 2010 11 43
 end
-durationcanvas 131961 classinstance_ref 128249 // :LesCapteurs
-  xyzwh 431 661 2010 11 71
+durationcanvas 131961 classinstance_ref 128249 // :Capteurs
+  xyzwh 430 661 2010 11 71
 end
-durationcanvas 132217 classinstance_ref 128377 // :LesCapteurs
-  xyzwh 664 682 2010 11 59
+durationcanvas 132217 classinstance_ref 128377 // :Capteurs
+  xyzwh 663 681 2010 11 41
 end
 msg 128761 synchronous
   from durationcanvas_ref 128505
   to durationcanvas_ref 128633
-  yz 146 2015 msg operation_ref 130041 // "LireCapteurSurcharge()"
+  yz 147 2015 msg operation_ref 130041 // "LireCapteurSurcharge()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 268 135
+  label_xy 259 135
 msg 129017 synchronous
   from durationcanvas_ref 128633
   to durationcanvas_ref 128889
-  yz 163 2015 explicitmsg "valeur ?"
+  yz 161 2015 explicitmsg "valeur ?"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 538 152
+  label_xy 537 150
 msg 129145 return
   from durationcanvas_ref 128889
   to durationcanvas_ref 128633
-  yz 193 2015 explicitmsg "info"
+  yz 191 2015 explicitmsg "info"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 546 182
+  label_xy 546 180
 msg 129401 synchronous
   from durationcanvas_ref 128505
   to durationcanvas_ref 129273
-  yz 265 2015 msg operation_ref 130169 // "LireCapteurTemperature()"
+  yz 266 2015 msg operation_ref 130169 // "LireCapteurTemperature()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 262 254
+  label_xy 253 254
 msg 129657 synchronous
   from durationcanvas_ref 129273
   to durationcanvas_ref 129529
-  yz 275 2020 unspecifiedmsg
+  yz 273 2020 explicitmsg "valeur ?"
   show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 530 258
 msg 129785 return
   from durationcanvas_ref 129529
   to durationcanvas_ref 129273
-  yz 309 2015 explicitmsg "temperature"
+  yz 307 2015 explicitmsg "temperature"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 529 298
+  label_xy 522 296
 msg 130041 synchronous
   from durationcanvas_ref 128505
   to durationcanvas_ref 129913
-  yz 375 2015 msg operation_ref 130297 // "LireCapteurNiveauHuile()"
+  yz 376 2015 msg operation_ref 130297 // "LireCapteurNiveauHuile()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 263 364
+  label_xy 255 365
 msg 130297 synchronous
   from durationcanvas_ref 129913
   to durationcanvas_ref 130169
-  yz 393 2020 unspecifiedmsg
+  yz 392 2020 explicitmsg "valeur ?"
   show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 530 377
 msg 130425 return
   from durationcanvas_ref 130169
   to durationcanvas_ref 129913
-  yz 428 2015 explicitmsg "niveau"
+  yz 427 2015 explicitmsg "niveau"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 540 417
+  label_xy 532 417
 reflexivemsg 130681 synchronous
   to durationcanvas_ref 130553
-  yz 792 2025 explicitmsg "etat_seance = AUTO_BREAK"
+  yz 792 3005 explicitmsg "etat_seance = AUTO_BREAK"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 229 788
+  label_xy 229 791
 reflexivemsg 130937 synchronous
   to durationcanvas_ref 130809
-  yz 830 2025 explicitmsg "arreterAutomatisation()"
+  yz 830 3005 explicitmsg "arreterAutomatisation()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 227 830
 msg 131449 synchronous
   from durationcanvas_ref 128505
   to durationcanvas_ref 131321
-  yz 508 2015 msg operation_ref 139769 // "LireNiveauAmont()"
+  yz 509 2015 msg operation_ref 131321 // "LireCapteurNiveauCanalAval()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 276 497
+  label_xy 242 498
 msg 131705 synchronous
   from durationcanvas_ref 131321
   to durationcanvas_ref 131577
   yz 527 2020 explicitmsg "valeur ?"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 537 516
+  label_xy 528 515
 msg 131833 return
   from durationcanvas_ref 131577
   to durationcanvas_ref 131321
   yz 558 2015 explicitmsg "info"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 546 547
+  label_xy 538 547
 msg 132089 synchronous
   from durationcanvas_ref 128505
   to durationcanvas_ref 131961
-  yz 661 2015 msg operation_ref 140025 // "LireNiveauAval()"
+  yz 662 2015 msg operation_ref 130937 // "LireCapteurNiveauCanalAmont()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 280 650
+  label_xy 232 649
 msg 132345 synchronous
   from durationcanvas_ref 131961
   to durationcanvas_ref 132217
-  yz 683 2020 explicitmsg "valeur ?"
+  yz 682 2020 explicitmsg "valeur ?"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 537 672
+  label_xy 537 671
 msg 132473 return
   from durationcanvas_ref 132217
   to durationcanvas_ref 131961
-  yz 712 2015 explicitmsg "info"
+  yz 711 2015 explicitmsg "info"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 546 701
+  label_xy 546 700
 end

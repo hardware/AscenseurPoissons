@@ -9,6 +9,7 @@ classcanvas 128143 class_ref 128015 // CentraleHydraulique
   xyz 54 686 2005
 end
 usecasecanvas 128202 usecase_ref 128202 // Programmer une séance
+  color lightmediumblue
   xyzwh 241 7 3005 64 32 label_xy 198 38
 end
 usecasecanvas 128330 usecase_ref 128330 // Lancer automatisation
@@ -18,9 +19,13 @@ usecasecanvas 128458 usecase_ref 128458 // Arreter automatisation
   xyzwh 250 220 3005 64 32 label_xy 315 223
 end
 usecasecanvas 128586 usecase_ref 128586 // Tester les appareillages
+  color lightmediumblue
   xyzwh 56 547 3005 64 32 label_xy 9 578
 end
+note 128783 "Cas bleus : Incrément 1"
+  color lightmediumblue  xyzwh 641 137 2000 155 35
 usecasecanvas 128970 usecase_ref 128714 // Enregistrer une séance
+  color lightmediumblue
   xyzwh 487 6 3005 64 32 label_xy 445 37
 end
 usecasecanvas 129098 usecase_ref 128842 // Récupérer une séance
@@ -34,9 +39,10 @@ usecasecanvas 129866 usecase_ref 128970 // Réaliser une séance
   xyzwh 733 307 3005 64 32 label_xy 638 298
 end
 usecasecanvas 129994 usecase_ref 129098 // Controler les paramètres
+  color lightmediumblue
   xyzwh 457 307 3005 64 32 label_xy 421 342
 end
-classcanvas 130634 class_ref 128458 // LesCapteurs
+classcanvas 130634 class_ref 128458 // Capteurs
   class_drawing_mode default show_context_mode default show_stereotype_properties default
   xyz 500.8 221.9 2000
 end
@@ -44,6 +50,7 @@ usecasecanvas 130890 usecase_ref 129226 // Effectuer un cycle
   xyzwh 733 546 3005 64 32 label_xy 707 577
 end
 usecasecanvas 131146 usecase_ref 129354 // Commander les appareillages
+  color lightmediumblue
   xyzwh 250 549 3005 64 32 label_xy 322 545
 end
 classcanvas 132426 class_ref 128586 // Pompe
@@ -65,7 +72,7 @@ end
 line 128271 --->
   from ref 131146 z 3006 to ref 128143
 simplerelationcanvas 128399 simplerelation_ref 128015
-  from ref 129866 z 3006 stereotype "<<include>>" xyz 512 445.5 3000 to ref 131146
+  from ref 129866 z 3006 stereotype "<<include>>" xyz 512 445 3000 to ref 131146
 end
 line 128714 --->
   from ref 128074 z 3006 to ref 128202
@@ -88,10 +95,10 @@ simplerelationcanvas 130250 simplerelation_ref 128458
   line 128655 z 3006 stereotype "<<include>>" xyz 489 179 3000 to ref 129866
 end
 simplerelationcanvas 130378 simplerelation_ref 128586
-  from ref 129866 z 3006 stereotype "<<include>>" xyz 594 329.5 3000 to ref 129994
+  from ref 129866 z 3006 stereotype "<<include>>" xyz 594 329 3000 to ref 129994
 end
 simplerelationcanvas 130506 simplerelation_ref 128714
-  from ref 128458 z 3006 stereotype "<<extend>>" xyz 327.5 281.5 3000 to ref 129994
+  from ref 128458 z 3006 stereotype "<<extend>>" xyz 327 281 3000 to ref 129994
 end
 line 130762 --->
   from ref 130634 z 3006 to ref 129994

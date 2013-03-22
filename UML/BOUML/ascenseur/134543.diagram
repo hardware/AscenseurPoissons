@@ -1,86 +1,48 @@
 format 75
 
 classinstance 128015 class_ref 128121 // Seance
-  name ""   xyz 82 34 2010 life_line_z 2000
+  name ""   xyz 5 4 2010 life_line_z 2000
+classinstance 128048 class_ref 154767 // InterfaceCAN
+  name ""   xyz 496 4 2000 life_line_z 2000
 classinstance 128143 class_ref 134543 // CentraleHydraulique
-  name ""   xyz 191 30 2010 life_line_z 2000
-classinstance 128271 class_ref 135161 // LesCapteurs
-  name ""   xyz 425 31 2010 life_line_z 2000
+  name ""   xyz 139 4 2010 life_line_z 2000
+classinstance 128271 class_ref 135161 // Capteurs
+  name ""   xyz 344 4 2010 life_line_z 2000
 classinstance 128399 class_ref 128015 // CentraleHydraulique
-  name ""   xyz 570 23 2010 life_line_z 2000
-classinstance 128527 class_ref 128458 // LesCapteurs
-  name ""   xyz 721 23 2010 life_line_z 2000
-fragment 130319 "alt( (niveau huile ok) ET ( temperature ok) )"
-  xyzwh 47 229 2010 756 159
-end
-fragment 131087 "SD : Scenario demarrer centrale hydraulique"
-  xyzwh 8 6 2005 822 409
-end
+  name ""   xyz 717 4 2010 life_line_z 2000
+classinstance 128527 class_ref 128458 // Capteurs
+  name ""   xyz 652 4 2010 life_line_z 2000
 durationcanvas 128655 classinstance_ref 128015 // :Seance
-  xyzwh 105 86 2010 11 227
+  xyzwh 28 86 2010 11 227
 end
-durationcanvas 129039 classinstance_ref 128271 // :LesCapteurs
-  xyzwh 463 98 2010 11 105
-end
-durationcanvas 129679 classinstance_ref 128527 // :LesCapteurs
-  xyzwh 755 121 2010 11 106
+durationcanvas 129039 classinstance_ref 128271 // :Capteurs
+  xyzwh 371 98 2010 11 105
 end
 durationcanvas 130447 classinstance_ref 128143 // :CentraleHydraulique
-  xyzwh 249 85 2010 11 228
-end
-durationcanvas 130575 classinstance_ref 128399 // :CentraleHydraulique
-  xyzwh 624 273 2010 11 28
+  xyzwh 197 85 2010 11 228
 end
 msg 128911 synchronous
   from durationcanvas_ref 128655
   to durationcanvas_ref 130447
   yz 87 2015 msg operation_ref 134543 // "demarrer()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 148 72
+  label_xy 87 76
 msg 129167 synchronous
   from durationcanvas_ref 130447
   to durationcanvas_ref 129039
   yz 99 2020 msg operation_ref 130297 // "LireCapteurNiveauHuile()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 288 84
-msg 129423 synchronous
-  from durationcanvas_ref 129039
-  to durationcanvas_ref 129679
-  yz 121 2015 unspecifiedmsg
-  show_full_operations_definition default drawing_language default show_context_mode default
-msg 129551 return
-  from durationcanvas_ref 129679
-  to durationcanvas_ref 129039
-  yz 139 2015 explicitmsg "niveau huile"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 593 128
-msg 129807 synchronous
-  from durationcanvas_ref 129039
-  to durationcanvas_ref 129679
-  yz 172 2015 unspecifiedmsg
-  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 214 86
 msg 130063 synchronous
   from durationcanvas_ref 130447
   to durationcanvas_ref 129039
   yz 163 2025 msg operation_ref 130169 // "LireCapteurTemperature()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 286 148
-msg 130191 return
-  from durationcanvas_ref 129679
-  to durationcanvas_ref 129039
-  yz 192 2030 explicitmsg "temperature"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 593 180
-msg 130703 synchronous
-  from durationcanvas_ref 130447
-  to durationcanvas_ref 130575
-  yz 273 2015 msg operation_ref 134927 // "CENTRALE_ON()"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 265 260
+  label_xy 212 150
 msg 130959 return
   from durationcanvas_ref 130447
   to durationcanvas_ref 128655
-  yz 302 2015 explicitmsg "ON / OFF"
+  yz 302 2010 explicitmsg "ON / OFF"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 152 287
+  label_xy 92 289
 end
