@@ -12,6 +12,9 @@ public:
 
     VanneAttrait(InterfaceCAN *pIcan);
 
+    void ouvrir();
+    void fermer();
+
 };
 
 #endif // VANNEATTRAIT_H

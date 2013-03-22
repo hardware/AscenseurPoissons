@@ -1,7 +1,7 @@
 format 75
 "ascenseur"
-  revision 49
-  modified_by 48 "Hardware"
+  revision 51
+  modified_by 15 "Hardware"
 
 
   
@@ -1174,7 +1174,7 @@ ${inlines}
 	
       end
 
-      operation 133113 "LireCapteurFinDeCourseGrilleHaute"
+      operation 133113 "LireCapteurFinDeCourseGrilleHaut"
 	public explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
@@ -1188,7 +1188,7 @@ ${inlines}
 	
       end
 
-      operation 131577 "LireCapteurFinDeCourseGrilleBasse"
+      operation 131577 "LireCapteurFinDeCourseGrilleBas"
 	public explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
@@ -1202,7 +1202,7 @@ ${inlines}
 	
       end
 
-      operation 131833 "LirePositionAscenseurHaute"
+      operation 131833 "LireCapteurPositionAscenseurHaute"
 	public explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
@@ -1216,7 +1216,7 @@ ${inlines}
 	
       end
 
-      operation 147632 "LirePositionAscenseurBasse"
+      operation 147632 "LireCapteurPositionAscenseurBasse"
 	public explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
@@ -1434,6 +1434,62 @@ ${inlines}
 "
 	    classrelation_ref 134927 // <unidirectional association>
 	  b parent class_ref 128121 // Seance
+      end
+
+      operation 176015 "demarrerPompe"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 176143 "arreterPompe"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 176271 "demarrerCentrale"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 176399 "arreterCentrale"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
       end
     end
 

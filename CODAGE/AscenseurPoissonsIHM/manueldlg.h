@@ -18,8 +18,6 @@ class ManuelDlg : public QWidget
 public:
     explicit ManuelDlg(QWidget *parent = 0, Seance *ptSeance = 0);
 
-    // void setAdSeance(Seance *pSeance);
-
 private:
     QGridLayout *GLMain, *GLCage;
     QGroupBox   *GBCage, *GBCentrale, *GBGrille, *GBPompe, *GBVanneAttrait;

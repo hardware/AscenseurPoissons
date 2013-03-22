@@ -108,7 +108,7 @@ msg 129017 synchronous
   yz 120 2015 msg operation_ref 141104 // "TesterAppareillages()"
   show_full_operations_definition default drawing_language default show_context_mode default
   args "typeTest"
-  label_xy 95 108
+  label_xy 93 108
 msg 129273 synchronous
   from durationcanvas_ref 128889
   to durationcanvas_ref 128911

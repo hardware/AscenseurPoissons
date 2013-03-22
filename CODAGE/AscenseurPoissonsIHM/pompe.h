@@ -12,6 +12,9 @@ public:
 
     Pompe(InterfaceCAN *pIcan);
 
+    void demarrer();
+    void arreter();
+
 };
 
 #endif // POMPE_H

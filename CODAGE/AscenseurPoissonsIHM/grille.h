@@ -12,6 +12,9 @@ public:
 
     Grille(InterfaceCAN *pIcan);
 
+    void ouvrir();
+    void fermer();
+
 };
 
 #endif // GRILLE_H

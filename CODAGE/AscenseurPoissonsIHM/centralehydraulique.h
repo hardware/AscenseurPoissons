@@ -12,6 +12,9 @@ public:
 
     CentraleHydraulique(InterfaceCAN *pIcan);
 
+    void demarrer();
+    void arreter();
+
 };
 
 #endif // CENTRALEHYDRAULIQUE_H
