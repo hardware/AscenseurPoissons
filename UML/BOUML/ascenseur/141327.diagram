@@ -74,21 +74,21 @@ classcanvas 132111 class_ref 135161 // Capteurs
   color mediumgreen
   xyz 75 131 2018
 end
-fragment 134927 "CLASSES MATERIELLES"
-  xyzwh 9 3 2000 827 271
-end
-fragment 135055 "CLASSES LOGICIELLES"
-  xyzwh 9 273 2005 826 401
-end
 note 135183 "CLASSES D'INTERFACE"
-  color mediumblue  xyzwh 9 686 2000 157 35
+  color mediumblue  xyzwh 9 613 2000 157 35
 note 135311 "CLASSES REPRESENTANT LES APPAREILLAGES"
-  color mediumgreen  xyzwh 170 685 2000 301 35
+  color mediumgreen  xyzwh 170 612 2000 301 35
 note 135439 "CLASSES REPRESENTANT LES ONGLETS DE L'INTERFACE"
-  color lightorange  xyzwh 475 685 2000 361 35
-classcanvas 135567 class_ref 154895 // App
-  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
-  xyz 390 626 2000
+  color lightorange  xyzwh 475 612 2000 361 35
+fragment 136207 "Objets du domaine"
+  xyzwh 10 96 2000 814 210
+end
+note 136463 "Classe d'interface matérielle"
+  color lightmediumblue  xyzwh 168 5 2024 177 35
+note 136591 "Classe d'interface logicielle"
+  color mediumblue  xyzwh 476 554 2000 171 35
+fragment 136847 "Classes d'interface intermédiaires"
+  xyzwh 11 344 2005 814 122
 end
 relationcanvas 128271 relation_ref 134543 // <directional composition>
   from ref 128015 z 2001 to ref 128143
@@ -214,11 +214,6 @@ relationcanvas 134671 relation_ref 151311 // <directional aggregation>
 end
 relationcanvas 134799 relation_ref 151439 // <directional aggregation>
   from ref 128015 z 2001 to ref 130319
-  no_role_a no_role_b
-  no_multiplicity_a no_multiplicity_b
-end
-relationcanvas 136079 relation_ref 151567 // <directional composition>
-  from ref 135567 z 2001 to ref 128015
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end

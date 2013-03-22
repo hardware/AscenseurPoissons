@@ -1,49 +1,54 @@
 format 75
 
 classinstancecanvas 128015 classinstance_ref 128015 // 
-  xyz 480 99 2000
+  xyz 480 99 2000 color mediumgreen
 end
 classinstancecanvas 128048 classinstance_ref 128048 // 
-  xyz 405 540 2000
+  xyz 405 540 2000 color mediumblue
 end
 classinstancecanvas 128121 classinstance_ref 128121 // 
   xyz 401 214 2000
 end
 classinstancecanvas 128249 classinstance_ref 128249 // 
-  xyz 597 213 2000
+  xyz 597 213 2000 color mediumgreen
 end
+note 128271 "OBJETS MIROIRS"
+  color mediumgreen  xyzwh 699 173 2000 127 35
 classinstancecanvas 128377 classinstance_ref 128377 // 
-  xyz 274 101 2000 color yellow
+  xyz 274 101 2000 color mediumgreen
 end
 classinstancecanvas 128432 classinstance_ref 128176 // 
-  xyz 273 443 2000
+  xyz 273 443 2000 color lightorange
 end
 classinstancecanvas 128505 classinstance_ref 128505 // 
-  xyz 192 214 2000
+  xyz 192 214 2000 color mediumgreen
+end
+fragment 128527 "OBJETS METIER"
+  xyzwh 174 8 2000 512 382
 end
 classinstancecanvas 128560 classinstance_ref 128304 // 
-  xyz 194 539 2000
+  xyz 194 539 2000 color lightorange
 end
 classinstancecanvas 128633 classinstance_ref 128633 // 
-  xyz 276 325 2000
+  xyz 276 325 2000 color mediumgreen
 end
 classinstancecanvas 128688 classinstance_ref 128432 // 
-  xyz 301 642 2000
+  xyz 301 642 2000 color lightorange
 end
 classinstancecanvas 128761 classinstance_ref 128761 // 
-  xyz 526 324 2000
+  xyz 526 324 2000 color mediumgreen
 end
 classinstancecanvas 128816 classinstance_ref 128560 // 
-  xyz 500 644 2000
+  xyz 500 644 2000 color lightorange
 end
 classinstancecanvas 128944 classinstance_ref 128688 // 
-  xyz 606 539 2000
+  xyz 606 539 2000 color lightorange
 end
 classinstancecanvas 130352 classinstance_ref 128816 // 
-  xyz 385 17 2000
+  xyz 385 17 2000 color mediumgreen
 end
 classinstancecanvas 130608 classinstance_ref 128944 // 
-  xyz 532 451 2000
+  xyz 532 451 2000 color lightorange
 end
 objectlinkcanvas 128143 norel
   from ref 128121 z 2001 to ref 128015
