@@ -8,7 +8,7 @@ classinstance 128271 class_ref 141327 // ManuelDlg
   name ""   xyz 353 4 2000 life_line_z 2000
 classinstance 128399 class_ref 141455 // SeanceDlg
   name ""   xyz 453 4 2000 life_line_z 2000
-classinstance 128527 class_ref 147983 // StatusDlg
+classinstance 128527 class_ref 147983 // StatutsDlg
   name ""   xyz 557 5 2000 life_line_z 2000
 classinstance 128655 class_ref 148111 // SynoptiqueDlg
   name ""   xyz 648 4 2000 life_line_z 2000
@@ -38,8 +38,8 @@ end
 durationcanvas 130447 classinstance_ref 128399 // :SeanceDlg
   xyzwh 485 181 2015 11 25
 end
-durationcanvas 130703 classinstance_ref 128527 // :StatusDlg
-  xyzwh 586 218 2015 11 25
+durationcanvas 130703 classinstance_ref 128527 // :StatutsDlg
+  xyzwh 587 218 2015 11 25
 end
 durationcanvas 130959 classinstance_ref 128655 // :SynoptiqueDlg
   xyzwh 690 262 2015 11 25

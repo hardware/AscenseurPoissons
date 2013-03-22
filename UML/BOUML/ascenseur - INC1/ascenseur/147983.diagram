@@ -55,7 +55,7 @@ msg 129551 synchronous
 msg 129807 synchronous
   from durationcanvas_ref 129039
   to durationcanvas_ref 129679
-  yz 331 2015 explicitmsg "creer(@ICan)"
+  yz 331 2015 explicitmsg "creer(@iCan)"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 722 314
 msg 130063 synchronous
@@ -79,7 +79,7 @@ msg 130575 synchronous
 msg 130831 synchronous
   from durationcanvas_ref 129039
   to durationcanvas_ref 130703
-  yz 287 2015 explicitmsg "creer(@ICan)"
+  yz 287 2015 explicitmsg "creer(@iCan)"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 625 272
 end

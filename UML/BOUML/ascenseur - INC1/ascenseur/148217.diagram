@@ -1,171 +1,42 @@
 format 75
 
-classinstance 131727 class_ref 128121 // Seance
-  name ""   xyz 315 5 2000 life_line_z 2000
-classinstance 131855 class_ref 128202 // Agent
-  name ""   xyz -1 4 2000 life_line_z 2000
-classinstance 131983 class_ref 141327 // ManuelDlg
-  name ""   xyz 168 4 2000 life_line_z 2000
-classinstance 132111 class_ref 128505 // CageAscenseur
-  name ""   xyz 388 4 2000 life_line_z 2000
-classinstance 132239 class_ref 135161 // LesCapteurs
-  name ""   xyz 576 4 2000 life_line_z 2000
+classinstance 128048 class_ref 154767 // InterfaceCAN
+  name ""   xyz 514 4 2000 life_line_z 2000
+classinstance 128176 class_ref 128121 // Seance
+  name ""   xyz 4 4 2000 life_line_z 2000
+classinstance 128304 class_ref 128505 // CageAscenseur
+  name ""   xyz 144 4 2000 life_line_z 2000
+classinstance 132239 class_ref 135161 // Capteurs
+  name ""   xyz 349 4 2000 life_line_z 2000
 classinstance 132495 class_ref 128970 // cageAscenseur
-  name ""   xyz 667 4 2000 life_line_z 2000
-classinstance 132623 class_ref 128458 // LesCapteurs
-  name ""   xyz 759 4 2000 life_line_z 2000
-textcanvas 134927 "[ ASCENSEUR 
-EN POSITION HAUTE ]"
-  xyzwh 351 215 2010 84 48
-textcanvas 137103 "[ ASCENSEUR 
-EN POSITION HAUTE ]"
-  xyzwh 352 459 2010 84 48
-fragment 137231 "alt"
-  xyzwh 300 192 2015 431 120
+  name ""   xyz 744 4 2000 life_line_z 2000
+classinstance 132623 class_ref 128458 // Capteurs
+  name ""   xyz 679 4 2000 life_line_z 2000
+durationcanvas 128432 classinstance_ref 128176 // :Seance
+  xyzwh 27 70 2010 11 109
 end
-fragment 137359 "alt"
-  xyzwh 301 439 2015 439 123
+durationcanvas 128560 classinstance_ref 128304 // :CageAscenseur
+  xyzwh 190 68 2010 11 111
 end
-durationcanvas 132751 classinstance_ref 131855 // :Agent
-  xyzwh 12 57 2010 11 47
+durationcanvas 128816 classinstance_ref 132239 // :Capteurs
+  xyzwh 376 88 2010 11 25
 end
-durationcanvas 133135 classinstance_ref 131983 // :ManuelDlg
-  xyzwh 199 58 2010 11 236
-end
-durationcanvas 133391 classinstance_ref 131727 // :Seance
-  xyzwh 338 100 2000 11 192
-end
-durationcanvas 133647 classinstance_ref 132111 // :CageAscenseur
-  xyzwh 434 113 2000 11 179
-end
-durationcanvas 133903 classinstance_ref 132239 // :LesCapteurs
-  xyzwh 614 128 2010 11 51
-end
-durationcanvas 134287 classinstance_ref 132623 // :LesCapteurs
-  xyzwh 793 140 2010 11 43
-end
-durationcanvas 134671 classinstance_ref 132495 // :cageAscenseur
-  xyzwh 708 217 2010 11 25
-end
-durationcanvas 135183 classinstance_ref 131855 // :Agent
-  xyzwh 12 293 2010 11 46
-end
-durationcanvas 135311 classinstance_ref 131983 // :ManuelDlg
-  xyzwh 199 298 2010 11 242
-end
-durationcanvas 135567 classinstance_ref 131727 // :Seance
-  xyzwh 338 332 2010 11 203
-end
-durationcanvas 135823 classinstance_ref 132111 // :CageAscenseur
-  xyzwh 434 347 2010 11 188
-end
-durationcanvas 136079 classinstance_ref 132239 // :LesCapteurs
-  xyzwh 614 367 2010 11 64
-end
-durationcanvas 136335 classinstance_ref 132623 // :LesCapteurs
-  xyzwh 793 389 2010 11 42
-end
-durationcanvas 136719 classinstance_ref 132495 // :cageAscenseur
-  xyzwh 708 464 2010 11 27
-end
-msg 133007 synchronous
-  from durationcanvas_ref 132751
-  to durationcanvas_ref 133135
-  yz 59 2015 explicitmsg "selectionner"
+msg 128688 synchronous
+  from durationcanvas_ref 128432
+  to durationcanvas_ref 128560
+  yz 71 2015 msg operation_ref 134576 // "descendre()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 58 44
-msg 133263 synchronous
-  from durationcanvas_ref 132751
-  to durationcanvas_ref 133135
-  yz 93 2015 msg operation_ref 161807 // "on_BP_Cage_DPV_clicked()"
+  label_xy 81 56
+msg 128944 synchronous
+  from durationcanvas_ref 128560
+  to durationcanvas_ref 128816
+  yz 89 2015 msg operation_ref 131833 // "LirePositionAscenseurHaute()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 31 82
-msg 133519 synchronous
-  from durationcanvas_ref 133135
-  to durationcanvas_ref 133391
-  yz 106 2020 msg operation_ref 155023 // "controleAppareillage(in type : , in action : )"
+  label_xy 205 77
+msg 129072 return
+  from durationcanvas_ref 128560
+  to durationcanvas_ref 128432
+  yz 168 2015 explicitmsg "MONTEE / DESCENTE"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 212 94
-msg 133775 synchronous
-  from durationcanvas_ref 133391
-  to durationcanvas_ref 133647
-  yz 114 2015 msg operation_ref 129145 // "descendre(in typeVitesse : bool)"
-  show_full_operations_definition no drawing_language default show_context_mode default
-  label_xy 358 103
-msg 134031 synchronous
-  from durationcanvas_ref 133647
-  to durationcanvas_ref 133903
-  yz 128 2020 msg operation_ref 131833 // "LirePositionAscenseurHaute()"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 451 113
-msg 134415 synchronous
-  from durationcanvas_ref 133903
-  to durationcanvas_ref 134287
-  yz 141 2015 unspecifiedmsg
-  show_full_operations_definition default drawing_language default show_context_mode default
-msg 134543 return
-  from durationcanvas_ref 134287
-  to durationcanvas_ref 133903
-  yz 168 2015 explicitmsg "PositionHaute"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 667 156
-msg 134799 synchronous
-  from durationcanvas_ref 133647
-  to durationcanvas_ref 134671
-  yz 217 2015 explicitmsg "ASCENSEUR_DESCENTE"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 458 206
-msg 135055 return
-  from durationcanvas_ref 133647
-  to durationcanvas_ref 133391
-  yz 281 2005 explicitmsg "MONTEE / DESCENTE"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 334 295
-msg 135439 synchronous
-  from durationcanvas_ref 135183
-  to durationcanvas_ref 135311
-  yz 298 2015 msg operation_ref 161935 // "on_BP_Cage_DGV_clicked()"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 28 286
-msg 135695 synchronous
-  from durationcanvas_ref 135311
-  to durationcanvas_ref 135567
-  yz 336 2015 msg operation_ref 155023 // "controleAppareillage(in type : , in action : )"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 213 323
-msg 135951 synchronous
-  from durationcanvas_ref 135567
-  to durationcanvas_ref 135823
-  yz 349 2015 msg operation_ref 129145 // "descendre(in typeVitesse : bool)"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 358 339
-msg 136207 synchronous
-  from durationcanvas_ref 135823
-  to durationcanvas_ref 136079
-  yz 367 2020 msg operation_ref 131833 // "LirePositionAscenseurHaute()"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 448 350
-msg 136463 synchronous
-  from durationcanvas_ref 136079
-  to durationcanvas_ref 136335
-  yz 389 2015 unspecifiedmsg
-  show_full_operations_definition default drawing_language default show_context_mode default
-msg 136591 return
-  from durationcanvas_ref 136335
-  to durationcanvas_ref 136079
-  yz 420 2015 explicitmsg "Position Haute"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 667 410
-msg 136847 synchronous
-  from durationcanvas_ref 135823
-  to durationcanvas_ref 136719
-  yz 473 2015 explicitmsg "ASCENSEUR_DESCENTE"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 456 461
-msg 136975 return
-  from durationcanvas_ref 135823
-  to durationcanvas_ref 135567
-  yz 524 2020 explicitmsg "MONTEE / DESCENTE"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 336 536
+  label_xy 52 153
 end
