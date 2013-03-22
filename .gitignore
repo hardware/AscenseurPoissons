@@ -40,8 +40,6 @@ PROJECT
 
 UML/BOUML/ascenseur/*.session
 UML/BOUML/ascenseur/*.d
-UML/BOUML/ascenseur - INC1/ascenseur/*.session
-UML/BOUML/ascenseur - INC1/ascenseur/*.d
 
 ##########
 ## AUTRE
