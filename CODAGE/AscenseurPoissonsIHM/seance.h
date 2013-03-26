@@ -9,6 +9,9 @@
 #include "grille.h"
 #include "capteurs.h"
 
+#include <QApplication>
+#include <QSettings>
+
 class Seance
 {
      InterfaceCAN iCan;
@@ -20,10 +23,17 @@ class Seance
      Grille *pGrille;
      Capteurs *pCapteurs;
 
+     QSettings *params;
+
+     int PV, GV, tempsPeche, tempsVidange, nbCycles, periodicite;
+
 public:
 
     Seance();
     ~Seance();
+
+    void setSeance(int PV, int GV, int tempsPeche, int tempsVidange, int nbCycles, int periodicite);
+    bool enregistrer();
 
 };
 

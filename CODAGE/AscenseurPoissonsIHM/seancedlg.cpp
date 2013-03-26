@@ -395,16 +395,17 @@ void SeanceDlg::diminuerPeriodicite()
 
 void SeanceDlg::enregistrerParametres()
 {
-    params->beginGroup("seance");
-    params->setValue("PV", LEPv->text().toInt());
-    params->setValue("GV", LEGv->text().toInt());
-    params->setValue("TempsPeche", LETempsPeche->text().toInt());
-    params->setValue("TempsVidange", LETempsVidange->text().toInt());
-    params->setValue("NbCycles", LENombreCycles->text().toInt());
-    params->setValue("Periodicite", LEPeriodicite->text().toInt());
-    params->endGroup();
+    int PV = LEPv->text().toInt();
+    int GV = LEGv->text().toInt();
+    int tempsPeche = LETempsPeche->text().toInt();
+    int tempsVidange = LETempsVidange->text().toInt();
+    int nbCycles = LENombreCycles->text().toInt();
+    int periodicite = LEPeriodicite->text().toInt();
 
-    if(params->status() == QSettings::NoError)
+    // On applique les paramètres à la séance
+    pSeance->setSeance(PV, GV, tempsPeche, tempsVidange, nbCycles, periodicite);
+
+    if(pSeance->enregistrer())
     {
         QMessageBox::information(this, QString::fromUtf8("Enregistrement effectué"),
                                  QString::fromUtf8("Les paramètres ont bien été enregistrés."));
@@ -412,10 +413,7 @@ void SeanceDlg::enregistrerParametres()
     else
     {
         if(params->status() == QSettings::AccessError)
-            QMessageBox::critical(this, QString::fromUtf8("Problème d'accès"),
-                                     QString::fromUtf8("Impossible d'accéder au fichier de configuration."));
-        if(params->status() == QSettings::FormatError)
-            QMessageBox::critical(this, QString::fromUtf8("Erreur de format"),
-                                     QString::fromUtf8("Le format du fichier de configuration est incorrect."));
+            QMessageBox::critical(this, QString::fromUtf8("ERREUR"),
+                                     QString::fromUtf8("Une erreur est survenue lors de l'enregistrement du fichier de configuration."));
     }
 }
