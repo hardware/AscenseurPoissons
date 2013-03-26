@@ -13,7 +13,11 @@ HEADERS += \
     vanneattrait.h \
     cageascenseur.h \
     grille.h \
-    capteurs.h
+    capteurs.h \
+    TestsUnitaires/programmationseancetest.h \
+    TestsUnitaires/enregistrementseancetest.h \
+    TestsUnitaires/appareillagestest.h \
+    TestsUnitaires/controleparametrestest.h
 
 SOURCES += \
     synoptiquedlg.cpp \
@@ -31,7 +35,11 @@ SOURCES += \
     vanneattrait.cpp \
     cageascenseur.cpp \
     grille.cpp \
-    capteurs.cpp
+    capteurs.cpp \
+    TestsUnitaires/programmationseancetest.cpp \
+    TestsUnitaires/enregistrementseancetest.cpp \
+    TestsUnitaires/appareillagestest.cpp \
+    TestsUnitaires/controleparametrestest.cpp
 
 RESOURCES += \
     assets.qrc
