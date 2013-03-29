@@ -1,6 +1,6 @@
 format 75
 "ascenseur"
-  revision 52
+  revision 53
   modified_by 15 "Hardware"
 
 
@@ -1734,6 +1734,24 @@ ${inlines}
     //deployment diagram settings
     package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
     draw_component_as_icon default show_component_req_prov default show_component_rea default show_stereotype_properties default
+    deploymentdiagram 154511 "Diagramme de déploiement"
+      package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
+      draw_component_as_icon default show_component_req_prov default show_component_rea default show_stereotype_properties default
+      size A4
+    end
+
+    deploymentnode 128015 "PC EMBARQUE"
+    end
+
+    deploymentnode 128143 "INTERFACE CAN"
+    end
+
+    deploymentnode 128271 "NOEUD 1"
+    end
+
+    deploymentnode 128399 "NOEUD 2"
+    end
+
   end
 
   package_ref 128015 // IHM
