@@ -1,6 +1,6 @@
 ﻿#include "manueldlg.h"
 
-ManuelDlg::ManuelDlg(QWidget *parent, Seance *ptSeance) : QWidget(parent), pSeance(ptSeance)
+ManuelDlg::ManuelDlg(QWidget *parent, Seance *ptSeance, StatutsDlg *statutsDlg) : QWidget(parent), pSeance(ptSeance), pStatutsDlg(statutsDlg)
 {
     // Taille des boutons
     QSize PBSize(80, 70);
@@ -18,12 +18,14 @@ ManuelDlg::ManuelDlg(QWidget *parent, Seance *ptSeance) : QWidget(parent), pSean
         PBPompeDemarrer->setMaximumSize(PBSize);
         PBPompeDemarrer->setFont(PBFont);
         PBPompeDemarrer->setCursor(Qt::PointingHandCursor);
+        PBPompeDemarrer->setObjectName("PBPompeDemarrer");
 
         PBPompeArreter = new QPushButton("ARRETER");
         PBPompeArreter->setMaximumSize(PBSize);
         PBPompeArreter->setFont(PBFont);
         PBPompeArreter->setCursor(Qt::PointingHandCursor);
         PBPompeArreter->setEnabled(false);
+        PBPompeArreter->setObjectName("PBPompeArreter");
 
         hboxPompe = new QHBoxLayout(GBPompe);
         hboxPompe->addWidget(PBPompeDemarrer);
@@ -38,12 +40,14 @@ ManuelDlg::ManuelDlg(QWidget *parent, Seance *ptSeance) : QWidget(parent), pSean
         PBCentraleDemarrer->setMaximumSize(PBSize);
         PBCentraleDemarrer->setFont(PBFont);
         PBCentraleDemarrer->setCursor(Qt::PointingHandCursor);
+        PBCentraleDemarrer->setObjectName("PBCentraleDemarrer");
 
         PBCentraleArreter  = new QPushButton("ARRETER");
         PBCentraleArreter->setMaximumSize(PBSize);
         PBCentraleArreter->setFont(PBFont);
         PBCentraleArreter->setCursor(Qt::PointingHandCursor);
         PBCentraleArreter->setEnabled(false);
+        PBCentraleArreter->setObjectName("PBCentraleArreter");
 
         hboxCentrale = new QHBoxLayout(GBCentrale);
         hboxCentrale->addWidget(PBCentraleDemarrer);
@@ -131,26 +135,26 @@ ManuelDlg::ManuelDlg(QWidget *parent, Seance *ptSeance) : QWidget(parent), pSean
 
     setLayout(GLMain);
 
-    // Signaux & slots
-    QObject::connect(PBPompeDemarrer, SIGNAL(clicked()), this, SLOT(demarrerPompe()));
-    QObject::connect(PBPompeArreter, SIGNAL(clicked()), this, SLOT(arreterPompe()));
-    QObject::connect(PBCentraleDemarrer, SIGNAL(clicked()), this, SLOT(demarrerCentrale()));
-    QObject::connect(PBCentraleArreter, SIGNAL(clicked()), this, SLOT(arreterCentrale()));
+    // QObject::connect(PBPompeArreter, SIGNAL(clicked()), statutsDlg, SLOT(allumerVoyantPompe()));
+    connect(this, SIGNAL(allumerVoyant(QLabel *voyant), statutsDlg, SLOT(allumerVoyant(QLabel *voyant)));
+    QMetaObject::connectSlotsByName(this);
 }
 
-void ManuelDlg::demarrerPompe()
+void ManuelDlg::on_PBPompeDemarrer_clicked()
 {
     PBPompeDemarrer->setDisabled(true);
     PBPompeArreter->setEnabled(true);
+
+    emit allumerVoyant(pStatutsDlg.LBVoyantPompe);
 }
 
-void ManuelDlg::arreterPompe()
+void ManuelDlg::on_PBPompeArreter_clicked()
 {
     PBPompeArreter->setDisabled(true);
     PBPompeDemarrer->setEnabled(true);
 }
 
-void ManuelDlg::demarrerCentrale()
+void ManuelDlg::on_PBCentraleDemarrer_clicked()
 {
     PBCentraleDemarrer->setDisabled(true);
     PBCentraleArreter->setEnabled(true);
@@ -160,7 +164,7 @@ void ManuelDlg::demarrerCentrale()
     PBGrilleFermer->setEnabled(true);
 }
 
-void ManuelDlg::arreterCentrale()
+void ManuelDlg::on_PBCentraleArreter_clicked()
 {
     PBCentraleDemarrer->setEnabled(true);
     PBCentraleArreter->setDisabled(true);

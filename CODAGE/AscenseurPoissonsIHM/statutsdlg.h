@@ -19,6 +19,8 @@ class StatutsDlg : public QWidget
 
 public:
     explicit StatutsDlg(QWidget *parent = 0, Seance *ptSeance = 0);
+
+    QLabel *LBVoyantPompe;
     
 private:
     QGridLayout *GLMain, *GLAppareillages, *GLNiveaux, *GLDefauts;
@@ -41,7 +43,7 @@ private:
                 *LBNiveauAmont, *LBNiveauAval, *LBNiveauHuile,
 
                 // Liste des voyants
-                *LBVoyantPompe, *LBVoyantCentrale, *LBVoyantNiveauAmont,
+                *LBVoyantCentrale, *LBVoyantNiveauAmont,
                 *LBVoyantNiveauAval, *LBVoyantNiveauHuile,
 
                 // Liste des défauts
@@ -59,6 +61,7 @@ private:
 signals:
     
 public slots:
+    void allumerVoyant(QLabel *voyant);
     
 };
 

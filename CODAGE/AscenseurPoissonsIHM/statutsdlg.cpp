@@ -263,3 +263,8 @@ StatutsDlg::StatutsDlg(QWidget *parent, Seance *ptSeance) : QWidget(parent), pSe
 
     setLayout(GLMain);
 }
+
+void StatutsDlg::allumerVoyant(QLabel *voyant)
+{
+    voyant->setStyleSheet("border:3px solid rgb(125, 125, 125);\nbackground-color: red;");
+}

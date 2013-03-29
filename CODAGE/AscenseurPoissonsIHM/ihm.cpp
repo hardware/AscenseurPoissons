@@ -8,9 +8,9 @@ IHM::IHM(QWidget *parent) : QWidget(parent)
     setWindowIcon(QIcon(":/files/img/icon-shem.jpg"));
 
     accueilDlg = new AccueilDlg(this);
-    manuelDlg = new ManuelDlg(this, &seance);
-    seanceDlg = new SeanceDlg(this, &seance);
     statutsDlg = new StatutsDlg(this, &seance);
+    manuelDlg = new ManuelDlg(this, &seance, statutsDlg);
+    seanceDlg = new SeanceDlg(this, &seance);
     synoptiqueDlg = new SynoptiqueDlg(this, &seance);
     journalDlg = new JournalDlg(this, &seance);
 

@@ -2,6 +2,7 @@
 #define MANUELDLG_H
 
 #include "seance.h"
+#include "statutsdlg.h"
 
 #include <QWidget>
 #include <QBoxLayout>
@@ -14,9 +15,10 @@ class ManuelDlg : public QWidget
     Q_OBJECT
 
     Seance *pSeance;
+    StatutsDlg pStatutsDlg;
 
 public:
-    explicit ManuelDlg(QWidget *parent = 0, Seance *ptSeance = 0);
+    explicit ManuelDlg(QWidget *parent = 0, Seance *ptSeance = 0, StatutsDlg *statutsDlg = 0);
 
 private:
     QGridLayout *GLMain, *GLCage;
@@ -29,12 +31,13 @@ private:
                 *PBCageMPV, *PBCageMGV, *PBCageDPV, *PBCageDGV;
     
 public slots:
-    void demarrerPompe();
-    void arreterPompe();
-    void demarrerCentrale();
-    void arreterCentrale();
+    void on_PBPompeDemarrer_clicked();
+    void on_PBPompeArreter_clicked();
+    void on_PBCentraleDemarrer_clicked();
+    void on_PBCentraleArreter_clicked();
 
 signals:
+    void allumerVoyant(QLabel *voyant);
     
 };
 
