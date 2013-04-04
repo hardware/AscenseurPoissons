@@ -13,7 +13,10 @@ HEADERS += \
     vanneattrait.h \
     cageascenseur.h \
     grille.h \
-    capteurs.h
+    capteurs.h \
+    Canproex.h \
+    Canpcex.h \
+    Candefex.h
 
 SOURCES += \
     synoptiquedlg.cpp \
@@ -35,3 +38,8 @@ SOURCES += \
 
 RESOURCES += \
     assets.qrc
+
+win32: LIBS += -L$$PWD/ -lNSICANEX
+
+INCLUDEPATH += $$PWD/
+DEPENDPATH += $$PWD/

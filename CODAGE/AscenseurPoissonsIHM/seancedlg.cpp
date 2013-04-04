@@ -407,13 +407,11 @@ void SeanceDlg::enregistrerParametres()
 
     if(pSeance->enregistrer())
     {
-        QMessageBox::information(this, QString::fromUtf8("Enregistrement effectué"),
-                                 QString::fromUtf8("Les paramètres ont bien été enregistrés."));
+        QMessageBox::information(this, "Enregistrement effectué", "Les paramètres ont bien été enregistrés.");
     }
     else
     {
         if(params->status() == QSettings::AccessError)
-            QMessageBox::critical(this, QString::fromUtf8("ERREUR"),
-                                     QString::fromUtf8("Une erreur est survenue lors de l'enregistrement du fichier de configuration."));
+            QMessageBox::critical(this, "ERREUR", "Une erreur est survenue lors de l'enregistrement du fichier de configuration.");
     }
 }

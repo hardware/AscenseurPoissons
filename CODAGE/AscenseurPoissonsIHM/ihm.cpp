@@ -4,7 +4,7 @@ IHM::IHM(QWidget *parent) : QWidget(parent)
 {
     // Propriétés de la fenêtre principale
     setFixedSize(570,482);
-    setWindowTitle(QString::fromUtf8("Ascenseur à poissons"));
+    setWindowTitle("Ascenseur à poissons");
     setWindowIcon(QIcon(":/files/img/icon-shem.jpg"));
 
     accueilDlg = new AccueilDlg(this);
