@@ -1,6 +1,6 @@
 format 75
 "ascenseur"
-  revision 53
+  revision 54
   modified_by 15 "Hardware"
 
 
@@ -1746,12 +1746,11 @@ ${inlines}
     deploymentnode 128143 "INTERFACE CAN"
     end
 
-    deploymentnode 128271 "NOEUD 1"
+    deploymentnode 128271 "COFFRET PECHEUR"
     end
 
-    deploymentnode 128399 "NOEUD 2"
+    deploymentnode 128399 "SOMMET ASCENSEUR"
     end
-
   end
 
   package_ref 128015 // IHM

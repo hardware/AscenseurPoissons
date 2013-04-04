@@ -1,9 +1,9 @@
 format 75
 
 textcanvas 128015 "[DEM_CENTRALE]"
-  xyzwh 95 671 2005 234 16
+  xyzwh 179 681 2005 234 16
 classinstance 128121 class_ref 128202 // Agent
-  name ""   xyz 27 44 2000 life_line_z 2000
+  name ""   xyz 27 15 2000 life_line_z 2000
 classinstance 128143 class_ref 134543 // CentraleHydraulique
   name ""   xyz 708 23 2005 life_line_z 2000
 classinstance 128249 class_ref 128121 // Seance
@@ -13,19 +13,18 @@ classinstance 128377 class_ref 128249 // Pompe
 classinstance 128505 class_ref 128377 // VanneAttrait
   name ""   xyz 445 23 2000 life_line_z 2000
 textcanvas 128527 "[ARRET_CENTRALE]"
-  xyzwh 95 741 2005 134 15
+  xyzwh 180 752 2005 134 15
 classinstance 128633 class_ref 128505 // CageAscenseur
   name ""   xyz 537 23 2000 life_line_z 2000
 fragment 129039 "alt (etat_seance)"
-  xyzwh 67 152 2010 757 701
+  xyzwh 164 154 1995 757 701
 end
-fragment 129167 "SD : Tester les appareillages"
-  xyzwh 8 8 1995 829 876
-end
+classinstance 129551 class_ref 141327 // ManuelDlg
+  name ""   xyz 72 22 2000 life_line_z 2000
 classinstance 131961 class_ref 128633 // Grille
   name ""   xyz 649 23 2000 life_line_z 2000
 fragment 132601 "alt (typeTest)"
-  xyzwh 91 229 2000 703 571
+  xyzwh 175 219 2000 703 571
   separator 900
   separator 1828
   separator 2666
@@ -37,23 +36,23 @@ fragment 132601 "alt (typeTest)"
   separator 8887
 end
 textcanvas 132729 "[DEM_POMPE]"
-  xyzwh 96 257 2006 190 16
+  xyzwh 182 248 2006 190 16
 textcanvas 132857 "[ARRET_POMPE]"
-  xyzwh 96 293 2006 200 16
+  xyzwh 180 294 2006 200 16
 textcanvas 132985 "[OUVRIR_VANNE]"
-  xyzwh 94 343 2006 207 16
+  xyzwh 180 341 2006 207 16
 textcanvas 133113 "[FERMER_VANNE]"
-  xyzwh 95 388 2006 209 16
+  xyzwh 180 391 2006 209 16
 textcanvas 133241 "[MONTER_CAGE]"
-  xyzwh 95 454 2006 209 16
+  xyzwh 180 444 2006 209 16
 textcanvas 133369 "[DESCENDRE_CAGE]"
-  xyzwh 94 491 2005 233 16
+  xyzwh 180 496 2005 233 16
 textcanvas 133497 "[OUVRIR_GRILLE]"
-  xyzwh 96 552 2005 214 16
+  xyzwh 180 556 2005 214 16
 textcanvas 133625 "[FERMER_GRILLE]"
-  xyzwh 97 611 2005 217 16
+  xyzwh 180 612 2005 217 16
 textcanvas 133881 "[MANU]"
-  xyzwh 86 188 2005 46 21
+  xyzwh 183 190 2005 46 21
 durationcanvas 128271 classinstance_ref 128143 // :CentraleHydraulique
   xyzwh 766 697 2010 11 27
 end
@@ -61,10 +60,7 @@ durationcanvas 128655 classinstance_ref 128143 // :CentraleHydraulique
   xyzwh 766 759 2010 11 25
 end
 durationcanvas 128761 classinstance_ref 128121 // :Agent
-  xyzwh 40 91 2010 11 752
-end
-durationcanvas 128889 classinstance_ref 128249 // :Seance
-  xyzwh 305 105 2010 11 739
+  xyzwh 40 62 2010 11 817
 end
 durationcanvas 128911 classinstance_ref 128377 // :Pompe
   xyzwh 396 246 2010 11 25
@@ -72,8 +68,14 @@ end
 durationcanvas 129657 classinstance_ref 128377 // :Pompe
   xyzwh 396 299 2010 11 26
 end
+durationcanvas 129807 classinstance_ref 128249 // :Seance
+  xyzwh 305 115 2010 11 766
+end
 durationcanvas 129913 classinstance_ref 128505 // :VanneAttrait
   xyzwh 479 351 2010 11 25
+end
+durationcanvas 130063 classinstance_ref 129551 // :ManuelDlg
+  xyzwh 103 78 2010 11 48
 end
 durationcanvas 130169 classinstance_ref 128505 // :VanneAttrait
   xyzwh 479 402 2010 11 25
@@ -91,76 +93,82 @@ durationcanvas 132345 classinstance_ref 131961 // :Grille
   xyzwh 668 623 2010 11 25
 end
 msg 128399 synchronous
-  from durationcanvas_ref 128889
+  from durationcanvas_ref 129807
   to durationcanvas_ref 128271
-  yz 697 2015 msg operation_ref 134543 // "demarrer()"
+  yz 698 2015 msg operation_ref 134543 // "demarrer()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 692 683
+  label_xy 692 684
 msg 128783 synchronous
-  from durationcanvas_ref 128889
+  from durationcanvas_ref 129807
   to durationcanvas_ref 128655
-  yz 759 2015 msg operation_ref 128015 // "arreter()"
+  yz 760 2015 msg operation_ref 128015 // "arreter()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 704 744
-msg 129017 synchronous
-  from durationcanvas_ref 128761
-  to durationcanvas_ref 128889
-  yz 120 2015 msg operation_ref 141104 // "TesterAppareillages()"
+  label_xy 704 745
+msg 129273 synchronous
+  from durationcanvas_ref 129807
+  to durationcanvas_ref 128911
+  yz 247 2015 msg operation_ref 128121 // "demarrer()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 328 236
+msg 129785 synchronous
+  from durationcanvas_ref 129807
+  to durationcanvas_ref 129657
+  yz 300 2015 msg operation_ref 129017 // "arreter()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 335 287
+msg 129935 synchronous
+  from durationcanvas_ref 130063
+  to durationcanvas_ref 129807
+  yz 115 3005 msg operation_ref 141104 // "TesterAppareillages()"
   show_full_operations_definition default drawing_language default show_context_mode default
   args "typeTest"
-  label_xy 93 108
-msg 129273 synchronous
-  from durationcanvas_ref 128889
-  to durationcanvas_ref 128911
-  yz 246 2015 msg operation_ref 128121 // "demarrer()"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 328 235
-msg 129785 synchronous
-  from durationcanvas_ref 128889
-  to durationcanvas_ref 129657
-  yz 299 2015 msg operation_ref 129017 // "arreter()"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 335 286
+  label_xy 121 101
 msg 130041 synchronous
-  from durationcanvas_ref 128889
+  from durationcanvas_ref 129807
   to durationcanvas_ref 129913
-  yz 351 2015 explicitmsg "ouvrir()"
+  yz 352 2015 explicitmsg "ouvrir()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 426 339
+  label_xy 426 340
+msg 130191 synchronous
+  from durationcanvas_ref 128761
+  to durationcanvas_ref 130063
+  yz 78 2015 explicitmsg "choix"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 64 66
 msg 130297 synchronous
-  from durationcanvas_ref 128889
+  from durationcanvas_ref 129807
   to durationcanvas_ref 130169
-  yz 402 2015 explicitmsg "fermer()"
+  yz 403 2015 explicitmsg "fermer()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 424 389
+  label_xy 424 390
 msg 130553 synchronous
-  from durationcanvas_ref 128889
+  from durationcanvas_ref 129807
   to durationcanvas_ref 130425
-  yz 452 2015 explicitmsg "monter()"
+  yz 453 2015 explicitmsg "monter()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 516 441
+  label_xy 516 442
 msg 130809 synchronous
-  from durationcanvas_ref 128889
+  from durationcanvas_ref 129807
   to durationcanvas_ref 130681
-  yz 504 2015 msg operation_ref 134576 // "descendre()"
+  yz 505 2015 msg operation_ref 134576 // "descendre()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 506 491
+  label_xy 506 492
 msg 131833 return
-  from durationcanvas_ref 128889
+  from durationcanvas_ref 129807
   to durationcanvas_ref 128761
-  yz 821 2015 explicitmsg "Resultat du test"
+  yz 868 2015 explicitmsg "Resultat du test"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 133 829
+  label_xy 133 876
 msg 132217 synchronous
-  from durationcanvas_ref 128889
+  from durationcanvas_ref 129807
   to durationcanvas_ref 132089
-  yz 566 2015 msg operation_ref 129529 // "ouvrir()"
+  yz 567 2015 msg operation_ref 129529 // "ouvrir()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 613 556
+  label_xy 613 557
 msg 132473 synchronous
-  from durationcanvas_ref 128889
+  from durationcanvas_ref 129807
   to durationcanvas_ref 132345
-  yz 623 2015 msg operation_ref 132601 // "fermer()"
+  yz 624 2015 msg operation_ref 132601 // "fermer()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 611 611
+  label_xy 611 612
 end

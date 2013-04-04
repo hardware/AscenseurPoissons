@@ -136,7 +136,7 @@ ManuelDlg::ManuelDlg(QWidget *parent, Seance *ptSeance, StatutsDlg *statutsDlg) 
     setLayout(GLMain);
 
     // QObject::connect(PBPompeArreter, SIGNAL(clicked()), statutsDlg, SLOT(allumerVoyantPompe()));
-    connect(this, SIGNAL(allumerVoyant(QLabel *voyant), statutsDlg, SLOT(allumerVoyant(QLabel *voyant)));
+    //connect(this, SIGNAL(allumerVoyant(QLabel *voyant), statutsDlg, SLOT(allumerVoyant(QLabel *voyant)));
     QMetaObject::connectSlotsByName(this);
 }
 
