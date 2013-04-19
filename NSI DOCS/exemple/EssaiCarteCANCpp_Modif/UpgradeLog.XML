@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="Candemo">
+</Property><Property Name="Fichier solution" Value="F:\DEBAT\CoursSurClé\BUS_CAN\EssaiCarteCANCpp\Candemo.sln">
+</Property><Property Name="Fichier d'options utilisateur" Value="F:\DEBAT\CoursSurClé\BUS_CAN\EssaiCarteCANCpp\Candemo.suo">
+</Property><Property Name="Date" Value="lundi 1 décembre 2008">
+</Property><Property Name="Time" Value="11:27">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="Candemo.sln" Description="Fichier correctement sauvegardé en tant que F:\DEBAT\CoursSurClé\BUS_CAN\EssaiCarteCANCpp\Candemo.sln.old">
+</Event><Event ErrorLevel="0" Project="" Source="Candemo.suo" Description="Fichier correctement sauvegardé en tant que F:\DEBAT\CoursSurClé\BUS_CAN\EssaiCarteCANCpp\Candemo.suo.old">
+</Event><Event ErrorLevel="2" Project="Candemo" Source="Candemo.vcproj" Description="Impossible de mettre à niveau le fichier projet 'F:\DEBAT\CoursSurClé\BUS_CAN\EssaiCarteCANCpp\Candemo.vcproj'. Vérifiez que le fichier existe et n'est pas protégé en écriture.">
+</Event><Event ErrorLevel="2" Project="Candemo" Source="Candemo.vcproj" Description="La mise à niveau du projet a échoué.">
+</Event><Event ErrorLevel="3" Project="Candemo" Source="Candemo.vcproj" Description="Non convertie">
+</Event><Event ErrorLevel="0" Project="" Source="Candemo.sln" Description="Solution correctement convertie">
+</Event><Event ErrorLevel="3" Project="" Source="Candemo.sln" Description="Converted">
+</Event></UpgradeLog>

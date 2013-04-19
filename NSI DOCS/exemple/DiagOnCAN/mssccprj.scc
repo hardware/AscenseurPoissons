@@ -1,9 +1,0 @@
-SCC = This is a Source Code Control file
-
-[Candemo.dsp]
-SCC_Aux_Path = "\\HERA\Applications\VSS_BE"
-SCC_Project_Name = "$/Projets/API CANPC2000EX/Production/Samples/DiagOnCAN", LCDBAAAA
-
-[Candemo.dsw]
-SCC_Aux_Path = "\\HERA\Applications\VSS_BE"
-SCC_Project_Name = "$/Projets/API CANPC2000EX/Production/Samples/DiagOnCAN", LCDBAAAA

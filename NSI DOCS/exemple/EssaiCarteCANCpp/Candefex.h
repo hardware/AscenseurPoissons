@@ -341,12 +341,16 @@ typedef struct
 	   Identificateur de controle de flux (trames segmentee seulement) */
 	unsigned long	identFlowControl;
 
-	/* Status request for Flow Control identifier (segmented frames only)
-	   Demande de compte rendu  pour l'identificateur de controle de flux (trames segmentee seulement) */
+	/* Status request for Flow Control identifier 
+		(segmented frames only)
+	   Demande de compte rendu  pour l'identificateur 
+		de controle de flux (trames segmentee seulement) */
     t_StatusRq		flowControlStatusRq;
 
-	/* Target address and source address for diag on CAN extended addressing only
-	   Adresse source et adresse destination pour adressage étendu en Diag on CAN seulement */
+	/* Target address and source address for diag on 
+		CAN extended addressing only
+		Adresse source et adresse destination pour 
+		adressage étendu en Diag on CAN seulement */
 	unsigned char   sourceAddress;
 	unsigned char   targetAddress;
 		

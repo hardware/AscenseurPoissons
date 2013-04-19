@@ -1,6 +1,6 @@
 /*
 -----------------------------------------------------------
- CANDEFEX.H  Copyright (c) 2006 NSI (Annecy France)
+ CANDEFEX.H  Copyright (c) 2004 NSI (Annecy France)
 -----------------------------------------------------------
 Author :   CRO
 Product :  CANPC2000EX Interface
@@ -22,7 +22,6 @@ History :
   10/08/2004 : Modification of the value of _DOWNLOAD_BUF_OCCUPIED
 			   Extra DiagOnCAN addressing mode : _DC_EXTENDED
 			   Modification in tCANobj : long reserved -> char TA, char SA, short reserved
-  24/03/2006 : Use of the reserved long in t_CANflowParams for Br
 			   
 Comments : 
 -----------------------------------------------------------
@@ -161,7 +160,6 @@ Ce fichier contient les definitions :
 #define _OBDUSB			4   // MUXy, MUXy light
 #define _USBBOX			5	// MUXyBox
 #define _USBBECOMM		6
-#define _USBMUXY2		7	//MUXy2010 et MUXybox 2
 
 /* CAN board list (boardType)
    Liste des cartes CAN */
@@ -183,14 +181,12 @@ Ce fichier contient les definitions :
 #define _MUXYBOX_KWPTEST	0x77	//MUXy box (KWP_Test)
 #define _BECOMM				0x78
 #define _MUXYLIGHT			0x79	//MUXy light
-#define _MUXY2				0x7A	//Modif YMO 20.04.10
 
 /* CAN controller list
    Liste des controleur CAN */
 #define _CAN_82527		0x90	//Intel i82527
 #define _CAN_SJA1000	0x91	//Philips SJA1000
 #define _CAN_90F543		0x92	//Fujitsu 90F543
-#define _CAN_NECV850	0x93	//Micro NEC V850  - Ajout YMO 20.04.10
 
 /* CAN mode 
    type de CAN */
@@ -345,12 +341,16 @@ typedef struct
 	   Identificateur de controle de flux (trames segmentee seulement) */
 	unsigned long	identFlowControl;
 
-	/* Status request for Flow Control identifier (segmented frames only)
-	   Demande de compte rendu  pour l'identificateur de controle de flux (trames segmentee seulement) */
+	/* Status request for Flow Control identifier 
+		(segmented frames only)
+	   Demande de compte rendu  pour l'identificateur 
+		de controle de flux (trames segmentee seulement) */
     t_StatusRq		flowControlStatusRq;
 
-	/* Target address and source address for diag on CAN extended addressing only
-	   Adresse source et adresse destination pour adressage étendu en Diag on CAN seulement */
+	/* Target address and source address for diag on 
+		CAN extended addressing only
+		Adresse source et adresse destination pour 
+		adressage étendu en Diag on CAN seulement */
 	unsigned char   sourceAddress;
 	unsigned char   targetAddress;
 		
@@ -422,7 +422,7 @@ typedef struct
 	unsigned long	Ar;			// Ar
 	unsigned long	Bs;			// Bs
 	unsigned long	Cr;			// Cr
-	unsigned long	Br;			// Br 
+	unsigned long	reserved;	// RFU
 
 } t_CANflowParams;
 
@@ -556,4 +556,3 @@ typedef struct{
 	BORLAND :
 	#pragma option -a-
 */
-	
