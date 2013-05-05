@@ -30,7 +30,7 @@ msg 129017 synchronous
 msg 129273 synchronous
   from durationcanvas_ref 128889
   to durationcanvas_ref 129145
-  yz 150 2015 msg operation_ref 131577 // "LireCapteurFinDeCourseGrilleBasse()"
+  yz 150 2015 msg operation_ref 131577 // "LireCapteurFinDeCourseGrilleBas()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 186 137
 msg 130041 return

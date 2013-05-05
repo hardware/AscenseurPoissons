@@ -1,11 +1,16 @@
 format 75
 
 classinstance 128176 class_ref 154767 // InterfaceCAN
-  name ""   xyz 512 4 2000 life_line_z 2000
+  name ""   xyz 403 4 2000 life_line_z 2000
 classinstance 128249 class_ref 128121 // Seance
   name ""   xyz 4.5 4 2000 life_line_z 2000
+classinstancecanvas 128271 classinstance_ref 128249 // 
+  xyz 576 4 2000 life_line_z 2000
+end
 classinstance 128377 class_ref 128586 // Pompe
   name ""   xyz 786.5 4 2000 life_line_z 2000
+classinstance 128399 class_ref 128458 // Capteurs
+  name ""   xyz 665 4 2000 life_line_z 2000
 classinstance 128761 class_ref 128249 // Pompe
   name ""   xyz 258.5 4 2000 life_line_z 2000
 durationcanvas 129145 classinstance_ref 128249 // :Seance
