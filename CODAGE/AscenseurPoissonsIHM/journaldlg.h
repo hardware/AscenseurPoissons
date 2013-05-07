@@ -28,6 +28,7 @@ private:
 
 public slots:
     void afficherLog(QListWidgetItem *item);
+    void ajouterLog(QString ligne);
     QStringList LireFichierLog();
 
 signals:

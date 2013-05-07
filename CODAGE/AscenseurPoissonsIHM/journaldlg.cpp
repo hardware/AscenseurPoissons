@@ -37,3 +37,8 @@ QStringList JournalDlg::LireFichierLog()
 
     return listeLignes;
 }
+
+void JournalDlg::ajouterLog(QString ligne)
+{
+    listeLignes.push_back(ligne);
+}
