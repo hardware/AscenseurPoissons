@@ -1,28 +1,28 @@
 format 75
 
 classinstance 128015 class_ref 128121 // Seance
-  name ""   xyz 4.29 4 2015 life_line_z 2010
+  name ""   xyz 4.49 4.7 2015 life_line_z 2010
 classinstance 128048 class_ref 154767 // InterfaceCAN
-  name ""   xyz 573 6 2000 life_line_z 2000
+  name ""   xyz 573.6 6.9 2000 life_line_z 2000
 classinstance 128271 class_ref 135161 // Capteurs
-  name ""   xyz 334.826 4 2010 life_line_z 2005
+  name ""   xyz 334.526 4.7 2010 life_line_z 2005
 classinstance 128399 class_ref 128458 // Capteurs
-  name ""   xyz 685.456 4 2000 life_line_z 2000
+  name ""   xyz 684.756 4.3 2000 life_line_z 2000
 classinstance 128655 class_ref 128714 // VanneDattrait
-  name ""   xyz 761.831 4 2010 life_line_z 2000
+  name ""   xyz 761.931 4.3 2010 life_line_z 2000
 classinstance 128783 class_ref 128377 // VanneAttrait
-  name ""   xyz 130.794 4 2010 life_line_z 2005
+  name ""   xyz 130.794 4.7 2010 life_line_z 2005
 durationcanvas 128065 classinstance_ref 128048 // :InterfaceCAN
-  xyzwh 611 126 2010 11 153
+  xyzwh 611 126.2 2010 11 153
 end
 durationcanvas 128321 classinstance_ref 128399 // :Capteurs
-  xyzwh 708 156 2010 11 54
+  xyzwh 707 156.2 2010 11 54
 end
 durationcanvas 129039 classinstance_ref 128783 // :VanneAttrait
-  xyzwh 164 82 2010 11 215
+  xyzwh 164 82.9 2010 11 215
 end
 durationcanvas 129089 classinstance_ref 128655 // :VanneDattrait
-  xyzwh 796 268 2010 11 32
+  xyzwh 796 268.3 2010 11 32
 end
 durationcanvas 129423 classinstance_ref 128015 // :Seance
   xyzwh 27 65 2015 11 232
