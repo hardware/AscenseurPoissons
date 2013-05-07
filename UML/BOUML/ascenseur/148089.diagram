@@ -1,7 +1,7 @@
 format 75
 
 classinstance 128048 class_ref 154767 // InterfaceCAN
-  name ""   xyz 538 4 2000 life_line_z 2000
+  name ""   xyz 553 4 2000 life_line_z 2000
 classinstance 128121 class_ref 128121 // Seance
   name ""   xyz 6 4 2000 life_line_z 2000
 classinstance 128249 class_ref 128633 // Grille
@@ -9,34 +9,80 @@ classinstance 128249 class_ref 128633 // Grille
 classinstance 128377 class_ref 135161 // Capteurs
   name ""   xyz 372 4 2000 life_line_z 2000
 classinstance 128505 class_ref 128842 // Grille
-  name ""   xyz 688 4 2000 life_line_z 2000
+  name ""   xyz 771 4 2000 life_line_z 2000
 classinstance 128633 class_ref 128458 // Capteurs
-  name ""   xyz 779 4 2000 life_line_z 2000
+  name ""   xyz 679 4 2000 life_line_z 2000
+durationcanvas 128065 classinstance_ref 128048 // :InterfaceCAN
+  xyzwh 591 165 2010 11 169
+end
+durationcanvas 128577 classinstance_ref 128633 // :Capteurs
+  xyzwh 702 208 2010 11 53
+end
 durationcanvas 128761 classinstance_ref 128121 // :Seance
-  xyzwh 29 106 2010 11 200
+  xyzwh 29 107 2010 11 220
 end
 durationcanvas 128889 classinstance_ref 128249 // :Grille
-  xyzwh 173 121 2010 11 183
+  xyzwh 173 122 2010 11 207
 end
 durationcanvas 129145 classinstance_ref 128377 // :Capteurs
   xyzwh 399 150 2010 11 41
 end
+durationcanvas 129345 classinstance_ref 128505 // :Grille
+  xyzwh 783 313 2010 11 28
+end
+msg 128193 synchronous
+  from durationcanvas_ref 129145
+  to durationcanvas_ref 128065
+  yz 165 2020 msg operation_ref 183183 // "lireEtat()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "IdTrame,DetecteurBas"
+  label_xy 415 150
+msg 128705 synchronous
+  from durationcanvas_ref 128065
+  to durationcanvas_ref 128577
+  yz 208 2015 explicitmsg "lire"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 644 193
+msg 128833 return
+  from durationcanvas_ref 128577
+  to durationcanvas_ref 128065
+  yz 237 2015 unspecifiedmsg
+  show_full_operations_definition default drawing_language default show_context_mode default
+msg 128961 return
+  from durationcanvas_ref 128065
+  to durationcanvas_ref 128889
+  yz 254 2020 explicitmsg "etat"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 377 239
 msg 129017 synchronous
   from durationcanvas_ref 128761
   to durationcanvas_ref 128889
-  yz 122 2015 msg operation_ref 129529 // "ouvrir()"
+  yz 124 2015 msg operation_ref 129529 // "ouvrir()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 89 111
+  label_xy 89 113
+msg 129217 synchronous
+  from durationcanvas_ref 128889
+  to durationcanvas_ref 128065
+  yz 288 2025 msg operation_ref 183311 // "ecrireDonnees()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "IdTrame, MonteeGrille"
+  label_xy 277 273
 msg 129273 synchronous
   from durationcanvas_ref 128889
   to durationcanvas_ref 129145
-  yz 150 2015 msg operation_ref 131577 // "LireCapteurFinDeCourseGrilleBas()"
+  yz 151 2015 msg operation_ref 131577 // "LireCapteurFinDeCourseGrilleBas()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 186 137
+  label_xy 186 138
+msg 129473 synchronous
+  from durationcanvas_ref 128065
+  to durationcanvas_ref 129345
+  yz 313 2015 explicitmsg "ouvrir"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 658 300
 msg 130041 return
   from durationcanvas_ref 128889
   to durationcanvas_ref 128761
-  yz 293 2015 explicitmsg "OUVERTE / FERMEE"
+  yz 295 2015 explicitmsg "OUVERTE / FERMEE"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 51 281
+  label_xy 51 283
 end

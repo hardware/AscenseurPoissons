@@ -30,7 +30,7 @@ msg 128688 synchronous
 msg 128944 synchronous
   from durationcanvas_ref 128560
   to durationcanvas_ref 128816
-  yz 89 2015 msg operation_ref 131833 // "LirePositionAscenseurHaute()"
+  yz 89 2015 msg operation_ref 131833 // "LireCapteurPositionAscenseurHaute()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 205 77
 msg 129072 return

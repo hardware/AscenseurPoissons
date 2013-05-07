@@ -30,7 +30,7 @@ msg 129072 synchronous
 msg 129328 synchronous
   from durationcanvas_ref 128944
   to durationcanvas_ref 129200
-  yz 92 2020 msg operation_ref 147632 // "LirePositionAscenseurBasse()"
+  yz 92 2020 msg operation_ref 147632 // "LireCapteurPositionAscenseurBasse()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 204 80
 msg 129456 return
