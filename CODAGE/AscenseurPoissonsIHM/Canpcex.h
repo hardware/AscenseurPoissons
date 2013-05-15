@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 -----------------------------------------------------------
  CANPCEX.H  Copyright (c) 2003 NSI (Annecy France)
 -----------------------------------------------------------
@@ -14,8 +14,8 @@ Target  :  Windows 32 DLL
 	Le symbole _CANAPI definit la convention d'appel des 
 	fonctions de la DLL. Il est utilise dans CANPROEX.H. Il 
 	faut s'assurer que la syntaxe suivante qui est 
-	spécifique aux outils Microsoft est correctement 
-	interpretee par le compilateur utilisé.
+	spÃ©cifique aux outils Microsoft est correctement 
+	interpretee par le compilateur utilisÃ©.
 */	
     #define _CANAPI __declspec(dllimport) __stdcall
 #else
@@ -23,12 +23,12 @@ Target  :  Windows 32 DLL
 #endif
 
 /* 
-   Définition des structures et des données
+   DÃ©finition des structures et des donnÃ©es
 */
 #include "candefex.h"
 
 /*
-   Déclaration des prototypes des fonctions
+   DÃ©claration des prototypes des fonctions
 */	
 #include "canproex.h"
 

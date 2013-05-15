@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 -----------------------------------------------------------
  CANPROEX.H  Copyright (c) 2002 NSI (Annecy France)
 -----------------------------------------------------------
@@ -9,15 +9,15 @@ Target  :  Windows 32 DLL
 -----------------------------------------------------------
 
 Ce fichier contient les definitions :
-  - Des fonction de l'interface CAN exportées par NSICANEX.DLL
+  - Des fonction de l'interface CAN exportÃ©es par NSICANEX.DLL
 
   MISE EN GARDE IMPORTANTE : Il faut s'assurer que le symbole
-  _CANAPI est correctement défini dans le fichier CANPCEX.H pour
-  le compilateur utilisé. Ce symbole spécifie que les fonctions
-  doivent être importées d'une DLL et qu'elles utilisent la
+  _CANAPI est correctement dÃ©fini dans le fichier CANPCEX.H pour
+  le compilateur utilisÃ©. Ce symbole spÃ©cifie que les fonctions
+  doivent Ãªtre importÃ©es d'une DLL et qu'elles utilisent la
   convention d'appel C.
   
-  Si cette directive n'est pas appliquée, LES FONCTIONS DE 
+  Si cette directive n'est pas appliquÃ©e, LES FONCTIONS DE 
   L'INTERFACE LOGICIELLE NE FONCTIONNERONT PAS CORRECTEMENT.
 */
 

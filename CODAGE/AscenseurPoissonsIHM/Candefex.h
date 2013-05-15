@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 -----------------------------------------------------------
  CANDEFEX.H  Copyright (c) 2006 NSI (Annecy France)
 -----------------------------------------------------------
@@ -9,19 +9,19 @@ Target  :  Windows 32 DLL
 -----------------------------------------------------------
 
 Ce fichier contient les definitions :
-  - Des structures de données utilisées par les fonction de
+  - Des structures de donnÃ©es utilisÃ©es par les fonctions de
   - l'interface CAN.
-  - Des valeurs constantes utilisées comme paramètres.
+  - Des valeurs constantes utilisÃ©es comme paramÃ¨tres.
   - Des codes de retour des fonction de l'interface CAN.
 
   MISE EN GARDE IMPORTANTE : Il faut s'assurer que le compilateur
-  utilisé peut appliquer la directive d'alignement des champs 
-  des structures de données suivante:
+  utilisÃ© peut appliquer la directive d'alignement des champs 
+  des structures de donnÃ©es suivante:
 
     #pragma pack(push,2)
 
   Ceci peut changer la taille des structures et la position
-  des champs. Si cette directive n'est pas appliquée, LES 
+  des champs. Si cette directive n'est pas appliquÃ©e, LES 
   FONCTIONS DE L'INTERFACE LOGICIELLE NE FONCTIONNERONT PAS 
   CORRECTEMENT.
 */
@@ -29,9 +29,9 @@ Ce fichier contient les definitions :
 
 /*
    Cette directive indique que les champs des structures de
-   données doivent tous commencer à des addresses paires.
+   donnÃ©es doivent tous commencer Ã  des addresses paires.
    NE PAS SUPPRIMER. Cette syntaxe est specifique aux 
-   compilateurs Microsoft. Faire les changements nécessaires 
+   compilateurs Microsoft. Faire les changements nÃ©cessaires 
    pour d'autres compilateurs.
 */
 
@@ -87,7 +87,7 @@ Ce fichier contient les definitions :
 		unsigned long reserved;
 	} t_CardData;
 
-    // Demande de compte rendu des événements reseau
+    // Demande de compte rendu des Ã©vÃ©nements reseau
 	typedef enum
 	{
 		_NO_STATUS = 0,
@@ -101,10 +101,10 @@ Ce fichier contient les definitions :
 // Code retour supplementaire (CAN seulement)
 #define _DOWNLOAD_BUF_OCCUPIED		0x64 // Warning: value of v1.06 is 0x70
 
-// Mode d'interface supplémentaire
+// Mode d'interface supplÃ©mentaire
 #define _ANALYSE_DC_PSA		0x10 // Diag on CAN spy (PSA)
 
-// Liste des types de périphériqes CAN
+// Liste des types de pÃ©riphÃ©riqes CAN
 #define _CANPCISA		1	// CANPC, CANPCa, CANPCMCIA, CAN104
 #define _CANPCI2P		2	// CANPCI
 #define _CANPCUSB		3   // CAN-USB Interface
@@ -147,12 +147,12 @@ Ce fichier contient les definitions :
 // Nombre de repetition periode
 #define _CAN_INFINITE   -1
 
-// Taille maximale des données CAN
+// Taille maximale des donnÃ©es CAN
 #define _CAN_MAX_DATA			8		// CAN data
 #define _CAN_MAX_DATA_EX		4095	// CAN segmented data
 #define _CAN_MAX_PATTERN		256		// CAN pattern data (periodical)
 
-// Valeur d'identificateur invalide pour usage spécial
+// Valeur d'identificateur invalide pour usage spÃ©cial
 #define _CAN_DUMMY_ID				0x7FFFFFFF
 #define _CAN_ALL_ID					0x7FFFFF0A
 #define _CAN_EVENT_BOFF				0x8FFFFFFF
@@ -185,7 +185,7 @@ typedef enum
     _DC_PADDING		= 1		// Fixed length (8 bytes)
 } t_CANpadding;
 
-// Type de message ou d'événement
+// Type de message ou d'Ã©vÃ©nement
 typedef enum
 {
 	_CAN_TX_DATA		= 0,
@@ -252,7 +252,7 @@ typedef enum {
      _DC_REP_NEG_TELECHARGEMENT	=	0xF1
 } t_DCstate;
 
-// Structure de déclaration d'un message CAN
+// Structure de dÃ©claration d'un message CAN
 typedef struct
 {
     // Valeur de l'identificateur
@@ -273,17 +273,17 @@ typedef struct
     // Demande de compte rendu  pour l'identificateur de controle de flux (trames segmentee seulement)
     t_StatusRq		flowControlStatusRq;
 
-    // Adresse source et adresse destination pour adressage étendu en Diag on CAN seulement
+    // Adresse source et adresse destination pour adressage Ã©tendu en Diag on CAN seulement
 	unsigned char   sourceAddress;
 	unsigned char   targetAddress;
 		
     // RFU Reserved
 	unsigned short	reserved;
 
-    // Nombre d'octets de données
+    // Nombre d'octets de donnÃ©es
 	unsigned short	dlc;
 	
-    // Tableau de données
+    // Tableau de donnÃ©es
 	unsigned char	data[_CAN_MAX_DATA_EX];
 
 } t_CANobj;
@@ -308,11 +308,11 @@ typedef struct
     t_CANidentType		identType;
 
 	/* Data bytes count
-	   Nombre d'octets de données */
+	   Nombre d'octets de donnÃ©es */
 	unsigned short	dlc;
 
 	/* Data bytes array
-	   Tableau d'octets de données */
+	   Tableau d'octets de donnÃ©es */
 	unsigned char	data[_CAN_MAX_DATA_EX];
 
 	/* Date
@@ -390,8 +390,8 @@ typedef	struct
 	unsigned short	reserved1;
 	unsigned short	id4_0;
 	unsigned short	id12_5;			 
-	unsigned short	empty_0;		// reservé
-	unsigned short	empty_1;		// reservé
+	unsigned short	empty_0;		// reservÃ©
+	unsigned short	empty_1;		// reservÃ©
 	unsigned short	act_err;
 	unsigned short	interm;	
 	unsigned short	tolerate_dom;	
@@ -403,7 +403,7 @@ typedef	struct
 	unsigned short	ack_del;	
 	unsigned short	overload_flag;
 	unsigned short	lost_Rx;		// messages perdus
-	unsigned short 	frame_ok;		// transmission ou réception OK
+	unsigned short 	frame_ok;		// transmission ou rÃ©ception OK
 	unsigned short 	bus_off;		// erreur de bus off
 	unsigned short 	passive;		// erreur passive
 }t_CANsjaCounters;
@@ -423,37 +423,37 @@ typedef struct{
 } t_CANchipInfo;
 
 /* Device specific data
-   Informations sur le périphérique CAN */
+   Informations sur le pÃ©riphÃ©rique CAN */
 typedef struct{
-	unsigned long deviceType;			// Type de périphérique
+	unsigned long deviceType;			// Type de pÃ©riphÃ©rique
 	union {
 		struct {
 			short			vendorID;				//VendorID 
 			short			deviceID;				//DeviceID 
 			char			productName[40];		//Nom produit
 			char			manufacturerName[40];	//Fabricant
-			char			serialNumber[80];		//N° de série
+			char			serialNumber[80];		//NÂ° de sÃ©rie
 			short			firmwareVersion;		//Version
 			unsigned long	boardType;				//Type de carte
-			unsigned long	reserved;				//Réservé
+			unsigned long	reserved;				//RÃ©servÃ©
 			unsigned long	hardwareVersion; 		//Version harware
 		}CAN_USB;
 		struct {
 			unsigned long	IOBaseAddress[4];		//Adresse IO 
-			unsigned long	memoryBaseAddress[3];	//Mémoire de base
-			unsigned long	IRQLineNumber;  		//N° IRQ
+			unsigned long	memoryBaseAddress[3];	//MÃ©moire de base
+			unsigned long	IRQLineNumber;  		//NÂ° IRQ
 			unsigned long	boardType;				//Type de carte
   			char			cardName[80];			//Nom de carte
-  			unsigned long	reserved1;				//Réservé
-			unsigned long	reserved2;				//Réservé
+  			unsigned long	reserved1;				//RÃ©servÃ©
+			unsigned long	reserved2;				//RÃ©servÃ©
 		}CAN_PCI;
 		struct {
 			unsigned long	IOBaseAddress[4];		//Adresse IO 
-			unsigned long	IRQLineNumber;  		//N° IRQ
+			unsigned long	IRQLineNumber;  		//NÂ° IRQ
 			unsigned long	boardType;				//Type de carte
   			char			cardName[80];			//Nom du canal
-			unsigned long	reserved1;				//Réservé
-			unsigned long	reserved2;				//Réservé
+			unsigned long	reserved1;				//RÃ©servÃ©
+			unsigned long	reserved2;				//RÃ©servÃ©
 		}CAN_ISA;
 		char	reserved[512];
 	};
