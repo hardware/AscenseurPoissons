@@ -1,7 +1,7 @@
 format 75
 "ascenseur"
-  revision 57
-  modified_by 65 ""
+  revision 58
+  modified_by 126 "jtard"
 
 
   
@@ -365,7 +365,7 @@ ${inlines}
 	overlapping_bars size A4
       end
 
-      sequencediagram 155001 "Scenario : Arreter la pompe"
+      sequencediagram 155001 "Scenario : Detecter arret de la pompe"
 	show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
 	overlapping_bars size A4
       end
@@ -518,7 +518,6 @@ ${inlines}
       package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
       show_infonote default drawing_language default show_stereotype_properties default
     end
-
   end
 
   classview 128202 "Vue logique"
@@ -890,6 +889,20 @@ ${inlines}
 "
 	    classrelation_ref 135439 // <unidirectional association>
 	  b parent class_ref 154767 // InterfaceCAN
+      end
+
+      operation 128126 "detecterArret"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
       end
     end
 
@@ -1797,6 +1810,187 @@ ${inlines}
         end
       relations
         end
+    end
+
+    state 128126 "Machine seance"
+      stereotype "machine"
+      statediagram 128126 "Etat transition seance"
+	package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
+	show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+	size A4
+      end
+
+      statediagram 128254 "etat transition cycle"
+	package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations no shadow default
+	show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+	size A4
+      end
+
+      pseudostate 128126 initial 
+	transition 128126 "<transition>"
+	  on state_ref 128254 // MANU
+	  external 
+	end
+      end
+
+      pseudostate 128254 final 
+      end
+
+      state 128254 "MANU"
+	  uml_on_exit "lancerAutomatisation"
+	  uml_do_activity "testerAppareillages
+"
+	transition 128254 "lancement automatisation(periode, nbCycles)"
+	  on state_ref 128510 // AUTO_PAUSE
+	  external 
+	end
+
+	transition 129022 "<transition>"
+	  on pseudostate_ref 128254 // final
+	  external 
+	end
+      end
+
+      state 128382 "AUTO"
+	state 128510 "AUTO_PAUSE"
+	  transition 128382 "top periode"
+	    on state_ref 128638 // AUTO_RUN
+	    external 
+	  end
+
+	  transition 128766 "arret automatisation"
+	    on state_ref 128254 // MANU
+	    external 
+	  end
+	end
+
+	state 128638 "AUTO_RUN"
+	    uml_on_entry "demarrerPompe()
+demarrerCentrale()
+ouvrirVanne()
+descendreCage()
+ouvrirGrille()
+"
+	    uml_on_exit "FermerVanne()
+FermerGrille()
+MonterCage()
+ArreterCentrale()
+
+"
+	    uml_do_activity "effectuerUnCycle()
+Controlerparametres()"
+	  transition 128510 "defaut detecte"
+	    on state_ref 128766 // AUTO_BREAK
+	    external 
+	  end
+
+	  transition 128894 "nb cycles atteint"
+	    on state_ref 128510 // AUTO_PAUSE
+	    external 
+	  end
+	end
+
+	state 128766 "AUTO_BREAK"
+	    uml_on_entry "arreterAutomatisation()
+"
+	  transition 128638 "arret automatisation"
+	    on state_ref 128254 // MANU
+	    external 
+	  end
+	end
+
+	region 128126 "region"
+	end
+      end
+
+      pseudostate 128382 initial 
+      end
+
+      pseudostate 128510 final 
+      end
+
+      state 128894 "PECHE"
+	  uml_on_exit "FermerGrille()"
+	  uml_do_activity "ControlerTempsDePeche()"
+	transition 129150 "<transition>"
+	  on state_ref 129022 // MONTEE
+	  external 
+	end
+      end
+
+      state 129022 "MONTEE"
+	  uml_on_entry "Monter(PV,GV)
+OuvrirGrille()"
+	transition 129278 "<transition>"
+	  on state_ref 129278 // VIDANGE
+	  external 
+	end
+      end
+
+      state 129150 "DESCENTE"
+	  uml_on_entry "Descendre(PV,GV)
+OuvrirGrille()"
+	transition 129534 "<transition>"
+	  on state_ref 128894 // PECHE
+	  external 
+	end
+
+	transition 129662 "<transition>"
+	  on state_ref 129406 // PAUSE
+	  external 
+	end
+
+	transition 130046 "<transition>"
+	  on state_ref 129406 // PAUSE
+	  external 
+	end
+      end
+
+      state 129278 "VIDANGE"
+	  uml_on_exit "FermerGrille()"
+	  uml_do_activity "ControleTempsVidange()"
+	transition 129406 "<transition>"
+	  on state_ref 129150 // DESCENTE
+	  external 
+	end
+      end
+
+      pseudostate 128638 initial 
+      end
+
+      state 129406 "PAUSE"
+	transition 129918 "<transition>"
+	  on pseudostate_ref 128894 // final
+	  external 
+	end
+
+	region 128254 "region"
+	end
+
+	region 128382 "region"
+	end
+
+	region 128510 "region"
+	end
+
+	region 128638 "region"
+	end
+
+	transition 130174 "<transition>"
+	  on pseudostate_ref 128894 // final
+	  external 
+	end
+      end
+
+      pseudostate 128766 initial 
+	transition 129790 "<transition>"
+	  on state_ref 128894 // PECHE
+	  external 
+	end
+      end
+
+      pseudostate 128894 final 
+      end
     end
   end
 

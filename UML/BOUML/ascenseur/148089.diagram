@@ -16,7 +16,7 @@ durationcanvas 128065 classinstance_ref 128048 // :InterfaceCAN
   xyzwh 591 165 2010 11 169
 end
 durationcanvas 128577 classinstance_ref 128633 // :Capteurs
-  xyzwh 702 208 2010 11 53
+  xyzwh 702 207 2010 11 26
 end
 durationcanvas 128761 classinstance_ref 128121 // :Seance
   xyzwh 29 107 2010 11 220
@@ -37,16 +37,10 @@ msg 128193 synchronous
   show_full_operations_definition default drawing_language default show_context_mode default
   args "IdTrame,DetecteurBas"
   label_xy 415 150
-msg 128705 synchronous
-  from durationcanvas_ref 128065
-  to durationcanvas_ref 128577
-  yz 208 2015 explicitmsg "lire"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 644 193
 msg 128833 return
   from durationcanvas_ref 128577
   to durationcanvas_ref 128065
-  yz 237 2015 unspecifiedmsg
+  yz 207 2015 unspecifiedmsg
   show_full_operations_definition default drawing_language default show_context_mode default
 msg 128961 return
   from durationcanvas_ref 128065

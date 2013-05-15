@@ -1,0 +1,74 @@
+format 75
+
+pseudostatecanvas 128126 pseudostate_ref 128126 // initial
+   xyz 113 7 2000
+end
+pseudostatecanvas 128254 pseudostate_ref 128254 // final
+   xyz 186 7 2000
+end
+statecanvas 128382 state_ref 128254 // MANU
+  show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+  xyzwh 26 41 2000 189 95
+end
+statecanvas 128510 state_ref 128382 // AUTO
+  show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+  xyzwh 295 28 2000 521 733
+end
+statecanvas 128638 state_ref 128510 // AUTO_PAUSE
+  show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+  xyzwh 499 72 2005 143 35
+end
+statecanvas 128766 state_ref 128638 // AUTO_RUN
+  show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+  show_decomp_icon xyzwh 467 260 2005 205 285
+end
+statecanvas 128894 state_ref 128766 // AUTO_BREAK
+  show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+  xyzwh 456 649 2005 209 79
+end
+transitioncanvas 129022 transition_ref 128126 // <transition>
+  
+  from ref 128126 z 2001 to ref 128382
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129150 transition_ref 128254 // lancement automatisation(periode, nbCycles)
+  
+  from ref 128382 z 2006 label "lancement automatisation(periode, nbCycles)" xyz 232 68 3000 to ref 128638
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129278 transition_ref 128382 // top periode
+  
+  from ref 128638 z 2006 label "top periode" xyz 503 191.5 3000 to ref 128766
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129406 transition_ref 128510 // defaut detecte
+  decenter_end 517
+  
+  from ref 128766 z 2006 label "defaut detecte" xyz 574 574 3000 to ref 128894
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129534 transition_ref 128638 // arret automatisation
+  
+  from ref 128894 z 2006 label "arret automatisation" xyz 165.5 669 3000 to point 117 685
+  line 129662 z 2006 to ref 128382
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129918 transition_ref 128766 // arret automatisation
+  
+  from ref 128638 z 2006 label "arret automatisation" xyz 162 154 3000 to point 218 203
+  line 130174 z 2006 to ref 128382
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 130430 transition_ref 128894 // nb cycles atteint
+  
+  from ref 128766 z 2006 label "nb cycles atteint" xyz 717.5 203 3000 to point 730 399
+  line 130686 z 2006 to point 730 86
+  line 130558 z 2006 to ref 128638
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 130942 transition_ref 129022 // <transition>
+  
+  from ref 128382 z 2001 to ref 128254
+  write_horizontally default show_definition default drawing_language default
+end
+end

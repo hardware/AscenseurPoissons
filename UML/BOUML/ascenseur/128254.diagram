@@ -1,0 +1,62 @@
+format 75
+
+statecanvas 128382 state_ref 128894 // PECHE
+  show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+  xyzwh 279 18 2000 211 79
+end
+statecanvas 128510 state_ref 129022 // MONTEE
+  show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+  xyzwh 307 147 2000 157 79
+end
+statecanvas 128638 state_ref 129150 // DESCENTE
+  show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+  xyzwh 298 385 2000 179 79
+end
+statecanvas 128766 state_ref 129278 // VIDANGE
+  show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+  xyzwh 286 263 2000 201 79
+end
+pseudostatecanvas 130046 pseudostate_ref 128766 // initial
+   xyz 84 48 2000
+end
+pseudostatecanvas 130174 pseudostate_ref 128894 // final
+   xyz 638 530 2000
+end
+statecanvas 130942 state_ref 129406 // PAUSE
+  show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+  xyzwh 307 517 2000 161 49
+end
+note 131326 "yugkfu
+"
+  xyzwh 530 29 2000 213 53
+transitioncanvas 128894 transition_ref 129150 // <transition>
+  
+  from ref 128382 z 2001 to ref 128510
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129150 transition_ref 129278 // <transition>
+  
+  from ref 128510 z 2001 to ref 128766
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129278 transition_ref 129406 // <transition>
+  
+  from ref 128766 z 2001 to ref 128638
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 130302 transition_ref 129790 // <transition>
+  
+  from ref 130046 z 2001 to ref 128382
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 131070 transition_ref 130046 // <transition>
+  
+  from ref 128638 z 2001 to ref 130942
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 131198 transition_ref 130174 // <transition>
+  
+  from ref 130942 z 2001 to ref 130174
+  write_horizontally default show_definition default drawing_language default
+end
+end
