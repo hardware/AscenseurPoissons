@@ -113,9 +113,9 @@ msg 129273 synchronous
 msg 129785 synchronous
   from durationcanvas_ref 129807
   to durationcanvas_ref 129657
-  yz 300 2015 msg operation_ref 129017 // "arreter()"
+  yz 299 2015 msg operation_ref 128126 // "detecterArret()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 335 287
+  label_xy 319 286
 msg 129935 synchronous
   from durationcanvas_ref 130063
   to durationcanvas_ref 129807
