@@ -24,7 +24,7 @@ private:
     QGridLayout *GLMain, *GLCage;
     QGroupBox   *GBCage, *GBCentrale, *GBGrille, *GBPompe, *GBVanneAttrait;
     QHBoxLayout *hboxPompe, *hboxCentrale, *hboxVanneAttrait, *hboxGrille, *hboxCage;
-    QPushButton *PBPompeDemarrer, *PBPompeArreter,
+    QPushButton *PBPompeDemarrer,
                 *PBCentraleDemarrer, *PBCentraleArreter,
                 *PBVanneAttraitOuvrir, *PBVanneAttraitFermer,
                 *PBGrilleOuvrir, *PBGrilleFermer,
@@ -32,7 +32,6 @@ private:
     
 public slots:
     void on_PBPompeDemarrer_clicked();
-    void on_PBPompeArreter_clicked();
     void on_PBCentraleDemarrer_clicked();
     void on_PBCentraleArreter_clicked();
 

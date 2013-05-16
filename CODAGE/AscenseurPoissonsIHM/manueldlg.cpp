@@ -20,16 +20,8 @@ ManuelDlg::ManuelDlg(QWidget *parent, Seance *ptSeance, StatutsDlg *statutsDlg) 
         PBPompeDemarrer->setCursor(Qt::PointingHandCursor);
         PBPompeDemarrer->setObjectName("PBPompeDemarrer");
 
-        PBPompeArreter = new QPushButton("ARRETER");
-        PBPompeArreter->setMaximumSize(PBSize);
-        PBPompeArreter->setFont(PBFont);
-        PBPompeArreter->setCursor(Qt::PointingHandCursor);
-        PBPompeArreter->setEnabled(false);
-        PBPompeArreter->setObjectName("PBPompeArreter");
-
         hboxPompe = new QHBoxLayout(GBPompe);
         hboxPompe->addWidget(PBPompeDemarrer);
-        hboxPompe->addWidget(PBPompeArreter);
         GBPompe->setLayout(hboxPompe);
 
     // GROUP BOX 2 : CENTRALE HYDRAULIQUE
@@ -143,15 +135,8 @@ ManuelDlg::ManuelDlg(QWidget *parent, Seance *ptSeance, StatutsDlg *statutsDlg) 
 void ManuelDlg::on_PBPompeDemarrer_clicked()
 {
     PBPompeDemarrer->setDisabled(true);
-    PBPompeArreter->setEnabled(true);
 
     emit allumerVoyant(pStatutsDlg.LBVoyantPompe);
-}
-
-void ManuelDlg::on_PBPompeArreter_clicked()
-{
-    PBPompeArreter->setDisabled(true);
-    PBPompeDemarrer->setEnabled(true);
 }
 
 void ManuelDlg::on_PBCentraleDemarrer_clicked()
