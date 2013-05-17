@@ -1,32 +1,30 @@
 format 75
 
 classinstance 128176 class_ref 154767 // InterfaceCAN
-  name ""   xyz 580 4 2000 life_line_z 2000
+  name ""   xyz 623 4 2000 life_line_z 2000
 classinstance 128249 class_ref 128121 // Seance
-  name ""   xyz 4.5 4 2000 life_line_z 2000
+  name ""   xyz 6.5 5 2000 life_line_z 2000
 classinstancecanvas 128271 classinstance_ref 128249 // 
-  xyz 381 4 2000 life_line_z 2000
+  xyz 413 4 2000 life_line_z 2000
 end
-classinstance 128377 class_ref 128586 // Pompe
-  name ""   xyz 786.5 4 2000 life_line_z 2000
 classinstance 128399 class_ref 128458 // Capteurs
-  name ""   xyz 699 4 2000 life_line_z 2000
+  name ""   xyz 760 4 2000 life_line_z 2000
 classinstance 128761 class_ref 128249 // Pompe
-  name ""   xyz 177.5 4 2000 life_line_z 2000
+  name ""   xyz 189.5 4 2000 life_line_z 2000
 durationcanvas 128321 classinstance_ref 128271 // :Capteurs
-  xyzwh 408 99 2010 11 108
+  xyzwh 440 99 2010 11 108
 end
 durationcanvas 128577 classinstance_ref 128176 // :InterfaceCAN
-  xyzwh 618 122 2010 11 58
+  xyzwh 661 122 2010 11 58
 end
 durationcanvas 128833 classinstance_ref 128399 // :Capteurs
-  xyzwh 722 136 2010 11 26
+  xyzwh 783 136 2010 11 26
 end
 durationcanvas 129145 classinstance_ref 128249 // :Seance
-  xyzwh 27 65 2010 11 236
+  xyzwh 29 65 2010 11 236
 end
 durationcanvas 129401 classinstance_ref 128761 // :Pompe
-  xyzwh 199 65 2010 11 197
+  xyzwh 211 65 2010 11 197
 end
 msg 128126 return
   from durationcanvas_ref 128321
@@ -38,14 +36,14 @@ msg 128449 synchronous
   to durationcanvas_ref 128321
   yz 101 2015 msg operation_ref 128193 // "LireConfirmationMarchePompe()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 222 85
+  label_xy 234 85
 msg 128705 synchronous
   from durationcanvas_ref 128321
   to durationcanvas_ref 128577
   yz 123 2015 msg operation_ref 183183 // "lireEtat()"
   show_full_operations_definition default drawing_language default show_context_mode default
   args "IdTrame, MarchePompe"
-  label_xy 432 107
+  label_xy 464 107
 msg 129089 return
   from durationcanvas_ref 128833
   to durationcanvas_ref 128577
@@ -57,11 +55,11 @@ msg 129785 synchronous
   yz 67 2015 msg operation_ref 128126 // "detecterArret()"
   show_full_operations_definition default drawing_language default show_context_mode default
   args "@capteurs"
-  label_xy 44 53
+  label_xy 46 53
 msg 130169 return
   from durationcanvas_ref 129401
   to durationcanvas_ref 129145
   yz 230 2025 explicitmsg "ON/OFF"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 89 218
+  label_xy 91 218
 end

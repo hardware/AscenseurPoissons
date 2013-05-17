@@ -1,88 +1,100 @@
 format 75
 
 classinstance 128048 class_ref 154767 // InterfaceCAN
-  name ""   xyz 548.3 3.2 2000 life_line_z 2000
+  name ""   xyz 573.3 4 2000 life_line_z 2000
 classinstance 128065 class_ref 135161 // Capteurs
-  name ""   xyz 307 3.2 2000 life_line_z 2000
+  name ""   xyz 351 4 2000 life_line_z 2000
 classinstance 128121 class_ref 128377 // VanneAttrait
-  name ""   xyz 126.4 3.2 2005 life_line_z 2000
+  name ""   xyz 162.4 4 2005 life_line_z 2000
 classinstance 128193 class_ref 128714 // VanneDattrait
-  name ""   xyz 749 4.2 2000 life_line_z 2000
+  name ""   xyz 740 4.2 2000 life_line_z 2000
 classinstance 128321 class_ref 128458 // Capteurs
-  name ""   xyz 666 7 2000 life_line_z 2000
+  name ""   xyz 671 7 2000 life_line_z 2000
 classinstance 128761 class_ref 128121 // Seance
-  name ""   xyz 3.3 4.9 2005 life_line_z 2000
+  name ""   xyz 0.3 4 2005 life_line_z 2000
+textcanvas 130497 "[VANNE DEJA FERMEE]"
+  xyzwh 52 413.5 3010 114 31
+textcanvas 130625 "[VANNE OUVERTE]"
+  xyzwh 51 269.5 3010 85 31
+fragment 130753 "alt(etat vanne)"
+  xyzwh 44 239.5 3005 785 292
+  separator 5486
+end
 durationcanvas 128449 classinstance_ref 128065 // :Capteurs
-  xyzwh 334 95 2010 11 64
+  xyzwh 378 97 2010 11 129
 end
 durationcanvas 128705 classinstance_ref 128048 // :InterfaceCAN
-  xyzwh 587 124 2010 11 225
-end
-durationcanvas 128961 classinstance_ref 128321 // :Capteurs
-  xyzwh 690 161 2010 11 60
+  xyzwh 611 125 2010 11 71
 end
 durationcanvas 129145 classinstance_ref 128121 // :VanneAttrait
-  xyzwh 160 62.1 2010 11 325
+  xyzwh 196 63 2010 11 440
 end
 durationcanvas 129529 classinstance_ref 128761 // :Seance
-  xyzwh 26 51.9 2010 11 330
+  xyzwh 23 53.9 2010 11 539
 end
 durationcanvas 129729 classinstance_ref 128193 // :VanneDattrait
-  xyzwh 788 312 2010 11 25
+  xyzwh 775 333 2010 11 26
+end
+durationcanvas 129985 classinstance_ref 128048 // :InterfaceCAN
+  xyzwh 617 277 2010 0 235
+end
+durationcanvas 130113 classinstance_ref 128321 // :Capteurs
+  xyzwh 694 145 2010 11 40
 end
 msg 128577 synchronous
   from durationcanvas_ref 129145
   to durationcanvas_ref 128449
-  yz 96 2015 msg operation_ref 134721 // "LireDetecteurHautVanne()"
+  yz 99 2015 msg operation_ref 134721 // "LireDetecteurHautVanne()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 179 79
+  label_xy 215 82
 msg 128833 synchronous
   from durationcanvas_ref 128449
   to durationcanvas_ref 128705
-  yz 126 2015 msg operation_ref 183183 // "lireEtat()"
+  yz 129 2015 msg operation_ref 183183 // "lireEtat()"
   show_full_operations_definition default drawing_language default show_context_mode default
   args "IdTrame, DetecteurHautVanne"
-  label_xy 356 108
-msg 129089 synchronous
-  from durationcanvas_ref 128705
-  to durationcanvas_ref 128961
-  yz 164 2015 explicitmsg "lire"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 636 147
-msg 129217 return
-  from durationcanvas_ref 128961
-  to durationcanvas_ref 128705
-  yz 194 2015 unspecifiedmsg
-  show_full_operations_definition default drawing_language default show_context_mode default
-msg 129345 return
-  from durationcanvas_ref 128705
-  to durationcanvas_ref 129145
-  yz 226 2015 explicitmsg "etat"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 369 209
+  label_xy 400 111
 msg 129601 synchronous
   from durationcanvas_ref 129145
-  to durationcanvas_ref 128705
-  yz 293 2025 msg operation_ref 183311 // "ecrireDonnees()"
+  to durationcanvas_ref 129985
+  yz 301 2025 msg operation_ref 183311 // "ecrireDonnees()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  args "IdTrame, DescenteVanne"
-  label_xy 265 276
+  args "IdTrame, FERMER_VANNE"
+  label_xy 301 284
 msg 129657 return
   from durationcanvas_ref 129145
   to durationcanvas_ref 129529
-  yz 369 2015 explicitmsg "OUVERTE / FERMEE"
+  yz 480.9 2015 explicitmsg "VANNE_CLOSE"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 41 354
+  label_xy 55 468.9
 msg 129857 synchronous
-  from durationcanvas_ref 128705
+  from durationcanvas_ref 129985
   to durationcanvas_ref 129729
-  yz 315 2030 explicitmsg "fermer"
+  yz 337 2030 explicitmsg "VANNE_CLOSE"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 634 301
+  label_xy 659 323
 msg 129913 synchronous
   from durationcanvas_ref 129529
   to durationcanvas_ref 129145
-  yz 65 2015 msg operation_ref 128889 // "fermer()"
+  yz 68.9 2015 msg operation_ref 128889 // "fermer()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 60 53
+  args "@capteurs"
+  label_xy 57 56.9
+msg 130241 return
+  from durationcanvas_ref 130113
+  to durationcanvas_ref 128705
+  yz 157 2015 unspecifiedmsg
+  show_full_operations_definition default drawing_language default show_context_mode default
+msg 130369 return
+  from durationcanvas_ref 128449
+  to durationcanvas_ref 129145
+  yz 189 2015 explicitmsg "EtatFonctionnement"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 231 174
+msg 130881 return
+  from durationcanvas_ref 129145
+  to durationcanvas_ref 129529
+  yz 357 2015 explicitmsg "VANNE_CLOSE"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 54 342
 end

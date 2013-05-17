@@ -12,77 +12,94 @@ classinstance 128655 class_ref 128714 // VanneDattrait
   name ""   xyz 761.931 4.3 2010 life_line_z 2000
 classinstance 128783 class_ref 128377 // VanneAttrait
   name ""   xyz 130.794 4.7 2010 life_line_z 2005
+fragment 130113 "alt(niveau aval)"
+  xyzwh 47 226 3005 785 282
+  separator 5486
+end
+textcanvas 130241 "[NIVEAU OK]"
+  xyzwh 53 256 3010 74 20
+textcanvas 130369 "[NIVEAU NON OK]"
+  xyzwh 52 392 3010 99 15
 durationcanvas 128065 classinstance_ref 128048 // :InterfaceCAN
-  xyzwh 611 126.2 2010 11 153
+  xyzwh 611 123 2010 11 74
 end
 durationcanvas 128321 classinstance_ref 128399 // :Capteurs
-  xyzwh 707 156.2 2010 11 54
+  xyzwh 707 140 2010 11 40
 end
 durationcanvas 129039 classinstance_ref 128783 // :VanneAttrait
-  xyzwh 164 82.9 2010 11 215
-end
-durationcanvas 129089 classinstance_ref 128655 // :VanneDattrait
-  xyzwh 796 268.3 2010 11 32
+  xyzwh 164 83 2010 11 460
 end
 durationcanvas 129423 classinstance_ref 128015 // :Seance
-  xyzwh 27 65 2015 11 232
+  xyzwh 27 66 2015 11 504
+end
+durationcanvas 129473 classinstance_ref 128048 // :InterfaceCAN
+  xyzwh 611 256 2010 11 59
+end
+durationcanvas 129729 classinstance_ref 128655 // :VanneDattrait
+  xyzwh 796 283 2010 11 36
 end
 durationcanvas 129935 classinstance_ref 128271 // :Capteurs
-  xyzwh 361 106 2010 11 49
+  xyzwh 361 108 2010 11 112
 end
 msg 128193 synchronous
   from durationcanvas_ref 129935
   to durationcanvas_ref 128065
-  yz 126 2015 msg operation_ref 183183 // "lireEtat()"
+  yz 125 2015 msg operation_ref 183183 // "lireEtat()"
   show_full_operations_definition default drawing_language default show_context_mode default
   args "IdTrame,DetecteurBasVanne"
-  label_xy 380 111
-msg 128449 synchronous
-  from durationcanvas_ref 128065
-  to durationcanvas_ref 128321
-  yz 156 2015 explicitmsg "lire"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 657 141
+  label_xy 380 110
 msg 128577 return
   from durationcanvas_ref 128321
   to durationcanvas_ref 128065
-  yz 181 2015 unspecifiedmsg
+  yz 141 2015 unspecifiedmsg
   show_full_operations_definition default drawing_language default show_context_mode default
-msg 128705 return
-  from durationcanvas_ref 128065
-  to durationcanvas_ref 129039
-  yz 205 2020 explicitmsg "etat"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 383 190
-msg 128961 synchronous
-  from durationcanvas_ref 129039
-  to durationcanvas_ref 128065
-  yz 246 3005 msg operation_ref 183311 // "ecrireDonnees()"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  args "IdTrame, MonteeVanne"
-  label_xy 285 231
 msg 129167 synchronous
   from durationcanvas_ref 129423
   to durationcanvas_ref 129039
-  yz 82 2015 msg operation_ref 131193 // "ouvrir()"
+  yz 84 2015 msg operation_ref 131193 // "ouvrir()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 76 69
-msg 129217 synchronous
-  from durationcanvas_ref 128065
-  to durationcanvas_ref 129089
-  yz 268 3010 explicitmsg "ouvrir"
+  label_xy 76 71
+msg 129345 return
+  from durationcanvas_ref 129935
+  to durationcanvas_ref 129039
+  yz 180 2015 explicitmsg "niveauAval"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 663 254
+  label_xy 239 165
 msg 129551 return
   from durationcanvas_ref 129039
   to durationcanvas_ref 129423
-  yz 282 2015 explicitmsg "OUVERTE / FERMEE"
+  yz 525 2015 explicitmsg "OUVERTE / FERMEE"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 46 270
+  label_xy 46 515
+msg 129601 synchronous
+  from durationcanvas_ref 129039
+  to durationcanvas_ref 129473
+  yz 256 2015 msg operation_ref 183311 // "ecrireDonnees()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "IdTrame,OUVRIR_VANNE"
+  label_xy 237 241
+msg 129857 synchronous
+  from durationcanvas_ref 129473
+  to durationcanvas_ref 129729
+  yz 283 2015 explicitmsg "VANNE_OPEN"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 669 268
+msg 129985 return
+  from durationcanvas_ref 129039
+  to durationcanvas_ref 129423
+  yz 308 2020 explicitmsg "VANNE_OPEN"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 61 293
 msg 130063 synchronous
   from durationcanvas_ref 129039
   to durationcanvas_ref 129935
-  yz 107 2015 msg operation_ref 131321 // "LireCapteurNiveauCanalAval()"
+  yz 110 2015 msg operation_ref 131321 // "LireCapteurNiveauCanalAval()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 184 93
+  label_xy 184 96
+msg 130497 return
+  from durationcanvas_ref 129039
+  to durationcanvas_ref 129423
+  yz 442 2020 explicitmsg "VANNE_CLOSE"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 57 427
 end

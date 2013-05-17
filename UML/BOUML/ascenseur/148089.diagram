@@ -12,71 +12,89 @@ classinstance 128505 class_ref 128842 // Grille
   name ""   xyz 771 4 2000 life_line_z 2000
 classinstance 128633 class_ref 128458 // Capteurs
   name ""   xyz 679 4 2000 life_line_z 2000
-durationcanvas 128065 classinstance_ref 128048 // :InterfaceCAN
-  xyzwh 591 165 2010 11 169
+fragment 130497 "alt(etat grille)"
+  xyzwh 56 242 2000 773 256
+  separator 5000
 end
+textcanvas 130625 "[GRILLE FERMEE]"
+  xyzwh 63 268 2005 101 15
+textcanvas 130753 "[GRILLE DEJA OUVERTE]"
+  xyzwh 59 375 2005 90 36
 durationcanvas 128577 classinstance_ref 128633 // :Capteurs
-  xyzwh 702 207 2010 11 26
+  xyzwh 702 133 2010 11 38
 end
 durationcanvas 128761 classinstance_ref 128121 // :Seance
-  xyzwh 29 107 2010 11 220
+  xyzwh 29 54 2010 11 489
 end
 durationcanvas 128889 classinstance_ref 128249 // :Grille
-  xyzwh 173 122 2010 11 207
+  xyzwh 173 67 2010 11 414
 end
 durationcanvas 129145 classinstance_ref 128377 // :Capteurs
-  xyzwh 399 150 2010 11 41
+  xyzwh 399 89 2010 11 127
 end
-durationcanvas 129345 classinstance_ref 128505 // :Grille
-  xyzwh 783 313 2010 11 28
+durationcanvas 129601 classinstance_ref 128048 // :InterfaceCAN
+  xyzwh 591 99 2010 11 86
+end
+durationcanvas 129729 classinstance_ref 128048 // :InterfaceCAN
+  xyzwh 591 286 2010 11 62
+end
+durationcanvas 129985 classinstance_ref 128505 // :Grille
+  xyzwh 783 306 2010 11 29
 end
 msg 128193 synchronous
   from durationcanvas_ref 129145
-  to durationcanvas_ref 128065
-  yz 165 2020 msg operation_ref 183183 // "lireEtat()"
+  to durationcanvas_ref 129601
+  yz 99 2020 msg operation_ref 183183 // "lireEtat()"
   show_full_operations_definition default drawing_language default show_context_mode default
   args "IdTrame,DetecteurBas"
-  label_xy 415 150
+  label_xy 415 84
 msg 128833 return
   from durationcanvas_ref 128577
-  to durationcanvas_ref 128065
-  yz 207 2015 unspecifiedmsg
+  to durationcanvas_ref 129601
+  yz 137 2015 unspecifiedmsg
   show_full_operations_definition default drawing_language default show_context_mode default
-msg 128961 return
-  from durationcanvas_ref 128065
-  to durationcanvas_ref 128889
-  yz 254 2020 explicitmsg "etat"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 377 239
 msg 129017 synchronous
   from durationcanvas_ref 128761
   to durationcanvas_ref 128889
-  yz 124 2015 msg operation_ref 129529 // "ouvrir()"
+  yz 70 2015 msg operation_ref 129529 // "ouvrir()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 89 113
+  args "@capteurs"
+  label_xy 62 57
 msg 129217 synchronous
   from durationcanvas_ref 128889
-  to durationcanvas_ref 128065
+  to durationcanvas_ref 129729
   yz 288 2025 msg operation_ref 183311 // "ecrireDonnees()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  args "IdTrame, MonteeGrille"
+  args "IdTrame, MONTEE_GRILLE"
   label_xy 277 273
 msg 129273 synchronous
   from durationcanvas_ref 128889
   to durationcanvas_ref 129145
-  yz 151 2015 msg operation_ref 131577 // "LireCapteurFinDeCourseGrilleBas()"
+  yz 91 2015 msg operation_ref 131577 // "LireCapteurFinDeCourseGrilleBas()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 186 138
-msg 129473 synchronous
-  from durationcanvas_ref 128065
-  to durationcanvas_ref 129345
-  yz 313 2015 explicitmsg "ouvrir"
+  label_xy 190 76
+msg 129857 return
+  from durationcanvas_ref 129145
+  to durationcanvas_ref 128889
+  yz 188 2015 explicitmsg "EtatFonctionnement"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 658 300
-msg 130041 return
+  label_xy 236 173
+msg 130113 synchronous
+  from durationcanvas_ref 129729
+  to durationcanvas_ref 129985
+  yz 314 2015 explicitmsg "GRILLE_OPEN"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 660 295
+msg 130241 return
   from durationcanvas_ref 128889
   to durationcanvas_ref 128761
-  yz 295 2015 explicitmsg "OUVERTE / FERMEE"
+  yz 338 2015 explicitmsg "GRILLE_OPEN"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 51 283
+  label_xy 64 323
+msg 130369 return
+  from durationcanvas_ref 128889
+  to durationcanvas_ref 128761
+  yz 447 2015 explicitmsg "GRILLE_OPEN"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 64 432
 end
