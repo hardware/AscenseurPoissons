@@ -5,342 +5,150 @@ classinstance 128121 class_ref 128121 // Seance
 classinstance 128249 class_ref 135161 // Capteurs
   name ""   xyz 403 38 2000 life_line_z 2000
 classinstance 128377 class_ref 128458 // Capteurs
-  name ""   xyz 636.2 28 2000 life_line_z 2000
+  name ""   xyz 640 28 2000 life_line_z 2000
 fragment 131065 "alt (defaut)"
-  xyzwh 131.5 1070.1 2025 267 107
+  xyzwh 138 765 2025 284 117
 end
 fragment 131193 "SD: controler parametres"
-  xyzwh 25.9 11.7 2000 750 1170
-end
-durationcanvas 128065 classinstance_ref 128249 // :Capteurs
-  xyzwh 430 498.1 2010 11 80
-end
-durationcanvas 128321 classinstance_ref 128377 // :Capteurs
-  xyzwh 659 512.1 2010 11 77
+  xyzwh 40 6 2000 729 936
 end
 durationcanvas 128505 classinstance_ref 128121 // :Seance
-  xyzwh 189 77.1 2010 11 1107
+  xyzwh 189 144 2010 11 731
   overlappingdurationcanvas 130553
-    xyzwh 195 1093.5 2020 11 25
+    xyzwh 195 792 2020 11 25
   end
   overlappingdurationcanvas 130809
-    xyzwh 195 1132.6 2020 11 33
+    xyzwh 195 830 2020 11 26
   end
 end
 durationcanvas 128633 classinstance_ref 128249 // :Capteurs
-  xyzwh 430 80.7 2010 11 80
-end
-durationcanvas 128705 classinstance_ref 128249 // :Capteurs
-  xyzwh 430 579.6 2010 11 83
+  xyzwh 430 142 2010 11 70
 end
 durationcanvas 128889 classinstance_ref 128377 // :Capteurs
-  xyzwh 659 95 2010 11 57
-end
-durationcanvas 128961 classinstance_ref 128377 // :Capteurs
-  xyzwh 659 597.9 2010 11 67
+  xyzwh 663 160 2010 11 42
 end
 durationcanvas 129273 classinstance_ref 128249 // :Capteurs
-  xyzwh 430 163.5 2010 11 80
-end
-durationcanvas 129345 classinstance_ref 128249 // :Capteurs
-  xyzwh 430 659 2010 11 83
+  xyzwh 430 263 2010 11 60
 end
 durationcanvas 129529 classinstance_ref 128377 // :Capteurs
-  xyzwh 659 173.1 2010 11 90
-end
-durationcanvas 129601 classinstance_ref 128249 // :Capteurs
-  xyzwh 430 743.2 2010 11 70
-end
-durationcanvas 129857 classinstance_ref 128377 // :Capteurs
-  xyzwh 659 742.6 2010 11 70
+  xyzwh 663 273 2010 11 45
 end
 durationcanvas 129913 classinstance_ref 128249 // :Capteurs
-  xyzwh 430 249.4 2010 11 83
+  xyzwh 430 373 2010 11 71
 end
 durationcanvas 130169 classinstance_ref 128377 // :Capteurs
-  xyzwh 659 262.2 2010 11 77
-end
-durationcanvas 130241 classinstance_ref 128377 // :Capteurs
-  xyzwh 659 671 2010 11 73
-end
-durationcanvas 130753 classinstance_ref 128249 // :Capteurs
-  xyzwh 430 811.8 2010 11 73
-end
-durationcanvas 131009 classinstance_ref 128377 // :Capteurs
-  xyzwh 659 822.8 2010 11 63
+  xyzwh 663 391 2010 11 47
 end
 durationcanvas 131321 classinstance_ref 128249 // :Capteurs
-  xyzwh 430 330.7 2010 11 80
-end
-durationcanvas 131393 classinstance_ref 128249 // :Capteurs
-  xyzwh 430 881.9 2010 11 73
+  xyzwh 430 508 2010 11 71
 end
 durationcanvas 131577 classinstance_ref 128377 // :Capteurs
-  xyzwh 659 342.9 2010 11 77
-end
-durationcanvas 131649 classinstance_ref 128377 // :Capteurs
-  xyzwh 659 889.8 2010 11 63
+  xyzwh 663 526 2010 11 43
 end
 durationcanvas 131961 classinstance_ref 128249 // :Capteurs
-  xyzwh 430 420.8 2010 11 80
-end
-durationcanvas 132033 classinstance_ref 128249 // :Capteurs
-  xyzwh 430 945.8 2010 11 70
+  xyzwh 430 661 2010 11 71
 end
 durationcanvas 132217 classinstance_ref 128377 // :Capteurs
-  xyzwh 659 429.2 2010 11 83
+  xyzwh 663 681 2010 11 41
 end
-durationcanvas 132289 classinstance_ref 128377 // :Capteurs
-  xyzwh 659 958.1 2010 11 60
-end
-durationcanvas 132673 classinstance_ref 128249 // :Capteurs
-  xyzwh 430 1016 2010 11 70
-end
-durationcanvas 132929 classinstance_ref 128377 // :Capteurs
-  xyzwh 659 1022.8 2010 11 63
-end
-msg 128193 synchronous
-  from durationcanvas_ref 128505
-  to durationcanvas_ref 128065
-  yz 510 2015 explicitmsg "LireCapteurMouDeCable()"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 238 495
-msg 128449 synchronous
-  from durationcanvas_ref 128065
-  to durationcanvas_ref 128321
-  yz 524 2015 explicitmsg "valeur ?"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 530 509
-msg 128577 return
-  from durationcanvas_ref 128321
-  to durationcanvas_ref 128065
-  yz 555 2015 explicitmsg "info"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 541 540
 msg 128761 synchronous
   from durationcanvas_ref 128505
   to durationcanvas_ref 128633
-  yz 92.5 2015 msg operation_ref 130041 // "LireCapteurSurcharge()"
+  yz 147 2015 msg operation_ref 130041 // "LireCapteurSurcharge()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 259 80.5
-msg 128833 synchronous
-  from durationcanvas_ref 128505
-  to durationcanvas_ref 128705
-  yz 591 2015 msg operation_ref 141377 // "LireFinDeCourseGrilleBasse()"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 230 576
+  label_xy 259 135
 msg 129017 synchronous
   from durationcanvas_ref 128633
   to durationcanvas_ref 128889
-  yz 107.5 2015 explicitmsg "valeur ?"
+  yz 161 2015 explicitmsg "valeur ?"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 537 96.5
-msg 129089 synchronous
-  from durationcanvas_ref 128705
-  to durationcanvas_ref 128961
-  yz 609 2015 explicitmsg "valeur?"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 529 594
+  label_xy 537 150
 msg 129145 return
   from durationcanvas_ref 128889
   to durationcanvas_ref 128633
-  yz 128.5 2015 explicitmsg "info"
+  yz 191 2015 explicitmsg "info"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 546 117.5
-msg 129217 return
-  from durationcanvas_ref 128961
-  to durationcanvas_ref 128705
-  yz 638 2015 explicitmsg "info"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 539 623
+  label_xy 546 180
 msg 129401 synchronous
   from durationcanvas_ref 128505
   to durationcanvas_ref 129273
-  yz 182 2015 msg operation_ref 130169 // "LireCapteurTemperature()"
+  yz 266 2015 msg operation_ref 130169 // "LireCapteurTemperature()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 253 170
-msg 129473 synchronous
-  from durationcanvas_ref 128505
-  to durationcanvas_ref 129345
-  yz 673 2015 msg operation_ref 141505 // "LireFinDeCourseGrilleHaute()"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 232 658
+  label_xy 253 254
 msg 129657 synchronous
   from durationcanvas_ref 129273
   to durationcanvas_ref 129529
-  yz 184 2020 explicitmsg "valeur ?"
+  yz 273 2020 explicitmsg "valeur ?"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 530 169
-msg 129729 synchronous
-  from durationcanvas_ref 128505
-  to durationcanvas_ref 129601
-  yz 755 2015 msg operation_ref 141633 // "LirePositionAscenseur()"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 248 740
+  label_xy 530 258
 msg 129785 return
   from durationcanvas_ref 129529
   to durationcanvas_ref 129273
-  yz 218 2015 explicitmsg "temperature"
+  yz 307 2015 explicitmsg "temperature"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 522 207
-msg 129985 synchronous
-  from durationcanvas_ref 129601
-  to durationcanvas_ref 129857
-  yz 756 2015 explicitmsg "valeur ?"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 528 741
+  label_xy 522 296
 msg 130041 synchronous
   from durationcanvas_ref 128505
   to durationcanvas_ref 129913
-  yz 261 2015 msg operation_ref 130297 // "LireCapteurNiveauHuile()"
+  yz 376 2015 msg operation_ref 130297 // "LireCapteurNiveauHuile()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 255 249
-msg 130113 return
-  from durationcanvas_ref 129857
-  to durationcanvas_ref 129601
-  yz 779 2015 explicitmsg "info"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 539 764
+  label_xy 255 365
 msg 130297 synchronous
   from durationcanvas_ref 129913
   to durationcanvas_ref 130169
-  yz 274 2020 explicitmsg "valeur ?"
+  yz 392 2020 explicitmsg "valeur ?"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 530 259
-msg 130369 synchronous
-  from durationcanvas_ref 129345
-  to durationcanvas_ref 130241
-  yz 681 2015 explicitmsg "valeur ?"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 528 666
+  label_xy 530 377
 msg 130425 return
   from durationcanvas_ref 130169
   to durationcanvas_ref 129913
-  yz 309 2015 explicitmsg "niveau"
+  yz 427 2015 explicitmsg "niveau"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 532 299
-msg 130625 return
-  from durationcanvas_ref 130241
-  to durationcanvas_ref 129345
-  yz 705 2015 explicitmsg "info"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 539 690
+  label_xy 532 417
 reflexivemsg 130681 synchronous
   to durationcanvas_ref 130553
-  yz 1093 3005 explicitmsg "etat_seance = AUTO_BREAK"
+  yz 792 3005 explicitmsg "etat_seance = AUTO_BREAK"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 230 1093
-msg 130881 synchronous
-  from durationcanvas_ref 128505
-  to durationcanvas_ref 130753
-  yz 821 2015 msg operation_ref 141761 // "LirePassagePvGvBas()"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 250 806
+  label_xy 229 791
 reflexivemsg 130937 synchronous
   to durationcanvas_ref 130809
-  yz 1132 3005 explicitmsg "arreterAutomatisation()"
+  yz 830 3005 explicitmsg "arreterAutomatisation()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 227 1132
-msg 131137 synchronous
-  from durationcanvas_ref 130753
-  to durationcanvas_ref 131009
-  yz 834 2015 explicitmsg "valeur ?"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 528 819
-msg 131265 return
-  from durationcanvas_ref 131009
-  to durationcanvas_ref 130753
-  yz 859 2015 explicitmsg "info"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 539 844
+  label_xy 227 830
 msg 131449 synchronous
   from durationcanvas_ref 128505
   to durationcanvas_ref 131321
-  yz 341 2015 msg operation_ref 131321 // "LireCapteurNiveauCanalAval()"
+  yz 509 2015 msg operation_ref 131321 // "LireCapteurNiveauCanalAval()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 242 330
-msg 131521 synchronous
-  from durationcanvas_ref 128505
-  to durationcanvas_ref 131393
-  yz 892 2015 msg operation_ref 141889 // "LirePassagePVGVHaut()"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 246 877
+  label_xy 242 498
 msg 131705 synchronous
   from durationcanvas_ref 131321
   to durationcanvas_ref 131577
-  yz 355 2020 explicitmsg "valeur ?"
+  yz 527 2020 explicitmsg "valeur ?"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 528 343
-msg 131777 synchronous
-  from durationcanvas_ref 131393
-  to durationcanvas_ref 131649
-  yz 903 2015 explicitmsg "valeur ?"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 528 888
+  label_xy 528 515
 msg 131833 return
   from durationcanvas_ref 131577
   to durationcanvas_ref 131321
-  yz 386 2015 explicitmsg "info"
+  yz 558 2015 explicitmsg "info"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 538 375
-msg 131905 return
-  from durationcanvas_ref 131649
-  to durationcanvas_ref 131393
-  yz 928 2015 explicitmsg "info"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 539 913
+  label_xy 538 547
 msg 132089 synchronous
   from durationcanvas_ref 128505
   to durationcanvas_ref 131961
-  yz 433 2015 msg operation_ref 130937 // "LireCapteurNiveauCanalAmont()"
+  yz 662 2015 msg operation_ref 130937 // "LireCapteurNiveauCanalAmont()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 232 419
-msg 132161 synchronous
-  from durationcanvas_ref 128505
-  to durationcanvas_ref 132033
-  yz 957 2015 msg operation_ref 142017 // "LirePositionAscenseurBasse()"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 230 942
+  label_xy 232 649
 msg 132345 synchronous
   from durationcanvas_ref 131961
   to durationcanvas_ref 132217
-  yz 442 2020 explicitmsg "valeur ?"
+  yz 682 2020 explicitmsg "valeur ?"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 537 431
-msg 132417 synchronous
-  from durationcanvas_ref 132033
-  to durationcanvas_ref 132289
-  yz 970 2015 explicitmsg "valeur ?"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 528 955
+  label_xy 537 671
 msg 132473 return
   from durationcanvas_ref 132217
   to durationcanvas_ref 131961
-  yz 471 2015 explicitmsg "info"
+  yz 711 2015 explicitmsg "info"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 546 460
-msg 132545 return
-  from durationcanvas_ref 132289
-  to durationcanvas_ref 132033
-  yz 992 2020 explicitmsg "info"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 539 977
-msg 132801 synchronous
-  from durationcanvas_ref 128505
-  to durationcanvas_ref 132673
-  yz 1028 2015 msg operation_ref 142145 // "LirePositionAscenseurHaute()"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 231 1013
-msg 133057 synchronous
-  from durationcanvas_ref 132673
-  to durationcanvas_ref 132929
-  yz 1034 2015 explicitmsg "valeur ?"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 528 1019
-msg 133185 return
-  from durationcanvas_ref 132929
-  to durationcanvas_ref 132673
-  yz 1060 2015 explicitmsg "info"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 539 1045
+  label_xy 546 700
 end

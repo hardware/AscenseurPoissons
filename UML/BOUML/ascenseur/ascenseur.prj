@@ -1,7 +1,7 @@
 format 75
 "ascenseur"
-  revision 60
-  modified_by 65 ""
+  revision 58
+  modified_by 126 "jtard"
 
 
   
@@ -239,21 +239,21 @@ ${inlines}
       //activity diagram settings
       package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
       show_infonote default drawing_language default show_stereotype_properties default
-      sequencediagram 135033 "Diagramme de séquence"
-	show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
-	overlapping_bars size A4
-      end
-
-      simplerelation 128065
+      simplerelation 128714
 	-_->
 	  stereotype "extend"
 	  on usecase_ref 129098 // Controler les paramètres
       end
 
-      simplerelation 128321
+      simplerelation 129354
 	-_->
 	  stereotype "include"
 	  on usecase_ref 129354 // Commander les appareillages
+      end
+
+      sequencediagram 135033 "Diagramme de séquence"
+	show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
+	overlapping_bars size A4
       end
     end
 
@@ -297,15 +297,15 @@ ${inlines}
       //activity diagram settings
       package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
       show_infonote default drawing_language default show_stereotype_properties default
-      sequencediagram 128505 "Diagramme de séquence"
-	show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
-	overlapping_bars size A4
-      end
-
-      simplerelation 128577
+      simplerelation 128970
 	-_->
 	  stereotype "include"
 	  on usecase_ref 129354 // Commander les appareillages
+      end
+
+      sequencediagram 128505 "Diagramme de séquence"
+	show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
+	overlapping_bars size A4
       end
     end
 
@@ -341,12 +341,6 @@ ${inlines}
 	show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
 	overlapping_bars size A4
       end
-
-      simplerelation 128449
-	-_->
-	  stereotype "include"
-	  on usecase_ref 129354 // Commander les appareillages
-      end
     end
 
     usecase 129354 "Commander les appareillages"
@@ -366,6 +360,55 @@ ${inlines}
       //activity diagram settings
       package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
       show_infonote default drawing_language default show_stereotype_properties default
+      sequencediagram 141561 "Scenario : Demarrer la pompe"
+	show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
+	overlapping_bars size A4
+      end
+
+      sequencediagram 155001 "Scenario : Detecter arret de la pompe"
+	show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
+	overlapping_bars size A4
+      end
+
+      sequencediagram 128015 "Scenario : Ouvrir la vanne d'attrait"
+	show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
+	overlapping_bars size A4
+      end
+
+      sequencediagram 155129 "Scenario : Fermer la vanne d'attrait"
+	show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
+	overlapping_bars size A4
+      end
+
+      sequencediagram 148089 "Scenario : Ouvrir la grille"
+	show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
+	overlapping_bars size A4
+      end
+
+      sequencediagram 155257 "Scenario : Fermer la grille"
+	show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
+	overlapping_bars size A4
+      end
+
+      sequencediagram 134576 "Scenario : Monter la cage"
+	show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
+	overlapping_bars size A4
+      end
+
+      sequencediagram 148217 "Scenario : Descendre la cage"
+	show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
+	overlapping_bars size A4
+      end
+
+      sequencediagram 134543 "Scenario : Demarrer centrale hydraulique"
+	show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
+	overlapping_bars size A4
+      end
+
+      sequencediagram 134671 "Scenario : Arreter centrale hydraulique"
+	show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
+	overlapping_bars size A4
+      end
     end
 
     usecase 128202 "Programmer une séance"
@@ -414,27 +457,27 @@ ${inlines}
       //activity diagram settings
       package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
       show_infonote default drawing_language default show_stereotype_properties default
+      simplerelation 128586
+	-_->
+	  stereotype "include"
+	  on usecase_ref 129098 // Controler les paramètres
+      end
+
       simplerelation 128842
 	-_->
 	  stereotype "include"
 	  on usecase_ref 129226 // Effectuer un cycle
       end
 
-      sequencediagram 128377 "Diagramme de séquence"
-	show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
-	overlapping_bars size A4
-      end
-
-      simplerelation 128193
-	-_->
-	  stereotype "include"
-	  on usecase_ref 129098 // Controler les paramètres
-      end
-
-      simplerelation 128705
+      simplerelation 128015
 	-_->
 	  stereotype "include"
 	  on usecase_ref 129354 // Commander les appareillages
+      end
+
+      sequencediagram 128377 "Diagramme de séquence"
+	show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
+	overlapping_bars size A4
       end
     end
 
@@ -1234,118 +1277,6 @@ ${inlines}
       end
 
       operation 134721 "LireDetecteurHautVanne"
-	public explicit_return_type ""
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 141249 "LireCapteurMouDeCable()"
-	public explicit_return_type ""
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 141377 "LireFinDeCourseGrilleBasse"
-	public explicit_return_type ""
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 141505 "LireFinDeCourseGrilleHaute"
-	public explicit_return_type ""
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 141633 "LirePositionAscenseur"
-	public explicit_return_type ""
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 141761 "LirePassagePvGvBas"
-	public explicit_return_type ""
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 141889 "LirePassagePVGVHaut"
-	public explicit_return_type ""
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 142017 "LirePositionAscenseurBasse"
-	public explicit_return_type ""
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 142145 "LirePositionAscenseurHaute"
 	public explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
