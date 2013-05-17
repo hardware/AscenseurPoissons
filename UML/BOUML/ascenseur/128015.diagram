@@ -65,12 +65,6 @@ msg 129345 return
   yz 180 2015 explicitmsg "niveauAval"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 239 165
-msg 129551 return
-  from durationcanvas_ref 129039
-  to durationcanvas_ref 129423
-  yz 525 2015 explicitmsg "OUVERTE / FERMEE"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 46 515
 msg 129601 synchronous
   from durationcanvas_ref 129039
   to durationcanvas_ref 129473

@@ -1,30 +1,30 @@
 format 75
 
-classinstance 128176 class_ref 154767 // InterfaceCAN
-  name ""   xyz 623 4 2000 life_line_z 2000
 classinstance 128249 class_ref 128121 // Seance
   name ""   xyz 6.5 5 2000 life_line_z 2000
 classinstancecanvas 128271 classinstance_ref 128249 // 
   xyz 413 4 2000 life_line_z 2000
 end
 classinstance 128399 class_ref 128458 // Capteurs
-  name ""   xyz 760 4 2000 life_line_z 2000
+  name ""   xyz 732 4 2000 life_line_z 2000
 classinstance 128761 class_ref 128249 // Pompe
   name ""   xyz 189.5 4 2000 life_line_z 2000
+classinstance 129473 class_ref 154767 // InterfaceCAN
+  name ""   xyz 598 7 2005 life_line_z 2000
 durationcanvas 128321 classinstance_ref 128271 // :Capteurs
   xyzwh 440 99 2010 11 108
-end
-durationcanvas 128577 classinstance_ref 128176 // :InterfaceCAN
-  xyzwh 661 122 2010 11 58
-end
-durationcanvas 128833 classinstance_ref 128399 // :Capteurs
-  xyzwh 783 136 2010 11 26
 end
 durationcanvas 129145 classinstance_ref 128249 // :Seance
   xyzwh 29 65 2010 11 236
 end
 durationcanvas 129401 classinstance_ref 128761 // :Pompe
   xyzwh 211 65 2010 11 197
+end
+durationcanvas 129601 classinstance_ref 129473 // :InterfaceCAN
+  xyzwh 636 134 2010 11 59
+end
+durationcanvas 129857 classinstance_ref 128399 // :Capteurs
+  xyzwh 755 150 2010 11 40
 end
 msg 128126 return
   from durationcanvas_ref 128321
@@ -37,18 +37,13 @@ msg 128449 synchronous
   yz 101 2015 msg operation_ref 128193 // "LireConfirmationMarchePompe()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 234 85
-msg 128705 synchronous
+msg 129729 synchronous
   from durationcanvas_ref 128321
-  to durationcanvas_ref 128577
-  yz 123 2015 msg operation_ref 183183 // "lireEtat()"
+  to durationcanvas_ref 129601
+  yz 134 2015 msg operation_ref 183183 // "lireEtat()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  args "IdTrame, MarchePompe"
-  label_xy 464 107
-msg 129089 return
-  from durationcanvas_ref 128833
-  to durationcanvas_ref 128577
-  yz 137 2015 unspecifiedmsg
-  show_full_operations_definition default drawing_language default show_context_mode default
+  args "IdTrame,MarchePompe"
+  label_xy 454 119
 msg 129785 synchronous
   from durationcanvas_ref 129145
   to durationcanvas_ref 129401
@@ -56,6 +51,11 @@ msg 129785 synchronous
   show_full_operations_definition default drawing_language default show_context_mode default
   args "@capteurs"
   label_xy 46 53
+msg 129985 return
+  from durationcanvas_ref 129857
+  to durationcanvas_ref 129601
+  yz 150 2015 unspecifiedmsg
+  show_full_operations_definition default drawing_language default show_context_mode default
 msg 130169 return
   from durationcanvas_ref 129401
   to durationcanvas_ref 129145

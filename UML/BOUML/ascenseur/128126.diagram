@@ -1,5 +1,9 @@
 format 75
 
+statecanvas 128065 state_ref 128065 // MANU
+  show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+  xyzwh 33 86 2011 191 79
+end
 pseudostatecanvas 128126 pseudostate_ref 128126 // initial
    xyz 113 7 2000
 end
@@ -8,7 +12,7 @@ pseudostatecanvas 128254 pseudostate_ref 128254 // final
 end
 statecanvas 128382 state_ref 128254 // MANU
   show_activities default region_horizontally default drawing_language default show_stereotype_properties default
-  xyzwh 26 41 2000 189 95
+  xyzwh 28 45 2000 205 161
 end
 statecanvas 128510 state_ref 128382 // AUTO
   show_activities default region_horizontally default drawing_language default show_stereotype_properties default
@@ -33,35 +37,37 @@ transitioncanvas 129022 transition_ref 128126 // <transition>
 end
 transitioncanvas 129150 transition_ref 128254 // lancement automatisation(periode, nbCycles)
   
-  from ref 128382 z 2006 label "lancement automatisation(periode, nbCycles)" xyz 232 68 3000 to ref 128638
+  from ref 128382 z 2006 label "lancement automatisation(periode, nbCycles)" xyz 241 84.5 2006 to ref 128638
   write_horizontally default show_definition default drawing_language default
 end
 transitioncanvas 129278 transition_ref 128382 // top periode
   
-  from ref 128638 z 2006 label "top periode" xyz 503 191.5 3000 to ref 128766
+  from ref 128638 z 2006 label "top periode" xyz 503 191 2006 to ref 128766
   write_horizontally default show_definition default drawing_language default
 end
 transitioncanvas 129406 transition_ref 128510 // defaut detecte
   decenter_end 517
   
-  from ref 128766 z 2006 label "defaut detecte" xyz 574 574 3000 to ref 128894
+  from ref 128766 z 2006 label "defaut detecte" xyz 574 574 2006 to ref 128894
   write_horizontally default show_definition default drawing_language default
 end
 transitioncanvas 129534 transition_ref 128638 // arret automatisation
   
-  from ref 128894 z 2006 label "arret automatisation" xyz 165.5 669 3000 to point 117 685
+  from ref 128894 z 2006 label "arret automatisation" xyz 165 669 2006 to point 117 685
   line 129662 z 2006 to ref 128382
   write_horizontally default show_definition default drawing_language default
 end
 transitioncanvas 129918 transition_ref 128766 // arret automatisation
+  decenter_end 698
   
-  from ref 128638 z 2006 label "arret automatisation" xyz 162 154 3000 to point 218 203
+  from ref 128638 z 2006 label "arret automatisation" xyz 256 207.5 2006 to point 284 188
+  line 128193 z 2006 to point 258 200
   line 130174 z 2006 to ref 128382
   write_horizontally default show_definition default drawing_language default
 end
 transitioncanvas 130430 transition_ref 128894 // nb cycles atteint
   
-  from ref 128766 z 2006 label "nb cycles atteint" xyz 717.5 203 3000 to point 730 399
+  from ref 128766 z 2006 label "nb cycles atteint" xyz 717 203 2006 to point 730 399
   line 130686 z 2006 to point 730 86
   line 130558 z 2006 to ref 128638
   write_horizontally default show_definition default drawing_language default

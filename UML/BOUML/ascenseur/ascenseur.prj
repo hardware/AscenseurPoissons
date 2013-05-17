@@ -1,6 +1,6 @@
 format 75
 "ascenseur"
-  revision 59
+  revision 60
   modified_by 65 ""
 
 
@@ -1837,9 +1837,6 @@ ${inlines}
       end
 
       state 128254 "MANU"
-	  uml_on_exit "lancerAutomatisation"
-	  uml_do_activity "testerAppareillages
-"
 	transition 128254 "lancement automatisation(periode, nbCycles)"
 	  on state_ref 128510 // AUTO_PAUSE
 	  external 
@@ -1848,6 +1845,16 @@ ${inlines}
 	transition 129022 "<transition>"
 	  on pseudostate_ref 128254 // final
 	  external 
+	end
+
+	state 128065 "MANU"
+	    uml_on_exit "lancerAutomatisation"
+	    uml_do_activity "testerAppareillages"
+	  region 128065 "region"
+	  end
+	end
+
+	region 128193 "region"
 	end
       end
 
