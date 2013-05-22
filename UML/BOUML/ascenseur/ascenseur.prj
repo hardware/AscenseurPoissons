@@ -1,7 +1,7 @@
 format 75
 "ascenseur"
-  revision 63
-  modified_by 65 ""
+  revision 65
+  modified_by 15 "Hardware"
 
 
   
@@ -839,6 +839,46 @@ ${inlines}
 "
 	    classrelation_ref 144399 // <directional aggregation>
 	  b parent class_ref 135161 // Capteurs
+      end
+
+      attribute 128015 "iCan"
+	private type class_ref 154767 // InterfaceCAN
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 128143 "params"
+	private explicit_type "QSettings"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 134671 "PV"
+	private explicit_type "int"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 134799 "GV"
+	private explicit_type "int"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
       end
     end
 

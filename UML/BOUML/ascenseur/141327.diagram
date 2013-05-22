@@ -90,6 +90,23 @@ note 136591 "Classe d'interface logicielle"
 fragment 136847 "Classes d'interface intermédiaires"
   xyzwh 11 344 2005 814 122
 end
+classcanvas 136975 class_ref 128121 // Seance
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  hidden_operations
+    operation_ref 128377 // recuperer
+    operation_ref 148239 // genererNomSeance
+    operation_ref 128249 // lancerAutomatisation
+    operation_ref 130425 // arreterAutomatisation
+    operation_ref 128761 // realiserSeance
+    operation_ref 132217 // effectuerUnCycle
+    operation_ref 129401 // attendreFinMontee
+    operation_ref 129657 // attendreTempsVidange
+    operation_ref 130553 // controlerTempsDePeche
+    operation_ref 132473 // controlerParametres
+    operation_ref 155023 // commanderAppareillage
+    operation_ref 141104 // TesterAppareillages
+  xyz 152 717 2000
+end
 relationcanvas 128271 relation_ref 134543 // <directional composition>
   from ref 128015 z 2001 to ref 128143
   no_role_a no_role_b
