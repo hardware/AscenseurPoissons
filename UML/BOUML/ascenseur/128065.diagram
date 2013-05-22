@@ -1,0 +1,35 @@
+format 75
+
+pseudostatecanvas 128065 pseudostate_ref 128065 // initial
+   xyz 68 38 2000
+end
+pseudostatecanvas 128193 pseudostate_ref 128193 // final
+   xyz 551 63 2000
+end
+statecanvas 128321 state_ref 134593 // TRES_BASSE
+  show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+  xyzwh 209 140 2000 159 35
+end
+statecanvas 128449 state_ref 134721 // BASSE
+  show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+  xyzwh 211 250 2000 157 35
+end
+statecanvas 128577 state_ref 134849 // HAUTE
+  show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+  xyzwh 205 339 2000 161 35
+end
+statecanvas 128705 state_ref 134977 // TRES_HAUTE
+  show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+  xyzwh 202 451 2000 161 35
+end
+transitioncanvas 128833 transition_ref 128065 // <transition>
+  
+  from ref 128065 z 2001 to ref 128321
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129473 transition_ref 128577 // detection cuve basse
+  
+  from ref 128321 z 2001 label "detection cuve basse" xyz 169 204 3000 to ref 128449
+  write_horizontally default show_definition default drawing_language default
+end
+end

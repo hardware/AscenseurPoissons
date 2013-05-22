@@ -26,9 +26,6 @@ statecanvas 130942 state_ref 129406 // PAUSE
   show_activities default region_horizontally default drawing_language default show_stereotype_properties default
   xyzwh 307 517 2000 161 49
 end
-note 131326 "yugkfu
-"
-  xyzwh 530 29 2000 213 53
 transitioncanvas 128894 transition_ref 129150 // <transition>
   
   from ref 128382 z 2001 to ref 128510

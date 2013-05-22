@@ -3,46 +3,128 @@ format 75
 classinstance 128015 class_ref 128121 // Seance
   name ""   xyz 5 4 2010 life_line_z 2000
 classinstance 128048 class_ref 154767 // InterfaceCAN
-  name ""   xyz 496 4 2000 life_line_z 2000
+  name ""   xyz 535 4 2000 life_line_z 2000
 classinstance 128143 class_ref 134543 // CentraleHydraulique
-  name ""   xyz 139 4 2010 life_line_z 2000
+  name ""   xyz 101 4 2010 life_line_z 2000
 classinstance 128271 class_ref 135161 // Capteurs
-  name ""   xyz 344 4 2010 life_line_z 2000
+  name ""   xyz 319 4 2010 life_line_z 2000
 classinstance 128399 class_ref 128015 // CentraleHydraulique
-  name ""   xyz 717 4 2010 life_line_z 2000
+  name ""   xyz 720 4 2010 life_line_z 2000
 classinstance 128527 class_ref 128458 // Capteurs
-  name ""   xyz 652 4 2010 life_line_z 2000
+  name ""   xyz 654 4 2010 life_line_z 2000
+fragment 129985 "alt((niveau huile OK) ET (temperature huile OK))"
+  xyzwh 52 381 3005 755 262
+  separator 4894
+end
+textcanvas 130241 "[NIVEAU ET TEMPERATURE OK]"
+  xyzwh 55 407 3010 94 64
+textcanvas 130369 "[NIVEAU ET TEMPERATURE NON OK]"
+  xyzwh 55 519 3010 110 53
+durationcanvas 128065 classinstance_ref 128048 // :InterfaceCAN
+  xyzwh 573 119 2010 11 76
+end
+durationcanvas 128321 classinstance_ref 128527 // :Capteurs
+  xyzwh 677 143 2010 11 40
+end
 durationcanvas 128655 classinstance_ref 128015 // :Seance
-  xyzwh 28 86 2010 11 227
+  xyzwh 28 88 2010 11 577
+end
+durationcanvas 128705 classinstance_ref 128048 // :InterfaceCAN
+  xyzwh 573 266 2010 11 94
+end
+durationcanvas 128961 classinstance_ref 128527 // :Capteurs
+  xyzwh 677 303 2010 11 40
 end
 durationcanvas 129039 classinstance_ref 128271 // :Capteurs
-  xyzwh 371 98 2010 11 105
+  xyzwh 346 96 2010 11 289
+end
+durationcanvas 129345 classinstance_ref 128048 // :InterfaceCAN
+  xyzwh 573 415 2010 11 55
+end
+durationcanvas 129601 classinstance_ref 128399 // :CentraleHydraulique
+  xyzwh 774 441 2010 11 36
 end
 durationcanvas 130447 classinstance_ref 128143 // :CentraleHydraulique
-  xyzwh 197 85 2010 11 228
+  xyzwh 159 89 2000 11 513
 end
+msg 128193 synchronous
+  from durationcanvas_ref 129039
+  to durationcanvas_ref 128065
+  yz 119 2015 msg operation_ref 128065 // "lireValeur()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "idTrame,NiveauHuile"
+  label_xy 377 104
+msg 128449 return
+  from durationcanvas_ref 128321
+  to durationcanvas_ref 128065
+  yz 144 2020 unspecifiedmsg
+  show_full_operations_definition default drawing_language default show_context_mode default
+msg 128577 return
+  from durationcanvas_ref 129039
+  to durationcanvas_ref 130447
+  yz 191 2015 explicitmsg "niveauHuile"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 238 176
+msg 128833 synchronous
+  from durationcanvas_ref 129039
+  to durationcanvas_ref 128705
+  yz 266 2030 msg operation_ref 128065 // "lireValeur()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "IdTrame,TemperatureHuile"
+  label_xy 363 250
 msg 128911 synchronous
   from durationcanvas_ref 128655
   to durationcanvas_ref 130447
-  yz 87 2015 msg operation_ref 134543 // "demarrer()"
+  yz 93 2015 msg operation_ref 134543 // "demarrer()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 87 76
+  args "@capteurs"
+  label_xy 39 80
+msg 129089 return
+  from durationcanvas_ref 128961
+  to durationcanvas_ref 128705
+  yz 303 2015 unspecifiedmsg
+  show_full_operations_definition default drawing_language default show_context_mode default
 msg 129167 synchronous
   from durationcanvas_ref 130447
   to durationcanvas_ref 129039
-  yz 99 2020 msg operation_ref 130297 // "LireCapteurNiveauHuile()"
+  yz 101 2020 msg operation_ref 130297 // "LireCapteurNiveauHuile()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 214 86
+  label_xy 190 89
+msg 129217 return
+  from durationcanvas_ref 129039
+  to durationcanvas_ref 130447
+  yz 329 2015 explicitmsg "TemperatureHuile"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 207 314
+msg 129473 synchronous
+  from durationcanvas_ref 130447
+  to durationcanvas_ref 129345
+  yz 420 2015 msg operation_ref 183311 // "ecrireDonnees()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "IdTrame,CENTRALE_ON"
+  label_xy 218 409
+msg 129729 synchronous
+  from durationcanvas_ref 129345
+  to durationcanvas_ref 129601
+  yz 441 2015 explicitmsg "CENTRALE_ON"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 616 423
+msg 129857 return
+  from durationcanvas_ref 130447
+  to durationcanvas_ref 128655
+  yz 484 2015 explicitmsg "CENTRALE_ON"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 55 469
 msg 130063 synchronous
   from durationcanvas_ref 130447
   to durationcanvas_ref 129039
-  yz 163 2025 msg operation_ref 130169 // "LireCapteurTemperature()"
+  yz 247 2025 msg operation_ref 130169 // "LireCapteurTemperature()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 212 150
-msg 130959 return
+  label_xy 185 235
+msg 130113 return
   from durationcanvas_ref 130447
   to durationcanvas_ref 128655
-  yz 302 2010 explicitmsg "ON / OFF"
+  yz 591 2015 explicitmsg "CENTRALE_OFF"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 92 289
+  label_xy 57 576
 end

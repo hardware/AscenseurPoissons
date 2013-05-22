@@ -3,32 +3,99 @@ format 75
 classinstance 128015 class_ref 128121 // Seance
   name ""   xyz 3 4 2005 life_line_z 2000
 classinstance 128048 class_ref 154767 // InterfaceCAN
-  name ""   xyz 345 4 2000 life_line_z 2000
+  name ""   xyz 537 7 2000 life_line_z 2000
 classinstance 128143 class_ref 134543 // CentraleHydraulique
-  name ""   xyz 147 4 2005 life_line_z 2000
+  name ""   xyz 95 5 2005 life_line_z 2000
 classinstance 128271 class_ref 128015 // CentraleHydraulique
-  name ""   xyz 702 4 2005 life_line_z 2000
+  name ""   xyz 720 4 2005 life_line_z 2000
 classinstancecanvas 129167 classinstance_ref 128249 // 
-  xyz 497 4 2000 life_line_z 2000
+  xyz 328 4 2000 life_line_z 2000
 end
 classinstance 129295 class_ref 128458 // Capteurs
-  name ""   xyz 621 4 2000 life_line_z 2000
+  name ""   xyz 658 4 2000 life_line_z 2000
+fragment 129601 "alt(etat centrale hydraulique)"
+  xyzwh 45 267 2015 771 242
+  separator 5413
+end
+textcanvas 129857 "[CENTRALE  DEMAREE]"
+  xyzwh 48 291 2020 78 47
+textcanvas 129985 "[CENTRALE DEJA ETEINTE]"
+  xyzwh 49 405 2020 93 36
+durationcanvas 128065 classinstance_ref 129167 // :Capteurs
+  xyzwh 355 105 2010 11 131
+end
+durationcanvas 128321 classinstance_ref 128048 // :InterfaceCAN
+  xyzwh 575 126 2010 11 78
+end
 durationcanvas 128399 classinstance_ref 128015 // :Seance
-  xyzwh 26 75 2010 11 150
+  xyzwh 26 72 2010 11 458
 end
 durationcanvas 128527 classinstance_ref 128143 // :CentraleHydraulique
-  xyzwh 205 75 2010 11 150
+  xyzwh 153 72 2010 11 418
 end
+durationcanvas 128577 classinstance_ref 129295 // :Capteurs
+  xyzwh 681 148 2010 11 40
+end
+durationcanvas 128961 classinstance_ref 128048 // :InterfaceCAN
+  xyzwh 575 301 2010 11 61
+end
+durationcanvas 129217 classinstance_ref 128271 // :CentraleHydraulique
+  xyzwh 774 330 2010 11 38
+end
+msg 128193 synchronous
+  from durationcanvas_ref 128527
+  to durationcanvas_ref 128065
+  yz 106 2015 msg operation_ref 141249 // "LireConfirmationMarcheCentrale()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 167 90
+msg 128449 synchronous
+  from durationcanvas_ref 128065
+  to durationcanvas_ref 128321
+  yz 127 2015 msg operation_ref 183183 // "lireEtat()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "IdTrame,MarcheCentrale"
+  label_xy 374 112
 msg 128655 synchronous
   from durationcanvas_ref 128399
   to durationcanvas_ref 128527
-  yz 76 2015 msg operation_ref 128015 // "arreter()"
+  yz 74 2015 msg operation_ref 128015 // "arreter()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 100 63
-msg 129039 return
+  args "@capteurs"
+  label_xy 39 62
+msg 128705 return
+  from durationcanvas_ref 128577
+  to durationcanvas_ref 128321
+  yz 148 2015 unspecifiedmsg
+  show_full_operations_definition default drawing_language default show_context_mode default
+msg 128833 return
+  from durationcanvas_ref 128065
+  to durationcanvas_ref 128527
+  yz 207 2015 explicitmsg "EtatFonctionnement"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 204 192
+msg 129089 synchronous
+  from durationcanvas_ref 128527
+  to durationcanvas_ref 128961
+  yz 307 2015 msg operation_ref 183311 // "ecrireDonnees()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "IdTrame, CENTRALE_OFF"
+  label_xy 226 294
+msg 129345 synchronous
+  from durationcanvas_ref 128961
+  to durationcanvas_ref 129217
+  yz 330 2015 explicitmsg "CENTRALE_OFF"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 619 317
+msg 129473 return
   from durationcanvas_ref 128527
   to durationcanvas_ref 128399
-  yz 214 2015 explicitmsg "ON / OFF"
+  yz 367 2015 explicitmsg "CENTRALE_OFF"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 97 201
+  label_xy 53 357
+msg 129729 return
+  from durationcanvas_ref 128527
+  to durationcanvas_ref 128399
+  yz 475 2015 explicitmsg "CENTRALE_OFF"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 48 460
 end
