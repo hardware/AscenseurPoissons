@@ -17,22 +17,43 @@ statecanvas 128705 state_ref 134977 // TRES_HAUTE
   xyzwh 210 76 2000 161 35
 end
 note 131009 "Passage en GV"
-  color darkblue  xyzwh 96 181 2000 109 35
+  color darkblue  xyzwh 101 316 2000 109 35
 note 131265 "Passage en PV"
-  color darkblue  xyzwh 99.5 312.5 2000 109 35
+  color darkblue  xyzwh 94.5 180.5 2000 109 35
 note 131393 "Passage en GV"
-  color mediumgreen  xyzwh 365.5 314.5 2000 109 35
+  color mediumgreen  xyzwh 371.5 184.5 2000 109 35
 note 131521 "Passage en PV"
-  color mediumgreen  xyzwh 373 182 2000 109 35
+  color mediumgreen  xyzwh 369 313 2000 109 35
 note 131649 "Montée"
-  color darkblue  xyzwh 146 426 2000 61 35
+  color darkblue  xyzwh 141 441 2000 61 35
 note 131777 "Descente"
-  color mediumgreen  xyzwh 339.5 32.5 2000 81 35
+  color mediumgreen  xyzwh 375.5 71.5 2000 81 35
 pseudostatecanvas 132673 pseudostate_ref 134721 // final
    xyz 313 539 2000
 end
 pseudostatecanvas 133697 pseudostate_ref 134849 // initial
    xyz 233 543 2000
+end
+transitioncanvas 128121 transition_ref 128121 // Détection cuve basse
+  decenter_begin 245
+  decenter_end 235
+  
+  from ref 128321 z 2001 label "Détection cuve basse" xyz 152 367 3000 to ref 128449
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 128249 transition_ref 128249 // Détection cuve haute
+  decenter_begin 235
+  decenter_end 242
+  
+  from ref 128449 z 2001 label "Détection cuve haute" xyz 148 232 3000 to ref 128577
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 128377 transition_ref 128377 // Détection cuve très haute
+  decenter_begin 236
+  decenter_end 223
+  
+  from ref 128577 z 2001 label "Détection cuve très haute" xyz 135 123 3000 to ref 128705
+  write_horizontally default show_definition default drawing_language default
 end
 transitioncanvas 132801 transition_ref 136129 // <transition>
   decenter_begin 741
@@ -40,25 +61,25 @@ transitioncanvas 132801 transition_ref 136129 // <transition>
   from ref 128321 z 2001 to ref 132673
   write_horizontally default show_definition default drawing_language default
 end
-transitioncanvas 132929 transition_ref 136257 // <transition>
+transitioncanvas 132929 transition_ref 136257 // Détection cuve très basse
   decenter_begin 757
   decenter_end 760
   
-  from ref 128449 z 2001 to ref 128321
+  from ref 128449 z 2001 label "Détection cuve très basse" xyz 334 408 3000 to ref 128321
   write_horizontally default show_definition default drawing_language default
 end
-transitioncanvas 133057 transition_ref 136385 // <transition>
+transitioncanvas 133057 transition_ref 136385 // Détection cuve basse
   decenter_begin 750
   decenter_end 757
   
-  from ref 128577 z 2001 to ref 128449
+  from ref 128577 z 2001 label "Détection cuve basse" xyz 332 286 3000 to ref 128449
   write_horizontally default show_definition default drawing_language default
 end
-transitioncanvas 133185 transition_ref 136513 // <transition>
+transitioncanvas 133185 transition_ref 136513 // Détection cuve haute
   decenter_begin 750
   decenter_end 763
   
-  from ref 128705 z 2001 to ref 128577
+  from ref 128705 z 2001 label "Détection cuve haute" xyz 334 156 3000 to ref 128577
   write_horizontally default show_definition default drawing_language default
 end
 transitioncanvas 133825 transition_ref 136641 // <transition>

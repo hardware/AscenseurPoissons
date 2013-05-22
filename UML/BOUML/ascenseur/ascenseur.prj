@@ -1,7 +1,7 @@
 format 75
 "ascenseur"
   revision 72
-  modified_by 15 "Hardware"
+  modified_by 121 "jerometardos"
 
 
   
@@ -2515,8 +2515,6 @@ ${inlines}
       end
 
       state 128254 "MANU"
-	  uml_on_exit "lancerAutomatisation"
-	  uml_do_activity "testerAppareillages"
 	transition 128254 "lancement automatisation(periode, nbCycles)"
 	  on state_ref 128510 // AUTO_PAUSE
 	  external 
@@ -2528,6 +2526,8 @@ ${inlines}
 	end
 
 	state 128065 "MANU"
+	    uml_on_exit "lancerAutomatisation"
+	    uml_do_activity "testerAppareillages"
 	  region 128065 "region"
 	  end
 	end
@@ -2707,6 +2707,11 @@ OuvrirGrille()"
 	  on pseudostate_ref 134721 // final
 	  external 
 	end
+
+	transition 128121 "Détection cuve basse"
+	  on state_ref 134721 // BASSE
+	  external 
+	end
       end
 
       state 134721 "BASSE"
@@ -2740,8 +2745,13 @@ OuvrirGrille()"
 	  external 
 	end
 
-	transition 136257 "<transition>"
+	transition 136257 "Détection cuve très basse"
 	  on state_ref 134593 // TRES_BASSE
+	  external 
+	end
+
+	transition 128249 "Détection cuve haute"
+	  on state_ref 134849 // HAUTE
 	  external 
 	end
       end
@@ -2757,8 +2767,13 @@ OuvrirGrille()"
 	  external 
 	end
 
-	transition 136385 "<transition>"
+	transition 136385 "Détection cuve basse"
 	  on state_ref 134721 // BASSE
+	  external 
+	end
+
+	transition 128377 "Détection cuve très haute"
+	  on state_ref 134977 // TRES_HAUTE
 	  external 
 	end
       end
@@ -2769,7 +2784,7 @@ OuvrirGrille()"
 	  external 
 	end
 
-	transition 136513 "<transition>"
+	transition 136513 "Détection cuve haute"
 	  on state_ref 134849 // HAUTE
 	  external 
 	end
