@@ -1,7 +1,7 @@
 format 75
 "ascenseur"
-  revision 70
-  modified_by 15 "Hardware"
+  revision 71
+  modified_by 65 ""
 
 
   
@@ -2697,6 +2697,16 @@ OuvrirGrille()"
 	  on state_ref 134721 // BASSE
 	  external 
 	end
+
+	transition 136001 "<transition>"
+	  on pseudostate_ref 128193 // final
+	  external 
+	end
+
+	transition 136129 "<transition>"
+	  on pseudostate_ref 134721 // final
+	  external 
+	end
       end
 
       state 134721 "BASSE"
@@ -2714,12 +2724,65 @@ OuvrirGrille()"
 	  on state_ref 134593 // TRES_BASSE
 	  external 
 	end
+
+	transition 135233 "<transition>"
+	  on state_ref 134593 // TRES_BASSE
+	  external 
+	end
+
+	transition 135361 "detection cuve tres basse"
+	  on state_ref 134593 // TRES_BASSE
+	  external 
+	end
+
+	transition 135489 "detection cuve haute"
+	  on state_ref 134849 // HAUTE
+	  external 
+	end
+
+	transition 136257 "<transition>"
+	  on state_ref 134593 // TRES_BASSE
+	  external 
+	end
       end
 
       state 134849 "HAUTE"
+	transition 135617 "detection cuve tres haute"
+	  on state_ref 134977 // TRES_HAUTE
+	  external 
+	end
+
+	transition 135745 "detection cuve basse"
+	  on state_ref 134721 // BASSE
+	  external 
+	end
+
+	transition 136385 "<transition>"
+	  on state_ref 134721 // BASSE
+	  external 
+	end
       end
 
       state 134977 "TRES_HAUTE"
+	transition 135873 "detection cuve haute"
+	  on state_ref 134849 // HAUTE
+	  external 
+	end
+
+	transition 136513 "<transition>"
+	  on state_ref 134849 // HAUTE
+	  external 
+	end
+      end
+
+      pseudostate 134721 final 
+      end
+
+      pseudostate 134849 initial 
+	transition 136641 "<transition>"
+	  on state_ref 134593 // TRES_BASSE
+	  external 
+	end
       end
     end
   end

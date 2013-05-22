@@ -1,35 +1,70 @@
 format 75
 
-pseudostatecanvas 128065 pseudostate_ref 128065 // initial
-   xyz 68 38 2000
-end
-pseudostatecanvas 128193 pseudostate_ref 128193 // final
-   xyz 551 63 2000
-end
 statecanvas 128321 state_ref 134593 // TRES_BASSE
   show_activities default region_horizontally default drawing_language default show_stereotype_properties default
-  xyzwh 209 140 2000 159 35
+  xyzwh 208 430 2000 159 35
 end
 statecanvas 128449 state_ref 134721 // BASSE
   show_activities default region_horizontally default drawing_language default show_stereotype_properties default
-  xyzwh 211 250 2000 157 35
+  xyzwh 210 314 2000 157 35
 end
 statecanvas 128577 state_ref 134849 // HAUTE
   show_activities default region_horizontally default drawing_language default show_stereotype_properties default
-  xyzwh 205 339 2000 161 35
+  xyzwh 208 184 2000 161 35
 end
 statecanvas 128705 state_ref 134977 // TRES_HAUTE
   show_activities default region_horizontally default drawing_language default show_stereotype_properties default
-  xyzwh 202 451 2000 161 35
+  xyzwh 210 76 2000 161 35
 end
-transitioncanvas 128833 transition_ref 128065 // <transition>
+note 131009 "Passage en GV"
+  color darkblue  xyzwh 96 181 2000 109 35
+note 131265 "Passage en PV"
+  color darkblue  xyzwh 99.5 312.5 2000 109 35
+note 131393 "Passage en GV"
+  color mediumgreen  xyzwh 365.5 314.5 2000 109 35
+note 131521 "Passage en PV"
+  color mediumgreen  xyzwh 373 182 2000 109 35
+note 131649 "Montée"
+  color darkblue  xyzwh 146 426 2000 61 35
+note 131777 "Descente"
+  color mediumgreen  xyzwh 339.5 32.5 2000 81 35
+pseudostatecanvas 132673 pseudostate_ref 134721 // final
+   xyz 313 539 2000
+end
+pseudostatecanvas 133697 pseudostate_ref 134849 // initial
+   xyz 233 543 2000
+end
+transitioncanvas 132801 transition_ref 136129 // <transition>
+  decenter_begin 741
   
-  from ref 128065 z 2001 to ref 128321
+  from ref 128321 z 2001 to ref 132673
   write_horizontally default show_definition default drawing_language default
 end
-transitioncanvas 129473 transition_ref 128577 // detection cuve basse
+transitioncanvas 132929 transition_ref 136257 // <transition>
+  decenter_begin 757
+  decenter_end 760
   
-  from ref 128321 z 2001 label "detection cuve basse" xyz 169 204 3000 to ref 128449
+  from ref 128449 z 2001 to ref 128321
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 133057 transition_ref 136385 // <transition>
+  decenter_begin 750
+  decenter_end 757
+  
+  from ref 128577 z 2001 to ref 128449
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 133185 transition_ref 136513 // <transition>
+  decenter_begin 750
+  decenter_end 763
+  
+  from ref 128705 z 2001 to ref 128577
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 133825 transition_ref 136641 // <transition>
+  decenter_end 231
+  
+  from ref 133697 z 2001 to ref 128321
   write_horizontally default show_definition default drawing_language default
 end
 end
