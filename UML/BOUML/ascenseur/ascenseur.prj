@@ -1,6 +1,6 @@
 format 75
 "ascenseur"
-  revision 65
+  revision 70
   modified_by 15 "Hardware"
 
 
@@ -546,6 +546,16 @@ ${inlines}
       size A4
     end
 
+    classdiagram 161039 "Diagramme de classes : Archivage"
+      draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+      size A4
+    end
+
+    classdiagram 161167 "Diagramme de classes : IHM"
+      draw_all_relations no hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+      size A4
+    end
+
     class 154895 "App"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit} {
@@ -880,6 +890,46 @@ ${inlines}
 	python_decl ""
 	idl_decl ""
       end
+
+      attribute 141327 "tempsPeche"
+	private explicit_type "int"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 141455 "tempsVidange"
+	private explicit_type "int"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 141583 "nbCycles"
+	private explicit_type "int"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 141711 "periodicite"
+	private explicit_type "int"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
     end
 
     class 128249 "Pompe"
@@ -922,15 +972,6 @@ ${inlines}
 	
       end
 
-      classrelation 135439 // <unidirectional association>
-	relation 135311 --->
-	  a role_name "" private
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 135439 // <unidirectional association>
-	  b parent class_ref 154767 // InterfaceCAN
-      end
-
       operation 128126 "detecterArret"
 	public explicit_return_type ""
 	nparams 0
@@ -943,6 +984,24 @@ ${inlines}
 	
 	
 	
+      end
+
+      classrelation 135439 // <unidirectional association>
+	relation 135311 --->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 135439 // <unidirectional association>
+	  b parent class_ref 154767 // InterfaceCAN
+      end
+
+      classrelation 159247 // <directional aggregation>
+	relation 159119 o-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 159247 // <directional aggregation>
+	  b parent class_ref 154767 // InterfaceCAN
       end
     end
 
@@ -992,6 +1051,15 @@ ${inlines}
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 143759 // <unidirectional association>
+	  b parent class_ref 154767 // InterfaceCAN
+      end
+
+      classrelation 159375 // <directional aggregation>
+	relation 159247 o-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 159375 // <directional aggregation>
 	  b parent class_ref 154767 // InterfaceCAN
       end
     end
@@ -1044,6 +1112,15 @@ ${inlines}
 	    classrelation_ref 143247 // <unidirectional association>
 	  b parent class_ref 154767 // InterfaceCAN
       end
+
+      classrelation 159119 // <directional aggregation>
+	relation 158991 o-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 159119 // <directional aggregation>
+	  b parent class_ref 154767 // InterfaceCAN
+      end
     end
 
     class 128505 "CageAscenseur"
@@ -1094,6 +1171,15 @@ ${inlines}
 	    classrelation_ref 143375 // <unidirectional association>
 	  b parent class_ref 154767 // InterfaceCAN
       end
+
+      classrelation 158991 // <directional aggregation>
+	relation 158863 o-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 158991 // <directional aggregation>
+	  b parent class_ref 154767 // InterfaceCAN
+      end
     end
 
     class 128633 "Grille"
@@ -1142,6 +1228,15 @@ ${inlines}
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 143887 // <unidirectional association>
+	  b parent class_ref 154767 // InterfaceCAN
+      end
+
+      classrelation 159503 // <directional aggregation>
+	relation 159375 o-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 159503 // <directional aggregation>
 	  b parent class_ref 154767 // InterfaceCAN
       end
     end
@@ -1284,24 +1379,6 @@ ${inlines}
 	
       end
 
-      classrelation 143503 // <unidirectional association>
-	relation 143375 --->
-	  a role_name "" private
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 143503 // <unidirectional association>
-	  b parent class_ref 154767 // InterfaceCAN
-      end
-
-      classrelation 143631 // <unidirectional association>
-	relation 143503 --->
-	  a role_name "" private
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 143631 // <unidirectional association>
-	  b parent class_ref 154767 // InterfaceCAN
-      end
-
       operation 128193 "LireConfirmationMarchePompe"
 	public explicit_return_type ""
 	nparams 0
@@ -1356,6 +1433,33 @@ ${inlines}
 	
 	
 	
+      end
+
+      classrelation 158863 // <directional aggregation>
+	relation 158735 o-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 158863 // <directional aggregation>
+	  b parent class_ref 154767 // InterfaceCAN
+      end
+
+      classrelation 143631 // <unidirectional association>
+	relation 143503 --->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 143631 // <unidirectional association>
+	  b parent class_ref 154767 // InterfaceCAN
+      end
+
+      classrelation 143503 // <unidirectional association>
+	relation 143375 --->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 143503 // <unidirectional association>
+	  b parent class_ref 154767 // InterfaceCAN
       end
     end
 
@@ -1501,6 +1605,110 @@ ${inlines}
 	    classrelation_ref 151567 // <directional aggregation>
 	  b parent class_ref 148239 // JournalDlg
       end
+
+      classrelation 161039 // <directional aggregation>
+	relation 160911 o-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 161039 // <directional aggregation>
+	  b parent class_ref 147983 // StatutsDlg
+      end
+
+      classrelation 161167 // <directional aggregation>
+	relation 161039 o-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 161167 // <directional aggregation>
+	  b parent class_ref 148111 // SynoptiqueDlg
+      end
+
+      classrelation 161295 // <directional aggregation>
+	relation 161167 o-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 161295 // <directional aggregation>
+	  b parent class_ref 148239 // JournalDlg
+      end
+
+      classrelation 175247 // <generalisation>
+	relation 175119 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 175247 // <generalisation>
+	  b parent class_ref 161423 // QWidget
+      end
+
+      classrelation 175375 // <directional aggregation>
+	relation 175247 o-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 175375 // <directional aggregation>
+	  b parent class_ref 161423 // QWidget
+      end
+
+      attribute 148751 "accueilDlg"
+	private type class_ref 141199 // AccueilDlg
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 148879 "manuelDlg"
+	private type class_ref 141327 // ManuelDlg
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 149007 "seanceDlg"
+	private type class_ref 141455 // SeanceDlg
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 149135 "statutsDlg"
+	private type class_ref 147983 // StatutsDlg
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 149263 "synoptiqueDlg"
+	private type class_ref 148111 // SynoptiqueDlg
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 149391 "journalDlg"
+	private type class_ref 148239 // JournalDlg
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
     end
 
     class 141199 "AccueilDlg"
@@ -1522,6 +1730,32 @@ ${inlines}
 "
 	    classrelation_ref 142607 // <unidirectional association>
 	  b parent class_ref 128121 // Seance
+      end
+
+      classrelation 159631 // <directional aggregation>
+	relation 159503 o-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 159631 // <directional aggregation>
+	  b parent class_ref 141327 // ManuelDlg
+      end
+
+      classrelation 161423 // <directional aggregation>
+	relation 161295 o-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 161423 // <directional aggregation>
+	  b parent class_ref 161423 // QWidget
+      end
+
+      classrelation 168079 // <generalisation>
+	relation 167951 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 168079 // <generalisation>
+	  b parent class_ref 161423 // QWidget
       end
     end
 
@@ -1546,8 +1780,34 @@ ${inlines}
 	  b parent class_ref 128121 // Seance
       end
 
-      operation 176015 "demarrerPompe"
-	public explicit_return_type ""
+      classrelation 159759 // <directional aggregation>
+	relation 159631 o-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 159759 // <directional aggregation>
+	  b parent class_ref 128121 // Seance
+      end
+
+      classrelation 161551 // <directional aggregation>
+	relation 161423 o-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 161551 // <directional aggregation>
+	  b parent class_ref 161423 // QWidget
+      end
+
+      classrelation 168207 // <generalisation>
+	relation 168079 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 168207 // <generalisation>
+	  b parent class_ref 161423 // QWidget
+      end
+
+      operation 198159 "on_PBPompeDemarrer_clicked"
+	public explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -1560,8 +1820,8 @@ ${inlines}
 	
       end
 
-      operation 176143 "arreterPompe"
-	public explicit_return_type ""
+      operation 198287 "on_PBCentraleDemarrer_clicked"
+	public explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -1574,22 +1834,8 @@ ${inlines}
 	
       end
 
-      operation 176271 "demarrerCentrale"
-	public explicit_return_type ""
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 176399 "arreterCentrale"
-	public explicit_return_type ""
+      operation 198415 "on_PBCentraleArreter_clicked"
+	public explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -1624,6 +1870,34 @@ ${inlines}
 	  b parent class_ref 128121 // Seance
       end
 
+      classrelation 158351 // <generalisation>
+	relation 158223 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 158351 // <generalisation>
+	  b parent class_ref 148239 // JournalDlg
+      end
+
+      attribute 141967 "pSeance"
+	private type class_ref 128121 // Seance
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 141839 "params"
+	private explicit_type "QSettings"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
       operation 154288 "enregistrerParametres"
 	public explicit_return_type ""
 	nparams 0
@@ -1636,6 +1910,200 @@ ${inlines}
 	
 	
 	
+      end
+
+      operation 189839 "augmenterPV"
+	public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 189967 "augmenterGV"
+	public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 190095 "augmenterTempsPeche"
+	public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 190223 "augmenterTempsVidange"
+	public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 190351 "augmenterNombreCycles"
+	public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 190479 "augmenterPeriodicite"
+	public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 190607 "diminuerPV"
+	public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 190735 "diminuerGV"
+	public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 190863 "diminuerTempsPeche"
+	public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 190991 "diminuerTempsVidange"
+	public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 191119 "diminuerNombreCycles"
+	public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 191247 "diminuerPeriodicite"
+	public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      classrelation 158607 // <directional aggregation>
+	relation 158479 o-->
+	  a role_name "" multiplicity "1" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 158607 // <directional aggregation>
+	  b multiplicity "1" parent class_ref 128121 // Seance
+      end
+
+      classrelation 159887 // <directional aggregation>
+	relation 159759 o-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 159887 // <directional aggregation>
+	  b parent class_ref 128121 // Seance
+      end
+
+      classrelation 168335 // <generalisation>
+	relation 168207 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 168335 // <generalisation>
+	  b parent class_ref 161423 // QWidget
       end
     end
 
@@ -1659,6 +2127,23 @@ ${inlines}
 	    classrelation_ref 142735 // <unidirectional association>
 	  b parent class_ref 128121 // Seance
       end
+
+      classrelation 160015 // <directional aggregation>
+	relation 159887 o-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 160015 // <directional aggregation>
+	  b parent class_ref 128121 // Seance
+      end
+
+      classrelation 168463 // <generalisation>
+	relation 168335 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 168463 // <generalisation>
+	  b parent class_ref 161423 // QWidget
+      end
     end
 
     class 148111 "SynoptiqueDlg"
@@ -1681,6 +2166,23 @@ ${inlines}
 	    classrelation_ref 142863 // <unidirectional association>
 	  b parent class_ref 128121 // Seance
       end
+
+      classrelation 160143 // <directional aggregation>
+	relation 160015 o-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 160143 // <directional aggregation>
+	  b parent class_ref 128121 // Seance
+      end
+
+      classrelation 168591 // <generalisation>
+	relation 168463 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 168591 // <generalisation>
+	  b parent class_ref 161423 // QWidget
+      end
     end
 
     class 148239 "JournalDlg"
@@ -1702,6 +2204,94 @@ ${inlines}
 "
 	    classrelation_ref 142991 // <unidirectional association>
 	  b parent class_ref 128121 // Seance
+      end
+
+      attribute 142095 "pSeance"
+	private type class_ref 128121 // Seance
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 142223 "listeLignes"
+	private explicit_type "QStringList"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      operation 191375 "afficherLog"
+	public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 191503 "ajouterLog"
+	public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 191631 "LireFichierLog"
+	public explicit_return_type "QStringList"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      classrelation 158735 // <directional aggregation>
+	relation 158607 o-->
+	  a role_name "" multiplicity "1" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 158735 // <directional aggregation>
+	  b multiplicity "1" parent class_ref 128121 // Seance
+      end
+
+      classrelation 160271 // <directional aggregation>
+	relation 160143 o-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 160271 // <directional aggregation>
+	  b parent class_ref 128121 // Seance
+      end
+
+      classrelation 168719 // <generalisation>
+	relation 168591 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 168719 // <generalisation>
+	  b parent class_ref 161423 // QWidget
       end
     end
 
@@ -1731,7 +2321,7 @@ ${inlines}
 	
       end
 
-      operation 183311 "ecrireDonnees"
+      operation 128065 "lireValeur"
 	public explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
@@ -1745,7 +2335,7 @@ ${inlines}
 	
       end
 
-      operation 128065 "lireValeur"
+      operation 183311 "ecrireDonnees"
 	public explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
@@ -1878,6 +2468,20 @@ ${inlines}
         end
       relations
         end
+    end
+
+    class 161423 "QWidget"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
     end
 
     state 128126 "Machine seance"
