@@ -1,7 +1,7 @@
 format 75
 "ascenseur"
-  revision 72
-  modified_by 121 "jerometardos"
+  revision 74
+  modified_by 65 ""
 
 
   
@@ -556,6 +556,11 @@ ${inlines}
       size A4
     end
 
+    classdiagram 134593 "Diagramme de classe : Ascenseur"
+      draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+      size A4
+    end
+
     class 154895 "App"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit} {
@@ -808,47 +813,47 @@ ${inlines}
 
       classrelation 143119 // <directional aggregation>
 	relation 142991 o-->
-	  a role_name "" private
+	  a role_name "" multiplicity "1" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 143119 // <directional aggregation>
-	  b parent class_ref 128377 // VanneAttrait
+	  b multiplicity "1" parent class_ref 128377 // VanneAttrait
       end
 
       classrelation 144015 // <directional aggregation>
 	relation 143887 o-->
-	  a role_name "" private
+	  a role_name "" multiplicity "1" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 144015 // <directional aggregation>
-	  b parent class_ref 134543 // CentraleHydraulique
+	  b multiplicity "1" parent class_ref 134543 // CentraleHydraulique
       end
 
       classrelation 144143 // <directional aggregation>
 	relation 144015 o-->
-	  a role_name "" private
+	  a role_name "" multiplicity "1" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 144143 // <directional aggregation>
-	  b parent class_ref 128633 // Grille
+	  b multiplicity "1" parent class_ref 128633 // Grille
       end
 
       classrelation 144271 // <directional aggregation>
 	relation 144143 o-->
-	  a role_name "" private
+	  a role_name "" multiplicity "1" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 144271 // <directional aggregation>
-	  b parent class_ref 128505 // CageAscenseur
+	  b multiplicity "1" parent class_ref 128505 // CageAscenseur
       end
 
       classrelation 144399 // <directional aggregation>
 	relation 144271 o-->
-	  a role_name "" private
+	  a role_name "" multiplicity "1" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 144399 // <directional aggregation>
-	  b parent class_ref 135161 // Capteurs
+	  b multiplicity "1" parent class_ref 135161 // Capteurs
       end
 
       attribute 128015 "iCan"
@@ -958,20 +963,6 @@ ${inlines}
 	
       end
 
-      operation 129017 "arreter"
-	public explicit_return_type ""
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
       operation 128126 "detecterArret"
 	public explicit_return_type ""
 	nparams 0
@@ -1002,6 +993,16 @@ ${inlines}
 "
 	    classrelation_ref 159247 // <directional aggregation>
 	  b parent class_ref 154767 // InterfaceCAN
+      end
+
+      attribute 128321 "pIcan"
+	private explicit_type ""
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
       end
     end
 
@@ -1062,6 +1063,16 @@ ${inlines}
 	    classrelation_ref 159375 // <directional aggregation>
 	  b parent class_ref 154767 // InterfaceCAN
       end
+
+      attribute 128449 "pIcan"
+	private explicit_type ""
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
     end
 
     class 128377 "VanneAttrait"
@@ -1120,6 +1131,16 @@ ${inlines}
 "
 	    classrelation_ref 159119 // <directional aggregation>
 	  b parent class_ref 154767 // InterfaceCAN
+      end
+
+      attribute 128193 "pIcan"
+	private explicit_type ""
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
       end
     end
 
@@ -1180,6 +1201,16 @@ ${inlines}
 	    classrelation_ref 158991 // <directional aggregation>
 	  b parent class_ref 154767 // InterfaceCAN
       end
+
+      attribute 128705 "pIcan"
+	private explicit_type ""
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
     end
 
     class 128633 "Grille"
@@ -1238,6 +1269,16 @@ ${inlines}
 "
 	    classrelation_ref 159503 // <directional aggregation>
 	  b parent class_ref 154767 // InterfaceCAN
+      end
+
+      attribute 128577 "pIcan"
+	private explicit_type ""
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
       end
     end
 
@@ -1460,6 +1501,16 @@ ${inlines}
 "
 	    classrelation_ref 143503 // <unidirectional association>
 	  b parent class_ref 154767 // InterfaceCAN
+      end
+
+      attribute 128065 "pIcan"
+	private explicit_type ""
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
       end
     end
 
@@ -2688,6 +2739,7 @@ OuvrirGrille()"
       end
 
       state 134593 "TRES_BASSE"
+	  uml_do_activity "monter(PV)"
 	transition 128193 "<transition>"
 	  on state_ref 134721 // BASSE
 	  external 
@@ -2715,6 +2767,7 @@ OuvrirGrille()"
       end
 
       state 134721 "BASSE"
+	  uml_do_activity "monter(GV) | descendre(PV)"
 	transition 128321 "<transition>"
 	  on state_ref 134593 // TRES_BASSE
 	  external 
@@ -2757,6 +2810,7 @@ OuvrirGrille()"
       end
 
       state 134849 "HAUTE"
+	  uml_do_activity "monter(PV) | descendre(GV)"
 	transition 135617 "detection cuve tres haute"
 	  on state_ref 134977 // TRES_HAUTE
 	  external 
@@ -2779,6 +2833,7 @@ OuvrirGrille()"
       end
 
       state 134977 "TRES_HAUTE"
+	  uml_do_activity "descendre(PV)"
 	transition 135873 "detection cuve haute"
 	  on state_ref 134849 // HAUTE
 	  external 

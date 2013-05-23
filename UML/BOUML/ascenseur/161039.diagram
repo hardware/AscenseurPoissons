@@ -16,7 +16,7 @@ classcanvas 128015 class_ref 141455 // SeanceDlg
     operation_ref 190991 // diminuerTempsVidange
     operation_ref 191119 // diminuerNombreCycles
     operation_ref 191247 // diminuerPeriodicite
-  xyz 162 238 2000
+  xyz 159 238 2000
 end
 classcanvas 128143 class_ref 128121 // Seance
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
@@ -50,12 +50,12 @@ end
 relationcanvas 128527 relation_ref 158607 // <directional aggregation>
   from ref 128271 z 2001 to ref 128143
   no_role_a no_role_b
-  multiplicity_a_pos 507 155 3000 multiplicity_b_pos 559 201 3000
+  multiplicity_a_pos 503 188 3000 multiplicity_b_pos 543 248 3000
 end
 relationcanvas 128911 relation_ref 158479 // <directional aggregation>
   from ref 128015 z 2001 to ref 128143
   no_role_a no_role_b
-  multiplicity_a_pos 337 160 3000 multiplicity_b_pos 280 207 3000
+  multiplicity_a_pos 339 167 3000 multiplicity_b_pos 286 236 3000
 end
 relationcanvas 129039 relation_ref 141967 // <unidirectional association>
   from ref 128015 z 2001 to ref 128143

@@ -5,17 +5,17 @@ classinstance 131521 class_ref 128458 // Capteurs
 classinstance 131649 class_ref 154767 // InterfaceCAN
   name ""   xyz 617 9 2000 life_line_z 2000
 textcanvas 131777 "[GV && (position = CUVE_H)]"
-  xyzwh 65 342 3005 170 18
+  xyzwh 56 349 3005 170 18
 classinstance 131905 class_ref 128970 // cageAscenseur
   name ""   xyz 746 40 2000 life_line_z 2000
 fragment 132033 "alt(vitesse)"
-  xyzwh 58 186 2020 763 273
+  xyzwh 49 193 2020 763 273
   separator 5117
 end
 classinstance 132161 class_ref 128505 // CageAscenseur
   name ""   xyz 174 17 2000 life_line_z 2000
 textcanvas 132289 "[PV && (position = CUVE_TH || position == CUVE_B)]"
-  xyzwh 69 220 2025 313 15
+  xyzwh 60 227 2025 313 15
 classinstance 132417 class_ref 128121 // Seance
   name ""   xyz 6 17 2000 life_line_z 2000
 classinstance 132545 class_ref 135161 // Capteurs
@@ -55,13 +55,15 @@ msg 133825 return
 msg 133953 synchronous
   from durationcanvas_ref 133697
   to durationcanvas_ref 132929
-  yz 413 2015 unspecifiedmsg
+  yz 413 2015 explicitmsg "DESCENTE_CAGE"
   show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 673 398
 msg 134081 synchronous
   from durationcanvas_ref 133313
   to durationcanvas_ref 133569
-  yz 272 2020 unspecifiedmsg
+  yz 272 2020 explicitmsg "DESCENTE_CAGE"
   show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 673 257
 msg 134209 synchronous
   from durationcanvas_ref 133057
   to durationcanvas_ref 133185
@@ -102,4 +104,16 @@ msg 134849 synchronous
   yz 88 2020 msg operation_ref 147777 // "LireCapteurPosition()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 255 74
+msg 134977 return
+  from durationcanvas_ref 133185
+  to durationcanvas_ref 133057
+  yz 307 2015 explicitmsg "DescenteCage(PV)"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 77 292
+msg 135105 return
+  from durationcanvas_ref 133185
+  to durationcanvas_ref 133057
+  yz 418 2015 explicitmsg "DescenteCage(GV)"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 77 403
 end
