@@ -136,7 +136,7 @@ void ManuelDlg::on_PBPompeDemarrer_clicked()
 {
     PBPompeDemarrer->setDisabled(true);
 
-    emit allumerVoyant(pStatutsDlg.LBVoyantPompe);
+    //emit allumerVoyant(pStatutsDlg.LBVoyantPompe);
 }
 
 void ManuelDlg::on_PBCentraleDemarrer_clicked()

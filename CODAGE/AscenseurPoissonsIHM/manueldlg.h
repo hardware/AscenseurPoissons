@@ -15,7 +15,7 @@ class ManuelDlg : public QWidget
     Q_OBJECT
 
     Seance *pSeance;
-    StatutsDlg pStatutsDlg;
+    StatutsDlg *pStatutsDlg;
 
 public:
     explicit ManuelDlg(QWidget *parent = 0, Seance *ptSeance = 0, StatutsDlg *statutsDlg = 0);
@@ -34,6 +34,16 @@ public slots:
     void on_PBPompeDemarrer_clicked();
     void on_PBCentraleDemarrer_clicked();
     void on_PBCentraleArreter_clicked();
+    /*
+    void on_PBVanneAttraitOuvrir_clicked();
+    void on_PBVanneAttraitFermer_clicked();
+    void on_PBGrilleOuvrir_clicked();
+    void on_PBGrilleFermer_clicked();
+    void on_PBMonterPV_clicked();
+    void on_PBMonterGV_clicked();
+    void on_PBDescendrePV_clicked();
+    void on_PBDescendreGV_clicked();
+    */
 
 signals:
     void allumerVoyant(QLabel *voyant);
