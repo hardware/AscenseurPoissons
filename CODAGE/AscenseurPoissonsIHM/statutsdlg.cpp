@@ -9,12 +9,6 @@ StatutsDlg::StatutsDlg(QWidget *parent, Seance *ptSeance) : QWidget(parent), pSe
           GBFont("Arial", 10),
           LENiveauFont("Arial", 11, 75);
 
-    QString voyantVert  ("border:3px solid rgb(125, 125, 125);\nbackground-color:green;"),
-            voyantOrange("border:3px solid rgb(125, 125, 125);\nbackground-color:orange;"),
-            voyantRouge ("border:3px solid rgb(125, 125, 125);\nbackground-color: red;"),
-            voyantGris  ("border:3px solid rgb(125, 125, 125);\nbackground-color: rgb(63, 63, 63);"),
-            LENiveauColor("color: rgb(0, 0, 127);");
-
     GBAppareillages = new QGroupBox("APPAREILLAGES");
     GBAppareillages->setFont(GBFont);
 
@@ -23,7 +17,7 @@ StatutsDlg::StatutsDlg(QWidget *parent, Seance *ptSeance) : QWidget(parent), pSe
             LBVoyantPompe = new QLabel;
             LBVoyantPompe->setMinimumSize(voyantSize);
             LBVoyantPompe->setMaximumSize(voyantSize);
-            LBVoyantPompe->setStyleSheet(voyantVert);
+            LBVoyantPompe->setStyleSheet(ROUGE);
 
             VLPompe = new QVBoxLayout;
             VLPompe->addWidget(LBVoyantPompe, 0, Qt::AlignHCenter);
@@ -34,7 +28,7 @@ StatutsDlg::StatutsDlg(QWidget *parent, Seance *ptSeance) : QWidget(parent), pSe
             LBVoyantCentrale = new QLabel;
             LBVoyantCentrale->setMinimumSize(voyantSize);
             LBVoyantCentrale->setMaximumSize(voyantSize);
-            LBVoyantCentrale->setStyleSheet(voyantVert);
+            LBVoyantCentrale->setStyleSheet(ROUGE);
 
             VLCentrale = new QVBoxLayout;
             VLCentrale->addWidget(LBVoyantCentrale, 0, Qt::AlignHCenter);
@@ -69,13 +63,13 @@ StatutsDlg::StatutsDlg(QWidget *parent, Seance *ptSeance) : QWidget(parent), pSe
             LBVoyantNiveauAmont = new QLabel;
             LBVoyantNiveauAmont->setMinimumSize(voyantSize);
             LBVoyantNiveauAmont->setMaximumSize(voyantSize);
-            LBVoyantNiveauAmont->setStyleSheet(voyantVert);
+            LBVoyantNiveauAmont->setStyleSheet(VERT);
 
             LENiveauAmont = new QLineEdit("418.50 mNGF");
             LENiveauAmont->setMaximumSize(LENiveauxSize);
             LENiveauAmont->setAlignment(Qt::AlignHCenter);
             LENiveauAmont->setFont(LENiveauFont);
-            LENiveauAmont->setStyleSheet(LENiveauColor);
+            LENiveauAmont->setStyleSheet(BLEU);
             LENiveauAmont->setReadOnly(true);
 
             VLNiveauAmont = new QVBoxLayout;
@@ -88,13 +82,13 @@ StatutsDlg::StatutsDlg(QWidget *parent, Seance *ptSeance) : QWidget(parent), pSe
             LBVoyantNiveauAval = new QLabel;
             LBVoyantNiveauAval->setMinimumSize(voyantSize);
             LBVoyantNiveauAval->setMaximumSize(voyantSize);
-            LBVoyantNiveauAval->setStyleSheet(voyantVert);
+            LBVoyantNiveauAval->setStyleSheet(VERT);
 
             LENiveauAval = new QLineEdit("415.50 mNGF");
             LENiveauAval->setMaximumSize(LENiveauxSize);
             LENiveauAval->setAlignment(Qt::AlignHCenter);
             LENiveauAval->setFont(LENiveauFont);
-            LENiveauAval->setStyleSheet(LENiveauColor);
+            LENiveauAval->setStyleSheet(BLEU);
             LENiveauAval->setReadOnly(true);
 
             VLNiveauAval = new QVBoxLayout;
@@ -107,13 +101,13 @@ StatutsDlg::StatutsDlg(QWidget *parent, Seance *ptSeance) : QWidget(parent), pSe
             LBVoyantNiveauHuile = new QLabel;
             LBVoyantNiveauHuile->setMinimumSize(voyantSize);
             LBVoyantNiveauHuile->setMaximumSize(voyantSize);
-            LBVoyantNiveauHuile->setStyleSheet(voyantOrange);
+            LBVoyantNiveauHuile->setStyleSheet(ORANGE);
 
-            LENiveauHuile = new QLineEdit("10 mL");
+            LENiveauHuile = new QLineEdit("2 L");
             LENiveauHuile->setMaximumSize(LENiveauxSize);
             LENiveauHuile->setAlignment(Qt::AlignHCenter);
             LENiveauHuile->setFont(LENiveauFont);
-            LENiveauHuile->setStyleSheet(LENiveauColor);
+            LENiveauHuile->setStyleSheet(BLEU);
             LENiveauHuile->setReadOnly(true);
 
             VLNiveauHuile = new QVBoxLayout;
@@ -135,7 +129,7 @@ StatutsDlg::StatutsDlg(QWidget *parent, Seance *ptSeance) : QWidget(parent), pSe
             LBVoyantDefautTreuil = new QLabel;
             LBVoyantDefautTreuil->setMinimumSize(voyantSize);
             LBVoyantDefautTreuil->setMaximumSize(voyantSize);
-            LBVoyantDefautTreuil->setStyleSheet(voyantGris);
+            LBVoyantDefautTreuil->setStyleSheet(GRIS);
 
             HLDefautTreuil = new QHBoxLayout;
             HLDefautTreuil->addWidget(LBVoyantDefautTreuil);
@@ -146,7 +140,7 @@ StatutsDlg::StatutsDlg(QWidget *parent, Seance *ptSeance) : QWidget(parent), pSe
             LBVoyantDefautSurcharge = new QLabel;
             LBVoyantDefautSurcharge->setMinimumSize(voyantSize);
             LBVoyantDefautSurcharge->setMaximumSize(voyantSize);
-            LBVoyantDefautSurcharge->setStyleSheet(voyantGris);
+            LBVoyantDefautSurcharge->setStyleSheet(GRIS);
 
             HLDefautSurcharge = new QHBoxLayout;
             HLDefautSurcharge->addWidget(LBVoyantDefautSurcharge);
@@ -157,7 +151,7 @@ StatutsDlg::StatutsDlg(QWidget *parent, Seance *ptSeance) : QWidget(parent), pSe
             LBVoyantDefautVanne = new QLabel;
             LBVoyantDefautVanne->setMinimumSize(voyantSize);
             LBVoyantDefautVanne->setMaximumSize(voyantSize);
-            LBVoyantDefautVanne->setStyleSheet(voyantGris);
+            LBVoyantDefautVanne->setStyleSheet(GRIS);
 
             HLDefautVanne = new QHBoxLayout;
             HLDefautVanne->addWidget(LBVoyantDefautVanne);
@@ -168,7 +162,7 @@ StatutsDlg::StatutsDlg(QWidget *parent, Seance *ptSeance) : QWidget(parent), pSe
             LBVoyantDefautCentrale = new QLabel;
             LBVoyantDefautCentrale->setMinimumSize(voyantSize);
             LBVoyantDefautCentrale->setMaximumSize(voyantSize);
-            LBVoyantDefautCentrale->setStyleSheet(voyantGris);
+            LBVoyantDefautCentrale->setStyleSheet(GRIS);
 
             HLDefautCentrale = new QHBoxLayout;
             HLDefautCentrale->addWidget(LBVoyantDefautCentrale);
@@ -179,7 +173,7 @@ StatutsDlg::StatutsDlg(QWidget *parent, Seance *ptSeance) : QWidget(parent), pSe
             LBVoyantDefautPompe = new QLabel;
             LBVoyantDefautPompe->setMinimumSize(voyantSize);
             LBVoyantDefautPompe->setMaximumSize(voyantSize);
-            LBVoyantDefautPompe->setStyleSheet(voyantGris);
+            LBVoyantDefautPompe->setStyleSheet(GRIS);
 
             HLDefautPompe = new QHBoxLayout;
             HLDefautPompe->addWidget(LBVoyantDefautPompe);
@@ -190,7 +184,7 @@ StatutsDlg::StatutsDlg(QWidget *parent, Seance *ptSeance) : QWidget(parent), pSe
             LBVoyantDefautMouCable = new QLabel;
             LBVoyantDefautMouCable->setMinimumSize(voyantSize);
             LBVoyantDefautMouCable->setMaximumSize(voyantSize);
-            LBVoyantDefautMouCable->setStyleSheet(voyantGris);
+            LBVoyantDefautMouCable->setStyleSheet(GRIS);
 
             HLDefautMouCable = new QHBoxLayout;
             HLDefautMouCable->addWidget(LBVoyantDefautMouCable);
@@ -201,7 +195,7 @@ StatutsDlg::StatutsDlg(QWidget *parent, Seance *ptSeance) : QWidget(parent), pSe
             LBVoyantDefautLimiteurEffort = new QLabel;
             LBVoyantDefautLimiteurEffort->setMinimumSize(voyantSize);
             LBVoyantDefautLimiteurEffort->setMaximumSize(voyantSize);
-            LBVoyantDefautLimiteurEffort->setStyleSheet(voyantGris);
+            LBVoyantDefautLimiteurEffort->setStyleSheet(GRIS);
 
             HLDefautLimiteurEffort = new QHBoxLayout;
             HLDefautLimiteurEffort->addWidget(LBVoyantDefautLimiteurEffort);
@@ -212,7 +206,7 @@ StatutsDlg::StatutsDlg(QWidget *parent, Seance *ptSeance) : QWidget(parent), pSe
             LBVoyantDefautArretUrgence = new QLabel;
             LBVoyantDefautArretUrgence->setMinimumSize(voyantSize);
             LBVoyantDefautArretUrgence->setMaximumSize(voyantSize);
-            LBVoyantDefautArretUrgence->setStyleSheet(voyantGris);
+            LBVoyantDefautArretUrgence->setStyleSheet(GRIS);
 
             HLDefautArretUrgence = new QHBoxLayout;
             HLDefautArretUrgence->addWidget(LBVoyantDefautArretUrgence);
@@ -223,7 +217,7 @@ StatutsDlg::StatutsDlg(QWidget *parent, Seance *ptSeance) : QWidget(parent), pSe
             LBVoyantDefautCycle = new QLabel;
             LBVoyantDefautCycle->setMinimumSize(voyantSize);
             LBVoyantDefautCycle->setMaximumSize(voyantSize);
-            LBVoyantDefautCycle->setStyleSheet(voyantGris);
+            LBVoyantDefautCycle->setStyleSheet(GRIS);
 
             HLDefautCycle = new QHBoxLayout;
             HLDefautCycle->addWidget(LBVoyantDefautCycle);
@@ -234,7 +228,7 @@ StatutsDlg::StatutsDlg(QWidget *parent, Seance *ptSeance) : QWidget(parent), pSe
             LBVoyantDefautHuile = new QLabel;
             LBVoyantDefautHuile->setMinimumSize(voyantSize);
             LBVoyantDefautHuile->setMaximumSize(voyantSize);
-            LBVoyantDefautHuile->setStyleSheet(voyantRouge);
+            LBVoyantDefautHuile->setStyleSheet(GRIS);
 
             HLDefautHuile = new QHBoxLayout;
             HLDefautHuile->addWidget(LBVoyantDefautHuile);
@@ -264,7 +258,7 @@ StatutsDlg::StatutsDlg(QWidget *parent, Seance *ptSeance) : QWidget(parent), pSe
     setLayout(GLMain);
 }
 
-void StatutsDlg::allumerVoyant(QLabel *voyant)
+void StatutsDlg::allumerVoyant(QLabel *voyant, QString clr)
 {
-    voyant->setStyleSheet("border:3px solid rgb(125, 125, 125);\nbackground-color: red;");
+    voyant->setStyleSheet(clr);
 }

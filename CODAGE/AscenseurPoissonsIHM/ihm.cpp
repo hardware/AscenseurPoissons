@@ -9,10 +9,10 @@ IHM::IHM(QWidget *parent) : QWidget(parent)
 
     accueilDlg = new AccueilDlg(this);
     statutsDlg = new StatutsDlg(this, &seance);
-    manuelDlg = new ManuelDlg(this, &seance, statutsDlg);
+    journalDlg = new JournalDlg(this, &seance);
+    manuelDlg = new ManuelDlg(this, &seance, statutsDlg, journalDlg);
     seanceDlg = new SeanceDlg(this, &seance);
     synoptiqueDlg = new SynoptiqueDlg(this, &seance);
-    journalDlg = new JournalDlg(this, &seance);
 
     onglets = new QTabWidget;
     onglets->setFont(QFont("MS Shell Dlg 2", 11));

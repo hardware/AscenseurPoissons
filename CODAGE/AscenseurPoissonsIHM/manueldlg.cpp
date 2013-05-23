@@ -1,6 +1,14 @@
 ﻿#include "manueldlg.h"
 
-ManuelDlg::ManuelDlg(QWidget *parent, Seance *ptSeance, StatutsDlg *statutsDlg) : QWidget(parent), pSeance(ptSeance), pStatutsDlg(statutsDlg)
+ManuelDlg::ManuelDlg(
+        QWidget *parent,
+        Seance *ptSeance,
+        StatutsDlg *statutsDlg,
+        JournalDlg *journalDlg
+) : QWidget(parent),
+    pSeance(ptSeance),
+    pStatutsDlg(statutsDlg),
+    pJournalDlg(journalDlg)
 {
     // Taille des boutons
     QSize PBSize(80, 70);
@@ -55,12 +63,14 @@ ManuelDlg::ManuelDlg(QWidget *parent, Seance *ptSeance, StatutsDlg *statutsDlg) 
         PBVanneAttraitOuvrir->setFont(PBFont);
         PBVanneAttraitOuvrir->setCursor(Qt::PointingHandCursor);
         PBVanneAttraitOuvrir->setEnabled(false);
+        PBVanneAttraitOuvrir->setObjectName("PBVanneAttraitOuvrir");
 
         PBVanneAttraitFermer = new QPushButton("FERMER");
         PBVanneAttraitFermer->setMaximumSize(PBSize);
         PBVanneAttraitFermer->setFont(PBFont);
         PBVanneAttraitFermer->setCursor(Qt::PointingHandCursor);
         PBVanneAttraitFermer->setEnabled(false);
+        PBVanneAttraitFermer->setObjectName("PBVanneAttraitFermer");
 
         hboxVanneAttrait = new QHBoxLayout(GBVanneAttrait);
         hboxVanneAttrait->addWidget(PBVanneAttraitOuvrir);
@@ -76,12 +86,14 @@ ManuelDlg::ManuelDlg(QWidget *parent, Seance *ptSeance, StatutsDlg *statutsDlg) 
         PBGrilleOuvrir->setFont(PBFont);
         PBGrilleOuvrir->setCursor(Qt::PointingHandCursor);
         PBGrilleOuvrir->setEnabled(false);
+        PBGrilleOuvrir->setObjectName("PBGrilleOuvrir");
 
         PBGrilleFermer = new QPushButton("FERMER");
         PBGrilleFermer->setMaximumSize(PBSize);
         PBGrilleFermer->setFont(PBFont);
         PBGrilleFermer->setCursor(Qt::PointingHandCursor);
         PBGrilleFermer->setEnabled(false);
+        PBGrilleFermer->setObjectName("PBGrilleFermer");
 
         hboxGrille = new QHBoxLayout(GBGrille);
         hboxGrille->addWidget(PBGrilleOuvrir);
@@ -96,18 +108,25 @@ ManuelDlg::ManuelDlg(QWidget *parent, Seance *ptSeance, StatutsDlg *statutsDlg) 
         PBCageMPV->setMaximumSize(PBCageSize);
         PBCageMPV->setFont(PBFont);
         PBCageMPV->setCursor(Qt::PointingHandCursor);
+        PBCageMPV->setObjectName("PBMonterPV");
+
         PBCageMGV = new QPushButton("MONTER EN GRANDE VITESSE");
         PBCageMGV->setMaximumSize(PBCageSize);
         PBCageMGV->setFont(PBFont);
         PBCageMGV->setCursor(Qt::PointingHandCursor);
+        PBCageMGV->setObjectName("PBMonterGV");
+
         PBCageDPV = new QPushButton("DESCENDRE EN PETITE VITESSE");
         PBCageDPV->setMaximumSize(PBCageSize);
         PBCageDPV->setFont(PBFont);
         PBCageDPV->setCursor(Qt::PointingHandCursor);
+        PBCageDPV->setObjectName("PBDescendrePV");
+
         PBCageDGV = new QPushButton("DESCENDRE EN GRANDE VITESSE");
         PBCageDGV->setMaximumSize(PBCageSize);
         PBCageDGV->setFont(PBFont);
         PBCageDGV->setCursor(Qt::PointingHandCursor);
+        PBCageDGV->setObjectName("PBDescendreGV");
 
         GLCage = new QGridLayout(GBCage);
         GLCage->addWidget(PBCageMPV, 0, 0);
@@ -127,16 +146,14 @@ ManuelDlg::ManuelDlg(QWidget *parent, Seance *ptSeance, StatutsDlg *statutsDlg) 
 
     setLayout(GLMain);
 
-    // QObject::connect(PBPompeArreter, SIGNAL(clicked()), statutsDlg, SLOT(allumerVoyantPompe()));
-    //connect(this, SIGNAL(allumerVoyant(QLabel *voyant), statutsDlg, SLOT(allumerVoyant(QLabel *voyant)));
     QMetaObject::connectSlotsByName(this);
 }
 
 void ManuelDlg::on_PBPompeDemarrer_clicked()
 {
     PBPompeDemarrer->setDisabled(true);
-
-    //emit allumerVoyant(pStatutsDlg.LBVoyantPompe);
+    pStatutsDlg->allumerVoyant(pStatutsDlg->LBVoyantPompe, VERT);
+    pJournalDlg->ajouterLog("La pompe est en marche", INFO);
 }
 
 void ManuelDlg::on_PBCentraleDemarrer_clicked()
@@ -147,6 +164,9 @@ void ManuelDlg::on_PBCentraleDemarrer_clicked()
     PBVanneAttraitFermer->setEnabled(true);
     PBGrilleOuvrir->setEnabled(true);
     PBGrilleFermer->setEnabled(true);
+
+    pStatutsDlg->allumerVoyant(pStatutsDlg->LBVoyantCentrale, VERT);
+    pJournalDlg->ajouterLog("La centrale est en marche", INFO);
 }
 
 void ManuelDlg::on_PBCentraleArreter_clicked()
@@ -157,4 +177,47 @@ void ManuelDlg::on_PBCentraleArreter_clicked()
     PBVanneAttraitFermer->setDisabled(true);
     PBGrilleOuvrir->setDisabled(true);
     PBGrilleFermer->setDisabled(true);
+
+    pStatutsDlg->allumerVoyant(pStatutsDlg->LBVoyantCentrale, ROUGE);
+    pJournalDlg->ajouterLog("La centrale est à l'arrêt", INFO);
+}
+
+void ManuelDlg::on_PBVanneAttraitOuvrir_clicked()
+{
+
+}
+
+void ManuelDlg::on_PBVanneAttraitFermer_clicked()
+{
+
+}
+
+void ManuelDlg::on_PBGrilleOuvrir_clicked()
+{
+
+}
+
+void ManuelDlg::on_PBGrilleFermer_clicked()
+{
+
+}
+
+void ManuelDlg::on_PBMonterPV_clicked()
+{
+
+}
+
+void ManuelDlg::on_PBMonterGV_clicked()
+{
+
+}
+
+void ManuelDlg::on_PBDescendrePV_clicked()
+{
+
+}
+
+void ManuelDlg::on_PBDescendreGV_clicked()
+{
+
 }

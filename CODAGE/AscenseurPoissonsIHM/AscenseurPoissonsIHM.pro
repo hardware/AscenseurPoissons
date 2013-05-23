@@ -16,7 +16,8 @@ HEADERS += \
     capteurs.h \
     Canproex.h \
     Canpcex.h \
-    Candefex.h
+    Candefex.h \
+    types.h
 
 SOURCES += \
     synoptiquedlg.cpp \

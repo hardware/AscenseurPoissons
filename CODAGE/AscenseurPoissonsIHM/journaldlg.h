@@ -10,6 +10,9 @@
 #include <QFile>
 #include <QApplication>
 #include <QTextStream>
+#include <QDateTime>
+#include <QComboBox>
+#include <QLabel>
 
 class JournalDlg : public QWidget
 {
@@ -25,10 +28,13 @@ private:
 
     QVBoxLayout *VLMain;
     QListWidget *LWLogs;
+    QComboBox   *CBNiveaux;
+    QLabel      *LBText;
 
 public slots:
     void afficherLog(QListWidgetItem *item);
-    void ajouterLog(QString ligne);
+    void ajouterLog(QString ligne, QString niveau);
+    void trierListe(QString &niveau);
     QStringList LireFichierLog();
 
 signals:

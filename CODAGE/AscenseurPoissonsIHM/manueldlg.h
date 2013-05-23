@@ -3,6 +3,8 @@
 
 #include "seance.h"
 #include "statutsdlg.h"
+#include "journaldlg.h"
+#include "types.h"
 
 #include <QWidget>
 #include <QBoxLayout>
@@ -16,9 +18,15 @@ class ManuelDlg : public QWidget
 
     Seance *pSeance;
     StatutsDlg *pStatutsDlg;
+    JournalDlg *pJournalDlg;
 
 public:
-    explicit ManuelDlg(QWidget *parent = 0, Seance *ptSeance = 0, StatutsDlg *statutsDlg = 0);
+    explicit ManuelDlg(
+        QWidget *parent = 0,
+        Seance *ptSeance = 0,
+        StatutsDlg *statutsDlg = 0,
+        JournalDlg *journalDlg = 0
+    );
 
 private:
     QGridLayout *GLMain, *GLCage;
@@ -34,7 +42,6 @@ public slots:
     void on_PBPompeDemarrer_clicked();
     void on_PBCentraleDemarrer_clicked();
     void on_PBCentraleArreter_clicked();
-    /*
     void on_PBVanneAttraitOuvrir_clicked();
     void on_PBVanneAttraitFermer_clicked();
     void on_PBGrilleOuvrir_clicked();
@@ -43,7 +50,6 @@ public slots:
     void on_PBMonterGV_clicked();
     void on_PBDescendrePV_clicked();
     void on_PBDescendreGV_clicked();
-    */
 
 signals:
     void allumerVoyant(QLabel *voyant);

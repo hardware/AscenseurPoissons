@@ -2,6 +2,7 @@
 #define SEANCEDLG_H
 
 #include "seance.h"
+#include "types.h"
 
 #include <QWidget>
 #include <QBoxLayout>

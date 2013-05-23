@@ -2,6 +2,7 @@
 #define STATUTSDLG_H
 
 #include "seance.h"
+#include "types.h"
 
 #include <QWidget>
 #include <QGridLayout>
@@ -17,12 +18,6 @@ class StatutsDlg : public QWidget
 
     Seance *pSeance;
 
-public:
-    explicit StatutsDlg(QWidget *parent = 0, Seance *ptSeance = 0);
-
-    QLabel *LBVoyantPompe;
-    
-private:
     QGridLayout *GLMain, *GLAppareillages, *GLNiveaux, *GLDefauts;
 
     QVBoxLayout *VLPompe,       *VLCentrale,   *VLNombreCycles,
@@ -42,26 +37,32 @@ private:
                 // Liste des niveaux
                 *LBNiveauAmont, *LBNiveauAval, *LBNiveauHuile,
 
-                // Liste des voyants
-                *LBVoyantCentrale, *LBVoyantNiveauAmont,
-                *LBVoyantNiveauAval, *LBVoyantNiveauHuile,
-
                 // Liste des défauts
                 *LBDefautTreuil,         *LBDefautVanne,    *LBDefautPompe,
                 *LBDefautLimiteurEffort, *LBDefautCycle,    *LBDefautSurcharge,
                 *LBDefautCentrale,       *LBDefautMouCable, *LBDefautArretUrgence,
-                *LBDefautHuile,
+                *LBDefautHuile;
 
-                // Liste des voyants des défauts
-                *LBVoyantDefautTreuil,         *LBVoyantDefautVanne,    *LBVoyantDefautPompe,
-                *LBVoyantDefautLimiteurEffort, *LBVoyantDefautCycle,    *LBVoyantDefautSurcharge,
-                *LBVoyantDefautCentrale,       *LBVoyantDefautMouCable, *LBVoyantDefautArretUrgence,
-                *LBVoyantDefautHuile;
+public:
+
+           // Liste des voyants
+    QLabel *LBVoyantPompe, *LBVoyantCentrale,
+           *LBVoyantNiveauAmont, *LBVoyantNiveauAval,
+           *LBVoyantNiveauHuile,
+
+           // Liste des voyants des défauts
+           *LBVoyantDefautTreuil,         *LBVoyantDefautVanne,    *LBVoyantDefautPompe,
+           *LBVoyantDefautLimiteurEffort, *LBVoyantDefautCycle,    *LBVoyantDefautSurcharge,
+           *LBVoyantDefautCentrale,       *LBVoyantDefautMouCable, *LBVoyantDefautArretUrgence,
+           *LBVoyantDefautHuile;
+
+
+    explicit StatutsDlg(QWidget *parent = 0, Seance *ptSeance = 0);
 
 signals:
     
 public slots:
-    void allumerVoyant(QLabel *voyant);
+    void allumerVoyant(QLabel *voyant, QString clr);
     
 };
 

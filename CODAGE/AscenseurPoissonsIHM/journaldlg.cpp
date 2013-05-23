@@ -6,12 +6,30 @@ JournalDlg::JournalDlg(QWidget *parent, Seance *ptSeance) : QWidget(parent), pSe
     LWLogs->setFont(QFont("Arial", 10));
     LWLogs->addItems(LireFichierLog());
 
+    LBText = new QLabel;
+    LBText->setFont(QFont("Arial", 11));
+    LBText->setText("Selectionner un niveau d'alerte :");
+
+    CBNiveaux = new QComboBox;
+    CBNiveaux->setFont(QFont("Arial", 18));
+    CBNiveaux->addItem("INFO");
+    CBNiveaux->addItem("NOTICE");
+    CBNiveaux->addItem("WARNING");
+    CBNiveaux->addItem("DEFAULT");
+    CBNiveaux->addItem("ERROR");
+    CBNiveaux->addItem("CRITICAL");
+    CBNiveaux->addItem("ALERT");
+    CBNiveaux->addItem("EMERG");
+
     VLMain = new QVBoxLayout(this);
     VLMain->addWidget(LWLogs);
+    VLMain->addWidget(LBText);
+    VLMain->addWidget(CBNiveaux);
 
     setLayout(VLMain);
 
     QObject::connect(LWLogs, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(afficherLog(QListWidgetItem*)));
+    QObject::connect(CBNiveaux, SIGNAL(currentIndexChanged(QString&)), this, SLOT(trierListe(QString&)));
 }
 
 void JournalDlg::afficherLog(QListWidgetItem *item)
@@ -33,12 +51,39 @@ QStringList JournalDlg::LireFichierLog()
             ligne = in.readLine();
             listeLignes.push_back(ligne);
         }
+
+        file.close();
     }
 
     return listeLignes;
 }
 
-void JournalDlg::ajouterLog(QString ligne)
+void JournalDlg::ajouterLog(QString ligne, QString niveau)
 {
-    listeLignes.push_back(ligne);
+     QFile file(QApplication::applicationDirPath() + "/logs.txt");
+
+     if (file.open(QFile::Append | QFile::Text))
+     {
+        ligne = QDateTime::currentDateTime().toString("MMM d hh:mm:ss") + " [" + niveau + "] - " + ligne;
+        QTextStream out(&file);
+        out << ligne << "\n";
+        file.close();
+
+        listeLignes.push_back(ligne);
+        LWLogs->addItem(ligne);
+     }
+}
+
+void JournalDlg::trierListe(QString &niveau)
+{
+    QStringList liste;
+    QList<QListWidgetItem*> tmpList = LWLogs->findItems(niveau, Qt::MatchContains);
+
+    for (int i = 0; i < tmpList.size(); i++)
+    {
+        liste.append(tmpList.at(i)->text());
+    }
+
+    LWLogs->clear();
+    LWLogs->addItems(liste);
 }
