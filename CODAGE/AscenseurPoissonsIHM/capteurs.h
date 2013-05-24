@@ -16,16 +16,22 @@ public:
     bool LireCapteurMouDeCable();
     bool LireCapteurFinDeCourseGrilleHaut();
     bool LireCapteurFinDeCourseGrilleBas();
+    bool LireCapteurPositionAscenseurHaute();
+    bool LireCapteurPositionAscenseurBasse();
+    bool LireCapteurPositionVanneHaute();
+    bool LireCapteurPositionVanneBasse();
+    bool LireCapteurPositionPoireBas();
+    bool LireConfirmationMarchePompe();
+    bool LireDetecteurHautVanne();
+    bool LireConfirmatioMarcheCentrale();
+    bool LireCapteurPosition();
+    bool LireCapteurTemperature();
 
-    float LireCapteurTemperature();
     float LireCapteurNiveauHuile();
     float LireCapteurNiveauCanalAval();
     float LireCapteurNiveauCanalAmont();
-    float LireCapteurPositionAscenseurHaute();
-    float LireCapteurPositionAscenseurBasse();
-    float LireCapteurPositionVanneHaute();
-    float LireCapteurPositionVanneBasse();
-    float LireCapteurPositionPoireBas();
+
+
 };
 
 #endif // CAPTEURS_H

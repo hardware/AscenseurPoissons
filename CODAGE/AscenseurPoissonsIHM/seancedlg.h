@@ -58,6 +58,8 @@ public slots:
     void diminuerPeriodicite();
 
     void enregistrerParametres();
+    void lancerAutomatisation();
+    void arreterAutomatisation();
 
 signals:
     
