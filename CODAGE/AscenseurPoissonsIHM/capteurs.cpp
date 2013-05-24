@@ -25,9 +25,9 @@ bool Capteurs::LireCapteurFinDeCourseGrilleBas()
     return 0;
 }
 
-float Capteurs::LireCapteurTemperature()
+bool Capteurs::LireCapteurTemperature()
 {
-    return 0;
+    return false;
 }
 
 float Capteurs::LireCapteurNiveauHuile()
@@ -45,27 +45,42 @@ float Capteurs::LireCapteurNiveauCanalAmont()
     return 0;
 }
 
-float Capteurs::LireCapteurPositionAscenseurHaute()
+bool Capteurs::LireCapteurPositionAscenseurHaute()
 {
-    return 0;
+    return false;
 }
 
-float Capteurs::LireCapteurPositionAscenseurBasse()
+bool Capteurs::LireCapteurPositionAscenseurBasse()
 {
-    return 0;
+    return false;
 }
 
-float Capteurs::LireCapteurPositionVanneHaute()
+bool Capteurs::LireCapteurPositionVanneHaute()
 {
-    return 0;
+    return false;
 }
 
-float Capteurs::LireCapteurPositionVanneBasse()
+bool Capteurs::LireCapteurPositionVanneBasse()
 {
-    return 0;
+    return false;
 }
 
-float Capteurs::LireCapteurPositionPoireBas()
+bool Capteurs::LireCapteurPositionPoireBas()
 {
-    return 0;
+    return false;
+}
+
+bool Capteurs::LireConfirmationMarchePompe()
+{
+    return false;
+}
+
+bool Capteurs::LireDetecteurHautVanne()
+{
+   return false;
+}
+
+bool Capteurs::LireConfirmatioMarcheCentrale()
+{
+    return false;
 }

@@ -61,34 +61,34 @@ relationcanvas 128399 relation_ref 150799 // <directional aggregation>
   decenter_begin 296
   from ref 128015 z 2007 to ref 128143
   no_role_a no_role_b
-  no_multiplicity_a no_multiplicity_b
+  multiplicity_a_pos 128 175 3000 multiplicity_b_pos 384 317 3000
 end
 relationcanvas 128783 relation_ref 150927 // <directional aggregation>
-  decenter_begin 87
+  decenter_begin 86
   from ref 128015 z 2013 to ref 128527
   no_role_a no_role_b
-  no_multiplicity_a no_multiplicity_b
+  multiplicity_a_pos 252 177 3000 multiplicity_b_pos 388 307 3000
 end
 relationcanvas 129295 relation_ref 151055 // <directional aggregation>
   from ref 128015 z 2007 to ref 129039
   no_role_a no_role_b
-  no_multiplicity_a no_multiplicity_b
+  multiplicity_a_pos 340 171 3000 multiplicity_b_pos 394 273 3000
 end
 relationcanvas 129807 relation_ref 160911 // <directional aggregation>
   from ref 128015 z 2001 to ref 129551
   no_role_a no_role_b
-  no_multiplicity_a no_multiplicity_b
+  multiplicity_a_pos 471 170 3000 multiplicity_b_pos 416 273 3000
 end
 relationcanvas 129935 relation_ref 161039 // <directional aggregation>
   from ref 128015 z 2013 to ref 129679
   no_role_a no_role_b
-  no_multiplicity_a no_multiplicity_b
+  multiplicity_a_pos 583 163 3000 multiplicity_b_pos 455 292 3000
 end
 relationcanvas 130191 relation_ref 161167 // <directional aggregation>
   decenter_begin 307
   from ref 128015 z 2013 to ref 130063
   no_role_a no_role_b
-  no_multiplicity_a no_multiplicity_b
+  multiplicity_a_pos 706 165 3000 multiplicity_b_pos 456 307 3000
 end
 relationcanvas 130575 relation_ref 167951 // <generalisation>
   decenter_end 333

@@ -1,6 +1,6 @@
 ﻿#include "seancedlg.h"
 
-SeanceDlg::SeanceDlg(QWidget *parent, Seance *ptSeance) : QWidget(parent), pSeance(ptSeance)
+SeanceDlg::SeanceDlg(QWidget *parent, Seance *seance) : QWidget(parent), pSeance(seance)
 {
     QSize LESize(70, 50),
           PBSize(60, 50);

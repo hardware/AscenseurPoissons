@@ -2,11 +2,11 @@
 
 ManuelDlg::ManuelDlg(
         QWidget *parent,
-        Seance *ptSeance,
+        Seance *seance,
         StatutsDlg *statutsDlg,
         JournalDlg *journalDlg
 ) : QWidget(parent),
-    pSeance(ptSeance),
+    pSeance(seance),
     pStatutsDlg(statutsDlg),
     pJournalDlg(journalDlg)
 {

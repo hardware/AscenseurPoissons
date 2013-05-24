@@ -1,6 +1,6 @@
 ﻿#include "statutsdlg.h"
 
-StatutsDlg::StatutsDlg(QWidget *parent, Seance *ptSeance) : QWidget(parent), pSeance(ptSeance)
+StatutsDlg::StatutsDlg(QWidget *parent, Seance *seance) : QWidget(parent), pSeance(seance)
 {
     QSize voyantSize(21, 21),
           LENiveauxSize(130, 25);

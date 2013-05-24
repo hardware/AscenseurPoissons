@@ -15,7 +15,7 @@ class SynoptiqueDlg : public QWidget
     Seance *pSeance;
 
 public:
-    explicit SynoptiqueDlg(QWidget *parent = 0, Seance *ptSeance = 0);
+    explicit SynoptiqueDlg(QWidget *parent = 0, Seance *seance = 0);
 
 private:
     QVBoxLayout *VLMain;

@@ -23,7 +23,7 @@ class ManuelDlg : public QWidget
 public:
     explicit ManuelDlg(
         QWidget *parent = 0,
-        Seance *ptSeance = 0,
+        Seance *seance = 0,
         StatutsDlg *statutsDlg = 0,
         JournalDlg *journalDlg = 0
     );

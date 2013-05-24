@@ -1,7 +1,7 @@
 format 75
 "ascenseur"
-  revision 75
-  modified_by 65 ""
+  revision 77
+  modified_by 15 "Hardware"
 
 
   
@@ -809,11 +809,11 @@ ${inlines}
 
       classrelation 135311 // <directional aggregation>
 	relation 135183 o-->
-	  a role_name "" private
+	  a role_name "" multiplicity "1" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 135311 // <directional aggregation>
-	  b parent class_ref 128249 // Pompe
+	  b multiplicity "1" parent class_ref 128249 // Pompe
       end
 
       classrelation 143119 // <directional aggregation>
@@ -1700,83 +1700,83 @@ ${inlines}
 
       classrelation 150927 // <directional aggregation>
 	relation 150799 o-->
-	  a role_name "" private
+	  a role_name "" multiplicity "1" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 150927 // <directional aggregation>
-	  b parent class_ref 141199 // AccueilDlg
+	  b multiplicity "1" parent class_ref 141199 // AccueilDlg
       end
 
       classrelation 151055 // <directional aggregation>
 	relation 150927 o-->
-	  a role_name "" private
+	  a role_name "" multiplicity "1" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 151055 // <directional aggregation>
-	  b parent class_ref 141327 // ManuelDlg
+	  b multiplicity "1" parent class_ref 141327 // ManuelDlg
       end
 
       classrelation 151183 // <directional aggregation>
 	relation 151055 o-->
-	  a role_name "" private
+	  a role_name "" multiplicity "1" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 151183 // <directional aggregation>
-	  b parent class_ref 141455 // SeanceDlg
+	  b multiplicity "1" parent class_ref 141455 // SeanceDlg
       end
 
       classrelation 151311 // <directional aggregation>
 	relation 151183 o-->
-	  a role_name "" private
+	  a role_name "" multiplicity "1" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 151311 // <directional aggregation>
-	  b parent class_ref 147983 // StatutsDlg
+	  b multiplicity "1" parent class_ref 147983 // StatutsDlg
       end
 
       classrelation 151439 // <directional aggregation>
 	relation 151311 o-->
-	  a role_name "" private
+	  a role_name "" multiplicity "1" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 151439 // <directional aggregation>
-	  b parent class_ref 148111 // SynoptiqueDlg
+	  b multiplicity "1" parent class_ref 148111 // SynoptiqueDlg
       end
 
       classrelation 151567 // <directional aggregation>
 	relation 151439 o-->
-	  a role_name "" private
+	  a role_name "" multiplicity "1" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 151567 // <directional aggregation>
-	  b parent class_ref 148239 // JournalDlg
+	  b multiplicity "1" parent class_ref 148239 // JournalDlg
       end
 
       classrelation 161039 // <directional aggregation>
 	relation 160911 o-->
-	  a role_name "" private
+	  a role_name "" multiplicity "1" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 161039 // <directional aggregation>
-	  b parent class_ref 147983 // StatutsDlg
+	  b multiplicity "1" parent class_ref 147983 // StatutsDlg
       end
 
       classrelation 161167 // <directional aggregation>
 	relation 161039 o-->
-	  a role_name "" private
+	  a role_name "" multiplicity "1" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 161167 // <directional aggregation>
-	  b parent class_ref 148111 // SynoptiqueDlg
+	  b multiplicity "1" parent class_ref 148111 // SynoptiqueDlg
       end
 
       classrelation 161295 // <directional aggregation>
 	relation 161167 o-->
-	  a role_name "" private
+	  a role_name "" multiplicity "1" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 161295 // <directional aggregation>
-	  b parent class_ref 148239 // JournalDlg
+	  b multiplicity "1" parent class_ref 148239 // JournalDlg
       end
 
       classrelation 175247 // <generalisation>
@@ -2670,6 +2670,8 @@ ${inlines}
       end
 
       state 128254 "MANU"
+	  uml_on_exit "lancerAutomatisation"
+	  uml_do_activity "testerAppareillages"
 	transition 128254 "lancement automatisation(periode, nbCycles)"
 	  on state_ref 128510 // AUTO_PAUSE
 	  external 

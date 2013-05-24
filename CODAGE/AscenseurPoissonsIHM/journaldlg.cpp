@@ -1,6 +1,6 @@
 ﻿#include "journaldlg.h"
 
-JournalDlg::JournalDlg(QWidget *parent, Seance *ptSeance) : QWidget(parent), pSeance(ptSeance)
+JournalDlg::JournalDlg(QWidget *parent, Seance *seance) : QWidget(parent), pSeance(seance)
 {
     LWLogs = new QListWidget;
     LWLogs->setFont(QFont("Arial", 10));

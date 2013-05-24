@@ -1,21 +1,21 @@
 format 75
 
 deploymentnodecanvas 128015 deploymentnode_ref 128015 // PC EMBARQUE
-  xyzwh 229 11 2000 189 97
+  xyzwh 224 47 2000 203 59
 end
 deploymentnodecanvas 128143 deploymentnode_ref 128143 // INTERFACE CAN
-  xyzwh 257 231 2000 135 75
+  xyzwh 257 229 2000 139 39
 end
 deploymentnodecanvas 128655 deploymentnode_ref 128271 // COFFRET PECHEUR
-  xyzwh 137 447 2000 140 51
+  xyzwh 125 439 2000 141 37
 end
 deploymentnodecanvas 128783 deploymentnode_ref 128399 // SOMMET ASCENSEUR
-  xyzwh 405 448 2000 149 49
+  xyzwh 371 442 2000 151 37
 end
 line 128527 ----
-  from ref 128015 z 2001 stereotype "<<USB>>" xyz 333 163 3000 to ref 128143
+  from ref 128015 z 2001 stereotype "<<USB>>" xyz 333 159 3000 to ref 128143
 line 129039 ----
-  from ref 128143 z 2001 stereotype "<<CAN>>" xyz 200 364.5 3000 to ref 128655
+  from ref 128143 z 2001 stereotype "<<CAN>>" xyz 182 338 3000 to ref 128655
 line 129167 ----
-  from ref 128143 z 2001 stereotype "<<CAN>>" xyz 394 362 3000 to ref 128783
+  from ref 128143 z 2001 stereotype "<<CAN>>" xyz 405.5 336 3000 to ref 128783
 end
