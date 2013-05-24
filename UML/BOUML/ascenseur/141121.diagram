@@ -1,0 +1,159 @@
+format 75
+
+classcanvas 128065 class_ref 128633 // Grille
+  draw_all_relations default hide_attributes yes hide_operations yes hide_getset_operations yes show_members_full_definition yes show_members_visibility yes show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers yes member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  color lightmediumblue
+  xyz 716.2 213.2 2000
+end
+classcanvas 128193 class_ref 134543 // CentraleHydraulique
+  draw_all_relations default hide_attributes yes hide_operations yes hide_getset_operations yes show_members_full_definition yes show_members_visibility yes show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir yes show_parameter_name yes package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  color lightmediumblue
+  xyz 554.4 217.5 2000
+end
+classcanvas 128321 class_ref 128377 // VanneAttrait
+  draw_all_relations default hide_attributes yes hide_operations yes hide_getset_operations yes show_members_full_definition yes show_members_visibility yes show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers yes member_max_width 0 show_parameter_dir yes show_parameter_name yes package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  color lightmediumblue
+  xyz 268.1 222.6 2000
+end
+classcanvas 128449 class_ref 128249 // Pompe
+  draw_all_relations default hide_attributes yes hide_operations yes hide_getset_operations yes show_members_full_definition yes show_members_visibility yes show_members_stereotype default show_members_context default show_members_multiplicity yes show_members_initialization default show_attribute_modifiers yes member_max_width 0 show_parameter_dir default show_parameter_name yes package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  color lightmediumblue
+  xyz 431.6 217.8 2000
+end
+classcanvas 128577 class_ref 128121 // Seance
+  draw_all_relations default hide_attributes yes hide_operations yes hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  hidden_attributes
+    attribute_ref 128015 // iCan
+    attribute_ref 128143 // params
+    attribute_ref 134671 // PV
+    attribute_ref 134799 // GV
+    attribute_ref 141327 // tempsPeche
+    attribute_ref 141455 // tempsVidange
+    attribute_ref 141583 // nbCycles
+    attribute_ref 141711 // periodicite
+  xyz 333.2 424.7 2000
+end
+classcanvas 128705 class_ref 135161 // Capteurs
+  draw_all_relations default hide_attributes yes hide_operations yes hide_getset_operations no show_members_full_definition no show_members_visibility no show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir no show_parameter_name no package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  color lightmediumblue
+  xyz 194.4 224 2018
+end
+note 128833 "Objets du domaine"
+  color lightmediumblue  xyzwh 31.5 369.6 2000 127 35
+classcanvas 128961 class_ref 128505 // CageAscenseur
+  draw_all_relations default hide_attributes yes hide_operations yes hide_getset_operations yes show_members_full_definition yes show_members_visibility yes show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name yes package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  color lightmediumblue
+  xyz 45.4 225.6 2005
+end
+classcanvas 130625 class_ref 154767 // InterfaceCAN
+  draw_all_relations default hide_attributes no hide_operations no hide_getset_operations no show_members_full_definition yes show_members_visibility yes show_members_stereotype yes show_members_context default show_members_multiplicity yes show_members_initialization yes show_attribute_modifiers yes member_max_width 0 show_parameter_dir yes show_parameter_name yes package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  color lightmediumgreen
+  xyz 111.6 56.9 2024
+end
+note 132545 "Classe d'interface matérielle"
+  color lightmediumgreen  xyzwh 619.8 71.9 2024 177 35
+relationcanvas 129089 relation_ref 144143 // <directional aggregation>
+  from ref 128577 z 2006 to ref 128961
+  no_role_a no_role_b
+  multiplicity_a_pos 132 277 3000 multiplicity_b_pos 317 437 3000
+end
+relationcanvas 129217 relation_ref 143887 // <directional aggregation>
+  from ref 128577 z 2001 to ref 128193
+  no_role_a no_role_b
+  multiplicity_a_pos 573 254 3000 multiplicity_b_pos 392 422 3000
+end
+relationcanvas 129345 relation_ref 144015 // <directional aggregation>
+  decenter_begin 836
+  from ref 128577 z 2001 to point 537 359.8
+  line 129473 z 2001 to ref 128065
+  no_role_a no_role_b
+  multiplicity_a_pos 698 247 3000 multiplicity_b_pos 397 457 3000
+end
+relationcanvas 129601 relation_ref 135183 // <directional aggregation>
+  from ref 128577 z 2001 to ref 128449
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129729 relation_ref 142991 // <directional aggregation>
+  from ref 128577 z 2001 to ref 128321
+  no_role_a no_role_b
+  multiplicity_a_pos 297 267 3000 multiplicity_b_pos 336 403 3000
+end
+relationcanvas 129857 relation_ref 144271 // <directional aggregation>
+  from ref 128577 z 2019 to point 286.8 335
+  line 129985 z 2019 to ref 128705
+  no_role_a no_role_b
+  multiplicity_a_pos 226 269 3000 multiplicity_b_pos 362 391 3000
+end
+relationcanvas 130753 relation_ref 135055 // <directional composition>
+  decenter_end 504
+  from ref 128577 z 2025 to ref 130625
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 130881 relation_ref 143119 // <unidirectional association>
+  from ref 128321 z 2025 to ref 130625
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 131009 relation_ref 158991 // <directional aggregation>
+  from ref 128321 z 2025 to ref 130625
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 131137 relation_ref 143247 // <unidirectional association>
+  from ref 128961 z 2025 to ref 130625
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 131265 relation_ref 158863 // <directional aggregation>
+  from ref 128961 z 2025 to ref 130625
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 131393 relation_ref 143759 // <unidirectional association>
+  from ref 128065 z 2025 to ref 130625
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 131521 relation_ref 159375 // <directional aggregation>
+  from ref 128065 z 2025 to ref 130625
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 131649 relation_ref 143631 // <unidirectional association>
+  from ref 128193 z 2025 to ref 130625
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 131777 relation_ref 159247 // <directional aggregation>
+  from ref 128193 z 2025 to ref 130625
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 131905 relation_ref 135311 // <unidirectional association>
+  from ref 128449 z 2025 to ref 130625
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 132033 relation_ref 159119 // <directional aggregation>
+  from ref 128449 z 2025 to ref 130625
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 132161 relation_ref 158735 // <directional aggregation>
+  from ref 128705 z 2025 to ref 130625
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 132289 relation_ref 143503 // <unidirectional association>
+  from ref 128705 z 2025 to ref 130625
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 132417 relation_ref 143375 // <unidirectional association>
+  from ref 128705 z 2025 to ref 130625
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+end

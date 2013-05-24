@@ -1,6 +1,6 @@
 format 75
 "ascenseur"
-  revision 74
+  revision 75
   modified_by 65 ""
 
 
@@ -561,6 +561,11 @@ ${inlines}
       size A4
     end
 
+    classdiagram 141121 "Diagramme de classes : InterfaceCAN"
+      draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+      size A4
+    end
+
     class 154895 "App"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit} {
@@ -950,7 +955,7 @@ ${inlines}
       explicit_switch_type ""
       
       operation 128121 "demarrer"
-	public explicit_return_type ""
+	public explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -964,7 +969,7 @@ ${inlines}
       end
 
       operation 128126 "detecterArret"
-	public explicit_return_type ""
+	public explicit_return_type "bool"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -996,13 +1001,28 @@ ${inlines}
       end
 
       attribute 128321 "pIcan"
-	private explicit_type ""
+	private type class_ref 154767 // InterfaceCAN
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
 	php_decl ""
 	python_decl ""
 	idl_decl ""
+      end
+
+      operation 154817 "Pompe"
+	public explicit_return_type ""
+	nparams 1
+	  param in name "pIcan" type class_ref 154767 // InterfaceCAN
+	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} & ${p0}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}const ${t0} & ${p0}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
       end
     end
 
@@ -1019,7 +1039,7 @@ ${inlines}
       explicit_switch_type ""
       
       operation 134543 "demarrer"
-	public explicit_return_type ""
+	public explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -1033,7 +1053,7 @@ ${inlines}
       end
 
       operation 128015 "arreter"
-	public explicit_return_type ""
+	public explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -1065,13 +1085,28 @@ ${inlines}
       end
 
       attribute 128449 "pIcan"
-	private explicit_type ""
+	private type class_ref 154767 // InterfaceCAN
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
 	php_decl ""
 	python_decl ""
 	idl_decl ""
+      end
+
+      operation 154689 "CentraleHydraulique"
+	public explicit_return_type ""
+	nparams 1
+	  param in name "pIcan" type class_ref 154767 // InterfaceCAN
+	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} & ${p0}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}const ${t0} & ${p0}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
       end
     end
 
@@ -1088,7 +1123,7 @@ ${inlines}
       explicit_switch_type ""
       
       operation 131193 "ouvrir"
-	public explicit_return_type ""
+	public explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -1102,7 +1137,7 @@ ${inlines}
       end
 
       operation 128889 "fermer"
-	public explicit_return_type ""
+	public explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -1134,13 +1169,28 @@ ${inlines}
       end
 
       attribute 128193 "pIcan"
-	private explicit_type ""
+	private type class_ref 154767 // InterfaceCAN
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
 	php_decl ""
 	python_decl ""
 	idl_decl ""
+      end
+
+      operation 154945 "VanneAttrait"
+	public explicit_return_type ""
+	nparams 1
+	  param in name "pIcan" type class_ref 154767 // InterfaceCAN
+	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} & ${p0}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}const ${t0} & ${p0}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
       end
     end
 
@@ -1157,7 +1207,7 @@ ${inlines}
       explicit_switch_type ""
       
       operation 130681 "monter"
-	public explicit_return_type ""
+	public explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -1171,7 +1221,7 @@ ${inlines}
       end
 
       operation 134576 "descendre"
-	public explicit_return_type ""
+	public explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -1203,13 +1253,28 @@ ${inlines}
       end
 
       attribute 128705 "pIcan"
-	private explicit_type ""
+	private type class_ref 154767 // InterfaceCAN
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
 	php_decl ""
 	python_decl ""
 	idl_decl ""
+      end
+
+      operation 154433 "CageAscenseur"
+	public explicit_return_type ""
+	nparams 1
+	  param in name "pIcan" type class_ref 154767 // InterfaceCAN
+	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} & ${p0}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}const ${t0} & ${p0}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
       end
     end
 
@@ -1226,7 +1291,7 @@ ${inlines}
       explicit_switch_type ""
       
       operation 129529 "ouvrir"
-	public explicit_return_type ""
+	public explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -1240,7 +1305,7 @@ ${inlines}
       end
 
       operation 132601 "fermer"
-	public explicit_return_type ""
+	public explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -1272,13 +1337,28 @@ ${inlines}
       end
 
       attribute 128577 "pIcan"
-	private explicit_type ""
+	private type class_ref 154767 // InterfaceCAN
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
 	php_decl ""
 	python_decl ""
 	idl_decl ""
+      end
+
+      operation 154561 "Grille"
+	public explicit_return_type ""
+	nparams 1
+	  param in name "pIcan" type class_ref 154767 // InterfaceCAN
+	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} & ${p0}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}const ${t0} & ${p0}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
       end
     end
 
@@ -1295,7 +1375,7 @@ ${inlines}
       explicit_switch_type ""
       
       operation 130041 "LireCapteurSurcharge"
-	public explicit_return_type ""
+	public explicit_return_type "bool"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -1309,7 +1389,7 @@ ${inlines}
       end
 
       operation 130169 "LireCapteurTemperature"
-	public explicit_return_type ""
+	public explicit_return_type "bool"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -1323,7 +1403,7 @@ ${inlines}
       end
 
       operation 130297 "LireCapteurNiveauHuile"
-	public explicit_return_type ""
+	public explicit_return_type "float"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -1337,7 +1417,7 @@ ${inlines}
       end
 
       operation 131321 "LireCapteurNiveauCanalAval"
-	public explicit_return_type ""
+	public explicit_return_type "float"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -1351,7 +1431,7 @@ ${inlines}
       end
 
       operation 130937 "LireCapteurNiveauCanalAmont"
-	public explicit_return_type ""
+	public explicit_return_type "float"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -1365,7 +1445,7 @@ ${inlines}
       end
 
       operation 133113 "LireCapteurFinDeCourseGrilleHaut"
-	public explicit_return_type ""
+	public explicit_return_type "bool"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -1379,7 +1459,7 @@ ${inlines}
       end
 
       operation 131577 "LireCapteurFinDeCourseGrilleBas"
-	public explicit_return_type ""
+	public explicit_return_type "bool"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -1393,7 +1473,7 @@ ${inlines}
       end
 
       operation 131833 "LireCapteurPositionAscenseurHaute"
-	public explicit_return_type ""
+	public explicit_return_type "bool"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -1407,7 +1487,7 @@ ${inlines}
       end
 
       operation 147632 "LireCapteurPositionAscenseurBasse"
-	public explicit_return_type ""
+	public explicit_return_type "bool"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -1421,7 +1501,7 @@ ${inlines}
       end
 
       operation 128193 "LireConfirmationMarchePompe"
-	public explicit_return_type ""
+	public explicit_return_type "bool"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -1435,7 +1515,7 @@ ${inlines}
       end
 
       operation 134721 "LireDetecteurHautVanne"
-	public explicit_return_type ""
+	public explicit_return_type "bool"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -1449,7 +1529,7 @@ ${inlines}
       end
 
       operation 141249 "LireConfirmationMarcheCentrale"
-	public explicit_return_type ""
+	public explicit_return_type "bool"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -1463,7 +1543,7 @@ ${inlines}
       end
 
       operation 147777 "LireCapteurPosition"
-	public explicit_return_type ""
+	public explicit_return_type "bool"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -1504,13 +1584,28 @@ ${inlines}
       end
 
       attribute 128065 "pIcan"
-	private explicit_type ""
+	private type class_ref 154767 // InterfaceCAN
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
 	php_decl ""
 	python_decl ""
 	idl_decl ""
+      end
+
+      operation 154305 "Capteurs"
+	public explicit_return_type ""
+	nparams 1
+	  param in name "pIcan" type class_ref 154767 // InterfaceCAN
+	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} & ${p0}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}const ${t0} & ${p0}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
       end
     end
 
@@ -2359,11 +2454,14 @@ ${inlines}
       explicit_switch_type ""
       
       operation 183183 "lireEtat"
-	public explicit_return_type ""
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+	public explicit_return_type "float"
+	nparams 3
+	  param in name "IdTrame" explicit_type "ulong"
+	  param in name "TailleDonnee" explicit_type "ushort"
+	  param in name "Donnee" explicit_type "uchar"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -2373,11 +2471,14 @@ ${inlines}
       end
 
       operation 128065 "lireValeur"
-	public explicit_return_type ""
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+	public explicit_return_type "float"
+	nparams 3
+	  param in name "IdTrame" explicit_type "ulong"
+	  param in name "TailleDonnee" explicit_type "ushort"
+	  param in name "Donnee" explicit_type "uchar"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -2387,11 +2488,14 @@ ${inlines}
       end
 
       operation 183311 "ecrireDonnees"
-	public explicit_return_type ""
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+	public explicit_return_type "short"
+	nparams 3
+	  param in name "IdTrame" explicit_type "ulong"
+	  param in name "TailleDonnee" explicit_type "ushort"
+	  param in name "Donnee" explicit_type "uchar"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	

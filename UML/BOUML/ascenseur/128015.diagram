@@ -44,7 +44,7 @@ end
 msg 128193 synchronous
   from durationcanvas_ref 129935
   to durationcanvas_ref 128065
-  yz 125 2015 msg operation_ref 183183 // "lireEtat()"
+  yz 125 2015 msg operation_ref 183183 // "lireEtat(in IdTrame : ulong, in TailleDonnee : ushort, in Donnee : uchar) : float"
   show_full_operations_definition default drawing_language default show_context_mode default
   args "IdTrame,DetecteurBasVanne"
   label_xy 380 110
@@ -56,9 +56,10 @@ msg 128577 return
 msg 129167 synchronous
   from durationcanvas_ref 129423
   to durationcanvas_ref 129039
-  yz 84 2015 msg operation_ref 131193 // "ouvrir()"
+  yz 84 2015 msg operation_ref 131193 // "ouvrir() : void"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 76 71
+  args "@capteurs"
+  label_xy 60 70
 msg 129345 return
   from durationcanvas_ref 129935
   to durationcanvas_ref 129039
@@ -68,7 +69,7 @@ msg 129345 return
 msg 129601 synchronous
   from durationcanvas_ref 129039
   to durationcanvas_ref 129473
-  yz 256 2015 msg operation_ref 183311 // "ecrireDonnees()"
+  yz 256 2015 msg operation_ref 183311 // "ecrireDonnees(in IdTrame : ulong, in TailleDonnee : ushort, in Donnee : uchar) : short"
   show_full_operations_definition default drawing_language default show_context_mode default
   args "IdTrame,OUVRIR_VANNE"
   label_xy 237 241
@@ -87,7 +88,7 @@ msg 129985 return
 msg 130063 synchronous
   from durationcanvas_ref 129039
   to durationcanvas_ref 129935
-  yz 110 2015 msg operation_ref 131321 // "LireCapteurNiveauCanalAval()"
+  yz 110 2015 msg operation_ref 131321 // "LireCapteurNiveauCanalAval() : float"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 184 96
 msg 130497 return
