@@ -22,7 +22,7 @@ class SeanceDlg : public QWidget
     Seance *pSeance;
 
 public:
-    explicit SeanceDlg(QWidget *parent = 0, Seance *ptSeance = 0);
+    explicit SeanceDlg(QWidget *parent = 0, Seance *seance = 0);
     
 private:
     QVBoxLayout *vbox, *vboxTempsPeche, *vboxTempsVidange;

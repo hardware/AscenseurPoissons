@@ -21,7 +21,7 @@ class JournalDlg : public QWidget
     Seance *pSeance;
 
 public:
-    explicit JournalDlg(QWidget *parent = 0, Seance *ptSeance = 0);
+    explicit JournalDlg(QWidget *parent = 0, Seance *seance = 0);
     
 private:
     QStringList listeLignes;

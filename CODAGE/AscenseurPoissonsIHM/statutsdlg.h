@@ -57,7 +57,7 @@ public:
            *LBVoyantDefautHuile;
 
 
-    explicit StatutsDlg(QWidget *parent = 0, Seance *ptSeance = 0);
+    explicit StatutsDlg(QWidget *parent = 0, Seance *seance = 0);
 
 signals:
     

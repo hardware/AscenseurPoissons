@@ -14,7 +14,7 @@
 
 class Seance
 {
-     InterfaceCAN iCan;
+
 
      Pompe *pPompe;
      CentraleHydraulique *pCentrale;
@@ -23,9 +23,10 @@ class Seance
      Grille *pGrille;
      Capteurs *pCapteurs;
 
-     QSettings *params;
 
      int PV, GV, tempsPeche, tempsVidange, nbCycles, periodicite;
+     QSettings *params;
+     InterfaceCAN iCan;
 
 public:
 
