@@ -48,7 +48,7 @@ end
 msg 128193 synchronous
   from durationcanvas_ref 129145
   to durationcanvas_ref 128065
-  yz 126 2020 msg operation_ref 128065 // "lireValeur()"
+  yz 126 2020 msg operation_ref 128065 // "lireValeur(in idCanal : HANDLE, in idTrame : ulong, in messageCAN : t_CANevent) : float"
   show_full_operations_definition default drawing_language default show_context_mode default
   args "IdTrame, ValeurCanal"
   label_xy 430 111
@@ -66,14 +66,14 @@ msg 128577 return
 msg 128894 synchronous
   from durationcanvas_ref 128889
   to durationcanvas_ref 128766
-  yz 314 2015 msg operation_ref 183311 // "ecrireDonnees()"
+  yz 314 2015 msg operation_ref 183311 // "ecrireDonnees(in idCanal : HANDLE, in idTrame : ulong, in tailleDonnee : ushort, in donnee : uchar) : short"
   show_full_operations_definition default drawing_language default show_context_mode default
   args "idTrame, MARCHE_POMPE"
   label_xy 289 299
 msg 129017 synchronous
   from durationcanvas_ref 128761
   to durationcanvas_ref 128889
-  yz 90 2015 msg operation_ref 128121 // "demarrer()"
+  yz 90 2015 msg operation_ref 128121 // "demarrer(in pCapteurs : Capteurs) : void"
   show_full_operations_definition default drawing_language default show_context_mode default
   args "@capteurs"
   label_xy 56 77
@@ -86,7 +86,7 @@ msg 129150 synchronous
 msg 129273 synchronous
   from durationcanvas_ref 128889
   to durationcanvas_ref 129145
-  yz 108 2015 msg operation_ref 130937 // "LireCapteurNiveauCanalAmont()"
+  yz 108 2015 msg operation_ref 130937 // "LireCapteurNiveauCanalAmont() : float"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 223 97
 msg 129406 return

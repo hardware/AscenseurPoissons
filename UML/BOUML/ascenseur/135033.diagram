@@ -84,7 +84,7 @@ end
 msg 128399 synchronous
   from durationcanvas_ref 128761
   to durationcanvas_ref 128271
-  yz 730 2015 msg operation_ref 128015 // "arreter()"
+  yz 730 2015 msg operation_ref 128015 // "arreter() : void"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 436 720
 msg 129017 synchronous
@@ -96,19 +96,19 @@ msg 129017 synchronous
 msg 129273 synchronous
   from durationcanvas_ref 128761
   to durationcanvas_ref 129145
-  yz 187 2015 msg operation_ref 129017 // "arreter()"
+  yz 187 2015 explicitmsg "<deleted operation>"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 461 177
 msg 129529 synchronous
   from durationcanvas_ref 128761
   to durationcanvas_ref 129401
-  yz 285 2025 msg operation_ref 134576 // "descendre()"
+  yz 285 2025 msg operation_ref 134576 // "descendre() : void"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 547 276
 msg 129785 synchronous
   from durationcanvas_ref 128761
   to durationcanvas_ref 129657
-  yz 313 2025 msg operation_ref 129529 // "ouvrir()"
+  yz 313 2025 msg operation_ref 129529 // "ouvrir() : void"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 215 300
 reflexivemsg 130041 synchronous
@@ -119,7 +119,7 @@ reflexivemsg 130041 synchronous
 msg 130297 synchronous
   from durationcanvas_ref 128761
   to durationcanvas_ref 130169
-  yz 423 2025 msg operation_ref 129529 // "ouvrir()"
+  yz 423 2025 msg operation_ref 129529 // "ouvrir() : void"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 217 410
 reflexivemsg 130553 synchronous
@@ -135,19 +135,19 @@ reflexivemsg 132473 synchronous
 msg 132985 synchronous
   from durationcanvas_ref 128761
   to durationcanvas_ref 132857
-  yz 516 2015 msg operation_ref 129017 // "arreter()"
+  yz 516 2015 explicitmsg "<deleted operation>"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 459 508
 msg 133241 synchronous
   from durationcanvas_ref 128761
   to durationcanvas_ref 133113
-  yz 574 2015 msg operation_ref 129017 // "arreter()"
+  yz 574 2015 explicitmsg "<deleted operation>"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 459 566
 msg 133497 synchronous
   from durationcanvas_ref 128761
   to durationcanvas_ref 133369
-  yz 661 2015 msg operation_ref 129017 // "arreter()"
+  yz 661 2015 explicitmsg "<deleted operation>"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 459 652
 reflexivemsg 133753 synchronous

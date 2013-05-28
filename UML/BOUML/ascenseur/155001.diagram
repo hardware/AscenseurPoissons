@@ -34,20 +34,20 @@ msg 128126 return
 msg 128449 synchronous
   from durationcanvas_ref 129401
   to durationcanvas_ref 128321
-  yz 101 2015 msg operation_ref 128193 // "LireConfirmationMarchePompe()"
+  yz 101 2015 msg operation_ref 128193 // "LireConfirmationMarchePompe() : bool"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 234 85
 msg 129729 synchronous
   from durationcanvas_ref 128321
   to durationcanvas_ref 129601
-  yz 134 2015 msg operation_ref 183183 // "lireEtat()"
+  yz 134 2015 msg operation_ref 183183 // "lireEtat(in IdTrame : ulong, in TailleDonnee : ushort, in Donnee : uchar) : float"
   show_full_operations_definition default drawing_language default show_context_mode default
   args "IdTrame,MarchePompe"
   label_xy 454 119
 msg 129785 synchronous
   from durationcanvas_ref 129145
   to durationcanvas_ref 129401
-  yz 67 2015 msg operation_ref 128126 // "detecterArret()"
+  yz 67 2015 msg operation_ref 128126 // "detecterArret(in pCapteurs : Capteurs) : bool"
   show_full_operations_definition default drawing_language default show_context_mode default
   args "@capteurs"
   label_xy 46 53

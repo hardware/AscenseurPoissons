@@ -91,14 +91,14 @@ reflexivemsg 129273 synchronous
 msg 129657 synchronous
   from durationcanvas_ref 128505
   to durationcanvas_ref 129529
-  yz 313 2015 msg operation_ref 130681 // "monter()"
+  yz 313 2015 msg operation_ref 130681 // "monter(in pCapteurs : Capteurs) : void"
   show_full_operations_definition default drawing_language default show_context_mode default
   args "PV,GV"
   label_xy 523 302
 msg 129913 synchronous
   from durationcanvas_ref 128505
   to durationcanvas_ref 129785
-  yz 350 2015 msg operation_ref 129529 // "ouvrir()"
+  yz 350 2015 msg operation_ref 129529 // "ouvrir() : void"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 278 338
 reflexivemsg 130169 synchronous
@@ -125,14 +125,14 @@ reflexivemsg 130937 synchronous
 msg 131321 synchronous
   from durationcanvas_ref 128505
   to durationcanvas_ref 131193
-  yz 647 2015 msg operation_ref 134576 // "descendre()"
+  yz 647 2015 msg operation_ref 134576 // "descendre() : void"
   show_full_operations_definition default drawing_language default show_context_mode default
   args "PV, GV"
   label_xy 505 657
 msg 131577 synchronous
   from durationcanvas_ref 128505
   to durationcanvas_ref 131449
-  yz 711 2015 msg operation_ref 129529 // "ouvrir()"
+  yz 711 2015 msg operation_ref 129529 // "ouvrir() : void"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 267 701
 reflexivemsg 131833 synchronous

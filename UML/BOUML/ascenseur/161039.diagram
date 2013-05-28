@@ -16,7 +16,21 @@ classcanvas 128015 class_ref 141455 // SeanceDlg
     operation_ref 190991 // diminuerTempsVidange
     operation_ref 191119 // diminuerNombreCycles
     operation_ref 191247 // diminuerPeriodicite
-  xyz 159 238 2000
+  xyz 481 462 2000
+end
+classcanvas 128065 class_ref 128121 // Seance
+  draw_all_relations default hide_attributes no hide_operations no hide_getset_operations no show_members_full_definition yes show_members_visibility yes show_members_stereotype yes show_members_context default show_members_multiplicity default show_members_initialization yes show_attribute_modifiers yes member_max_width 0 show_parameter_dir yes show_parameter_name yes package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  color lightblue
+  hidden_operations
+    operation_ref 128377 // recuperer
+    operation_ref 128249 // lancerAutomatisation
+    operation_ref 130425 // arreterAutomatisation
+    operation_ref 128761 // realiserSeance
+    operation_ref 132217 // effectuerUnCycle
+    operation_ref 129401 // attendreFinMontee
+    operation_ref 129657 // attendreTempsVidange
+    operation_ref 130553 // controlerTempsDePeche
+  xyzwh 42 563 2000 653 369
 end
 classcanvas 128143 class_ref 128121 // Seance
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
@@ -24,7 +38,6 @@ classcanvas 128143 class_ref 128121 // Seance
     attribute_ref 128015 // iCan
   hidden_operations
     operation_ref 128377 // recuperer
-    operation_ref 148239 // genererNomSeance
     operation_ref 128249 // lancerAutomatisation
     operation_ref 130425 // arreterAutomatisation
     operation_ref 128761 // realiserSeance
@@ -35,7 +48,7 @@ classcanvas 128143 class_ref 128121 // Seance
     operation_ref 132473 // controlerParametres
     operation_ref 155023 // commanderAppareillage
     operation_ref 141104 // TesterAppareillages
-  xyzwh 357 21 2000 137 187
+  xyzwh 355 21 2000 137 283
 end
 classcanvas 128271 class_ref 148239 // JournalDlg
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
@@ -50,12 +63,12 @@ end
 relationcanvas 128527 relation_ref 158607 // <directional aggregation>
   from ref 128271 z 2001 to ref 128143
   no_role_a no_role_b
-  multiplicity_a_pos 503 188 3000 multiplicity_b_pos 543 248 3000
+  multiplicity_a_pos 501 217 3000 multiplicity_b_pos 543 259 3000
 end
 relationcanvas 128911 relation_ref 158479 // <directional aggregation>
   from ref 128015 z 2001 to ref 128143
   no_role_a no_role_b
-  multiplicity_a_pos 339 167 3000 multiplicity_b_pos 286 236 3000
+  multiplicity_a_pos 462 310 3000 multiplicity_b_pos 518 441 3000
 end
 relationcanvas 129039 relation_ref 141967 // <unidirectional association>
   from ref 128015 z 2001 to ref 128143

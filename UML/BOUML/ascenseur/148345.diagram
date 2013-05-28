@@ -54,7 +54,7 @@ end
 msg 128761 synchronous
   from durationcanvas_ref 128505
   to durationcanvas_ref 128633
-  yz 147 2015 msg operation_ref 130041 // "LireCapteurSurcharge()"
+  yz 147 2015 msg operation_ref 130041 // "LireCapteurSurcharge() : bool"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 259 135
 msg 129017 synchronous
@@ -72,7 +72,7 @@ msg 129145 return
 msg 129401 synchronous
   from durationcanvas_ref 128505
   to durationcanvas_ref 129273
-  yz 266 2015 msg operation_ref 130169 // "LireCapteurTemperature()"
+  yz 266 2015 msg operation_ref 130169 // "LireCapteurTemperature() : bool"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 253 254
 msg 129657 synchronous
@@ -90,7 +90,7 @@ msg 129785 return
 msg 130041 synchronous
   from durationcanvas_ref 128505
   to durationcanvas_ref 129913
-  yz 376 2015 msg operation_ref 130297 // "LireCapteurNiveauHuile()"
+  yz 376 2015 msg operation_ref 130297 // "LireCapteurNiveauHuile() : float"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 255 365
 msg 130297 synchronous
@@ -118,7 +118,7 @@ reflexivemsg 130937 synchronous
 msg 131449 synchronous
   from durationcanvas_ref 128505
   to durationcanvas_ref 131321
-  yz 509 2015 msg operation_ref 131321 // "LireCapteurNiveauCanalAval()"
+  yz 509 2015 msg operation_ref 131321 // "LireCapteurNiveauCanalAval() : float"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 242 498
 msg 131705 synchronous
@@ -136,7 +136,7 @@ msg 131833 return
 msg 132089 synchronous
   from durationcanvas_ref 128505
   to durationcanvas_ref 131961
-  yz 662 2015 msg operation_ref 130937 // "LireCapteurNiveauCanalAmont()"
+  yz 662 2015 msg operation_ref 130937 // "LireCapteurNiveauCanalAmont() : float"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 232 649
 msg 132345 synchronous
