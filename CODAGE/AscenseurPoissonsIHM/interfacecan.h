@@ -6,6 +6,7 @@
 #include <stdio.h>
 
 #include "Canpcex.h"
+#include "types.h"
 
 class InterfaceCAN
 {
@@ -20,14 +21,22 @@ class InterfaceCAN
     t_CardData donneeCarte;
     t_Interface typeInterface;
 
-    unsigned long idTrame;
-    unsigned char donnees;
+    ulong idTrame;
+    uchar donnees;
 
 public:
     InterfaceCAN();
-    float lireEtat(unsigned long IdTrame,unsigned short TailleDonnee,unsigned char Donnee);
-    float lireValeur(unsigned long IdTrame,unsigned short TailleDonnee,unsigned char Donnee);
-    short ecrireDonnees(unsigned long IdTrame,unsigned short TailleDonnee,unsigned char Donnee);
+
+    bool demarrerControleur(HANDLE idCanal);
+    bool initialiserControleur(HANDLE idCanal, t_CANbusParams *parametresBUS, t_CANaddressing *adressageCAN, t_CANpadding *padding);
+    bool initialiserModeFonctionnement(HANDLE idCanal, t_Interface *type);
+    bool initialiserIdentificateur(HANDLE idCanal, t_CANobj messageCAN);
+    bool configurerEvenement(HANDLE idCanal, HANDLE idEvenement, ulong identificateurCAN);
+    bool ouvrirCanal(HANDLE idCanal, short indexCanal);
+    bool fermerCanal(HANDLE idCanal);
+    bool ecrireDonnee(HANDLE idCanal, ulong idTrame, ushort tailleDonnee, uchar donnees);
+    bool lireEtat(HANDLE idCanal, ulong idTrame, t_CANevent *messageCAN);
+    float lireValeur(HANDLE idCanal, ulong idTrame, t_CANevent *messageCAN);
 };
 
 #endif // INTERFACECAN_H

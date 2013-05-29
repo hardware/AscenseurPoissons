@@ -47,5 +47,4 @@ const int PERIODICITE_MAX = 24;
 const int PERIODICITE_MIN = 1;
 const int PERIODICITE_OFFSET = 1;
 
-
 #endif // TYPES_H
