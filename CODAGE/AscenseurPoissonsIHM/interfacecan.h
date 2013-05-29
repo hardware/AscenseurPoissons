@@ -10,6 +10,19 @@
 class InterfaceCAN
 {
 
+    HANDLE hMutex;
+    HANDLE idCanal;
+    HANDLE idEvenement;
+    DWORD threadId;
+
+    t_CANobj messageCAN;
+    t_CANbusParams parametresBUS;
+    t_CardData donneeCarte;
+    t_Interface typeInterface;
+
+    unsigned long idTrame;
+    unsigned char donnees;
+
 public:
     InterfaceCAN();
     float lireEtat(unsigned long IdTrame,unsigned short TailleDonnee,unsigned char Donnee);

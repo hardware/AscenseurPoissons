@@ -33,7 +33,7 @@ private:
 
 public slots:
     void afficherLog(QListWidgetItem *item);
-    void ajouterLog(QString ligne, QString niveau);
+    bool ajouterLog(QString ligne, QString niveau);
     void trierListe(QString &niveau);
     QStringList LireFichierLog();
 

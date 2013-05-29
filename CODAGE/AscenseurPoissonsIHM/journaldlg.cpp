@@ -40,7 +40,7 @@ void JournalDlg::afficherLog(QListWidgetItem *item)
 QStringList JournalDlg::LireFichierLog()
 {
     QString ligne;
-    QFile file(QApplication::applicationDirPath() + "/logs.txt");
+    QFile file(QApplication::applicationDirPath() + "/journal.log");
 
     if (file.open(QIODevice::ReadOnly | QIODevice::Text))
     {
@@ -58,9 +58,9 @@ QStringList JournalDlg::LireFichierLog()
     return listeLignes;
 }
 
-void JournalDlg::ajouterLog(QString ligne, QString niveau)
+bool JournalDlg::ajouterLog(QString ligne, QString niveau)
 {
-     QFile file(QApplication::applicationDirPath() + "/logs.txt");
+     QFile file(QApplication::applicationDirPath() + "/journal.log");
 
      if (file.open(QFile::Append | QFile::Text))
      {
@@ -71,6 +71,12 @@ void JournalDlg::ajouterLog(QString ligne, QString niveau)
 
         listeLignes.push_back(ligne);
         LWLogs->addItem(ligne);
+
+        return true;
+     }
+     else
+     {
+         return false;
      }
 }
 
