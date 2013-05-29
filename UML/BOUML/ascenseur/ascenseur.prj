@@ -1,7 +1,7 @@
 format 75
 "ascenseur"
-  revision 79
-  modified_by 65 ""
+  revision 80
+  modified_by 15 "Hardware"
 
 
   
@@ -546,11 +546,6 @@ ${inlines}
       size A4
     end
 
-    classdiagram 161039 "Diagramme de classes : Archivage"
-      draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
-      size A4
-    end
-
     classdiagram 161167 "Diagramme de classes : IHM"
       draw_all_relations no hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
       size A4
@@ -562,7 +557,7 @@ ${inlines}
     end
 
     classdiagram 141121 "Diagramme de classes : InterfaceCAN"
-      draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+      draw_all_relations no hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
       size A4
     end
 
@@ -846,11 +841,11 @@ ${inlines}
 
       classrelation 144399 // <directional aggregation>
 	relation 144271 o-->
-	  a role_name "" multiplicity "1" private
+	  a role_name "" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 144399 // <directional aggregation>
-	  b multiplicity "1" parent class_ref 135161 // Capteurs
+	  b parent class_ref 135161 // Capteurs
       end
 
       attribute 128015 "iCan"
@@ -991,6 +986,51 @@ ${inlines}
 	php_decl ""
 	python_decl ""
 	idl_decl ""
+      end
+
+      classrelation 181903 // <directional aggregation>
+	relation 181775 o-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 181903 // <directional aggregation>
+	  b parent class_ref 128505 // CageAscenseur
+      end
+
+      classrelation 182031 // <directional aggregation>
+	relation 181903 o-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 182031 // <directional aggregation>
+	  b parent class_ref 128377 // VanneAttrait
+      end
+
+      classrelation 182159 // <directional aggregation>
+	relation 182031 o-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 182159 // <directional aggregation>
+	  b parent class_ref 128249 // Pompe
+      end
+
+      classrelation 182287 // <directional aggregation>
+	relation 182159 o-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 182287 // <directional aggregation>
+	  b parent class_ref 134543 // CentraleHydraulique
+      end
+
+      classrelation 182415 // <directional aggregation>
+	relation 182287 o-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 182415 // <directional aggregation>
+	  b parent class_ref 128633 // Grille
       end
     end
 

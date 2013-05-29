@@ -15,7 +15,7 @@ classcanvas 128015 class_ref 141071 // IHM
   xyzwh 384 566 2000 69 53
 end
 classcanvas 128143 class_ref 128121 // Seance
-  draw_all_relations default hide_attributes no hide_operations yes hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  draw_all_relations default hide_attributes yes hide_operations yes hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
   hidden_attributes
     attribute_ref 128015 // iCan
     attribute_ref 128143 // params
@@ -45,7 +45,7 @@ classcanvas 129039 class_ref 128249 // Pompe
   xyz 460 132 2000
 end
 classcanvas 129167 class_ref 154767 // InterfaceCAN
-  draw_all_relations default hide_attributes default hide_operations yes hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  draw_all_relations default hide_attributes yes hide_operations yes hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
   color lightmediumblue
   xyz 371 7 2000
 end
@@ -115,7 +115,7 @@ note 135311 "CLASSES REPRESENTANT LES APPAREILLAGES"
 note 135439 "CLASSES REPRESENTANT LES ONGLETS DE L'INTERFACE"
   color lightorange  xyzwh 478 725 2000 361 35
 fragment 136207 "Objets du domaine"
-  xyzwh 20 89 2000 814 210
+  xyzwh 19 73 2000 814 210
 end
 note 136463 "Classe d'interface matérielle"
   color lightmediumblue  xyzwh 168 5 2024 177 35
@@ -138,37 +138,37 @@ end
 relationcanvas 129423 relation_ref 135183 // <directional aggregation>
   from ref 128143 z 2001 to ref 129039
   no_role_a no_role_b
-  multiplicity_a_pos 471 181 3000 multiplicity_b_pos 440 227 3000
+  multiplicity_a_pos 451 177 3000 multiplicity_b_pos 411 233 3000
 end
 relationcanvas 132239 relation_ref 142991 // <directional aggregation>
   from ref 128143 z 2001 to ref 131727
   no_role_a no_role_b
-  multiplicity_a_pos 350 180 3000 multiplicity_b_pos 379 231 3000
+  multiplicity_a_pos 340 177 3000 multiplicity_b_pos 380 233 3000
 end
 relationcanvas 133391 relation_ref 143887 // <directional aggregation>
   from ref 128143 z 2001 to ref 131599
   no_role_a no_role_b
-  multiplicity_a_pos 563 179 3000 multiplicity_b_pos 454 245 3000
+  multiplicity_a_pos 554 171 3000 multiplicity_b_pos 451 255 3000
 end
 relationcanvas 133519 relation_ref 144015 // <directional aggregation>
   decenter_begin 358
   from ref 128143 z 2001 to ref 131983
   no_role_a no_role_b
-  multiplicity_a_pos 707 163 3000 multiplicity_b_pos 456 265 3000
+  multiplicity_a_pos 707 163 3000 multiplicity_b_pos 451 271 3000
 end
 relationcanvas 133647 relation_ref 144143 // <directional aggregation>
   from ref 128143 z 2006 to ref 131855
   no_role_a no_role_b
-  multiplicity_a_pos 260 178 3000 multiplicity_b_pos 365 270 3000
+  multiplicity_a_pos 263 182 3000 multiplicity_b_pos 369 267 3000
 end
 relationcanvas 133775 relation_ref 144271 // <directional aggregation>
   from ref 128143 z 2019 to point 371 265
   line 133903 z 2019 to ref 132111
   no_role_a no_role_b
-  multiplicity_a_pos 149 174 3000 multiplicity_b_pos 364 247 3000
+  no_multiplicity_a no_multiplicity_b
 end
 relationcanvas 134031 relation_ref 150799 // <directional aggregation>
-  decenter_begin 829
+  decenter_begin 828
   from ref 128015 z 2001 to ref 128399
   no_role_a no_role_b
   multiplicity_a_pos 134 432 3000 multiplicity_b_pos 366 623 3000
