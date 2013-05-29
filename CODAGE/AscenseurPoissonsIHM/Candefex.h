@@ -69,9 +69,9 @@ Ce fichier contient les definitions :
     // Mode de l'interface
 	typedef enum
 	{                 
-		_BUFFER		= 1,		/* Buffer	*/
-		_FIFO		= 2,		/* Fifo		*/
-		_ANALYSE	= 3			/* Analyse  */
+        _BUFFER		= 1, /* Buffer	*/
+        _FIFO		= 2, /* Fifo	*/
+        _ANALYSE	= 3	 /* Analyse */
 	} t_Interface;
 
     // Informations de configuration d'une carte
@@ -168,7 +168,7 @@ typedef enum
 	_CAN_STD = 0,			/* Standard 11 bits */
 	_CAN_EXT = 1,			/* Extended 29 bits */
 	_CAN_ALL = 2
-} t_CANidentType;
+} evenidentType;
 
 // Mode d'adressage pour Diag On CAN
 typedef enum

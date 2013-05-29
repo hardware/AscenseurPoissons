@@ -34,7 +34,7 @@ public:
     bool configurerEvenement(HANDLE idCanal, HANDLE idEvenement, ulong identificateurCAN);
     bool ouvrirCanal(HANDLE idCanal, short indexCanal);
     bool fermerCanal(HANDLE idCanal);
-    bool ecrireDonnee(HANDLE idCanal, ulong idTrame, ushort tailleDonnee, uchar donnees);
+    bool ecrireDonnee(HANDLE idCanal, ulong idTrame, ushort tailleDonnee, uchar *donnees);
     bool lireEtat(HANDLE idCanal, ulong idTrame, t_CANevent *messageCAN);
     float lireValeur(HANDLE idCanal, ulong idTrame, t_CANevent *messageCAN);
 };
