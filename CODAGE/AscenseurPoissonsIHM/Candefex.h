@@ -58,7 +58,6 @@ Ce fichier contient les definitions :
 	#define _UNKNOWN_PERIOD		0x0062
 	#define _PERIODIC_OVERFLOW	0x0063
 	#define _INVALID_OP			0x0081
-	#define _DRV_PARAM_ERR		0x00F0
 
 	#define _USB_ERR			0x00F1
 	#define _BOARD_TIMEOUT		0x00F2
