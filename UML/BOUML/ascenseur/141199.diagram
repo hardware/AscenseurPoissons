@@ -2,23 +2,23 @@ format 75
 
 packagecanvas 128015 
   package_ref 128015 // IHM
-    xyzwh 49 195 2000 65 75
+   color lightmediumblue  xyzwh 49 195 2000 69 75
 end
 packagecanvas 128143 
   package_ref 128143 // SEANCE
-    xyzwh 286 194 2000 65 75
+   color lightmediumblue  xyzwh 286 194 2000 69 75
 end
 packagecanvas 128271 
   package_ref 128271 // ASCENSEUR
-    xyzwh 576 195 2000 97 75
+   color mediumgreen  xyzwh 576 195 2000 97 75
 end
 packagecanvas 128399 
-  package_ref 128399 // CAN_OPEN
-    xyzwh 587 340 2000 75 75
+  package_ref 128399 // CANOPEN
+   color mediumgreen  xyzwh 587 340 2000 75 75
 end
 packagecanvas 128527 
   package_ref 128527 // ARCHIVAGE
-    xyzwh 279 14 2000 77 75
+   color lightmediumblue  xyzwh 279 14 2000 77 75
 end
 simplerelationcanvas 128655 simplerelation_ref 134543
   from ref 128015 z 2001 to ref 128143

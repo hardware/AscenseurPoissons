@@ -1,21 +1,65 @@
 format 75
 
 deploymentnodecanvas 128015 deploymentnode_ref 128015 // PC EMBARQUE
-  xyzwh 224 47 2000 203 59
+  xyzwh 250 45 2000 203 59
+end
+deploymentnodecanvas 128048 deploymentnode_ref 128048 // CAPTEURS
+  xyzwh 44 642 2000 86 32
 end
 deploymentnodecanvas 128143 deploymentnode_ref 128143 // INTERFACE CAN
-  xyzwh 257 229 2000 139 39
+  xyzwh 283 229 2000 139 39
+end
+deploymentnodecanvas 128176 deploymentnode_ref 128176 // GRILLE
+  xyzwh 271 661 2000 64 32
+end
+deploymentnodecanvas 128304 deploymentnode_ref 128304 // VANNEATTRAIT
+  xyzwh 269 738 2000 108 32
+end
+deploymentnodecanvas 128432 deploymentnode_ref 128432 // CAGE
+  xyzwh 340 660 2000 54 32
+end
+deploymentnodecanvas 128560 deploymentnode_ref 128560 // POMPE
+  xyzwh 395 659 2000 63 32
 end
 deploymentnodecanvas 128655 deploymentnode_ref 128271 // COFFRET PECHEUR
-  xyzwh 125 439 2000 141 37
+  xyzwh 256 444 2000 141 37
+end
+deploymentnodecanvas 128688 deploymentnode_ref 128688 // CENTRALE HYDRAULIQUE
+  xyzwh 269 701 2000 174 32
 end
 deploymentnodecanvas 128783 deploymentnode_ref 128399 // SOMMET ASCENSEUR
-  xyzwh 371 442 2000 151 37
+  xyzwh 592 441 2000 161 39
+end
+deploymentnodecanvas 128816 deploymentnode_ref 128816 // MODULE ENTREES ANALOGIQUES
+  xyzwh -10 610 2000 231 71
+end
+deploymentnodecanvas 128944 deploymentnode_ref 128944 // MODULES ENTREES OU SORTIES TOR
+  xyzwh 235 625 0 291 157
+end
+deploymentnodecanvas 129328 deploymentnode_ref 129072 // MODULES ENTREES TOR
+  xyzwh 547 619 2000 168 97
+end
+deploymentnodecanvas 129456 deploymentnode_ref 129200 // BOUTONS
+  xyzwh 593 660 2000 81 33
+end
+deploymentnodecanvas 129584 deploymentnode_ref 129328 // MODULE SORTIES TOR
+  xyzwh 666 742 2000 155 89
+end
+deploymentnodecanvas 129712 deploymentnode_ref 129456 // VOYANTS
+  xyzwh 712 778 2000 75 32
 end
 line 128527 ----
-  from ref 128015 z 2001 stereotype "<<USB>>" xyz 333 159 3000 to ref 128143
+  from ref 128015 z 2001 stereotype "<<USB>>" xyz 359 158 3000 to ref 128143
 line 129039 ----
-  from ref 128143 z 2001 stereotype "<<CAN>>" xyz 182 338 3000 to ref 128655
+  from ref 128143 z 2001 stereotype "<<CAN>>" xyz 261 340.5 3000 to ref 128655
+line 129072 ----
+  from ref 128655 z 2001 to ref 128816
 line 129167 ----
-  from ref 128143 z 2001 stereotype "<<CAN>>" xyz 405.5 336 3000 to ref 128783
+  from ref 128143 z 2001 stereotype "<<CAN>>" xyz 532 335.5 3000 to ref 128783
+line 129200 ----
+  from ref 128655 z 2001 to ref 128944
+line 129840 ---- decenter_begin 231
+  from ref 128783 z 2001 to ref 129328
+line 129968 ---- decenter_begin 939
+  from ref 128783 z 2001 to ref 129584
 end

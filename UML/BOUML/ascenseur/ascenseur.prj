@@ -1,7 +1,7 @@
 format 75
 "ascenseur"
-  revision 80
-  modified_by 15 "Hardware"
+  revision 81
+  modified_by 48 "Hardware"
 
 
   
@@ -3309,6 +3309,42 @@ OuvrirGrille()"
     end
 
     deploymentnode 128399 "SOMMET ASCENSEUR"
+    end
+
+    deploymentnode 128048 "CAPTEURS"
+    end
+
+    deploymentnode 128176 "GRILLE"
+    end
+
+    deploymentnode 128304 "VANNEATTRAIT"
+    end
+
+    deploymentnode 128432 "CAGE"
+    end
+
+    deploymentnode 128560 "POMPE"
+    end
+
+    deploymentnode 128688 "CENTRALE HYDRAULIQUE"
+    end
+
+    deploymentnode 128816 "MODULE ENTREES ANALOGIQUES"
+    end
+
+    deploymentnode 128944 "MODULES ENTREES OU SORTIES TOR"
+    end
+
+    deploymentnode 129072 "MODULES ENTREES TOR"
+    end
+
+    deploymentnode 129200 "BOUTONS"
+    end
+
+    deploymentnode 129328 "MODULE SORTIES TOR"
+    end
+
+    deploymentnode 129456 "VOYANTS"
     end
   end
 
