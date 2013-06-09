@@ -168,7 +168,7 @@ typedef enum
 	_CAN_STD = 0,			/* Standard 11 bits */
 	_CAN_EXT = 1,			/* Extended 29 bits */
 	_CAN_ALL = 2
-} evenidentType;
+} t_CANidentType;
 
 // Mode d'adressage pour Diag On CAN
 typedef enum
