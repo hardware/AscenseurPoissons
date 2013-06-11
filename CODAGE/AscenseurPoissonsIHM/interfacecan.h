@@ -1,4 +1,4 @@
-#ifndef INTERFACECAN_H
+﻿#ifndef INTERFACECAN_H
 #define INTERFACECAN_H
 
 #include <windows.h>
@@ -7,8 +7,6 @@
 
 #include "Canpcex.h"
 #include "types.h"
-
-#include "QDebug"
 
 class InterfaceCAN
 {
@@ -28,8 +26,6 @@ class InterfaceCAN
 
 public:
     InterfaceCAN();
-
-    char* getCode(short val);
 
     /*
     bool demarrerControleur(HANDLE idCanal);

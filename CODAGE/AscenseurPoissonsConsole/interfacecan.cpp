@@ -45,9 +45,29 @@ short InterfaceCAN::listeCanaux()
     return nbCanaux;
 }
 
-void InterfaceCAN::informationsPeripherique()
+void InterfaceCAN::getInfos()
 {
+    short DLL, DRV;
 
+    val = Ic_GetDeviceInfo(idCanal, &infosCarte);
+
+    if(val != _OK)
+        throw string("Ic_GetDeviceInfo : " + getCode(val));
+
+    cout << "- Nom : " << infosCarte.CAN_USB.productName << endl;
+    cout << "- Fabricant : " << infosCarte.CAN_USB.manufacturerName << endl;
+    cout << "- Numero de serie : " << infosCarte.CAN_USB.serialNumber << endl;
+
+    printf("- Version du firmware : %.2f \n", infosCarte.CAN_USB.firmwareVersion/100.0);
+    printf("- Version du materiel : %.2f \n", infosCarte.CAN_USB.hardwareVersion/100.0);
+
+    val = Ic_GetAPIinfo(idCanal, &DLL, &DRV, NULL);
+
+    if(val != _OK)
+        throw string("Ic_GetAPIinfo : " + getCode(val));
+
+    printf("- Version du driver : %.2f \n", DRV/100.0);
+    printf("- Version de la DLL : %.2f \n", DLL/100.0);
 }
 
 string InterfaceCAN::getCode(short val)

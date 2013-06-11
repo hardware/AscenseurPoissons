@@ -1,4 +1,4 @@
-#include "interfacecandlg.h"
+﻿#include "interfacecandlg.h"
 
 InterfaceCANDlg::InterfaceCANDlg() {}
 
@@ -16,11 +16,12 @@ void InterfaceCANDlg::run()
 
         cout << "[1] Ouvrir un canal" << endl;
         cout << "[2] Fermer le canal" << endl;
-        cout << "[3] Quitter\n\n";
+        cout << "[3] Afficher les informations du peripherique" << endl;
+        cout << "[4] Initialiser le controleur CAN (debit et echantillonnage)" << endl;
+        cout << "[5] Quitter\n\n";
 
         cout << "Votre choix ? ";
         cin >> choix;
-
         cout << endl;
 
         switch(choix)
@@ -66,6 +67,17 @@ void InterfaceCANDlg::run()
 
             break;
         case 3:
+            try {
+                cout << "INFORMATIONS SUR LE PERIPHERIQUE : " << endl;
+                iCan.getInfos();
+            }
+            catch(const std::string &e)
+            {
+                cout << "(!!) Une erreur est survenue ---> " << e;
+            }
+
+            break;
+        case 5:
             quitter = 1;
             break;
         }

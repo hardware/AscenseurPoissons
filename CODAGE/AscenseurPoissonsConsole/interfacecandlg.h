@@ -1,4 +1,4 @@
-#ifndef INTERFACECANDLG_H
+﻿#ifndef INTERFACECANDLG_H
 #define INTERFACECANDLG_H
 
 #include <iostream>

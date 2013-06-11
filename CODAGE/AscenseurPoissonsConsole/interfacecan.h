@@ -1,4 +1,4 @@
-#ifndef INTERFACECAN_H
+﻿#ifndef INTERFACECAN_H
 #define INTERFACECAN_H
 
 #include <windows.h>
@@ -20,6 +20,7 @@ class InterfaceCAN
 
     t_CANobj messageCAN;
     t_CANbusParams parametresBUS;
+    t_CANdeviceInfo infosCarte;
     t_CardData donneeCarte[10];
     t_Interface typeInterface;
 
@@ -35,7 +36,7 @@ public:
     short listeCanaux();
     void ouvrirCanal(short indexCanal);
     void fermerCanal();
-    void informationsPeripherique();
+    void getInfos();
 
     /*
     bool initialiserControleur(HANDLE idCanal, t_CANbusParams *parametresBUS, t_CANaddressing *adressageCAN, t_CANpadding *padding);
