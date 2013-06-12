@@ -2,13 +2,13 @@
 #define INTERFACECAN_H
 
 #include <windows.h>
-#include <conio.h>
-#include <stdio.h>
+#include <iostream>
+#include <string>
 
 #include "Canpcex.h"
 #include "types.h"
 
-#include "QDebug"
+using namespace std;
 
 class InterfaceCAN
 {
@@ -25,14 +25,19 @@ class InterfaceCAN
 
     ulong idTrame;
     uchar donnees;
+    short val;
 
 public:
     InterfaceCAN();
 
-    char* getCode(short val);
+    string getCode(short val);
+
+    short listeCanaux();
+    void ouvrirCanal(short indexCanal);
+    void fermerCanal();
+    void informationsPeripherique();
 
     /*
-    bool demarrerControleur(HANDLE idCanal);
     bool initialiserControleur(HANDLE idCanal, t_CANbusParams *parametresBUS, t_CANaddressing *adressageCAN, t_CANpadding *padding);
     bool initialiserModeFonctionnement(HANDLE idCanal, t_Interface *type);
     bool initialiserIdentificateur(HANDLE idCanal, t_CANobj messageCAN);

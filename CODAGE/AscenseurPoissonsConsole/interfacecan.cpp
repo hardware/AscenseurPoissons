@@ -2,33 +2,55 @@
 
 InterfaceCAN::InterfaceCAN()
 {
-    short val;
+    idCanal = INVALID_HANDLE_VALUE;
+}
+
+void InterfaceCAN::ouvrirCanal(short indexCanal)
+{
+    val = Ic_InitDrv(indexCanal, &idCanal);
+
+    if(val != _OK)
+        throw string("Ic_InitDrv : " + getCode(val));
+}
+
+void InterfaceCAN::fermerCanal()
+{
+    val = Ic_ExitDrv(idCanal);
+
+    if(val != _OK)
+        throw string("Ic_ExitDrv : " + getCode(val));
+}
+
+short InterfaceCAN::listeCanaux()
+{
+    string statut = "UTILISE";
     unsigned long nbCanaux;
 
     val = Ic_EnumCards(&nbCanaux, donneeCarte, sizeof( donneeCarte ));
 
     if(val != _OK)
-    {
-        qDebug() << "Carte non connectée...";
-        return;
-    }
-
-    qDebug() << "Liste des canaux disponibles : " << nbCanaux;
-    qDebug() << "Valeur de retour : " << getCode(val);
+        throw string("Liste des canaux non disponible");
 
     for(int i = 0; i < (int) nbCanaux; i++)
     {
-        qDebug() << "INFOS CANAL " << i << endl;
-        qDebug() << "IOBaseAddress : "     << donneeCarte[i].IOBaseAddress << endl;
-        qDebug() << "memoryBaseAddress : " << donneeCarte[i].memoryBaseAddress << endl;
-        qDebug() << "IRQLineNumber : "     << donneeCarte[i].IRQLineNumber << endl;
-        qDebug() << "cardNameString :"     << donneeCarte[i].cardNameString << endl;
-        qDebug() << "cardAlreadyOpen : "   << donneeCarte[i].cardAlreadyOpen << endl;
+        if(donneeCarte[i].cardAlreadyOpen == FALSE)
+            statut = "LIBRE";
+
+        cout << " - Canal : " << i << " | Statut -> " << statut << " | " << donneeCarte[i].cardNameString << endl;
     }
+
+    if(nbCanaux < 1)
+        throw string("Aucun canal disponible");
+
+    return nbCanaux;
+}
+
+void InterfaceCAN::informationsPeripherique()
+{
 
 }
 
-char* InterfaceCAN::getCode(short val)
+string InterfaceCAN::getCode(short val)
 {
     switch(val)
     {
