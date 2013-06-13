@@ -5,8 +5,9 @@ InterfaceCANDlg::InterfaceCANDlg() {}
 void InterfaceCANDlg::run()
 {
     int choix, nbCanaux = 0, quitter = 0;
-    short canal;
+    short canal, tailleDonnee;
     bool err;
+    ulong idTrame;
 
     while(quitter == 0)
     {
@@ -18,7 +19,11 @@ void InterfaceCANDlg::run()
         cout << "[2] Fermer le canal" << endl;
         cout << "[3] Afficher les informations du peripherique" << endl;
         cout << "[4] Initialiser le controleur CAN (debit et echantillonnage)" << endl;
-        cout << "[5] Quitter\n\n";
+        cout << "[5] Initialiser le mode de fonctionnement" << endl;
+        cout << "[6] Initialiser la trame" << endl;
+        cout << "[7] Demarrer le controleur CAN" << endl;
+        cout << "[8] Arreter le controleur CAN" << endl;
+        cout << "[9] Quitter\n\n";
 
         cout << "Votre choix ? ";
         cin >> choix;
@@ -77,7 +82,99 @@ void InterfaceCANDlg::run()
             }
 
             break;
+        case 4:
+            err = false;
+            try {
+                cout << "PARAMETRES DU BUS : " << endl;
+                iCan.initialiserControleur();
+            }
+            catch(const std::string &e)
+            {
+                err = true;
+                cout << "(!!) Une erreur est survenue ---> " << e;
+            }
+
+            if(!err)
+                cout << "\n--> [OK] Le controleur CAN a bien ete configure !" << endl;
+
+            break;
         case 5:
+            err = false;
+            try {
+                iCan.initialiserModeFonctionnement();
+            }
+            catch(const std::string &e)
+            {
+                err = true;
+                cout << "(!!) Une erreur est survenue ---> " << e;
+            }
+
+            if(!err)
+                cout << "\n--> [OK] Le controleur a ete initialise en mode BUFFER !" << endl;
+
+            break;
+        case 6:
+            err = false;
+            try {
+                cout << "Quel est l'identificateur de la trame ? ";
+                cin >> hex >> idTrame;
+
+                iCan.setIdTrame(idTrame);
+
+                if(idTrame == CAPTEURS_ID || idTrame == ENTREESTOR_COFFRET_ID || idTrame == ENTREESTOR_SOMMET_ID)
+                {
+                    cout << "Entrez la taille de la donnee : ";
+                    cin >> tailleDonnee;
+
+                    iCan.initialiserIdentificateur(_CAN_TX_DATA, tailleDonnee);
+                }
+                else if(idTrame == SORTIESTOR_COFFRET_ID || idTrame == SORTIESTOR_SOMMET_ID)
+                {
+                    iCan.initialiserIdentificateur(_CAN_RX_DATA);
+                }
+
+            }
+            catch(const std::string &e)
+            {
+                err = true;
+                cout << "(!!) Une erreur est survenue ---> " << e;
+            }
+
+            if(!err)
+                cout << "\n--> [OK] La trame est bien initialisee !" << endl;
+
+            break;
+        case 7:
+            err = false;
+            try {
+                iCan.demarrerControleur();
+            }
+            catch(const std::string &e)
+            {
+                err = true;
+                cout << "(!!) Une erreur est survenue ---> " << e;
+            }
+
+            if(!err)
+                cout << "\n--> [OK] Le controleur a ete demarre !" << endl;
+
+            break;
+        case 8:
+            err = false;
+            try {
+                iCan.arreterControleur();
+            }
+            catch(const std::string &e)
+            {
+                err = true;
+                cout << "(!!) Une erreur est survenue ---> " << e;
+            }
+
+            if(!err)
+                cout << "\n--> [OK] Le controleur a ete arrete !" << endl;
+
+            break;
+        case 9:
             quitter = 1;
             break;
         }

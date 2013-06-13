@@ -22,7 +22,6 @@ class InterfaceCAN
     t_CANbusParams parametresBUS;
     t_CANdeviceInfo infosCarte;
     t_CardData donneeCarte[10];
-    t_Interface typeInterface;
 
     ulong idTrame;
     uchar donnees;
@@ -37,15 +36,18 @@ public:
     void ouvrirCanal(short indexCanal);
     void fermerCanal();
     void getInfos();
+    void initialiserControleur();
+    void initialiserModeFonctionnement();
+    void initialiserIdentificateur(t_CANframeType typeTrame, short tailleDonnee = 8);
+    void demarrerControleur();
+    void arreterControleur();
+    void ecrireDonnee();
+
+    void setIdTrame(ulong idTrame);
+    void setDonnees(ulong donnees);
 
     /*
-    bool initialiserControleur(HANDLE idCanal, t_CANbusParams *parametresBUS, t_CANaddressing *adressageCAN, t_CANpadding *padding);
-    bool initialiserModeFonctionnement(HANDLE idCanal, t_Interface *type);
-    bool initialiserIdentificateur(HANDLE idCanal, t_CANobj messageCAN);
     bool configurerEvenement(HANDLE idCanal, HANDLE idEvenement, ulong identificateurCAN);
-    bool ouvrirCanal(HANDLE idCanal, short indexCanal);
-    bool fermerCanal(HANDLE idCanal);
-    bool ecrireDonnee(HANDLE idCanal, ulong idTrame, ushort tailleDonnee, uchar *donnees);
     bool lireEtat(HANDLE idCanal, ulong idTrame, t_CANevent *messageCAN);
     float lireValeur(HANDLE idCanal, ulong idTrame, t_CANevent *messageCAN);
     */

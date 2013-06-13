@@ -70,6 +70,85 @@ void InterfaceCAN::getInfos()
     printf("- Version de la DLL : %.2f \n", DLL/100.0);
 }
 
+void InterfaceCAN::initialiserControleur()
+{
+    // Réglage pour un débit de 250 kBits/s et un point d'échantillonnage à 75% et 1 échantillon
+    parametresBUS.baudpresc = 2; // BRP
+    parametresBUS.tseg1 = 11; // Segment précédent le point d'échantillonnage
+    parametresBUS.tseg2 = 4; // Segment suivant le point d'échantillonnage
+    parametresBUS.sjw = 1; // Synchronisation Jump Width
+    parametresBUS.sample = 0; // 0 pour 1 échantillon et 1 pour 3 échantillon
+
+    printf("- Diviseur d'horloge : %d \n", parametresBUS.baudpresc);
+    printf("- TSEG1 : %d \n", parametresBUS.tseg1);
+    printf("- TSEG2 : %d \n", parametresBUS.tseg2);
+    printf("- SJW : %d \n", parametresBUS.sjw);
+    printf("- SAMPLE : %d \n", parametresBUS.sample);
+
+    cout << endl;
+    cout << "Debit : 250 kBits/s\nPoint d'echantillonnage : 75%\nNombre d'echantillon : 1" << endl;
+
+    val = Ic_InitChip(idCanal, parametresBUS, _DC_EXTENDED, _DC_NO_PADDING);
+
+    if(val != _OK)
+        throw string("Ic_InitChip : " + getCode(val));
+}
+
+void InterfaceCAN::initialiserModeFonctionnement()
+{
+    val = Ic_InitInterface(idCanal, _BUFFER);
+
+    if(val != _OK)
+        throw string("Ic_InitInterface : " + getCode(val));
+}
+
+void InterfaceCAN::initialiserIdentificateur(t_CANframeType typeTrame, short tailleDonnee)
+{
+    messageCAN.ident = idTrame;
+    messageCAN.identType = _CAN_STD;
+    messageCAN.frameType = typeTrame;
+    messageCAN.dlc = tailleDonnee;
+
+    val = Ic_InitId(idCanal, &messageCAN);
+
+    if(val != _OK)
+        throw string("Ic_InitId : " + getCode(val));
+}
+
+void InterfaceCAN::demarrerControleur()
+{
+    val = Ic_StartChip(idCanal);
+
+    if(val != _OK)
+        throw string("Ic_StartChip : " + getCode(val));
+}
+
+void InterfaceCAN::arreterControleur()
+{
+    val = Ic_StopChip(idCanal);
+
+    if(val != _OK)
+        throw string("Ic_StopChip : " + getCode(val));
+}
+
+void InterfaceCAN::ecrireDonnee()
+{
+    val = Ic_TxMsg(idCanal, idTrame, sizeof(donnees), &donnees);
+
+    if(val != _OK)
+        throw string("Ic_TxMsg : " + getCode(val));
+}
+
+void InterfaceCAN::setIdTrame(ulong idTrame)
+{
+    this->idTrame = idTrame;
+}
+
+void InterfaceCAN::setDonnees(ulong donnees)
+{
+    this->donnees = donnees;
+}
+
 string InterfaceCAN::getCode(short val)
 {
     switch(val)

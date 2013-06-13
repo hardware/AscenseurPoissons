@@ -3,6 +3,8 @@
 
 #include <QString>
 
+// ##### INTERFACE LOGICIELLE ####
+
 // Couleurs des voyants
 const QString VERT = "border:3px solid rgb(125, 125, 125);\nbackground-color:green;";
 const QString ORANGE = "border:3px solid rgb(125, 125, 125);\nbackground-color:orange;";
@@ -46,5 +48,9 @@ const int NOMBRE_CYCLE_OFFSET = 1;
 const int PERIODICITE_MAX = 24;
 const int PERIODICITE_MIN = 1;
 const int PERIODICITE_OFFSET = 1;
+
+// ##### INTERFACE MATERIEL ####
+
+
 
 #endif // TYPES_H

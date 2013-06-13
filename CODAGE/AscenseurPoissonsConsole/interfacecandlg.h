@@ -2,8 +2,10 @@
 #define INTERFACECANDLG_H
 
 #include <iostream>
+#include <QVariant>
 
 #include "interfacecan.h"
+#include "typesInterfaceLogicielle.h"
 
 using namespace std;
 
