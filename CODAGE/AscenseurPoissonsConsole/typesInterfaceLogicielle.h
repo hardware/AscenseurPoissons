@@ -7,89 +7,124 @@
 #define ENTREESTOR_SOMMET_ID  (unsigned long) 0x200
 #define SORTIESTOR_SOMMET_ID  (unsigned long) 0x220
 
-// #### NOEUD COFFRET PECHEUR ####
+typedef unsigned short WORD;
+typedef unsigned char uchar;
+typedef unsigned long ULONG;
 
-// Module entrées analogiques
-#define SIGNAL_CANAL
-#define SIGNAL_RIVIERE
+typedef struct
+{
 
-// 1er module entrées TOR
-#define DETECT_HAUT_GRILLE 0x80
-#define DETECT_BAS_GRILLE
-#define DETECT_HAUT_VANNE
-#define DETECT_BAS_VANNE
-#define NIVEAU_BAS_POIRE
-#define DEFAUT_MOU_DE_CABLE
-#define DETECTEUR_SURCHARGE
+    union sTor {
+        struct {
+            uchar monteeGrille:1;
+            uchar descenteGrille:1;
+            uchar monteeVanne:1;
+            uchar descenteVanne:1;
+            uchar chauffageHuile:1;
+            uchar demarragePompe:1;
+            uchar bNC:2;
+            uchar monteeCuve:1;
+            uchar descenteCuve:1;
+            uchar petiteVitesse:1;
+            uchar GrandeVitesse:1;
+            uchar marcheCentraleHydralique:1;
+        };
 
-// 2eme module entrées TOR
-#define PREMIERE_CAME_SELECTEUR_CADENCE
-#define DEUXIEME_CAME_SELECTEUR_CADENCE
-#define TROISIEME_CAME_SELECTEUR_CADENCE
-#define CUVE_DETECTEUR_HAUT
-#define CUVE_DETECTEUR_HAUT_GVPV
-#define CUVE_DETECTEUR_BAS_GVPV
-#define CUVE_DETECTEUR_TRES_BAS
+        WORD val;
+    };
 
-// 3eme module entrées TOR
-#define CONFIRMATION_MARCHE_POMPE
-#define CONFIRMATION_MONTEE_CUVE
-#define CONFIRMATION_DESCENTE_CUVE
-#define CONFIRMATION_PETITE_VITESSE
-#define CONFIRMATION_GRANDE_VITESSE
-#define CONFIRMATION_CENTRALE
+    union eTor {
+        struct {
+            uchar detectHautGrille:1;
+            uchar detectBasGrille:1;
+            uchar detectHautVanne:1;
+            uchar detectBasVanne:1;
+            uchar niveauBasPoire:1;
+            uchar defautMouDeCable:1;
+            uchar detecteurSurcharge:1;
+            uchar bNC1:1;
+            uchar premiereCameSelecteurCadence:1;
+            uchar deuxiemeCameSelecteurCadence:1;
+            uchar troisiemeCameSelecteurCadence:1;
+            uchar cuveDetecteurHaut:1;
+            uchar cuveDetecteurHautGVPV:1;
+            uchar cuveDetecteurBasGVPV:1;
+            uchar cuveDetecteurTresBas:1;
+            uchar bNC2:1;
+            uchar confirmationMarchePompe:1;
+            uchar confirmationMonteeCuve:1;
+            uchar confirmationDescenteCuve:1;
+            uchar confirmationPetiteVitesse:1;
+            uchar confirmationGrandeVitesse:1;
+            uchar confirmationCentrale:1;
+            uchar bNC3:1;
+        };
 
-// 1er module sorties TOR
-#define MONTEE_GRILLE
-#define DESCENTE_GRILLE
-#define MONTEE_VANNE
-#define DESCENTE_VANNE
-#define CHAUFFAGE_HUILE // vanne_by-pass
-#define DEMARRAGE_POMPE
+        WORD val;
+    };
 
-// 2eme module sorties TOR
-#define MONTEE_CUVE
-#define DESCENTE_CUVE
-#define PETITE_VITESSE
-#define GRANDE_VITESSE
-#define MARCHE_CENTRALE_HYDRAULIQUE
+    union eAnalogique {
+        struct {
+            ULONG niveauEauAval:16;
+            ULONG niveauEauAmont:16;
+        };
 
-// #### NOEUD SOMMET PECHEUR ####
+        ULONG val ;
+    };
 
-// 1er module entrées TOR
-#define BP_ARRET_URGENCE
-#define BP_MONTEE_PV
-#define BP_MONTEE_GV
-#define BP_DESCENTE_PV
-#define BP_DESCENTE_GV
-#define BP_MARCHE_CENTRALE_HYDRAULIQUE
-#define BP_ARRET_CENTRALE_HYDRAULIQUE
+} CoffretPecheur;
 
-// 2eme module entrées TOR
-#define MARCHE_MANUELLE
-#define MARCHE_AUTOMATIQUE
-#define BP_MONTEE_GRILLE
-#define BP_DESCENTE_GRILLE
-#define BP_MONTEE_VANNE
-#define BP_DESCENTE_VANNE
-#define BP_MARCHE_POMPE
-#define BP_ARRET_POMPE
 
-// 3eme module entrées TOR
-#define BP_CYCLE_PECHEUR
-#define BP_LANCEMENT_CYCLE_ARMOIRE
-#define ACQUITTEMENT_DEFAUT
-#define THERMOSTAT_HUILE
-#define NIVEAU_BAS_HUILE
+typedef struct
+{
+    union sTor {
+        struct {
+            uchar voyantDefautTemperature:1;
+            uchar voyantNiveauBasPoire:1;
+            uchar voyantDefautCycle:1;
+            uchar voyantDefautTreuil:1;
+            uchar voyantDefautCentraleHydraulique:1;
+            uchar voyantDefautPompeAttrait:1;
+            uchar compteurCycles:1;
+            uchar DefautGeneral:1;
+        };
 
-// Module sorties TOR
-#define VOYANT_DEFAUT_TEMPERATURE
-#define VOYANT_NIVEAU_BAS_POIRE
-#define VOYANT_DEFAUT_CYCLE
-#define VOYANT_DEFAUT_TREUIL
-#define VOYANT_DEFAUT_CENTRALE_HYDRAULIQUE
-#define VOYANT_DEFAUT_POMPE
-#define COMPTEUR_CYCLE
-#define DEFAUT_GENERAL
+        uchar val;
+    };
+
+    union eTor {
+        struct {
+            uchar BPArretUrgence:1;
+            uchar BPMonteePV:1;
+            uchar BPMonteeGV:1;
+            uchar BPDescentePV:1;
+            uchar BPDescenteGV:1;
+            uchar BPMarcheCentraleHydraulique:1;
+            uchar BPArretCentraleHydraulique:1;
+            uchar bNC1:1;
+            uchar marcheManuelle:1;
+            uchar marcheAutomatique:1;
+            uchar BPMonteeGrille:1;
+            uchar BPDescenteGrille:1;
+            uchar BPMonteeVanne:1;
+            uchar BPDescenteVanne:1;
+            uchar BPMarchePompe:1;
+            uchar BPArretPompe:1;
+            uchar BPCyclePecheur:1;
+            uchar BPLancementCycleArmoire:1;
+            uchar BPAcquittementDefaut:1;
+            uchar ThermostatHuile:1;
+            uchar NiveauBasHuile:1;
+            uchar bNC2:3;
+        };
+
+      ULONG val;
+   };
+
+
+
+} SommetAscenseur ;
+
+
 
 #endif // TYPESINTEMRFACELOGICIELLE_H
