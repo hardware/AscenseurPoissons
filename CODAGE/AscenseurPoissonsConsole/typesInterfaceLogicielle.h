@@ -8,56 +8,59 @@
 #define SORTIESTOR_SOMMET_ID  (unsigned long) 0x220
 
 typedef unsigned short WORD;
-typedef unsigned char uchar;
+typedef unsigned char UCHAR;
 typedef unsigned long ULONG;
 
-typedef struct
-{
+typedef struct {
 
-    union sTor {
+    union {
         struct {
-            uchar monteeGrille:1;
-            uchar descenteGrille:1;
-            uchar monteeVanne:1;
-            uchar descenteVanne:1;
-            uchar chauffageHuile:1;
-            uchar demarragePompe:1;
-            uchar bNC:2;
-            uchar monteeCuve:1;
-            uchar descenteCuve:1;
-            uchar petiteVitesse:1;
-            uchar GrandeVitesse:1;
-            uchar marcheCentraleHydralique:1;
-        };
+            UCHAR monteeGrille:1;
+            UCHAR descenteGrille:1;
+            UCHAR monteeVanne:1;
+            UCHAR descenteVanne:1;
+            UCHAR chauffageHuile:1;
+            UCHAR demarragePompe:1;
+            UCHAR bNC1:2;
+            UCHAR monteeCuve:1;
+            UCHAR descenteCuve:1;
+            UCHAR petiteVitesse:1;
+            UCHAR GrandeVitesse:1;
+            UCHAR marcheCentraleHydralique:1;
+            UCHAR bNC2:3;
+        } word_16bits;
 
         WORD val;
-    };
+    } sTor;
 
+} coffretPecheur;
+
+    /*
     union eTor {
         struct {
-            uchar detectHautGrille:1;
-            uchar detectBasGrille:1;
-            uchar detectHautVanne:1;
-            uchar detectBasVanne:1;
-            uchar niveauBasPoire:1;
-            uchar defautMouDeCable:1;
-            uchar detecteurSurcharge:1;
-            uchar bNC1:1;
-            uchar premiereCameSelecteurCadence:1;
-            uchar deuxiemeCameSelecteurCadence:1;
-            uchar troisiemeCameSelecteurCadence:1;
-            uchar cuveDetecteurHaut:1;
-            uchar cuveDetecteurHautGVPV:1;
-            uchar cuveDetecteurBasGVPV:1;
-            uchar cuveDetecteurTresBas:1;
-            uchar bNC2:1;
-            uchar confirmationMarchePompe:1;
-            uchar confirmationMonteeCuve:1;
-            uchar confirmationDescenteCuve:1;
-            uchar confirmationPetiteVitesse:1;
-            uchar confirmationGrandeVitesse:1;
-            uchar confirmationCentrale:1;
-            uchar bNC3:1;
+            UCHAR detectHautGrille:1;
+            UCHAR detectBasGrille:1;
+            UCHAR detectHautVanne:1;
+            UCHAR detectBasVanne:1;
+            UCHAR niveauBasPoire:1;
+            UCHAR defautMouDeCable:1;
+            UCHAR detecteurSurcharge:1;
+            UCHAR bNC1:1;
+            UCHAR premiereCameSelecteurCadence:1;
+            UCHAR deuxiemeCameSelecteurCadence:1;
+            UCHAR troisiemeCameSelecteurCadence:1;
+            UCHAR cuveDetecteurHaut:1;
+            UCHAR cuveDetecteurHautGVPV:1;
+            UCHAR cuveDetecteurBasGVPV:1;
+            UCHAR cuveDetecteurTresBas:1;
+            UCHAR bNC2:1;
+            UCHAR confirmationMarchePompe:1;
+            UCHAR confirmationMonteeCuve:1;
+            UCHAR confirmationDescenteCuve:1;
+            UCHAR confirmationPetiteVitesse:1;
+            UCHAR confirmationGrandeVitesse:1;
+            UCHAR confirmationCentrale:1;
+            UCHAR bNC3:1;
         };
 
         WORD val;
@@ -71,51 +74,51 @@ typedef struct
 
         ULONG val ;
     };
+    */
 
-} CoffretPecheur;
 
-
+/*
 typedef struct
 {
     union sTor {
         struct {
-            uchar voyantDefautTemperature:1;
-            uchar voyantNiveauBasPoire:1;
-            uchar voyantDefautCycle:1;
-            uchar voyantDefautTreuil:1;
-            uchar voyantDefautCentraleHydraulique:1;
-            uchar voyantDefautPompeAttrait:1;
-            uchar compteurCycles:1;
-            uchar DefautGeneral:1;
+            UCHAR voyantDefautTemperature:1;
+            UCHAR voyantNiveauBasPoire:1;
+            UCHAR voyantDefautCycle:1;
+            UCHAR voyantDefautTreuil:1;
+            UCHAR voyantDefautCentraleHydraulique:1;
+            UCHAR voyantDefautPompeAttrait:1;
+            UCHAR compteurCycles:1;
+            UCHAR DefautGeneral:1;
         };
 
-        uchar val;
+        UCHAR val;
     };
 
     union eTor {
         struct {
-            uchar BPArretUrgence:1;
-            uchar BPMonteePV:1;
-            uchar BPMonteeGV:1;
-            uchar BPDescentePV:1;
-            uchar BPDescenteGV:1;
-            uchar BPMarcheCentraleHydraulique:1;
-            uchar BPArretCentraleHydraulique:1;
-            uchar bNC1:1;
-            uchar marcheManuelle:1;
-            uchar marcheAutomatique:1;
-            uchar BPMonteeGrille:1;
-            uchar BPDescenteGrille:1;
-            uchar BPMonteeVanne:1;
-            uchar BPDescenteVanne:1;
-            uchar BPMarchePompe:1;
-            uchar BPArretPompe:1;
-            uchar BPCyclePecheur:1;
-            uchar BPLancementCycleArmoire:1;
-            uchar BPAcquittementDefaut:1;
-            uchar ThermostatHuile:1;
-            uchar NiveauBasHuile:1;
-            uchar bNC2:3;
+            UCHAR BPArretUrgence:1;
+            UCHAR BPMonteePV:1;
+            UCHAR BPMonteeGV:1;
+            UCHAR BPDescentePV:1;
+            UCHAR BPDescenteGV:1;
+            UCHAR BPMarcheCentraleHydraulique:1;
+            UCHAR BPArretCentraleHydraulique:1;
+            UCHAR bNC1:1;
+            UCHAR marcheManuelle:1;
+            UCHAR marcheAutomatique:1;
+            UCHAR BPMonteeGrille:1;
+            UCHAR BPDescenteGrille:1;
+            UCHAR BPMonteeVanne:1;
+            UCHAR BPDescenteVanne:1;
+            UCHAR BPMarchePompe:1;
+            UCHAR BPArretPompe:1;
+            UCHAR BPCyclePecheur:1;
+            UCHAR BPLancementCycleArmoire:1;
+            UCHAR BPAcquittementDefaut:1;
+            UCHAR ThermostatHuile:1;
+            UCHAR NiveauBasHuile:1;
+            UCHAR bNC2:3;
         };
 
       ULONG val;
@@ -124,7 +127,7 @@ typedef struct
 
 
 } SommetAscenseur ;
-
+*/
 
 
 #endif // TYPESINTEMRFACELOGICIELLE_H

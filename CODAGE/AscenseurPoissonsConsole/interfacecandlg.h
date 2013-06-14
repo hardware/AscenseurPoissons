@@ -12,6 +12,7 @@ using namespace std;
 class InterfaceCANDlg
 {
     InterfaceCAN iCan;
+    coffretPecheur coffret;
 
 public:
 

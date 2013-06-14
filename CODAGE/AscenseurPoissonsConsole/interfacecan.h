@@ -15,8 +15,7 @@ class InterfaceCAN
 
     HANDLE hMutex;
     HANDLE idCanal;
-    HANDLE idEvenement;
-    DWORD threadId;
+    LPDWORD threadId;
 
     t_CANobj messageCAN;
     t_CANbusParams parametresBUS;
@@ -26,6 +25,8 @@ class InterfaceCAN
     ulong idTrame;
     uchar donnees;
     short val;
+
+    t_ThreadContext contextThread[2];
 
 public:
     InterfaceCAN();
@@ -42,9 +43,11 @@ public:
     void demarrerControleur();
     void arreterControleur();
     void ecrireDonnee();
+    void creerThread();
+    DWORD thread();
 
     void setIdTrame(ulong idTrame);
-    void setDonnees(ulong donnees);
+    void setDonnees(uchar donnees);
 
     /*
     bool configurerEvenement(HANDLE idCanal, HANDLE idEvenement, ulong identificateurCAN);

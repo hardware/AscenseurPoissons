@@ -3,6 +3,9 @@
 InterfaceCAN::InterfaceCAN()
 {
     idCanal = INVALID_HANDLE_VALUE;
+
+    // Créaton du thread
+    creerThread();
 }
 
 void InterfaceCAN::ouvrirCanal(short indexCanal)
@@ -132,11 +135,33 @@ void InterfaceCAN::arreterControleur()
 }
 
 void InterfaceCAN::ecrireDonnee()
-{
+{    
     val = Ic_TxMsg(idCanal, idTrame, sizeof(donnees), &donnees);
 
     if(val != _OK)
         throw string("Ic_TxMsg : " + getCode(val));
+}
+
+void InterfaceCAN::creerThread()
+{
+    contextThread[0].idEvenement = CreateEvent(NULL, FALSE, FALSE, NULL);
+    contextThread[0].ident = idTrame;
+
+    contextThread[1].idEvenement = CreateEvent(NULL, FALSE, FALSE, NULL);
+    contextThread[1].ident = _CAN_DUMMY_ID;
+
+    for(int i=0; i < 2; i++ ) {
+        contextThread[i].hThread = CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)thread(), &contextThread[i], 0, threadId);
+    }
+}
+
+DWORD InterfaceCAN::thread()
+{
+    while( 1 ) {
+
+    }
+
+    return 0;
 }
 
 void InterfaceCAN::setIdTrame(ulong idTrame)
@@ -144,7 +169,7 @@ void InterfaceCAN::setIdTrame(ulong idTrame)
     this->idTrame = idTrame;
 }
 
-void InterfaceCAN::setDonnees(ulong donnees)
+void InterfaceCAN::setDonnees(uchar donnees)
 {
     this->donnees = donnees;
 }

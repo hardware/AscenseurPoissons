@@ -23,7 +23,8 @@ void InterfaceCANDlg::run()
         cout << "[6] Initialiser la trame" << endl;
         cout << "[7] Demarrer le controleur CAN" << endl;
         cout << "[8] Arreter le controleur CAN" << endl;
-        cout << "[9] Quitter\n\n";
+        cout << "[9] Envoyer une trame" << endl;
+        cout << "[10] Quitter\n\n";
 
         cout << "Votre choix ? ";
         cin >> choix;
@@ -123,14 +124,14 @@ void InterfaceCANDlg::run()
 
                 if(idTrame == CAPTEURS_ID || idTrame == ENTREESTOR_COFFRET_ID || idTrame == ENTREESTOR_SOMMET_ID)
                 {
+                    iCan.initialiserIdentificateur(_CAN_RX_DATA);
+                }
+                else if(idTrame == SORTIESTOR_COFFRET_ID || idTrame == SORTIESTOR_SOMMET_ID)
+                {
                     cout << "Entrez la taille de la donnee : ";
                     cin >> tailleDonnee;
 
                     iCan.initialiserIdentificateur(_CAN_TX_DATA, tailleDonnee);
-                }
-                else if(idTrame == SORTIESTOR_COFFRET_ID || idTrame == SORTIESTOR_SOMMET_ID)
-                {
-                    iCan.initialiserIdentificateur(_CAN_RX_DATA);
                 }
 
             }
@@ -175,6 +176,26 @@ void InterfaceCANDlg::run()
 
             break;
         case 9:
+            err = false;
+            try {
+                coffret.sTor.word_16bits.descenteGrille = 0;
+
+                uchar data = coffret.sTor.val;
+
+                iCan.setDonnees(data);
+                iCan.ecrireDonnee();
+            }
+            catch(const std::string &e)
+            {
+                err = true;
+                cout << "(!!) Une erreur est survenue ---> " << e;
+            }
+
+            if(!err)
+                cout << "\n--> [OK] Les donnees ont ete mises a jour" << endl;
+
+            break;
+        case 10:
             quitter = 1;
             break;
         }

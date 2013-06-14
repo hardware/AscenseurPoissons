@@ -1,6 +1,7 @@
 #ifndef TYPES_H
 #define TYPES_H
 
+#include <windows.h>
 #include <QString>
 
 // ##### INTERFACE LOGICIELLE ####
@@ -49,8 +50,11 @@ const int PERIODICITE_MAX = 24;
 const int PERIODICITE_MIN = 1;
 const int PERIODICITE_OFFSET = 1;
 
-// ##### INTERFACE MATERIEL ####
-
-
+typedef struct
+{
+    unsigned long ident;
+    HANDLE idEvenement;
+    HANDLE hThread;
+} t_ThreadContext;
 
 #endif // TYPES_H
