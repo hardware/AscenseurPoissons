@@ -2,17 +2,16 @@
 #define INTERFACECANDLG_H
 
 #include <iostream>
-#include <QVariant>
 
 #include "interfacecan.h"
-#include "typesInterfaceLogicielle.h"
+#include "ascpdef.h"
 
 using namespace std;
 
 class InterfaceCANDlg
 {
     InterfaceCAN iCan;
-    coffretPecheur coffret;
+    t_coffretPecheur coffretPecheur;
 
 public:
 

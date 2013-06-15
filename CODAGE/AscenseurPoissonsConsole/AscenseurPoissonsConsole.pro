@@ -24,9 +24,8 @@ HEADERS += \
     Canproex.h \
     Canpcex.h \
     Candefex.h \
-    types.h \
     interfacecandlg.h \
-    typesInterfaceLogicielle.h
+    ascpdef.h
 
 
 

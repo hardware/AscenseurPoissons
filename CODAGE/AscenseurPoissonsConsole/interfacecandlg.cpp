@@ -19,12 +19,14 @@ void InterfaceCANDlg::run()
         cout << "[2] Fermer le canal" << endl;
         cout << "[3] Afficher les informations du peripherique" << endl;
         cout << "[4] Initialiser le controleur CAN (debit et echantillonnage)" << endl;
-        cout << "[5] Initialiser le mode de fonctionnement" << endl;
+        cout << "[5] Initialiser le mode de fonctionnement (mode BUFFER)" << endl;
         cout << "[6] Initialiser la trame" << endl;
-        cout << "[7] Demarrer le controleur CAN" << endl;
-        cout << "[8] Arreter le controleur CAN" << endl;
-        cout << "[9] Envoyer une trame" << endl;
-        cout << "[10] Quitter\n\n";
+        cout << "[7] Initialiser le masque de reception" << endl;
+        cout << "[8] Demarrer le controleur CAN" << endl;
+        cout << "[9] Arreter le controleur CAN" << endl;
+        cout << "[10] Envoyer une trame" << endl;
+        cout << "[11] Activer la reception des trames" << endl;
+        cout << "[12] Quitter\n\n";
 
         cout << "Votre choix ? ";
         cin >> choix;
@@ -85,6 +87,7 @@ void InterfaceCANDlg::run()
             break;
         case 4:
             err = false;
+
             try {
                 cout << "PARAMETRES DU BUS : " << endl;
                 iCan.initialiserControleur();
@@ -101,6 +104,7 @@ void InterfaceCANDlg::run()
             break;
         case 5:
             err = false;
+
             try {
                 iCan.initialiserModeFonctionnement();
             }
@@ -116,6 +120,7 @@ void InterfaceCANDlg::run()
             break;
         case 6:
             err = false;
+
             try {
                 cout << "Quel est l'identificateur de la trame ? ";
                 cin >> hex >> idTrame;
@@ -134,6 +139,7 @@ void InterfaceCANDlg::run()
                     iCan.initialiserIdentificateur(_CAN_TX_DATA, tailleDonnee);
                 }
 
+                iCan.initialiserEvenement();
             }
             catch(const std::string &e)
             {
@@ -147,6 +153,23 @@ void InterfaceCANDlg::run()
             break;
         case 7:
             err = false;
+
+            try {
+                iCan.initialiserMasque();
+            }
+            catch(const std::string &e)
+            {
+                err = true;
+                cout << "(!!) Une erreur est survenue ---> " << e;
+            }
+
+            if(!err)
+                cout << "\n--> [OK] Le masque de reception a ete initialise !" << endl;
+
+            break;
+        case 8:
+            err = false;
+
             try {
                 iCan.demarrerControleur();
             }
@@ -160,8 +183,9 @@ void InterfaceCANDlg::run()
                 cout << "\n--> [OK] Le controleur a ete demarre !" << endl;
 
             break;
-        case 8:
+        case 9:
             err = false;
+
             try {
                 iCan.arreterControleur();
             }
@@ -175,12 +199,13 @@ void InterfaceCANDlg::run()
                 cout << "\n--> [OK] Le controleur a ete arrete !" << endl;
 
             break;
-        case 9:
+        case 10:
             err = false;
-            try {
-                coffret.sTor.word_16bits.descenteGrille = 0;
 
-                uchar data = coffret.sTor.val;
+            try {
+                coffretPecheur.sTor.word_16bits.descenteGrille = 0;
+
+                uchar data = coffretPecheur.sTor.val;
 
                 iCan.setDonnees(data);
                 iCan.ecrireDonnee();
@@ -195,7 +220,11 @@ void InterfaceCANDlg::run()
                 cout << "\n--> [OK] Les donnees ont ete mises a jour" << endl;
 
             break;
-        case 10:
+        case 11:
+            iCan.demarrerThread();
+            break;
+        case 12:
+            iCan.interrompreThread();
             quitter = 1;
             break;
         }

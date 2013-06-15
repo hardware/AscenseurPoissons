@@ -1,15 +1,13 @@
-#ifndef TYPESINTERFACELOGICIELLE_H
-#define TYPESINTERFACELOGICIELLE_H
+#ifndef ASCPDEF_H
+#define ASCPDEF_H
 
-#define CAPTEURS_ID           (unsigned long) 0x290
-#define ENTREESTOR_COFFRET_ID (unsigned long) 0x190
-#define SORTIESTOR_COFFRET_ID (unsigned long) 0x210
-#define ENTREESTOR_SOMMET_ID  (unsigned long) 0x200
-#define SORTIESTOR_SOMMET_ID  (unsigned long) 0x220
+#include <windows.h>
 
-typedef unsigned short WORD;
-typedef unsigned char UCHAR;
-typedef unsigned long ULONG;
+#define CAPTEURS_ID           0x290
+#define ENTREESTOR_COFFRET_ID 0x190
+#define SORTIESTOR_COFFRET_ID 0x210
+#define ENTREESTOR_SOMMET_ID  0x200
+#define SORTIESTOR_SOMMET_ID  0x220
 
 typedef struct {
 
@@ -31,12 +29,10 @@ typedef struct {
         } word_16bits;
 
         WORD val;
+
     } sTor;
 
-} coffretPecheur;
-
-    /*
-    union eTor {
+    union {
         struct {
             UCHAR detectHautGrille:1;
             UCHAR detectBasGrille:1;
@@ -46,6 +42,7 @@ typedef struct {
             UCHAR defautMouDeCable:1;
             UCHAR detecteurSurcharge:1;
             UCHAR bNC1:1;
+
             UCHAR premiereCameSelecteurCadence:1;
             UCHAR deuxiemeCameSelecteurCadence:1;
             UCHAR troisiemeCameSelecteurCadence:1;
@@ -54,33 +51,35 @@ typedef struct {
             UCHAR cuveDetecteurBasGVPV:1;
             UCHAR cuveDetecteurTresBas:1;
             UCHAR bNC2:1;
+
             UCHAR confirmationMarchePompe:1;
             UCHAR confirmationMonteeCuve:1;
             UCHAR confirmationDescenteCuve:1;
             UCHAR confirmationPetiteVitesse:1;
             UCHAR confirmationGrandeVitesse:1;
             UCHAR confirmationCentrale:1;
-            UCHAR bNC3:1;
-        };
+            UCHAR bNC3:2;
+        } dword_24bits;
 
-        WORD val;
-    };
+        DWORD val;
 
-    union eAnalogique {
+    } eTor;
+
+    union {
         struct {
-            ULONG niveauEauAval:16;
-            ULONG niveauEauAmont:16;
-        };
+            USHORT niveauEauAval:16;
+            USHORT niveauEauAmont:16;
+        } dword_32bits;
 
-        ULONG val ;
-    };
-    */
+        DWORD val;
 
+    } eAnalogique;
 
-/*
+} t_coffretPecheur;
+
 typedef struct
 {
-    union sTor {
+    union {
         struct {
             UCHAR voyantDefautTemperature:1;
             UCHAR voyantNiveauBasPoire:1;
@@ -90,12 +89,13 @@ typedef struct
             UCHAR voyantDefautPompeAttrait:1;
             UCHAR compteurCycles:1;
             UCHAR DefautGeneral:1;
-        };
+        } byte_8bits;
 
         UCHAR val;
-    };
 
-    union eTor {
+    } sTor;
+
+    union {
         struct {
             UCHAR BPArretUrgence:1;
             UCHAR BPMonteePV:1;
@@ -119,15 +119,19 @@ typedef struct
             UCHAR ThermostatHuile:1;
             UCHAR NiveauBasHuile:1;
             UCHAR bNC2:3;
-        };
+        } dword_24bits;
 
       ULONG val;
-   };
 
+   } eTor;
 
+} t_SommetAscenseur;
 
-} SommetAscenseur ;
-*/
+typedef struct
+{
+    ULONG  ident;
+    HANDLE event;
+    HANDLE thread;
+} t_ThreadContext;
 
-
-#endif // TYPESINTEMRFACELOGICIELLE_H
+#endif // ASCPDEF_H
