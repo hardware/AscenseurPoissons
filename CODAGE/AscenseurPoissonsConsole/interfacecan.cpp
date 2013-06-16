@@ -29,7 +29,7 @@ short InterfaceCAN::listeCanaux()
     string statut = "UTILISE";
     short nbCanaux;
 
-    val = Ic_EnumCards( (ulong*)&nbCanaux, donneeCarte, sizeof( donneeCarte ));
+    val = Ic_EnumCards( (ulong*)&nbCanaux, donneeCarte, sizeof(donneeCarte));
 
     if(val != _OK)
         throw string("Liste des canaux non disponible");
@@ -82,14 +82,14 @@ void InterfaceCAN::initialiserControleur()
     parametresBUS.sjw = 1; // Synchronisation Jump Width
     parametresBUS.sample = 0; // 0 pour 1 échantillon et 1 pour 3 échantillon
 
-    printf("- Diviseur d'horloge : %d \n", parametresBUS.baudpresc);
+    printf("- BRP : %d \n", parametresBUS.baudpresc);
     printf("- TSEG1 : %d \n", parametresBUS.tseg1);
     printf("- TSEG2 : %d \n", parametresBUS.tseg2);
     printf("- SJW : %d \n", parametresBUS.sjw);
     printf("- SAMPLE : %d \n", parametresBUS.sample);
 
     cout << endl;
-    cout << "Debit : 250 kBits/s\nPoint d'echantillonnage : 75%\nNombre d'echantillon : 1" << endl;
+    cout << "Debit : 250 kBits/s\nPoint d'echantillonnage : 75%\nNombre d'echantillons : 1" << endl;
 
     val = Ic_InitChip(idCanal, parametresBUS, _DC_EXTENDED, _DC_NO_PADDING);
 
@@ -127,7 +127,7 @@ void InterfaceCAN::initialiserMasque()
 }
 
 void InterfaceCAN::initialiserEvenement()
-{   
+{
     pThreadContext[0]->ident  = idTrame;
     pThreadContext[0]->hCanal = idCanal;
     pThreadContext[0]->hEvent = CreateEvent(NULL, FALSE, FALSE, NULL);
@@ -137,9 +137,7 @@ void InterfaceCAN::initialiserEvenement()
     pThreadContext[1]->hEvent = CreateEvent(NULL, FALSE, FALSE, NULL);
 
     if(pThreadContext[0]->hEvent == NULL || pThreadContext[1]->hEvent == NULL)
-        throw string("CreateEvent FAIL");
-
-    cout << "[INFO] Les evenements ont ete initialises" << endl;
+        throw string("Une erreur est survenue lors de la creation des evenements");
 
     val = Ic_ConfigEvent(idCanal, pThreadContext[0]->hEvent, idTrame);
 
@@ -150,9 +148,6 @@ void InterfaceCAN::initialiserEvenement()
 
     if(val != _OK)
         throw string("Ic_ConfigEvent Thread[1] : " + getCode(val));
-
-
-    cout << "[INFO] Les evenements ont ete crees" << endl;
 }
 
 void InterfaceCAN::demarrerControleur()
@@ -181,34 +176,24 @@ void InterfaceCAN::ecrireDonnee()
 
 void InterfaceCAN::demarrerThread()
 {
-    cout << "[INFO] Creation des threads..." << endl;
+    for(int i = 0; i < 2; i++)
+    {
+        pThreadContext[i]->hThread = CreateThread(
+            NULL,
+            0,
+            (LPTHREAD_START_ROUTINE)lireBuffer,
+            (LPVOID)pThreadContext[i],
+            0,
+            NULL
+        );
 
-    pThreadContext[0]->hThread = CreateThread(
-        NULL,
-        0,
-        (LPTHREAD_START_ROUTINE)lireBuffer,
-        (LPVOID)pThreadContext[0],
-        0,
-        NULL
-    );
-
-    pThreadContext[1]->hThread = CreateThread(
-        NULL,
-        0,
-        (LPTHREAD_START_ROUTINE)lireBuffer,
-        (LPVOID)pThreadContext[1],
-        0,
-        NULL
-    );
-
-    if(pThreadContext[0]->hThread == NULL || pThreadContext[1]->hThread == NULL)
-        throw string("CreateThread FAIL");
+        if(pThreadContext[i]->hThread == NULL)
+            throw string("Une erreur est survenue lors de la creation d un thread");
+    }
 }
 
 void InterfaceCAN::interrompreThread()
 {
-    cout << "[INFO] Interruption des threads..." << endl;
-
     for(int i = 0; i < 2; i++)
     {
         if(pThreadContext[i]->hThread)
@@ -227,6 +212,73 @@ void InterfaceCAN::setIdTrame(ULONG idTrame)
 void InterfaceCAN::setDonnees(UCHAR donnees)
 {
     this->donnees = donnees;
+}
+
+void InterfaceCAN::afficherEvenement(t_CANevent* pEvent, HANDLE hThread, short nbEvent)
+{
+    QString evenement = "", tmp = "";
+
+    tmp.sprintf("Evt[%2d] Thread[%X] ", nbEvent, hThread);
+    evenement.append(tmp);
+
+    switch(pEvent->eventType)
+    {
+    case _CAN_TX_DATA : evenement.append("TxD ");
+        break;
+    case _CAN_RX_DATA : evenement.append("RxD ");
+        break;
+    }
+
+    switch(pEvent->CANerr)
+    {
+    case _CAN_ACTIVE_ERR : evenement.append("NORMAL ");
+        break;
+    }
+
+    switch(pEvent->identType)
+    {
+    case _CAN_STD : evenement.append("STANDARD ID ");
+        break;
+    case _CAN_EXT : evenement.append("EXTEND ID ");
+        break;
+    }
+
+    tmp.sprintf(" 0x%03x [%u] ", pEvent->ident, pEvent->dlc);
+    evenement.append(tmp);
+
+    if( pEvent->eventType == _CAN_RX_DATA)
+    {
+        for(int i = 0; i < pEvent->dlc && i <= _CAN_MAX_DATA; i++)
+        {
+            tmp.sprintf("%02X ", pEvent->data[i]);
+            evenement.append(tmp);
+        }
+    }
+
+    cout << endl << evenement.toStdString() << endl;
+}
+
+DWORD WINAPI InterfaceCAN::lireBuffer(LPVOID threadContext)
+{
+    short nbEvent = 0;
+    LPTHREAD_PARAMS pThreadContext = reinterpret_cast<LPTHREAD_PARAMS>(threadContext);
+
+    while(1) {
+
+        // Si un évènement est signalé
+        if(WaitForSingleObject(pThreadContext->hEvent, INFINITE) == WAIT_OBJECT_0)
+        {
+            t_CANevent event;
+
+            if(Ic_GetBuf(pThreadContext->hCanal, pThreadContext->ident, &event) == _OK)
+            {
+                nbEvent++;
+                afficherEvenement(&event, pThreadContext->hThread, nbEvent);
+            }
+        }
+    }
+
+    return 0;
 }
 
 string InterfaceCAN::getCode(short val)
@@ -257,27 +309,4 @@ string InterfaceCAN::getCode(short val)
     case _BOARD_TIMEOUT : return "_BOARD_TIMEOUT";
     default : return "_???";
     }
-}
-
-DWORD WINAPI InterfaceCAN::lireBuffer(LPVOID threadContext)
-{
-    LPTHREAD_PARAMS pThreadContext = reinterpret_cast<LPTHREAD_PARAMS>(threadContext);
-
-    while( 1 ) {
-
-        cout << "[INFO] Execution du thread..." << endl;
-
-        // Si un évènement est signalé
-        if(WaitForSingleObject(pThreadContext->hEvent, INFINITE) == WAIT_OBJECT_0)
-        {
-            t_CANevent event;
-
-            if(Ic_GetBuf(pThreadContext->hCanal, pThreadContext->ident, &event) == _OK)
-                cout << "Reception d une donnee !" << endl;
-            else
-                cout << "Une erreur est survenue lors de la lecture du buffer..." << endl;
-        }
-    }
-
-    return 0;
 }

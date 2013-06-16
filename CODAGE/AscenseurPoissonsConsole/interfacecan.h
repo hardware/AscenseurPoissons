@@ -47,6 +47,7 @@ public:
     void setIdTrame(ULONG idTrame);
     void setDonnees(UCHAR donnees);
 
+    static void afficherEvenement(t_CANevent* pEvent, HANDLE hThread, short nbEvent);
     static DWORD WINAPI lireBuffer(LPVOID threadContext);
 };
 
