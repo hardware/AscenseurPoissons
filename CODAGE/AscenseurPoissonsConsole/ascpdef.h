@@ -23,7 +23,7 @@ typedef struct {
             UCHAR monteeCuve:1;
             UCHAR descenteCuve:1;
             UCHAR petiteVitesse:1;
-            UCHAR GrandeVitesse:1;
+            UCHAR grandeVitesse:1;
             UCHAR marcheCentraleHydralique:1;
             UCHAR bNC2:3;
         } word_16bits;
@@ -125,13 +125,14 @@ typedef struct
 
    } eTor;
 
-} t_SommetAscenseur;
+} t_sommetAscenseur;
 
-typedef struct
+typedef struct tagTHREAD_PARAMS
 {
     ULONG  ident;
-    HANDLE event;
-    HANDLE thread;
-} t_ThreadContext;
+    HANDLE hCanal;
+    HANDLE hEvent;
+    HANDLE hThread;
+} THREAD_PARAMS, *LPTHREAD_PARAMS;
 
 #endif // ASCPDEF_H

@@ -12,6 +12,7 @@ class InterfaceCANDlg
 {
     InterfaceCAN iCan;
     t_coffretPecheur coffretPecheur;
+    t_sommetAscenseur sommetAscenseur;
 
 public:
 

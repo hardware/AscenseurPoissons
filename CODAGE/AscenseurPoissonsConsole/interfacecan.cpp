@@ -3,6 +3,9 @@
 InterfaceCAN::InterfaceCAN()
 {
     idCanal = INVALID_HANDLE_VALUE;
+
+    for(int i = 0; i < 2; i++)
+        pThreadContext[i] = (LPTHREAD_PARAMS)malloc(sizeof(THREAD_PARAMS));
 }
 
 void InterfaceCAN::ouvrirCanal(short indexCanal)
@@ -24,14 +27,14 @@ void InterfaceCAN::fermerCanal()
 short InterfaceCAN::listeCanaux()
 {
     string statut = "UTILISE";
-    unsigned long nbCanaux;
+    short nbCanaux;
 
-    val = Ic_EnumCards(&nbCanaux, donneeCarte, sizeof( donneeCarte ));
+    val = Ic_EnumCards( (ulong*)&nbCanaux, donneeCarte, sizeof( donneeCarte ));
 
     if(val != _OK)
         throw string("Liste des canaux non disponible");
 
-    for(int i = 0; i < (int) nbCanaux; i++)
+    for(int i = 0; i < (int)nbCanaux; i++)
     {
         if(donneeCarte[i].cardAlreadyOpen == FALSE)
             statut = "LIBRE";
@@ -124,24 +127,30 @@ void InterfaceCAN::initialiserMasque()
 }
 
 void InterfaceCAN::initialiserEvenement()
-{
-    threadContext[0].event = CreateEvent(NULL, FALSE, FALSE, NULL);
-    threadContext[0].ident = idTrame;
+{   
+    pThreadContext[0]->ident  = idTrame;
+    pThreadContext[0]->hCanal = idCanal;
+    pThreadContext[0]->hEvent = CreateEvent(NULL, FALSE, FALSE, NULL);
 
-    threadContext[1].event = CreateEvent(NULL, FALSE, FALSE, NULL);
-    threadContext[1].ident = _CAN_DUMMY_ID;
+    pThreadContext[1]->ident  = _CAN_DUMMY_ID;
+    pThreadContext[1]->hCanal = idCanal;
+    pThreadContext[1]->hEvent = CreateEvent(NULL, FALSE, FALSE, NULL);
+
+    if(pThreadContext[0]->hEvent == NULL || pThreadContext[1]->hEvent == NULL)
+        throw string("CreateEvent FAIL");
 
     cout << "[INFO] Les evenements ont ete initialises" << endl;
 
-    val = Ic_ConfigEvent(idCanal, threadContext[0].event, idTrame);
+    val = Ic_ConfigEvent(idCanal, pThreadContext[0]->hEvent, idTrame);
 
     if(val != _OK)
         throw string("Ic_ConfigEvent Thread[0] : " + getCode(val));
 
-    val = Ic_ConfigEvent(idCanal, threadContext[1].event, _CAN_DUMMY_ID);
+    val = Ic_ConfigEvent(idCanal, pThreadContext[1]->hEvent, _CAN_DUMMY_ID);
 
     if(val != _OK)
         throw string("Ic_ConfigEvent Thread[1] : " + getCode(val));
+
 
     cout << "[INFO] Les evenements ont ete crees" << endl;
 }
@@ -174,20 +183,26 @@ void InterfaceCAN::demarrerThread()
 {
     cout << "[INFO] Creation des threads..." << endl;
 
-    for(int i = 0; i < 2; i++)
-    {
-        if(threadContext[i].ident)
-        {
-            threadContext[i].thread = CreateThread(
-                NULL,
-                0,
-                (LPTHREAD_START_ROUTINE)thread(),
-                &threadContext[i],
-                0,
-                &threadId
-            );
-        }
-    }
+    pThreadContext[0]->hThread = CreateThread(
+        NULL,
+        0,
+        (LPTHREAD_START_ROUTINE)lireBuffer,
+        (LPVOID)pThreadContext[0],
+        0,
+        NULL
+    );
+
+    pThreadContext[1]->hThread = CreateThread(
+        NULL,
+        0,
+        (LPTHREAD_START_ROUTINE)lireBuffer,
+        (LPVOID)pThreadContext[1],
+        0,
+        NULL
+    );
+
+    if(pThreadContext[0]->hThread == NULL || pThreadContext[1]->hThread == NULL)
+        throw string("CreateThread FAIL");
 }
 
 void InterfaceCAN::interrompreThread()
@@ -196,42 +211,20 @@ void InterfaceCAN::interrompreThread()
 
     for(int i = 0; i < 2; i++)
     {
-        if(threadContext[i].thread)
-            TerminateThread(threadContext[i].thread, 0);
+        if(pThreadContext[i]->hThread)
+            TerminateThread(pThreadContext[i]->hThread, 0);
 
-        if(threadContext[i].event)
-            CloseHandle(threadContext[i].event);
+        if(pThreadContext[0]->hEvent)
+            CloseHandle(pThreadContext[0]->hEvent);
     }
 }
 
-DWORD InterfaceCAN::thread(t_ThreadContext *pThreadContext)
-{   
-    while( 1 ) {
-
-        cout << "[INFO] Execution du thread..." << endl;
-
-        // Si un évènement est signalé
-        if(WaitForSingleObject(pThreadContext->event, INFINITE) == WAIT_OBJECT_0)
-        {
-            t_CANevent event;
-
-            if(Ic_GetBuf(idCanal, pThreadContext->ident, &event) == _OK)
-            {
-                cout << "Reception d une donnee !" << endl;
-            }
-        }
-
-    }
-
-    return 0;
-}
-
-void InterfaceCAN::setIdTrame(ulong idTrame)
+void InterfaceCAN::setIdTrame(ULONG idTrame)
 {
     this->idTrame = idTrame;
 }
 
-void InterfaceCAN::setDonnees(uchar donnees)
+void InterfaceCAN::setDonnees(UCHAR donnees)
 {
     this->donnees = donnees;
 }
@@ -266,3 +259,25 @@ string InterfaceCAN::getCode(short val)
     }
 }
 
+DWORD WINAPI InterfaceCAN::lireBuffer(LPVOID threadContext)
+{
+    LPTHREAD_PARAMS pThreadContext = reinterpret_cast<LPTHREAD_PARAMS>(threadContext);
+
+    while( 1 ) {
+
+        cout << "[INFO] Execution du thread..." << endl;
+
+        // Si un évènement est signalé
+        if(WaitForSingleObject(pThreadContext->hEvent, INFINITE) == WAIT_OBJECT_0)
+        {
+            t_CANevent event;
+
+            if(Ic_GetBuf(pThreadContext->hCanal, pThreadContext->ident, &event) == _OK)
+                cout << "Reception d une donnee !" << endl;
+            else
+                cout << "Une erreur est survenue lors de la lecture du buffer..." << endl;
+        }
+    }
+
+    return 0;
+}

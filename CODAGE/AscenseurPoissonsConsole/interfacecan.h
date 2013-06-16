@@ -5,6 +5,7 @@
 #include <conio.h>
 #include <iostream>
 #include <QVariant>
+#include <QDebug>
 
 #include "Canpcex.h"
 #include "ascpdef.h"
@@ -13,26 +14,23 @@ using namespace std;
 
 class InterfaceCAN
 {
-    ULONG idTrame;
-    UCHAR donnees;
-    short val;
-
     HANDLE idCanal;
+    ULONG  idTrame;
+    UCHAR  donnees;
+    short  val;
 
     t_CANobj        messageCAN;
     t_CANbusParams  parametresBUS;
     t_CANdeviceInfo infosCarte;
     t_CardData      donneeCarte[10];
 
-    DWORD           threadId;
-    t_ThreadContext threadContext[2];
+    LPTHREAD_PARAMS pThreadContext[2];
 
 public:
     InterfaceCAN();
 
     string getCode(short val);
     short listeCanaux();
-    DWORD thread(t_ThreadContext *pThreadContext = 0);
     void demarrerThread();
     void interrompreThread();
     void ouvrirCanal(short indexCanal);
@@ -46,8 +44,10 @@ public:
     void demarrerControleur();
     void arreterControleur();
     void ecrireDonnee();
-    void setIdTrame(ulong idTrame);
-    void setDonnees(uchar donnees);
+    void setIdTrame(ULONG idTrame);
+    void setDonnees(UCHAR donnees);
+
+    static DWORD WINAPI lireBuffer(LPVOID threadContext);
 };
 
 #endif // INTERFACECAN_H

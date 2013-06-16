@@ -1,13 +1,21 @@
 ﻿#include "interfacecandlg.h"
 
-InterfaceCANDlg::InterfaceCANDlg() {}
+InterfaceCANDlg::InterfaceCANDlg()
+{
+    // Initialisation du champ de bits (tous les bits à 1)
+    coffretPecheur.sTor.val         = 0xFFFF;
+    coffretPecheur.eTor.val         = 0xFFFFFF;
+    coffretPecheur.eAnalogique.val  = 0xFFFFFFFF;
+    sommetAscenseur.sTor.val        = 0xFF;
+    sommetAscenseur.eTor.val        = 0xFFFFFF;
+}
 
 void InterfaceCANDlg::run()
 {
-    int choix, nbCanaux = 0, quitter = 0;
-    short canal, tailleDonnee;
+    int choix, quitter = 0;
+    short canal, tailleDonnee, nbCanaux = 0;
     bool err;
-    ulong idTrame;
+    ULONG idTrame;
 
     while(quitter == 0)
     {
@@ -123,7 +131,7 @@ void InterfaceCANDlg::run()
 
             try {
                 cout << "Quel est l'identificateur de la trame ? ";
-                cin >> hex >> idTrame;
+                idTrame = 0x190;
 
                 iCan.setIdTrame(idTrame);
 
@@ -139,6 +147,7 @@ void InterfaceCANDlg::run()
                     iCan.initialiserIdentificateur(_CAN_TX_DATA, tailleDonnee);
                 }
 
+                cout << "Initialisation de l evenement..." << endl;
                 iCan.initialiserEvenement();
             }
             catch(const std::string &e)
@@ -203,9 +212,9 @@ void InterfaceCANDlg::run()
             err = false;
 
             try {
-                coffretPecheur.sTor.word_16bits.descenteGrille = 0;
+                coffretPecheur.sTor.word_16bits.monteeGrille = 0;
 
-                uchar data = coffretPecheur.sTor.val;
+                UCHAR data = coffretPecheur.sTor.val;
 
                 iCan.setDonnees(data);
                 iCan.ecrireDonnee();
@@ -221,7 +230,20 @@ void InterfaceCANDlg::run()
 
             break;
         case 11:
-            iCan.demarrerThread();
+            err = false;
+
+            try {
+                iCan.demarrerThread();
+            }
+            catch(const std::string &e)
+            {
+                err = true;
+                cout << "(!!) Une erreur est survenue ---> " << e;
+            }
+
+            if(!err)
+                cout << "\n--> [OK] La reception est trames est activee. " << endl;
+
             break;
         case 12:
             iCan.interrompreThread();
