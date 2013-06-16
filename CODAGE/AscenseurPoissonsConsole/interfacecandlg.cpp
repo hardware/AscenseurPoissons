@@ -13,9 +13,8 @@ InterfaceCANDlg::InterfaceCANDlg()
 void InterfaceCANDlg::run()
 {
     int choix, quitter = 0;
-    short canal, tailleDonnee, nbCanaux = 0;
+    short canal, nbCanaux = 0;
     bool err;
-    ULONG idTrame;
 
     while(quitter == 0)
     {
@@ -28,7 +27,7 @@ void InterfaceCANDlg::run()
         cout << "[3] Afficher les informations du peripherique" << endl;
         cout << "[4] Initialiser le controleur CAN (debit et echantillonnage)" << endl;
         cout << "[5] Initialiser le mode de fonctionnement (mode BUFFER)" << endl;
-        cout << "[6] Initialiser la trame" << endl;
+        cout << "[6] Initialiser les trames" << endl;
         cout << "[7] Initialiser le masque de reception" << endl;
         cout << "[8] Demarrer le controleur CAN" << endl;
         cout << "[9] Arreter le controleur CAN" << endl;
@@ -129,26 +128,31 @@ void InterfaceCANDlg::run()
         case 6:
             err = false;
 
-            try {
-                cout << "Quel est l'identificateur de la trame ? ";
-                idTrame = 0x190;
-
-                iCan.setIdTrame(idTrame);
-
-                if(idTrame == CAPTEURS_ID || idTrame == ENTREESTOR_COFFRET_ID || idTrame == ENTREESTOR_SOMMET_ID)
-                {
-                    iCan.initialiserIdentificateur(_CAN_RX_DATA);
-                }
-                else if(idTrame == SORTIESTOR_COFFRET_ID || idTrame == SORTIESTOR_SOMMET_ID)
-                {
-                    cout << "Entrez la taille de la donnee : ";
-                    cin >> tailleDonnee;
-
-                    iCan.initialiserIdentificateur(_CAN_TX_DATA, tailleDonnee);
-                }
-
-                cout << "Initialisation de l evenement..." << endl;
+            try { 
+                // Trame TxPDO1 | COB-ID = 0x190 | 3 octets
+                iCan.setIdTrame(ENTREESTOR_COFFRET_ID);
+                iCan.initialiserIdentificateur(_CAN_RX_DATA);
                 iCan.initialiserEvenement();
+
+                // Trame RxPDO1 | COB-ID = 0x210 | 2 octets
+                iCan.setIdTrame(SORTIESTOR_COFFRET_ID);
+                iCan.initialiserIdentificateur(_CAN_TX_DATA, 2);
+
+                /*
+                // Trame TxPDO2 | COB-ID = 0x290 | 2 mots
+                iCan.setIdTrame(CAPTEURS_COFFRET_ID);
+                iCan.initialiserIdentificateur(_CAN_RX_DATA);
+                iCan.initialiserEvenement();
+
+                // Trame TxPDO1 | COB-ID = 0x200 | 3 octets
+                iCan.setIdTrame(ENTREESTOR_SOMMET_ID);
+                iCan.initialiserIdentificateur(_CAN_RX_DATA);
+                iCan.initialiserEvenement();
+
+                // Trame RxPDO1 | COB-ID = 0x220 | 1 octet
+                iCan.setIdTrame(SORTIESTOR_SOMMET_ID);
+                iCan.initialiserIdentificateur(_CAN_TX_DATA, 1);
+                */
             }
             catch(const std::string &e)
             {
@@ -157,7 +161,7 @@ void InterfaceCANDlg::run()
             }
 
             if(!err)
-                cout << "\n--> [OK] La trame est bien initialisee !" << endl;
+                cout << "\n--> [OK] Les trames ont bien ete initialisees !" << endl;
 
             break;
         case 7:

@@ -105,12 +105,12 @@ void InterfaceCAN::initialiserModeFonctionnement()
         throw string("Ic_InitInterface : " + getCode(val));
 }
 
-void InterfaceCAN::initialiserIdentificateur(t_CANframeType typeTrame, short tailleDonnee)
+void InterfaceCAN::initialiserIdentificateur(t_CANframeType typeTrame, ushort dlc)
 {
     messageCAN.ident = idTrame;
     messageCAN.identType = _CAN_STD;
     messageCAN.frameType = typeTrame;
-    messageCAN.dlc = tailleDonnee;
+    messageCAN.dlc = dlc;
 
     val = Ic_InitId(idCanal, &messageCAN);
 

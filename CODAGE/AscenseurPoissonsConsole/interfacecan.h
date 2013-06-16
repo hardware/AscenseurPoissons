@@ -38,7 +38,7 @@ public:
     void getInfos();
     void initialiserControleur();
     void initialiserModeFonctionnement();
-    void initialiserIdentificateur(t_CANframeType typeTrame, short tailleDonnee = 8);
+    void initialiserIdentificateur(t_CANframeType typeTrame, ushort dlc = 0);
     void initialiserMasque();
     void initialiserEvenement();
     void demarrerControleur();

@@ -3,7 +3,7 @@
 
 #include <windows.h>
 
-#define CAPTEURS_ID           0x290
+#define   CAPTEURS_COFFRET_ID 0x290
 #define ENTREESTOR_COFFRET_ID 0x190
 #define SORTIESTOR_COFFRET_ID 0x210
 #define ENTREESTOR_SOMMET_ID  0x200
