@@ -15,22 +15,14 @@ using namespace std;
 class InterfaceCAN
 {
     HANDLE idCanal;
-    ULONG  idTrame;
+    LPTHREAD_PARAMS pThreadContext[NB_MAX_THREADS];
+
     short  val;
     short  nbThread;
-
-    t_CANobj        messageCAN;
-    t_CANbusParams  parametresBUS;
-    t_CANdeviceInfo infosCarte;
-    t_CardData      donneeCarte[10];
-
-    LPTHREAD_PARAMS pThreadContext[NB_MAX_THREADS];
 
 public:
     InterfaceCAN();
 
-    string getCode(short val);
-    short listeCanaux();
     void demarrerThread();
     void interrompreThread();
     void ouvrirCanal(short indexCanal);
@@ -38,18 +30,23 @@ public:
     void getInfos();
     void initialiserControleur();
     void initialiserModeFonctionnement();
-    void initialiserIdentificateur(t_CANframeType typeTrame, ULONG ident, USHORT dlc = 0);
+    void initialiserIdentificateur(t_CANframeType typeTrame, t_identTrame ident, USHORT dlc = 0);
     void initialiserMasque();
     void initialiserEvenementGlobal();
-    void initialiserEvenement();
+    void initialiserEvenement(t_identTrame ident);
     void demarrerControleur();
     void arreterControleur();
     void ecrireDonneeSommetAscenseur(UCHAR donnees);
     void ecrireDonneeCoffretPecheur(UCHAR donnees);
-    void setIdTrame(ULONG idTrame);
+    void lireEtat(t_identTrame ident);
+    void lireValeur();
+
+    short listeCanaux();
 
     static void afficherEvenement(t_CANevent* pEvent, HANDLE hThread, short nbEvent);
     static DWORD WINAPI lireBuffer(LPVOID threadContext);
+
+    string getCode(short val);
 };
 
 #endif // INTERFACECAN_H

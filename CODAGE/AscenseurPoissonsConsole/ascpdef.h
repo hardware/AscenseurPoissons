@@ -5,11 +5,21 @@
 
 #define NB_MAX_THREADS 10
 
-#define   CAPTEURS_COFFRET_ID 0x290
-#define ENTREESTOR_COFFRET_ID 0x190
-#define SORTIESTOR_COFFRET_ID 0x210
-#define ENTREESTOR_SOMMET_ID  0x200
-#define SORTIESTOR_SOMMET_ID  0x220
+typedef struct tagTHREAD_PARAMS
+{
+    ULONG  ident;
+    HANDLE hCanal;
+    HANDLE hEvent;
+    HANDLE hThread;
+} THREAD_PARAMS, *LPTHREAD_PARAMS;
+
+typedef enum {
+     _ENTREESTOR_COFFRET_ID = 0x190,
+     _ENTREESTOR_SOMMET_ID  = 0x200,
+     _SORTIESTOR_COFFRET_ID = 0x210,
+     _SORTIESTOR_SOMMET_ID  = 0x220,
+     _CAPTEURS_COFFRET_ID   = 0x290
+} t_identTrame;
 
 typedef struct {
 
@@ -128,13 +138,5 @@ typedef struct
    } eTor;
 
 } t_sommetAscenseur;
-
-typedef struct tagTHREAD_PARAMS
-{
-    ULONG  ident;
-    HANDLE hCanal;
-    HANDLE hEvent;
-    HANDLE hThread;
-} THREAD_PARAMS, *LPTHREAD_PARAMS;
 
 #endif // ASCPDEF_H

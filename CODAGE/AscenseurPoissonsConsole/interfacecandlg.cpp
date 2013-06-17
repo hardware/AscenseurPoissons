@@ -13,7 +13,7 @@ InterfaceCANDlg::InterfaceCANDlg()
 void InterfaceCANDlg::run()
 {
     int choix, quitter = 0;
-    short canal, nbCanaux = 0;
+    short canal, nbCanaux = 0, choixEntreesTor = -1;
     bool err;
 
     cout << "-----------------------------------------------------------------------" << endl;
@@ -22,7 +22,7 @@ void InterfaceCANDlg::run()
 
     while(quitter == 0)
     {
-        cout << endl;
+        cout << endl << endl;
         cout << " [1] Ouvrir un canal" << endl;
         cout << " [2] Fermer le canal" << endl;
         cout << " [3] Afficher les informations du peripherique" << endl;
@@ -34,8 +34,10 @@ void InterfaceCANDlg::run()
         cout << " [9] Arreter le controleur CAN" << endl;
         cout << "[10] Envoyer une trame au sommet ascenseur" << endl;
         cout << "[11] Envoyer une trame au coffret pecheur" << endl;
-        cout << "[12] Activer la reception des trames" << endl;
-        cout << "[13] Quitter\n\n";
+        cout << "[12] Lire les valeurs des entrees analogiques" << endl;
+        cout << "[13] Lire les valeurs des entrees TOR" << endl;
+        cout << "[14] Activer la reception des trames" << endl;
+        cout << "[15] Quitter\n\n";
 
         cout << "Choisir une action : ";
         cin >> choix;
@@ -135,25 +137,22 @@ void InterfaceCANDlg::run()
                 iCan.initialiserEvenementGlobal();
 
                 // Trame TxPDO1 | COB-ID = 0x190 | 3 octets
-                iCan.setIdTrame(ENTREESTOR_COFFRET_ID);
-                iCan.initialiserIdentificateur(_CAN_RX_DATA, ENTREESTOR_COFFRET_ID);
-                iCan.initialiserEvenement();
+                iCan.initialiserIdentificateur(_CAN_RX_DATA, _ENTREESTOR_COFFRET_ID);
+                iCan.initialiserEvenement(_ENTREESTOR_COFFRET_ID);
 
                 // Trame TxPDO2 | COB-ID = 0x290 | 2 mots
-                iCan.setIdTrame(CAPTEURS_COFFRET_ID);
-                iCan.initialiserIdentificateur(_CAN_RX_DATA, CAPTEURS_COFFRET_ID);
-                iCan.initialiserEvenement();
+                iCan.initialiserIdentificateur(_CAN_RX_DATA, _CAPTEURS_COFFRET_ID);
+                iCan.initialiserEvenement(_CAPTEURS_COFFRET_ID);
 
                 // Trame TxPDO1 | COB-ID = 0x200 | 3 octets
-                iCan.setIdTrame(ENTREESTOR_SOMMET_ID);
-                iCan.initialiserIdentificateur(_CAN_RX_DATA, ENTREESTOR_SOMMET_ID);
-                iCan.initialiserEvenement();
+                iCan.initialiserIdentificateur(_CAN_RX_DATA, _ENTREESTOR_SOMMET_ID);
+                iCan.initialiserEvenement(_ENTREESTOR_SOMMET_ID);
 
                 // Trame RxPDO1 | COB-ID = 0x210 | 2 octets
-                iCan.initialiserIdentificateur(_CAN_TX_DATA, SORTIESTOR_COFFRET_ID, 2);
+                iCan.initialiserIdentificateur(_CAN_TX_DATA, _SORTIESTOR_COFFRET_ID, 2);
 
                 // Trame RxPDO1 | COB-ID = 0x220 | 1 octet
-                iCan.initialiserIdentificateur(_CAN_TX_DATA, SORTIESTOR_SOMMET_ID, 1);
+                iCan.initialiserIdentificateur(_CAN_TX_DATA, _SORTIESTOR_SOMMET_ID, 1);
             }
             catch(const std::string &e)
             {
@@ -254,6 +253,34 @@ void InterfaceCANDlg::run()
 
             break;
         case 12:
+            try {
+                iCan.lireValeur();
+            }
+            catch(const std::string &e)
+            {
+                cout << "(!!) Une erreur est survenue ---> " << e;
+            }
+
+            break;
+        case 13:
+            try {
+            cout << "Lecture des entrees TOR (Coffret pecheur [0] | Sommet ascenseur [1]) : ";
+            cin >> choixEntreesTor;
+
+            if(choixEntreesTor == 0)
+                iCan.lireEtat(_ENTREESTOR_COFFRET_ID);
+
+            if(choixEntreesTor == 1)
+                iCan.lireEtat(_ENTREESTOR_SOMMET_ID);
+
+            }
+            catch(const std::string &e)
+            {
+                cout << "(!!) Une erreur est survenue ---> " << e;
+            }
+
+            break;
+        case 14:
             err = false;
 
             try {
@@ -266,10 +293,10 @@ void InterfaceCANDlg::run()
             }
 
             if(!err)
-                cout << "\n--> [OK] La reception est trames est activee. " << endl;
+                cout << "\n--> [OK] La reception des trames est activee. " << endl;
 
             break;
-        case 13:
+        case 15:
             quitter = 1;
             break;
         }

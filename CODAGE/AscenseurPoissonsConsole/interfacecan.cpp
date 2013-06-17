@@ -1,11 +1,12 @@
 ﻿#include "interfacecan.h"
+#include <typeinfo>
 
 InterfaceCAN::InterfaceCAN()
 {
     idCanal  = INVALID_HANDLE_VALUE;
     nbThread = 1;
 
-    for(int i = 0; i < 2; i++)
+    for(int i = 0; i < NB_MAX_THREADS; i++)
         pThreadContext[i] = (LPTHREAD_PARAMS)malloc(sizeof(THREAD_PARAMS));
 }
 
@@ -27,6 +28,7 @@ void InterfaceCAN::fermerCanal()
 
 short InterfaceCAN::listeCanaux()
 {
+    t_CardData donneeCarte[10];
     string statut = "UTILISE";
     short nbCanaux;
 
@@ -52,6 +54,7 @@ short InterfaceCAN::listeCanaux()
 void InterfaceCAN::getInfos()
 {
     short DLL, DRV;
+    t_CANdeviceInfo infosCarte;
 
     val = Ic_GetDeviceInfo(idCanal, &infosCarte);
 
@@ -76,12 +79,14 @@ void InterfaceCAN::getInfos()
 
 void InterfaceCAN::initialiserControleur()
 {
+    t_CANbusParams parametresBUS;
+
     // Réglage pour un débit de 250 kBits/s et un point d'échantillonnage à 75% et 1 échantillon
     parametresBUS.baudpresc = 2; // BRP
-    parametresBUS.tseg1 = 11; // Segment précédent le point d'échantillonnage
-    parametresBUS.tseg2 = 4; // Segment suivant le point d'échantillonnage
-    parametresBUS.sjw = 1; // Synchronisation Jump Width
-    parametresBUS.sample = 0; // 0 pour 1 échantillon et 1 pour 3 échantillon
+    parametresBUS.tseg1 = 11;    // Segment précédent le point d'échantillonnage
+    parametresBUS.tseg2 = 4;     // Segment suivant le point d'échantillonnage
+    parametresBUS.sjw = 1;       // Synchronisation Jump Width
+    parametresBUS.sample = 0;    // 0 pour 1 échantillon et 1 pour 3 échantillon
 
     printf("- BRP : %d \n", parametresBUS.baudpresc);
     printf("- TSEG1 : %d \n", parametresBUS.tseg1);
@@ -106,12 +111,14 @@ void InterfaceCAN::initialiserModeFonctionnement()
         throw string("Ic_InitInterface : " + getCode(val));
 }
 
-void InterfaceCAN::initialiserIdentificateur(t_CANframeType typeTrame, ULONG ident, USHORT dlc)
+void InterfaceCAN::initialiserIdentificateur(t_CANframeType typeTrame, t_identTrame ident, USHORT dlc)
 {
-    messageCAN.ident = ident;
+    t_CANobj messageCAN;
+
+    messageCAN.ident     = ident;
     messageCAN.identType = _CAN_STD;
     messageCAN.frameType = typeTrame;
-    messageCAN.dlc = dlc;
+    messageCAN.dlc       = dlc;
 
     val = Ic_InitId(idCanal, &messageCAN);
 
@@ -139,16 +146,16 @@ void InterfaceCAN::initialiserEvenementGlobal()
         throw string("Ic_ConfigEvent Thread[0] : " + getCode(val));
 }
 
-void InterfaceCAN::initialiserEvenement()
+void InterfaceCAN::initialiserEvenement(t_identTrame ident)
 {
-    pThreadContext[nbThread]->ident  = idTrame;
+    pThreadContext[nbThread]->ident  = ident;
     pThreadContext[nbThread]->hCanal = idCanal;
     pThreadContext[nbThread]->hEvent = CreateEvent(NULL, FALSE, FALSE, NULL);
 
     if(pThreadContext[nbThread]->hEvent == NULL)
         throw string("Une erreur est survenue lors de la creation de l evenement associe au thread : " + nbThread);
 
-    val = Ic_ConfigEvent(idCanal, pThreadContext[nbThread]->hEvent, idTrame);
+    val = Ic_ConfigEvent(idCanal, pThreadContext[nbThread]->hEvent, ident);
 
     if(val != _OK)
         throw string("Ic_ConfigEvent Thread[X] : " + getCode(val));
@@ -174,7 +181,7 @@ void InterfaceCAN::arreterControleur()
 
 void InterfaceCAN::ecrireDonneeSommetAscenseur(UCHAR donnees)
 {    
-    val = Ic_TxMsg(idCanal, SORTIESTOR_SOMMET_ID, sizeof(donnees), &donnees);
+    val = Ic_TxMsg(idCanal, _SORTIESTOR_SOMMET_ID, sizeof(donnees), &donnees);
 
     if(val != _OK)
         throw string("Ic_TxMsg : " + getCode(val));
@@ -182,7 +189,7 @@ void InterfaceCAN::ecrireDonneeSommetAscenseur(UCHAR donnees)
 
 void InterfaceCAN::ecrireDonneeCoffretPecheur(UCHAR donnees)
 {
-    val = Ic_TxMsg(idCanal, SORTIESTOR_COFFRET_ID, sizeof(donnees), &donnees);
+    val = Ic_TxMsg(idCanal, _SORTIESTOR_COFFRET_ID, sizeof(donnees), &donnees);
 
     if(val != _OK)
         throw string("Ic_TxMsg : " + getCode(val));
@@ -216,11 +223,6 @@ void InterfaceCAN::interrompreThread()
         if(pThreadContext[i]->hEvent)
             CloseHandle(pThreadContext[i]->hEvent);
     }
-}
-
-void InterfaceCAN::setIdTrame(ULONG idTrame)
-{
-    this->idTrame = idTrame;
 }
 
 void InterfaceCAN::afficherEvenement(t_CANevent* pEvent, HANDLE hThread, short nbEvent)
@@ -317,5 +319,68 @@ string InterfaceCAN::getCode(short val)
     case _RS232_ERR : return "_RS232_ERR";
     case _BOARD_TIMEOUT : return "_BOARD_TIMEOUT";
     default : return "_???";
+    }
+}
+
+void InterfaceCAN::lireEtat(t_identTrame ident)
+{
+    t_CANevent event;
+    QString dataString = "", tmp = "";
+
+    val = Ic_GetBuf(idCanal, ident, &event);
+
+    if(val != _OK)
+        throw string("Ic_GetBuf : " + getCode(val));
+    else
+    {
+        if(event.eventType == _CAN_RX_DATA)
+        {
+            switch(ident)
+            {
+            case _ENTREESTOR_COFFRET_ID : dataString.append("[COFFRET PECHEUR] ");
+                break;
+            case _ENTREESTOR_SOMMET_ID :  dataString.append("[SOMMET ASCENSEUR] ");
+                break;
+            }
+
+            tmp.sprintf("RxD 0x%03x [%u] ", ident, event.dlc);
+            dataString.append(tmp);
+
+            for(int i = 0; i < event.dlc && i <= _CAN_MAX_DATA; i++)
+            {
+                tmp.sprintf("%02X ", event.data[i]);
+                dataString.append(tmp);
+            }
+
+            cout << endl << dataString.toStdString() << endl;
+        }
+    }
+}
+
+void InterfaceCAN::lireValeur()
+{
+    t_CANevent event;
+    QString dataString = "", tmp = "";
+
+    val = Ic_GetBuf(idCanal, _CAPTEURS_COFFRET_ID, &event);
+
+    if(val != _OK)
+        throw string("Ic_GetBuf : " + getCode(val));
+    else
+    {
+        if(event.eventType == _CAN_RX_DATA)
+        {
+            dataString.append("[CAPTEURS] ");
+            tmp.sprintf("RxD 0x%03x [%u] ", _CAPTEURS_COFFRET_ID, event.dlc);
+            dataString.append(tmp);
+
+            for(int i = 0; i < event.dlc && i <= _CAN_MAX_DATA; i++)
+            {
+                tmp.sprintf("%02X ", event.data[i]);
+                dataString.append(tmp);
+            }
+
+            cout << endl << dataString.toStdString() << endl;
+        }
     }
 }
