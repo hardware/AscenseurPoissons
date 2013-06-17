@@ -128,17 +128,14 @@ void InterfaceCANDlg::run()
         case 6:
             err = false;
 
-            try { 
+            try {
+                iCan.initialiserEvenementGlobal();
+
                 // Trame TxPDO1 | COB-ID = 0x190 | 3 octets
                 iCan.setIdTrame(ENTREESTOR_COFFRET_ID);
                 iCan.initialiserIdentificateur(_CAN_RX_DATA);
                 iCan.initialiserEvenement();
 
-                // Trame RxPDO1 | COB-ID = 0x210 | 2 octets
-                iCan.setIdTrame(SORTIESTOR_COFFRET_ID);
-                iCan.initialiserIdentificateur(_CAN_TX_DATA, 2);
-
-                /*
                 // Trame TxPDO2 | COB-ID = 0x290 | 2 mots
                 iCan.setIdTrame(CAPTEURS_COFFRET_ID);
                 iCan.initialiserIdentificateur(_CAN_RX_DATA);
@@ -149,6 +146,11 @@ void InterfaceCANDlg::run()
                 iCan.initialiserIdentificateur(_CAN_RX_DATA);
                 iCan.initialiserEvenement();
 
+                // Trame RxPDO1 | COB-ID = 0x210 | 2 octets
+                iCan.setIdTrame(SORTIESTOR_COFFRET_ID);
+                iCan.initialiserIdentificateur(_CAN_TX_DATA, 2);
+
+                /*
                 // Trame RxPDO1 | COB-ID = 0x220 | 1 octet
                 iCan.setIdTrame(SORTIESTOR_SOMMET_ID);
                 iCan.initialiserIdentificateur(_CAN_TX_DATA, 1);

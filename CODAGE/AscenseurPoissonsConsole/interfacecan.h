@@ -18,13 +18,14 @@ class InterfaceCAN
     ULONG  idTrame;
     UCHAR  donnees;
     short  val;
+    short  nbThread;
 
     t_CANobj        messageCAN;
     t_CANbusParams  parametresBUS;
     t_CANdeviceInfo infosCarte;
     t_CardData      donneeCarte[10];
 
-    LPTHREAD_PARAMS pThreadContext[2];
+    LPTHREAD_PARAMS pThreadContext[NB_MAX_THREADS];
 
 public:
     InterfaceCAN();
@@ -40,6 +41,7 @@ public:
     void initialiserModeFonctionnement();
     void initialiserIdentificateur(t_CANframeType typeTrame, ushort dlc = 0);
     void initialiserMasque();
+    void initialiserEvenementGlobal();
     void initialiserEvenement();
     void demarrerControleur();
     void arreterControleur();

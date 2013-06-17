@@ -3,6 +3,8 @@
 
 #include <windows.h>
 
+#define NB_MAX_THREADS 10
+
 #define   CAPTEURS_COFFRET_ID 0x290
 #define ENTREESTOR_COFFRET_ID 0x190
 #define SORTIESTOR_COFFRET_ID 0x210

@@ -2,7 +2,8 @@
 
 InterfaceCAN::InterfaceCAN()
 {
-    idCanal = INVALID_HANDLE_VALUE;
+    idCanal  = INVALID_HANDLE_VALUE;
+    nbThread = 1;
 
     for(int i = 0; i < 2; i++)
         pThreadContext[i] = (LPTHREAD_PARAMS)malloc(sizeof(THREAD_PARAMS));
@@ -126,28 +127,33 @@ void InterfaceCAN::initialiserMasque()
         throw string("Ic_SetRxMask : " + getCode(val));
 }
 
-void InterfaceCAN::initialiserEvenement()
+void InterfaceCAN::initialiserEvenementGlobal()
 {
-    pThreadContext[0]->ident  = idTrame;
+    pThreadContext[0]->ident  = _CAN_DUMMY_ID;
     pThreadContext[0]->hCanal = idCanal;
     pThreadContext[0]->hEvent = CreateEvent(NULL, FALSE, FALSE, NULL);
 
-    pThreadContext[1]->ident  = _CAN_DUMMY_ID;
-    pThreadContext[1]->hCanal = idCanal;
-    pThreadContext[1]->hEvent = CreateEvent(NULL, FALSE, FALSE, NULL);
-
-    if(pThreadContext[0]->hEvent == NULL || pThreadContext[1]->hEvent == NULL)
-        throw string("Une erreur est survenue lors de la creation des evenements");
-
-    val = Ic_ConfigEvent(idCanal, pThreadContext[0]->hEvent, idTrame);
+    val = Ic_ConfigEvent(idCanal, pThreadContext[0]->hEvent, _CAN_DUMMY_ID);
 
     if(val != _OK)
         throw string("Ic_ConfigEvent Thread[0] : " + getCode(val));
+}
 
-    val = Ic_ConfigEvent(idCanal, pThreadContext[1]->hEvent, _CAN_DUMMY_ID);
+void InterfaceCAN::initialiserEvenement()
+{
+    pThreadContext[nbThread]->ident  = idTrame;
+    pThreadContext[nbThread]->hCanal = idCanal;
+    pThreadContext[nbThread]->hEvent = CreateEvent(NULL, FALSE, FALSE, NULL);
+
+    if(pThreadContext[nbThread]->hEvent == NULL)
+        throw string("Une erreur est survenue lors de la creation de l evenement associe au thread : " + nbThread);
+
+    val = Ic_ConfigEvent(idCanal, pThreadContext[nbThread]->hEvent, idTrame);
 
     if(val != _OK)
-        throw string("Ic_ConfigEvent Thread[1] : " + getCode(val));
+        throw string("Ic_ConfigEvent Thread[X] : " + getCode(val));
+
+    nbThread++;
 }
 
 void InterfaceCAN::demarrerControleur()
@@ -176,7 +182,7 @@ void InterfaceCAN::ecrireDonnee()
 
 void InterfaceCAN::demarrerThread()
 {
-    for(int i = 0; i < 2; i++)
+    for(int i = 0; i < nbThread; i++)
     {
         pThreadContext[i]->hThread = CreateThread(
             NULL,
@@ -194,13 +200,13 @@ void InterfaceCAN::demarrerThread()
 
 void InterfaceCAN::interrompreThread()
 {
-    for(int i = 0; i < 2; i++)
+    for(int i = 0; i < nbThread; i++)
     {
         if(pThreadContext[i]->hThread)
             TerminateThread(pThreadContext[i]->hThread, 0);
 
-        if(pThreadContext[0]->hEvent)
-            CloseHandle(pThreadContext[0]->hEvent);
+        if(pThreadContext[i]->hEvent)
+            CloseHandle(pThreadContext[i]->hEvent);
     }
 }
 
