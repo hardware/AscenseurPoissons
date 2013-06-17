@@ -16,26 +16,28 @@ void InterfaceCANDlg::run()
     short canal, nbCanaux = 0;
     bool err;
 
+    cout << "-----------------------------------------------------------------------" << endl;
+    cout << "## PROGRAMME PERMETTANT DE CONFIGURER ET D UTILISER LA CARTE CAN NSI ##" << endl;
+    cout << "-----------------------------------------------------------------------" << endl;
+
     while(quitter == 0)
     {
-        cout << "\n-----------------------------------------------------------------------" << endl;
-        cout << "## PROGRAMME PERMETTANT DE CONFIGURER ET D UTILISER LA CARTE CAN NSI ##" << endl;
-        cout << "-----------------------------------------------------------------------\n\n";
+        cout << endl;
+        cout << " [1] Ouvrir un canal" << endl;
+        cout << " [2] Fermer le canal" << endl;
+        cout << " [3] Afficher les informations du peripherique" << endl;
+        cout << " [4] Initialiser le controleur CAN (debit et echantillonnage)" << endl;
+        cout << " [5] Initialiser le mode de fonctionnement (mode BUFFER)" << endl;
+        cout << " [6] Initialiser les trames" << endl;
+        cout << " [7] Initialiser le masque de reception" << endl;
+        cout << " [8] Demarrer le controleur CAN" << endl;
+        cout << " [9] Arreter le controleur CAN" << endl;
+        cout << "[10] Envoyer une trame au sommet ascenseur" << endl;
+        cout << "[11] Envoyer une trame au coffret pecheur" << endl;
+        cout << "[12] Activer la reception des trames" << endl;
+        cout << "[13] Quitter\n\n";
 
-        cout << "[1] Ouvrir un canal" << endl;
-        cout << "[2] Fermer le canal" << endl;
-        cout << "[3] Afficher les informations du peripherique" << endl;
-        cout << "[4] Initialiser le controleur CAN (debit et echantillonnage)" << endl;
-        cout << "[5] Initialiser le mode de fonctionnement (mode BUFFER)" << endl;
-        cout << "[6] Initialiser les trames" << endl;
-        cout << "[7] Initialiser le masque de reception" << endl;
-        cout << "[8] Demarrer le controleur CAN" << endl;
-        cout << "[9] Arreter le controleur CAN" << endl;
-        cout << "[10] Envoyer une trame" << endl;
-        cout << "[11] Activer la reception des trames" << endl;
-        cout << "[12] Quitter\n\n";
-
-        cout << "Votre choix ? ";
+        cout << "Choisir une action : ";
         cin >> choix;
         cout << endl;
 
@@ -51,6 +53,7 @@ void InterfaceCANDlg::run()
 
                 cout << "Quel canal voulez-vous utiliser ? (0-" << nbCanaux - 1 << ") ";
                 cin >> canal;
+                cout << endl;
 
                 if(canal >= 0 && canal < nbCanaux)
                 {
@@ -133,28 +136,24 @@ void InterfaceCANDlg::run()
 
                 // Trame TxPDO1 | COB-ID = 0x190 | 3 octets
                 iCan.setIdTrame(ENTREESTOR_COFFRET_ID);
-                iCan.initialiserIdentificateur(_CAN_RX_DATA);
+                iCan.initialiserIdentificateur(_CAN_RX_DATA, ENTREESTOR_COFFRET_ID);
                 iCan.initialiserEvenement();
 
                 // Trame TxPDO2 | COB-ID = 0x290 | 2 mots
                 iCan.setIdTrame(CAPTEURS_COFFRET_ID);
-                iCan.initialiserIdentificateur(_CAN_RX_DATA);
+                iCan.initialiserIdentificateur(_CAN_RX_DATA, CAPTEURS_COFFRET_ID);
                 iCan.initialiserEvenement();
 
                 // Trame TxPDO1 | COB-ID = 0x200 | 3 octets
                 iCan.setIdTrame(ENTREESTOR_SOMMET_ID);
-                iCan.initialiserIdentificateur(_CAN_RX_DATA);
+                iCan.initialiserIdentificateur(_CAN_RX_DATA, ENTREESTOR_SOMMET_ID);
                 iCan.initialiserEvenement();
 
                 // Trame RxPDO1 | COB-ID = 0x210 | 2 octets
-                iCan.setIdTrame(SORTIESTOR_COFFRET_ID);
-                iCan.initialiserIdentificateur(_CAN_TX_DATA, 2);
+                iCan.initialiserIdentificateur(_CAN_TX_DATA, SORTIESTOR_COFFRET_ID, 2);
 
-                /*
                 // Trame RxPDO1 | COB-ID = 0x220 | 1 octet
-                iCan.setIdTrame(SORTIESTOR_SOMMET_ID);
-                iCan.initialiserIdentificateur(_CAN_TX_DATA, 1);
-                */
+                iCan.initialiserIdentificateur(_CAN_TX_DATA, SORTIESTOR_SOMMET_ID, 1);
             }
             catch(const std::string &e)
             {
@@ -218,12 +217,11 @@ void InterfaceCANDlg::run()
             err = false;
 
             try {
-                coffretPecheur.sTor.word_16bits.monteeGrille = 0;
+                sommetAscenseur.sTor.byte_8bits.defautGeneral = 0;
 
-                UCHAR data = coffretPecheur.sTor.val;
+                UCHAR data = sommetAscenseur.sTor.val;
 
-                iCan.setDonnees(data);
-                iCan.ecrireDonnee();
+                iCan.ecrireDonneeSommetAscenseur(data);
             }
             catch(const std::string &e)
             {
@@ -232,10 +230,30 @@ void InterfaceCANDlg::run()
             }
 
             if(!err)
-                cout << "\n--> [OK] Les donnees ont ete mises a jour" << endl;
+                cout << "\n--> [OK] Les donnees du sommet ascenseur ont ete mises a jour" << endl;
 
             break;
         case 11:
+            err = false;
+
+            try {
+                coffretPecheur.sTor.word_16bits.monteeGrille = 0;
+
+                UCHAR data = coffretPecheur.sTor.val;
+
+                iCan.ecrireDonneeCoffretPecheur(data);
+            }
+            catch(const std::string &e)
+            {
+                err = true;
+                cout << "(!!) Une erreur est survenue ---> " << e;
+            }
+
+            if(!err)
+                cout << "\n--> [OK] Les donnees du coffret pecheur ont ete mises a jour" << endl;
+
+            break;
+        case 12:
             err = false;
 
             try {
@@ -251,8 +269,7 @@ void InterfaceCANDlg::run()
                 cout << "\n--> [OK] La reception est trames est activee. " << endl;
 
             break;
-        case 12:
-            iCan.interrompreThread();
+        case 13:
             quitter = 1;
             break;
         }

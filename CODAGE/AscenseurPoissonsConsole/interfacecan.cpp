@@ -106,9 +106,9 @@ void InterfaceCAN::initialiserModeFonctionnement()
         throw string("Ic_InitInterface : " + getCode(val));
 }
 
-void InterfaceCAN::initialiserIdentificateur(t_CANframeType typeTrame, ushort dlc)
+void InterfaceCAN::initialiserIdentificateur(t_CANframeType typeTrame, ULONG ident, USHORT dlc)
 {
-    messageCAN.ident = idTrame;
+    messageCAN.ident = ident;
     messageCAN.identType = _CAN_STD;
     messageCAN.frameType = typeTrame;
     messageCAN.dlc = dlc;
@@ -172,9 +172,17 @@ void InterfaceCAN::arreterControleur()
         throw string("Ic_StopChip : " + getCode(val));
 }
 
-void InterfaceCAN::ecrireDonnee()
+void InterfaceCAN::ecrireDonneeSommetAscenseur(UCHAR donnees)
 {    
-    val = Ic_TxMsg(idCanal, idTrame, sizeof(donnees), &donnees);
+    val = Ic_TxMsg(idCanal, SORTIESTOR_SOMMET_ID, sizeof(donnees), &donnees);
+
+    if(val != _OK)
+        throw string("Ic_TxMsg : " + getCode(val));
+}
+
+void InterfaceCAN::ecrireDonneeCoffretPecheur(UCHAR donnees)
+{
+    val = Ic_TxMsg(idCanal, SORTIESTOR_COFFRET_ID, sizeof(donnees), &donnees);
 
     if(val != _OK)
         throw string("Ic_TxMsg : " + getCode(val));
@@ -213,11 +221,6 @@ void InterfaceCAN::interrompreThread()
 void InterfaceCAN::setIdTrame(ULONG idTrame)
 {
     this->idTrame = idTrame;
-}
-
-void InterfaceCAN::setDonnees(UCHAR donnees)
-{
-    this->donnees = donnees;
 }
 
 void InterfaceCAN::afficherEvenement(t_CANevent* pEvent, HANDLE hThread, short nbEvent)

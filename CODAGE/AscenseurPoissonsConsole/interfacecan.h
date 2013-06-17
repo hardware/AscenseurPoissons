@@ -16,7 +16,6 @@ class InterfaceCAN
 {
     HANDLE idCanal;
     ULONG  idTrame;
-    UCHAR  donnees;
     short  val;
     short  nbThread;
 
@@ -39,15 +38,15 @@ public:
     void getInfos();
     void initialiserControleur();
     void initialiserModeFonctionnement();
-    void initialiserIdentificateur(t_CANframeType typeTrame, ushort dlc = 0);
+    void initialiserIdentificateur(t_CANframeType typeTrame, ULONG ident, USHORT dlc = 0);
     void initialiserMasque();
     void initialiserEvenementGlobal();
     void initialiserEvenement();
     void demarrerControleur();
     void arreterControleur();
-    void ecrireDonnee();
+    void ecrireDonneeSommetAscenseur(UCHAR donnees);
+    void ecrireDonneeCoffretPecheur(UCHAR donnees);
     void setIdTrame(ULONG idTrame);
-    void setDonnees(UCHAR donnees);
 
     static void afficherEvenement(t_CANevent* pEvent, HANDLE hThread, short nbEvent);
     static DWORD WINAPI lireBuffer(LPVOID threadContext);

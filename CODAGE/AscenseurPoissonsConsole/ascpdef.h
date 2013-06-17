@@ -90,7 +90,7 @@ typedef struct
             UCHAR voyantDefautCentraleHydraulique:1;
             UCHAR voyantDefautPompeAttrait:1;
             UCHAR compteurCycles:1;
-            UCHAR DefautGeneral:1;
+            UCHAR defautGeneral:1;
         } byte_8bits;
 
         UCHAR val;
