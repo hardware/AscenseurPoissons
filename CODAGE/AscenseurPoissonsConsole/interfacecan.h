@@ -12,16 +12,37 @@
 
 using namespace std;
 
+/**
+ * @class InterfaceCAN
+ * @brief Classe representant l'interface CAN
+ *
+ * Cette classe permet de configurer et d'utiliser la carte CAN de chez NSI
+ */
 class InterfaceCAN
 {
+    /**
+     * HANDLE du canal choisi
+     */
     HANDLE idCanal;
-    LPTHREAD_PARAMS pThreadContext[NB_MAX_THREADS];
 
+    /**
+     * Pointeur sur un tableau de structures contenant les paramètres des threads
+     */
+    LPTHREAD_PARAMS pThreadContext[NB_MAX_THREADS+1];
+
+    /**
+     * Valeur de retour des primitives de la librairie
+     */
     short  val;
-    short  nbThread;
+
+    /**
+     * Index du contexte correspondant au thread
+     */
+    short  indexThread;
 
 public:
     InterfaceCAN();
+    ~InterfaceCAN();
 
     void demarrerThread();
     void interrompreThread();

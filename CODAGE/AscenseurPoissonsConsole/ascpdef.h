@@ -3,16 +3,36 @@
 
 #include <windows.h>
 
-#define NB_MAX_THREADS 10
+/**
+ * @def Nombre maximum de thread exécutés par l'application
+ */
+#define NB_MAX_THREADS 4
 
+/**
+ * @struct THREAD_PARAMS
+ * @brief Structure contenant les paramètres du thread
+ */
 typedef struct tagTHREAD_PARAMS
 {
-    ULONG  ident;
-    HANDLE hCanal;
-    HANDLE hEvent;
-    HANDLE hThread;
+    ULONG  ident;   /*!< Identificateur CAN */
+    HANDLE hCanal;  /*!< Identificateur du canal */
+    HANDLE hEvent;  /*!< Identificateur de l'évènement */
+    HANDLE hThread; /*!< Identigicateur du thread */
 } THREAD_PARAMS, *LPTHREAD_PARAMS;
 
+/**
+ * @enum t_identTrame
+ * @brief Identificateurs CAN
+ *
+ * [COFFRET PECHEUR]
+ * - Identificateur en émission  RxPDO1 pour les sorties TOR         (COB-ID = 0x210) (DLC = 2 octets)
+ * - Identificateur en réception TxPDO1 pour les entrées TOR         (COB-ID = 0x190)
+ * - Identificateur en réception TxPDO2 pour les entrées analogiques (COB-ID = 0x290)
+ *
+ * [SOMMET ASCENSEUR]
+ * - Identificateur en émission  RxPDO1 pour les sorties TOR         (COB-ID = 0x220) (DLC = 1 octet)
+ * - Identificateur en réception TxPDO1 pour les entrées TOR         (COB-ID = 0x200)
+ */
 typedef enum {
      _ENTREESTOR_COFFRET_ID = 0x190,
      _ENTREESTOR_SOMMET_ID  = 0x200,
