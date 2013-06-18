@@ -379,9 +379,7 @@ void SeanceDlg::enregistrerParametres()
     pSeance->setSeance(PV, GV, tempsPeche, tempsVidange, nbCycles, periodicite);
 
     if(pSeance->enregistrer())
-    {
         QMessageBox::information(this, "Enregistrement effectué", "Les paramètres ont bien été enregistrés.");
-    }
     else
     {
         if(params->status() == QSettings::AccessError)

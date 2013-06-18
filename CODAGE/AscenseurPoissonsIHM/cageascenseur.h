@@ -2,15 +2,17 @@
 #define CAGEASCENSEUR_H
 
 #include "interfacecan.h"
+#include "capteurs.h"
 
 class CageAscenseur
 {
 
     InterfaceCAN *pIcan;
+    Capteurs *pCapteurs;
 
 public:
 
-    CageAscenseur(InterfaceCAN *pIcan);
+    CageAscenseur(InterfaceCAN *pIcan, Capteurs *pCapteurs);
 
     void monter();
     void descendre();

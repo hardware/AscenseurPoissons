@@ -62,7 +62,7 @@ bool JournalDlg::ajouterLog(QString ligne, QString niveau)
 {
      QFile file(QApplication::applicationDirPath() + "/journal.log");
 
-     if (file.open(QFile::Append | QFile::Text))
+     if(file.open(QFile::Append | QFile::Text))
      {
         ligne = QDateTime::currentDateTime().toString("MMM d hh:mm:ss") + " [" + niveau + "] - " + ligne;
         QTextStream out(&file);
@@ -75,9 +75,7 @@ bool JournalDlg::ajouterLog(QString ligne, QString niveau)
         return true;
      }
      else
-     {
          return false;
-     }
 }
 
 void JournalDlg::trierListe(QString &niveau)

@@ -17,7 +17,10 @@ HEADERS += \
     Canproex.h \
     Canpcex.h \
     Candefex.h \
-    types.h
+    ascpdef.h \
+    interfacecandlg.h \
+    journalevenements.h \
+    ascpihmdef.h
 
 SOURCES += \
     synoptiquedlg.cpp \
@@ -35,7 +38,9 @@ SOURCES += \
     vanneattrait.cpp \
     cageascenseur.cpp \
     grille.cpp \
-    capteurs.cpp
+    capteurs.cpp \
+    interfacecandlg.cpp \
+    journalevenements.cpp
 
 RESOURCES += \
     assets.qrc

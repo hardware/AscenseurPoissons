@@ -2,15 +2,17 @@
 #define GRILLE_H
 
 #include "interfacecan.h"
+#include "capteurs.h"
 
 class Grille
 {
 
     InterfaceCAN *pIcan;
+    Capteurs *pCapteurs;
 
 public:
 
-    Grille(InterfaceCAN *pIcan);
+    Grille(InterfaceCAN *pIcan, Capteurs *pCapteurs);
 
     void ouvrir();
     void fermer();

@@ -2,18 +2,21 @@
 
 Seance::Seance()
 {
+    etatSeance = _MANU;
+
     PV = 0;
     GV = 0;
     tempsPeche = 0;
     tempsVidange = 0;
     periodicite = 0;
 
-    pPompe = new Pompe(&iCan);
-    pCentrale = new CentraleHydraulique(&iCan);
-    pVanneAttrait = new VanneAttrait(&iCan);
-    pCageAscenseur = new CageAscenseur(&iCan);
-    pGrille = new Grille(&iCan);
-    pCapteurs = new Capteurs(&iCan);
+    pCapteurs      = new Capteurs(&iCan);
+    pIcan          = new InterfaceCANDlg(&iCan);
+    pPompe         = new Pompe(&iCan, pCapteurs);
+    pCentrale      = new CentraleHydraulique(&iCan, pCapteurs);
+    pVanneAttrait  = new VanneAttrait(&iCan, pCapteurs);
+    pCageAscenseur = new CageAscenseur(&iCan, pCapteurs);
+    pGrille        = new Grille(&iCan, pCapteurs);
 }
 
 Seance::~Seance()
@@ -24,6 +27,7 @@ Seance::~Seance()
     delete pCageAscenseur;
     delete pGrille;
     delete pCapteurs;
+    delete pIcan;
 }
 
 void Seance::setSeance(int PV, int GV, int tempsPeche, int tempsVidange, int nbCycles, int periodicite)
@@ -54,4 +58,39 @@ bool Seance::enregistrer()
         return false; // Une erreur est survenue lors de l'enregistrement
     else
         return true;
+}
+
+void Seance::testerAppareillages(t_TypeTest type)
+{
+    if(etatSeance == _MANU)
+    {
+        switch(type)
+        {
+        case _DEM_POMPE :      pPompe->demarrer();
+            break;
+        case _ARRET_POMPE :    pPompe->detecterArret();
+            break;
+        case _OUVRIR_VANNE :   pVanneAttrait->ouvrir();
+            break;
+        case _FERMER_VANNE :   pVanneAttrait->fermer();
+            break;
+        case _MONTER_CAGE :    pCageAscenseur->monter();
+            break;
+        case _DESCENDRE_CAGE : pCageAscenseur->descendre();
+            break;
+        case _OUVRIR_GRILLE :  pGrille->ouvrir();
+            break;
+        case _FERMER_GRILLE :  pGrille->fermer();
+            break;
+        case _DEM_CENTRALE :   pCentrale->demarrer();
+            break;
+        case _ARRET_CENTRALE : pCentrale->arreter();
+            break;
+        }
+    }
+}
+
+void Seance::setEtatSeance(t_EtatSeance etatSeance)
+{
+    this->etatSeance = etatSeance;
 }

@@ -2,15 +2,17 @@
 #define VANNEATTRAIT_H
 
 #include "interfacecan.h"
+#include "capteurs.h"
 
 class VanneAttrait
 {
 
     InterfaceCAN *pIcan;
+    Capteurs *pCapteurs;
 
 public:
 
-    VanneAttrait(InterfaceCAN *pIcan);
+    VanneAttrait(InterfaceCAN *pIcan, Capteurs *pCapteurs);
 
     void ouvrir();
     void fermer();

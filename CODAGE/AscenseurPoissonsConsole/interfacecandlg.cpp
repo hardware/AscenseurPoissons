@@ -75,7 +75,9 @@ void InterfaceCANDlg::run()
         case 2:
             err = false;
 
-            try { iCan.fermerCanal(); }
+            try {
+                iCan.fermerCanal();
+            }
             catch(const std::string &e)
             {
                 err = true;

@@ -3,42 +3,71 @@
 
 #include <windows.h>
 #include <conio.h>
-#include <stdio.h>
+#include <iostream>
+#include <QVariant>
+#include <QDebug>
 
 #include "Canpcex.h"
-#include "types.h"
+#include "ascpdef.h"
 
+using namespace std;
+
+/**
+ * @class InterfaceCAN
+ * @brief Classe representant l'interface CAN
+ *
+ * Cette classe permet de configurer et d'utiliser la carte CAN de chez NSI
+ */
 class InterfaceCAN
 {
-
-    HANDLE hMutex;
+    /**
+     * HANDLE du canal choisi
+     */
     HANDLE idCanal;
-    HANDLE idEvenement;
-    DWORD threadId;
 
-    t_CANobj messageCAN;
-    t_CANbusParams parametresBUS;
-    t_CardData donneeCarte[10];
-    t_Interface typeInterface;
+    /**
+     * Pointeur sur un tableau de structures contenant les paramètres des threads
+     */
+    LPTHREAD_PARAMS pThreadContext[NB_MAX_THREADS+1];
 
-    ulong idTrame;
-    uchar donnees;
+    /**
+     * Valeur de retour des primitives de la librairie
+     */
+    short  val;
+
+    /**
+     * Index du contexte correspondant au thread
+     */
+    short  indexThread;
 
 public:
     InterfaceCAN();
+    ~InterfaceCAN();
 
-    /*
-    bool demarrerControleur(HANDLE idCanal);
-    bool initialiserControleur(HANDLE idCanal, t_CANbusParams *parametresBUS, t_CANaddressing *adressageCAN, t_CANpadding *padding);
-    bool initialiserModeFonctionnement(HANDLE idCanal, t_Interface *type);
-    bool initialiserIdentificateur(HANDLE idCanal, t_CANobj messageCAN);
-    bool configurerEvenement(HANDLE idCanal, HANDLE idEvenement, ulong identificateurCAN);
-    bool ouvrirCanal(HANDLE idCanal, short indexCanal);
-    bool fermerCanal(HANDLE idCanal);
-    bool ecrireDonnee(HANDLE idCanal, ulong idTrame, ushort tailleDonnee, uchar *donnees);
-    bool lireEtat(HANDLE idCanal, ulong idTrame, t_CANevent *messageCAN);
-    float lireValeur(HANDLE idCanal, ulong idTrame, t_CANevent *messageCAN);
-    */
+    void demarrerThread();
+    void interrompreThread();
+    void ouvrirCanal(short indexCanal);
+    void fermerCanal();
+    void getInfos();
+    void initialiserControleur();
+    void initialiserModeFonctionnement();
+    void initialiserIdentificateur(t_CANframeType typeTrame, t_identTrame ident, USHORT dlc = 0);
+    void initialiserMasque();
+    void initialiserEvenementGlobal();
+    void initialiserEvenement(t_identTrame ident);
+    void demarrerControleur();
+    void arreterControleur();
+    void ecrireDonneeSommetAscenseur(UCHAR donnees);
+    void ecrireDonneeCoffretPecheur(UCHAR donnees);
+    void lireEtat(t_identTrame ident);
+    void lireValeur();
+
+    short listeCanaux();
+
+    static void afficherEvenement(t_CANevent* pEvent, HANDLE hThread, short nbEvent);
+    static DWORD WINAPI lireBuffer(LPVOID threadContext);
+
+    string getCode(short val);
 };
 
 #endif // INTERFACECAN_H

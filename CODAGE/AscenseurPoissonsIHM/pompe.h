@@ -1,7 +1,7 @@
 #ifndef POMPE_H
 #define POMPE_H
-#include "capteurs.h"
 
+#include "capteurs.h"
 #include "interfacecan.h"
 
 class Pompe
@@ -12,9 +12,9 @@ class Pompe
 
 public:
 
-    Pompe(InterfaceCAN *pIcan);
+    Pompe(InterfaceCAN *pIcan, Capteurs *pCapteurs);
 
-    void demarrer(Capteurs *pCapteurs);
+    void demarrer();
     bool detecterArret();
 };
 

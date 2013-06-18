@@ -4,7 +4,7 @@
 #include "seance.h"
 #include "statutsdlg.h"
 #include "journaldlg.h"
-#include "types.h"
+#include "ascpihmdef.h"
 
 #include <QWidget>
 #include <QBoxLayout>

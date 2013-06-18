@@ -152,8 +152,11 @@ ManuelDlg::ManuelDlg(
 void ManuelDlg::on_PBPompeDemarrer_clicked()
 {
     PBPompeDemarrer->setDisabled(true);
+
     pStatutsDlg->allumerVoyant(pStatutsDlg->LBVoyantPompe, VERT);
     pJournalDlg->ajouterLog("La pompe est en marche", INFO);
+
+    pSeance->testerAppareillages(_DEM_POMPE);
 }
 
 void ManuelDlg::on_PBCentraleDemarrer_clicked()
@@ -167,6 +170,8 @@ void ManuelDlg::on_PBCentraleDemarrer_clicked()
 
     pStatutsDlg->allumerVoyant(pStatutsDlg->LBVoyantCentrale, VERT);
     pJournalDlg->ajouterLog("La centrale est en marche", INFO);
+
+    pSeance->testerAppareillages(_DEM_CENTRALE);
 }
 
 void ManuelDlg::on_PBCentraleArreter_clicked()
@@ -180,44 +185,46 @@ void ManuelDlg::on_PBCentraleArreter_clicked()
 
     pStatutsDlg->allumerVoyant(pStatutsDlg->LBVoyantCentrale, ROUGE);
     pJournalDlg->ajouterLog("La centrale est à l'arrêt", INFO);
+
+    pSeance->testerAppareillages(_ARRET_CENTRALE);
 }
 
 void ManuelDlg::on_PBVanneAttraitOuvrir_clicked()
 {
-
+    pSeance->testerAppareillages(_OUVRIR_VANNE);
 }
 
 void ManuelDlg::on_PBVanneAttraitFermer_clicked()
 {
-
+    pSeance->testerAppareillages(_FERMER_VANNE);
 }
 
 void ManuelDlg::on_PBGrilleOuvrir_clicked()
 {
-
+    pSeance->testerAppareillages(_OUVRIR_GRILLE);
 }
 
 void ManuelDlg::on_PBGrilleFermer_clicked()
 {
-
+    pSeance->testerAppareillages(_FERMER_GRILLE);
 }
 
 void ManuelDlg::on_PBMonterPV_clicked()
 {
-
+    pSeance->testerAppareillages(_MONTER_CAGE);
 }
 
 void ManuelDlg::on_PBMonterGV_clicked()
 {
-
+    pSeance->testerAppareillages(_MONTER_CAGE);
 }
 
 void ManuelDlg::on_PBDescendrePV_clicked()
 {
-
+    pSeance->testerAppareillages(_DESCENDRE_CAGE);
 }
 
 void ManuelDlg::on_PBDescendreGV_clicked()
 {
-
+    pSeance->testerAppareillages(_DESCENDRE_CAGE);
 }
