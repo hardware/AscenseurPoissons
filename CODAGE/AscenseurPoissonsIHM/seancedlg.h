@@ -15,16 +15,19 @@
 #include <QMessageBox>
 #include <QApplication>
 
+/**
+ * @class SeanceDlg
+ * @brief Classe representant l'onglet Seance
+ */
 class SeanceDlg : public QWidget
 {
     Q_OBJECT
 
+    /**
+     * Pointeur contenant l'adresse d'une instance de la classe Seance
+     */
     Seance *pSeance;
 
-public:
-    explicit SeanceDlg(QWidget *parent = 0, Seance *seance = 0);
-    
-private:
     QVBoxLayout *vbox, *vboxTempsPeche, *vboxTempsVidange;
     QHBoxLayout *hbox;
     QGridLayout *GLMain;
@@ -40,7 +43,15 @@ private:
                 *PBSeanceEnregistrer, *PBSeanceLancer, *PBSeanceArreter;
 
     QLabel *LBTempsPeche, *LBTempsVidange, *LBPeriodicite;
+
+    /**
+     * Cette attribut permet d'accèder aux paramètres de la séance
+     */
     QSettings *params;
+
+public:
+    explicit SeanceDlg(QWidget *parent = 0, Seance *seance = 0);
+
 
 public slots:
     void augmenterPV();
@@ -58,8 +69,6 @@ public slots:
     void diminuerPeriodicite();
 
     void enregistrerParametres();
-    //void lancerAutomatisation();
-    //void arreterAutomatisation();
 
 signals:
     

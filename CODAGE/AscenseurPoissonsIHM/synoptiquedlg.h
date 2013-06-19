@@ -8,10 +8,17 @@
 #include <QLabel>
 #include <QProgressBar>
 
+/**
+ * @class SynoptiqueDlg
+ * @brief Classe representant l'onglet Synoptique
+ */
 class SynoptiqueDlg : public QWidget
 {
     Q_OBJECT
 
+    /**
+     * Pointeur contenant l'adresse d'une instance de la classe Seance
+     */
     Seance *pSeance;
 
 public:

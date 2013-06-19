@@ -3,9 +3,15 @@
 
 #include "interfacecan.h"
 
+/**
+ * @class Capteurs
+ * @brief Classe representant les capteurs
+ */
 class Capteurs
 {
-
+    /**
+     * Pointeur contenant l'adresse d'une instance de la classe InterfaceCAN
+     */
     InterfaceCAN *pIcan;
 
 public:

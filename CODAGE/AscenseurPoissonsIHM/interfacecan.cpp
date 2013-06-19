@@ -324,9 +324,9 @@ void InterfaceCAN::arreterControleur()
  *
  * @param donnees[in] Données à mettre à jour
  */
-void InterfaceCAN::ecrireDonneeSommetAscenseur(UCHAR donnees)
+void InterfaceCAN::ecrireDonneeSommetAscenseur(unsigned char *dataArray)
 {
-    val = Ic_TxMsg(idCanal, _SORTIESTOR_SOMMET_ID, sizeof(donnees), &donnees);
+    val = Ic_TxMsg(idCanal, _SORTIESTOR_SOMMET_ID, 1, dataArray);
 
     if(val != _OK)
         throw string("Ic_TxMsg : " + getCode(val));
@@ -341,9 +341,9 @@ void InterfaceCAN::ecrireDonneeSommetAscenseur(UCHAR donnees)
  *
  * @param donnees[in] Données à mettre à jour
  */
-void InterfaceCAN::ecrireDonneeCoffretPecheur(UCHAR donnees)
+void InterfaceCAN::ecrireDonneeCoffretPecheur(unsigned char *dataArray)
 {
-    val = Ic_TxMsg(idCanal, _SORTIESTOR_COFFRET_ID, sizeof(donnees), &donnees);
+    val = Ic_TxMsg(idCanal, _SORTIESTOR_COFFRET_ID, 2, dataArray);
 
     if(val != _OK)
         throw string("Ic_TxMsg : " + getCode(val));

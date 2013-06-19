@@ -57,8 +57,8 @@ public:
     void initialiserEvenement(t_identTrame ident);
     void demarrerControleur();
     void arreterControleur();
-    void ecrireDonneeSommetAscenseur(UCHAR donnees);
-    void ecrireDonneeCoffretPecheur(UCHAR donnees);
+    void ecrireDonneeSommetAscenseur(unsigned char *dataArray);
+    void ecrireDonneeCoffretPecheur(unsigned char *dataArray);
     void lireEtat(t_identTrame ident);
     void lireValeur();
 

@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1-20130402"/>
+<title>AscenseurPoissonsIHM:  Fichier source de seance.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">AscenseurPoissonsIHM
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.3.1-20130402 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Définitions de type</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">seance.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="seance_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SEANCE_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define SEANCE_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="interfacecan_8h.html">interfacecan.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="interfacecandlg_8h.html">interfacecandlg.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="pompe_8h.html">pompe.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="centralehydraulique_8h.html">centralehydraulique.h</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="vanneattrait_8h.html">vanneattrait.h</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="cageascenseur_8h.html">cageascenseur.h</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="grille_8h.html">grille.h</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="capteurs_8h.html">capteurs.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;QApplication&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;QSettings&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="class_seance.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_seance.html">Seance</a></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="code" href="class_seance.html#ad842fb552b60c49b936dc0939843fd7d">   25</a></span>&#160;    QSettings *<a class="code" href="class_seance.html#ad842fb552b60c49b936dc0939843fd7d">params</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">      Classes représentants les appareillages</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">    */</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="code" href="class_seance.html#a9c6f3b550fc917682aca6f0efab7b1fe">   30</a></span>&#160;    <a class="code" href="class_pompe.html" title="Classe representant la pompe.">Pompe</a> *<a class="code" href="class_seance.html#a9c6f3b550fc917682aca6f0efab7b1fe">pPompe</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="code" href="class_seance.html#a16594ff31a282f8cf9bb0dd44b63043d">   31</a></span>&#160;    <a class="code" href="class_centrale_hydraulique.html" title="Classe representant la centrale hydraulique.">CentraleHydraulique</a> *<a class="code" href="class_seance.html#a16594ff31a282f8cf9bb0dd44b63043d">pCentrale</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="class_seance.html#a6a1f6a6583aeb4558ac1535e4677ec64">   32</a></span>&#160;    <a class="code" href="class_vanne_attrait.html" title="Classe representant la vanne d&#39;attrait.">VanneAttrait</a> *<a class="code" href="class_seance.html#a6a1f6a6583aeb4558ac1535e4677ec64">pVanneAttrait</a>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="class_seance.html#a97f3da9af003a803bccabfd61a081e85">   33</a></span>&#160;    <a class="code" href="class_cage_ascenseur.html" title="Classe representant la cage d&#39;ascenseur.">CageAscenseur</a> *<a class="code" href="class_seance.html#a97f3da9af003a803bccabfd61a081e85">pCageAscenseur</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="class_seance.html#ab98fb0abadda28d4294e935ec7a2c13c">   34</a></span>&#160;    <a class="code" href="class_grille.html" title="Classe representant la Grille.">Grille</a> *<a class="code" href="class_seance.html#ab98fb0abadda28d4294e935ec7a2c13c">pGrille</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="code" href="class_seance.html#af89527a84b6a49fc16fc3ec9f47bae3b">   35</a></span>&#160;    <a class="code" href="class_capteurs.html" title="Classe representant les capteurs.">Capteurs</a> *<a class="code" href="class_seance.html#af89527a84b6a49fc16fc3ec9f47bae3b">pCapteurs</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="code" href="class_seance.html#ac1262432c74cece025b587119f19344c">   40</a></span>&#160;    <a class="code" href="class_interface_c_a_n.html" title="Classe representant l&#39;interface CAN.">InterfaceCAN</a> <a class="code" href="class_seance.html#ac1262432c74cece025b587119f19344c">iCan</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="code" href="class_seance.html#a5673ac1d513ec213f75443166ac2dab0">   45</a></span>&#160;    <a class="code" href="class_interface_c_a_n_dlg.html">InterfaceCANDlg</a> *<a class="code" href="class_seance.html#a5673ac1d513ec213f75443166ac2dab0">pIcan</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="code" href="class_seance.html#a599ae8bffdbad97b4f07d6f71e61495f">   50</a></span>&#160;    <a class="code" href="ascpihmdef_8h.html#a5a036ce6bb5b97ff2ac3d1ada6aedeae">t_EtatSeance</a> <a class="code" href="class_seance.html#a599ae8bffdbad97b4f07d6f71e61495f">etatSeance</a>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="code" href="class_seance.html#aa944429e227af51501d015f2fe917b4e">   55</a></span>&#160;    <a class="code" href="structt__coffret_pecheur.html">t_coffretPecheur</a> <a class="code" href="class_seance.html#aa944429e227af51501d015f2fe917b4e">coffretPecheur</a>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="code" href="class_seance.html#a099c9a4d449acf02b895a8168d563de1">   60</a></span>&#160;    <a class="code" href="structt__sommet_ascenseur.html">t_sommetAscenseur</a> <a class="code" href="class_seance.html#a099c9a4d449acf02b895a8168d563de1">sommetAscenseur</a>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="code" href="class_seance.html#a6e04271d42aa80a7dbae2cca561d5843">   65</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_seance.html#ab49e5d5db338d429899b0f436b638594">PV</a>, <a class="code" href="class_seance.html#a6a3abd207c91d33842258a5f47aa8427">GV</a>, <a class="code" href="class_seance.html#a38f82589ae3cc1f485f31de4a60b2e2a">tempsPeche</a>, <a class="code" href="class_seance.html#a6e04271d42aa80a7dbae2cca561d5843">tempsVidange</a>, <a class="code" href="class_seance.html#a2ada455c8183b1d40c3eb07129815df7">nbCycles</a>, <a class="code" href="class_seance.html#aca3132415fa128a9112fd2880d238d24">periodicite</a>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="class_seance.html#a6c93129a56a138c71633f14146255095" title="Constructeur paramétré">Seance</a>();</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <a class="code" href="class_seance.html#aad9fa35e0d4f31005b1077fa33ab46fd" title="Desctructeur par défaut.">~Seance</a>();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_seance.html#a2d93419f737cde8e529d0ef9501fdecb" title="Méthode d&#39;accès permettant de définir les paramètres de la séance.">setSeance</a>(<span class="keywordtype">int</span> <a class="code" href="class_seance.html#ab49e5d5db338d429899b0f436b638594">PV</a>, <span class="keywordtype">int</span> <a class="code" href="class_seance.html#a6a3abd207c91d33842258a5f47aa8427">GV</a>, <span class="keywordtype">int</span> <a class="code" href="class_seance.html#a38f82589ae3cc1f485f31de4a60b2e2a">tempsPeche</a>, <span class="keywordtype">int</span> <a class="code" href="class_seance.html#a6e04271d42aa80a7dbae2cca561d5843">tempsVidange</a>, <span class="keywordtype">int</span> <a class="code" href="class_seance.html#a2ada455c8183b1d40c3eb07129815df7">nbCycles</a>, <span class="keywordtype">int</span> <a class="code" href="class_seance.html#aca3132415fa128a9112fd2880d238d24">periodicite</a>);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_seance.html#a220a593c62108de90b3b5b41d23dc7b3" title="Permet d&#39;enregistrer les paramètres de la séance dans un fichier de configuration.">enregistrer</a>();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_seance.html#a03e38ee6d91d32db267dfd4de73aabac" title="Permet d&#39;enregistrer les paramètres de la séance dans un fichier de configuration.">testerAppareillages</a>(<a class="code" href="ascpihmdef_8h.html#aaa651d33166f3c82ccca4385f6d2c8e8">t_TypeTest</a> type);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_seance.html#aa836c80499c6ef204523f3210e275dd9" title="Permet de définir l&#39;état de la séance.">setEtatSeance</a>(<a class="code" href="ascpihmdef_8h.html#a5a036ce6bb5b97ff2ac3d1ada6aedeae">t_EtatSeance</a> <a class="code" href="class_seance.html#a599ae8bffdbad97b4f07d6f71e61495f">etatSeance</a>);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;};</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">#endif // SEANCE_H</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi Juin 19 2013 16:49:22 pour AscenseurPoissonsIHM par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1-20130402
+</small></address>
+</body>
+</html>

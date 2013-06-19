@@ -1,5 +1,14 @@
 ﻿#include "accueildlg.h"
 
+/**
+ * @fn AccueilDlg::AccueilDlg(QWidget *parent)
+ * @brief Constructeur paramétré
+ *
+ * Ce constructeur pemet de définir l'organisation des widgets
+ * de l'onglet Accueil.
+ *
+ * @param parent[in] Pointeur sur le widget parent
+ */
 AccueilDlg::AccueilDlg(QWidget *parent) : QWidget(parent)
 {
     LBTitre = new QLabel;

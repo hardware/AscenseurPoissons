@@ -1,5 +1,16 @@
 ﻿#include "seancedlg.h"
 
+/**
+ * @fn SeanceDlg::SeanceDlg(QWidget *parent, Seance *seance)
+ * @brief Constructeur paramétré
+ *
+ * Ce constructeur pemet de définir l'organisation des widgets
+ * de l'onglet Manuel et de créer les slots permettant de
+ * modifier les valeurs des paramètres de la séance.
+ *
+ * @param parent[in] Pointeur sur le widget parent
+ * @param seance[in] Pointeur sur l'instance de la classe Seance
+ */
 SeanceDlg::SeanceDlg(QWidget *parent, Seance *seance) : QWidget(parent), pSeance(seance)
 {
     QSize LESize(70, 50),
@@ -234,6 +245,10 @@ SeanceDlg::SeanceDlg(QWidget *parent, Seance *seance) : QWidget(parent), pSeance
     QObject::connect(PBSeanceEnregistrer, SIGNAL(clicked()), this, SLOT(enregistrerParametres()));
 }
 
+/**
+ * @fn void SeanceDlg::augmenterPV()
+ * @brief Permet d'augmenter la valeur de la petite vitesse
+ */
 void SeanceDlg::augmenterPV()
 {
     int valeur = LEPv->text().toInt();
@@ -245,6 +260,10 @@ void SeanceDlg::augmenterPV()
     LEPv->setText(QString::number(valeur));
 }
 
+/**
+ * @fn void SeanceDlg::diminuerPV()
+ * @brief Permet de diminuer la valeur de la petite vitesse
+ */
 void SeanceDlg::diminuerPV()
 {
     int valeur = LEPv->text().toInt();
@@ -256,6 +275,10 @@ void SeanceDlg::diminuerPV()
     LEPv->setText(QString::number(valeur));
 }
 
+/**
+ * @fn void SeanceDlg::augmenterGV()
+ * @brief Permet d'augmenter la valeur de la grande vitesse
+ */
 void SeanceDlg::augmenterGV()
 {
     int valeur = LEGv->text().toInt();
@@ -267,6 +290,10 @@ void SeanceDlg::augmenterGV()
     LEGv->setText(QString::number(valeur));
 }
 
+/**
+ * @fn void SeanceDlg::diminuerGV()
+ * @brief Permet diminuer la valeur de la grande vitesse
+ */
 void SeanceDlg::diminuerGV()
 {
     int valeur = LEGv->text().toInt();
@@ -278,6 +305,10 @@ void SeanceDlg::diminuerGV()
     LEGv->setText(QString::number(valeur));
 }
 
+/**
+ * @fn void SeanceDlg::augmenterTempsPeche()
+ * @brief Permet d'augmenter le temps de pêche
+ */
 void SeanceDlg::augmenterTempsPeche()
 {
     int valeur = LETempsPeche->text().toInt();
@@ -289,6 +320,10 @@ void SeanceDlg::augmenterTempsPeche()
     LETempsPeche->setText(QString::number(valeur));
 }
 
+/**
+ * @fn void SeanceDlg::diminuerTempsPeche()
+ * @brief Permet diminuer le temps de pêche
+ */
 void SeanceDlg::diminuerTempsPeche()
 {
     int valeur = LETempsPeche->text().toInt();
@@ -300,6 +335,10 @@ void SeanceDlg::diminuerTempsPeche()
     LETempsPeche->setText(QString::number(valeur));
 }
 
+/**
+ * @fn void SeanceDlg::augmenterTempsVidange()
+ * @brief Permet d'augmenter le temps de vidange
+ */
 void SeanceDlg::augmenterTempsVidange()
 {
     int valeur = LETempsVidange->text().toInt();
@@ -311,6 +350,10 @@ void SeanceDlg::augmenterTempsVidange()
     LETempsVidange->setText(QString::number(valeur));
 }
 
+/**
+ * @fn void SeanceDlg::diminuerTempsVidange()
+ * @brief Permet de diminuer le temps de vidange
+ */
 void SeanceDlg::diminuerTempsVidange()
 {
     int valeur = LETempsVidange->text().toInt();
@@ -322,6 +365,10 @@ void SeanceDlg::diminuerTempsVidange()
     LETempsVidange->setText(QString::number(valeur));
 }
 
+/**
+ * @fn void SeanceDlg::augmenterNombreCycles()
+ * @brief Permet d'augmenter le nombre de cycles
+ */
 void SeanceDlg::augmenterNombreCycles()
 {
     int valeur = LENombreCycles->text().toInt();
@@ -333,6 +380,10 @@ void SeanceDlg::augmenterNombreCycles()
     LENombreCycles->setText(QString::number(valeur));
 }
 
+/**
+ * @fn void SeanceDlg::diminuerNombreCycles()
+ * @brief Permet diminuer le nombre de cycles
+ */
 void SeanceDlg::diminuerNombreCycles()
 {
     int valeur = LENombreCycles->text().toInt();
@@ -344,6 +395,10 @@ void SeanceDlg::diminuerNombreCycles()
     LENombreCycles->setText(QString::number(valeur));
 }
 
+/**
+ * @fn void SeanceDlg::augmenterPeriodicite()
+ * @brief Permet d'augmenter la valeur de la périodicité
+ */
 void SeanceDlg::augmenterPeriodicite()
 {
     int valeur = LEPeriodicite->text().toInt();
@@ -355,6 +410,10 @@ void SeanceDlg::augmenterPeriodicite()
     LEPeriodicite->setText(QString::number(valeur));
 }
 
+/**
+ * @fn void SeanceDlg::diminuerPeriodicite()
+ * @brief Permet diminuer la valeur de la périodicité
+ */
 void SeanceDlg::diminuerPeriodicite()
 {
     int valeur = LEPeriodicite->text().toInt();
@@ -366,6 +425,10 @@ void SeanceDlg::diminuerPeriodicite()
     LEPeriodicite->setText(QString::number(valeur));
 }
 
+/**
+ * @fn void SeanceDlg::enregistrerParametres()
+ * @brief Permet de récupérer et d'enregistrer les paramètres de la séance
+ */
 void SeanceDlg::enregistrerParametres()
 {
     int PV = LEPv->text().toInt();

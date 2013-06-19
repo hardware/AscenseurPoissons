@@ -13,26 +13,35 @@
 #include "synoptiquedlg.h"
 #include "journaldlg.h"
 
+/**
+ * @class IHM
+ * @brief Classe representant l'IHM
+ */
 class IHM : public QWidget
 {
     Q_OBJECT
 
+    /**
+     * Pointeur contenant l'adresse d'une instance de la classe Seance
+     */
     Seance seance;
-    
-public:
-    explicit IHM(QWidget *parent = 0);
 
-private:
     QBoxLayout *layout;
     QTabWidget *onglets;
 
-    // Classes intermédiaires représentant les onglets de l'app
+    /*
+    Classes intermédiaires représentant les onglets de l'app
+    */
     AccueilDlg *accueilDlg;
     ManuelDlg *manuelDlg;
     SeanceDlg *seanceDlg;
     StatutsDlg *statutsDlg;
     SynoptiqueDlg *synoptiqueDlg;
     JournalDlg *journalDlg;
+    
+public:
+    explicit IHM(QWidget *parent = 0);
+
 
 signals:
 

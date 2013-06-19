@@ -1,5 +1,15 @@
 ﻿#include "synoptiquedlg.h"
 
+/**
+ * @fn SynoptiqueDlg::SynoptiqueDlg(QWidget *parent, Seance *seance)
+ * @brief Constructeur paramétré
+ *
+ * Ce constructeur pemet de définir l'organisation des widgets
+ * de l'onglet Synoptique
+ *
+ * @param parent[in] Pointeur sur le widget parent
+ * @param seance[in] Pointeur sur l'instance de la classe Seance
+ */
 SynoptiqueDlg::SynoptiqueDlg(QWidget *parent, Seance *seance) : QWidget(parent), pSeance(seance)
 {
     LBSchema = new QLabel;

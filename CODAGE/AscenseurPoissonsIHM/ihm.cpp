@@ -1,5 +1,18 @@
 ﻿#include "ihm.h"
 
+/**
+ * @fn IHM::IHM(QWidget *parent)
+ * @brief Constructeur paramétré
+ *
+ * Ce constructeur pemet de définir l'organisation
+ * et les propriétés de l'IHM. C'est là aussi que
+ * toutes les classes d'interface intermédiaires
+ * sont créées.
+ *
+ * Ensuite on initialise chaque onglet avec les instances des classes intermédiaires.
+ *
+ * @param parent[in] Pointeur sur le widget parent
+ */
 IHM::IHM(QWidget *parent) : QWidget(parent)
 {
     // Propriétés de la fenêtre principale

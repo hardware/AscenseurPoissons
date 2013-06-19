@@ -1,5 +1,16 @@
 ﻿#include "journaldlg.h"
 
+/**
+ * @fn JournalDlg::JournalDlg(QWidget *parent, Seance *seance)
+ * @brief Constructeur paramétré
+ *
+ * Ce constructeur pemet de définir l'organisation des widgets
+ * de l'onglet Journal, de créer les slots permettant l'affichage
+ * des logs ainsi que le trie des évènements.
+ *
+ * @param parent[in] Pointeur sur le widget parent
+ * @param seance[in] Pointeur sur l'instance de la classe Seance
+ */
 JournalDlg::JournalDlg(QWidget *parent, Seance *seance) : QWidget(parent), pSeance(seance)
 {
     LWLogs = new QListWidget;
@@ -32,11 +43,25 @@ JournalDlg::JournalDlg(QWidget *parent, Seance *seance) : QWidget(parent), pSean
     QObject::connect(CBNiveaux, SIGNAL(currentIndexChanged(QString&)), this, SLOT(trierListe(QString&)));
 }
 
+/**
+ * @fn void JournalDlg::afficherLog(QListWidgetItem *item)
+ * @brief Permet d'afficher un évènement particulier
+ *
+ * Ensuite on initialise chaque onglet avec les instances des classes intermédiaires.
+ *
+ * @param item[in] L'évènement à afficher
+ */
 void JournalDlg::afficherLog(QListWidgetItem *item)
 {
     QMessageBox::information(this, "INFORMATION", item->text());
 }
 
+/**
+ * @fn QStringList JournalDlg::LireFichierLog()
+ * @brief Permet de lire le fichier de log
+ *
+ * @return Retourne la liste des évènements contenus dans le fichier de log
+ */
 QStringList JournalDlg::LireFichierLog()
 {
     QString ligne;
@@ -58,6 +83,15 @@ QStringList JournalDlg::LireFichierLog()
     return listeLignes;
 }
 
+/**
+ * @fn bool JournalDlg::ajouterLog(QString ligne, QString niveau)
+ * @brief Permet de lire le fichier de log
+ *
+ * @param ligne[in] Message de l'évènement
+ * @param niveau[in] Niveau de gravité de l'évènement
+ *
+ * @return Retourne TRUE si l'évènement a bien été ajouté
+ */
 bool JournalDlg::ajouterLog(QString ligne, QString niveau)
 {
      QFile file(QApplication::applicationDirPath() + "/journal.log");
@@ -78,6 +112,12 @@ bool JournalDlg::ajouterLog(QString ligne, QString niveau)
          return false;
 }
 
+/**
+ * @fn void JournalDlg::trierListe(QString &niveau)
+ * @brief Permet de trier la liste des évènements
+ *
+ * @param niveau[in] Niveau de gravité de l'évènement
+ */
 void JournalDlg::trierListe(QString &niveau)
 {
     QStringList liste;

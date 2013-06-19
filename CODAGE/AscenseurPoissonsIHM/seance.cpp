@@ -1,24 +1,49 @@
 #include "seance.h"
 
+/**
+ * @fn Seance::Seance()
+ * @brief Constructeur paramétré
+ *
+ * Définit l'état de la séance en mode MANU, initialise
+ * paramètres de la séance et les champ de bits
+ * correspondant au coffret pêcheur et au sommet
+ * ascenseur.
+ */
 Seance::Seance()
 {
+    // Par défaut la séance est en mode manuel
     etatSeance = _MANU;
 
+    // Initialisation des paramètres de la séance
     PV = 0;
     GV = 0;
     tempsPeche = 0;
     tempsVidange = 0;
     periodicite = 0;
 
+    // Initialisation du champ de bits (tous les bits à 1)
+    coffretPecheur.sTor.val         = 0xFFFF;
+    coffretPecheur.eTor.val         = 0xFFFFFF;
+    coffretPecheur.eAnalogique.val  = 0xFFFFFFFF;
+    sommetAscenseur.sTor.val        = 0xFF;
+    sommetAscenseur.eTor.val        = 0xFFFFFF;
+
+    // Allocation dynamique
     pCapteurs      = new Capteurs(&iCan);
     pIcan          = new InterfaceCANDlg(&iCan);
-    pPompe         = new Pompe(&iCan, pCapteurs);
-    pCentrale      = new CentraleHydraulique(&iCan, pCapteurs);
-    pVanneAttrait  = new VanneAttrait(&iCan, pCapteurs);
-    pCageAscenseur = new CageAscenseur(&iCan, pCapteurs);
-    pGrille        = new Grille(&iCan, pCapteurs);
+    pPompe         = new Pompe(&iCan, pCapteurs, &coffretPecheur);
+    pCentrale      = new CentraleHydraulique(&iCan, pCapteurs, &coffretPecheur);
+    pVanneAttrait  = new VanneAttrait(&iCan, pCapteurs, &coffretPecheur);
+    pCageAscenseur = new CageAscenseur(&iCan, pCapteurs, &coffretPecheur);
+    pGrille        = new Grille(&iCan, pCapteurs, &coffretPecheur);
 }
 
+/**
+ * @fn Seance::~Seance()
+ * @brief Desctructeur par défaut
+ *
+ * Permet de libérer les zones mémoire allouées prédécement avec l'opérateur new
+ */
 Seance::~Seance()
 {
     delete pPompe;
@@ -30,6 +55,10 @@ Seance::~Seance()
     delete pIcan;
 }
 
+/**
+ * @fn void Seance::setSeance(int PV, int GV, int tempsPeche, int tempsVidange, int nbCycles, int periodicite)
+ * @brief Méthode d'accès permettant de définir les paramètres de la séance
+ */
 void Seance::setSeance(int PV, int GV, int tempsPeche, int tempsVidange, int nbCycles, int periodicite)
 {
     this->PV = PV;
@@ -40,6 +69,12 @@ void Seance::setSeance(int PV, int GV, int tempsPeche, int tempsVidange, int nbC
     this->periodicite = periodicite;
 }
 
+/**
+ * @fn bool Seance::enregistrer()
+ * @brief Permet d'enregistrer les paramètres de la séance dans un fichier de configuration
+ *
+ * @return Retourne TRUE si les paramètres ont bien été enregistrés
+ */
 bool Seance::enregistrer()
 {
     // Enregistrement des paramètres dans un fichier de configuration .ini
@@ -60,6 +95,15 @@ bool Seance::enregistrer()
         return true;
 }
 
+/**
+ * @fn void Seance::testerAppareillages(t_TypeTest type)
+ * @brief Permet d'enregistrer les paramètres de la séance dans un fichier de configuration
+ *
+ * Permet de tester chaque appareillage si l'état de la
+ * séance a été définit en manuel.
+ *
+ * @param type[in] Type de test
+ */
 void Seance::testerAppareillages(t_TypeTest type)
 {
     if(etatSeance == _MANU)
@@ -90,6 +134,12 @@ void Seance::testerAppareillages(t_TypeTest type)
     }
 }
 
+/**
+ * @fn void Seance::setEtatSeance(t_EtatSeance etatSeance)
+ * @brief Permet de définir l'état de la séance
+ *
+ * @param etatSeance[in] Etat de la séance
+ */
 void Seance::setEtatSeance(t_EtatSeance etatSeance)
 {
     this->etatSeance = etatSeance;

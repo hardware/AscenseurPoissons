@@ -1,5 +1,14 @@
 #include "capteurs.h"
 
+/**
+ * @fn Capteurs::Capteurs(InterfaceCAN *pIcan)
+ * @brief Constructeur paramétré
+ *
+ * Initialisation de l'attribut permettant d'intéragir
+ * avec la carte d'interface CAN
+ *
+ * @param pIcan[in] Pointeur sur l'instance de l'interface CAN
+ */
 Capteurs::Capteurs(InterfaceCAN *pIcan)
 {
     this->pIcan = pIcan;

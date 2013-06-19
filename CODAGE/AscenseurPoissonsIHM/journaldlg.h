@@ -14,22 +14,32 @@
 #include <QComboBox>
 #include <QLabel>
 
+/**
+ * @class JournalDlg
+ * @brief Classe representant l'onglet Journal
+ */
 class JournalDlg : public QWidget
 {
     Q_OBJECT
 
+    /**
+     * Pointeur contenant l'adresse d'une instance de la classe Seance
+     */
     Seance *pSeance;
 
-public:
-    explicit JournalDlg(QWidget *parent = 0, Seance *seance = 0);
-    
-private:
+    /**
+     * Liste contenant les lignes du fichier log
+     */
     QStringList listeLignes;
 
     QVBoxLayout *VLMain;
     QListWidget *LWLogs;
     QComboBox   *CBNiveaux;
     QLabel      *LBText;
+
+public:
+    explicit JournalDlg(QWidget *parent = 0, Seance *seance = 0);
+
 
 public slots:
     void afficherLog(QListWidgetItem *item);

@@ -12,10 +12,17 @@
 #include <QBoxLayout>
 #include <QString>
 
+/**
+ * @class StatutsDlg
+ * @brief Classe representant l'onglet Statuts
+ */
 class StatutsDlg : public QWidget
 {
     Q_OBJECT
 
+    /**
+     * Pointeur contenant l'adresse d'une instance de la classe Seance
+     */
     Seance *pSeance;
 
     QGridLayout *GLMain, *GLAppareillages, *GLNiveaux, *GLDefauts;

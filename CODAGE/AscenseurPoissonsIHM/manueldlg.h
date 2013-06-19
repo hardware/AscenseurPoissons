@@ -12,12 +12,27 @@
 #include <QPushButton>
 #include <QGridLayout>
 
+/**
+ * @class ManuelDlg
+ * @brief Classe representant l'onglet Manuel
+ */
 class ManuelDlg : public QWidget
 {
     Q_OBJECT
 
+    /**
+     * Pointeur contenant l'adresse d'une instance de la classe Seance
+     */
     Seance *pSeance;
+
+    /**
+     * Pointeur contenant l'adresse d'une instance de la classe StatutsDlg
+     */
     StatutsDlg *pStatutsDlg;
+
+    /**
+     * Pointeur contenant l'adresse d'une instance de la classe JournalDlg
+     */
     JournalDlg *pJournalDlg;
 
 public:

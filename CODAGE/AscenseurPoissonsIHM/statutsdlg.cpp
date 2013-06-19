@@ -1,5 +1,15 @@
 ﻿#include "statutsdlg.h"
 
+/**
+ * @fn StatutsDlg::StatutsDlg(QWidget *parent, Seance *seance)
+ * @brief Constructeur paramétré
+ *
+ * Ce constructeur pemet de définir l'organisation des widgets
+ * de l'onglet Statuts
+ *
+ * @param parent[in] Pointeur sur le widget parent
+ * @param seance[in] Pointeur sur l'instance de la classe Seance
+ */
 StatutsDlg::StatutsDlg(QWidget *parent, Seance *seance) : QWidget(parent), pSeance(seance)
 {
     QSize voyantSize(21, 21),
@@ -258,6 +268,10 @@ StatutsDlg::StatutsDlg(QWidget *parent, Seance *seance) : QWidget(parent), pSean
     setLayout(GLMain);
 }
 
+/**
+ * @fn void StatutsDlg::allumerVoyant(QLabel *voyant, QString clr)
+ * @brief Permet de changer l'état d'un voyant
+ */
 void StatutsDlg::allumerVoyant(QLabel *voyant, QString clr)
 {
     voyant->setStyleSheet(clr);

@@ -2,6 +2,15 @@
 
 JournalEvenements::JournalEvenements() {}
 
+/**
+ * @fn bool JournalDlg::ajouterLog(QString ligne, QString niveau)
+ * @brief Permet de lire le fichier de log
+ *
+ * @param ligne[in] Message de l'évènement
+ * @param niveau[in] Niveau de gravité de l'évènement
+ *
+ * @return Retourne TRUE si l'évènement a bien été ajouté
+ */
 bool JournalEvenements::ajouterLog(QString ligne, QString niveau)
 {
      QFile file(QApplication::applicationDirPath() + "/journal.log");

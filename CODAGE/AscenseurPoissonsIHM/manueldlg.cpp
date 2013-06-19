@@ -1,5 +1,21 @@
 ﻿#include "manueldlg.h"
 
+/**
+ * @fn ManuelDlg::ManuelDlg(QWidget *parent, Seance *seance, StatutsDlg *statutsDlg, JournalDlg *journalDlg)
+ * @brief Constructeur paramétré
+ *
+ * Ce constructeur pemet de définir l'organisation des widgets
+ * de l'onglet Manuel et de créer les slots permettant d'associer
+ * le clic sur un bouton à une méthode pré définie par Qt avec
+ * connectSlotsByName.
+ *
+ * void ManuelDlg::on_WIDGET_clicked()
+ *
+ * @param parent[in] Pointeur sur le widget parent
+ * @param seance[in] Pointeur sur l'instance de la classe Seance
+ * @param StatutsDlg[in] Pointeur sur l'instance de la classe StatutsDlg
+ * @param JournalDlg[in] Pointeur sur l'instance de la classe JournalDlg
+ */
 ManuelDlg::ManuelDlg(
         QWidget *parent,
         Seance *seance,
@@ -149,6 +165,10 @@ ManuelDlg::ManuelDlg(
     QMetaObject::connectSlotsByName(this);
 }
 
+/**
+ * @fn void ManuelDlg::on_PBPompeDemarrer_clicked()
+ * @brief Permet de démarrer la pompe
+ */
 void ManuelDlg::on_PBPompeDemarrer_clicked()
 {
     PBPompeDemarrer->setDisabled(true);
@@ -159,6 +179,10 @@ void ManuelDlg::on_PBPompeDemarrer_clicked()
     pSeance->testerAppareillages(_DEM_POMPE);
 }
 
+/**
+ * @fn void ManuelDlg::on_PBCentraleDemarrer_clicked()
+ * @brief Permet de démarrer la centrale hydraulique
+ */
 void ManuelDlg::on_PBCentraleDemarrer_clicked()
 {
     PBCentraleDemarrer->setDisabled(true);
@@ -174,6 +198,10 @@ void ManuelDlg::on_PBCentraleDemarrer_clicked()
     pSeance->testerAppareillages(_DEM_CENTRALE);
 }
 
+/**
+ * @fn void ManuelDlg::on_PBCentraleArreter_clicked()
+ * @brief Permet d'arrêter la centrale hydraulique
+ */
 void ManuelDlg::on_PBCentraleArreter_clicked()
 {
     PBCentraleDemarrer->setEnabled(true);
@@ -189,41 +217,73 @@ void ManuelDlg::on_PBCentraleArreter_clicked()
     pSeance->testerAppareillages(_ARRET_CENTRALE);
 }
 
+/**
+ * @fn void ManuelDlg::on_PBVanneAttraitOuvrir_clicked()
+ * @brief Permet d'ouvrir la vanne d'attrait
+ */
 void ManuelDlg::on_PBVanneAttraitOuvrir_clicked()
 {
     pSeance->testerAppareillages(_OUVRIR_VANNE);
 }
 
+/**
+ * @fn void ManuelDlg::on_PBVanneAttraitFermer_clicked()
+ * @brief Permet de fermer la vanne d'attrait
+ */
 void ManuelDlg::on_PBVanneAttraitFermer_clicked()
 {
     pSeance->testerAppareillages(_FERMER_VANNE);
 }
 
+/**
+ * @fn void ManuelDlg::on_PBGrilleOuvrir_clicked()
+ * @brief Permet d'ouvrir la grille
+ */
 void ManuelDlg::on_PBGrilleOuvrir_clicked()
 {
     pSeance->testerAppareillages(_OUVRIR_GRILLE);
 }
 
+/**
+ * @fn void ManuelDlg::on_PBGrilleFermer_clicked()
+ * @brief Permet de fermer la grille
+ */
 void ManuelDlg::on_PBGrilleFermer_clicked()
 {
     pSeance->testerAppareillages(_FERMER_GRILLE);
 }
 
+/**
+ * @fn void ManuelDlg::on_PBMonterPV_clicked()
+ * @brief Permet de monter la cage en petite vitesse
+ */
 void ManuelDlg::on_PBMonterPV_clicked()
 {
     pSeance->testerAppareillages(_MONTER_CAGE);
 }
 
+/**
+ * @fn void ManuelDlg::on_PBMonterGV_clicked()
+ * @brief Permet de monter la cage en grande vitesse
+ */
 void ManuelDlg::on_PBMonterGV_clicked()
 {
     pSeance->testerAppareillages(_MONTER_CAGE);
 }
 
+/**
+ * @fn void ManuelDlg::on_PBDescendrePV_clicked()
+ * @brief Permet de descendre la cage en petite vitesse
+ */
 void ManuelDlg::on_PBDescendrePV_clicked()
 {
     pSeance->testerAppareillages(_DESCENDRE_CAGE);
 }
 
+/**
+ * @fn void ManuelDlg::on_PBDescendreGV_clicked()
+ * @brief Permet de descendre la cage en grande vitesse
+ */
 void ManuelDlg::on_PBDescendreGV_clicked()
 {
     pSeance->testerAppareillages(_DESCENDRE_CAGE);

@@ -7,9 +7,16 @@
 #include <QDateTime>
 #include <QTextStream>
 
+/**
+ * @class JournalEvenements
+ * @brief Classe representant le journal
+ */
 class JournalEvenements
 {
 
+    /**
+     * Liste contenant les lignes du fichier log
+     */
     QStringList listeLignes;
 
 public:
